@@ -1,0 +1,15 @@
+[package]
+name = "hypersim-cli"
+version = "0.1.0"
+edition = "2021"
+description = "Headless CLI for Hypersim"
+
+[dependencies]
+hg-sim-core = { path = "../../crates/hg-sim-core" }
+hg-eval = { path = "../../crates/hg-eval" }
+hg-output = { path = "../../crates/hg-output" }
+hg-schema = { path = "../../crates/hg-schema" }
+serde_json = { workspace = true }
+clap = { version = "4.5", features = ["derive"] }
+toml = { workspace = true }
+tracing-subscriber = { workspace = true }

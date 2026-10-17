@@ -1,0 +1,46 @@
+# Parent-funded offspring calibration
+
+2026-10-03. **A parent-paid reserve of 24 fixes the five-instruction construction barrier and exposes one reproducing source edit on the fixed seed-17 diagnostic.** It does not make the unchanged delayed policy viable on that world. This is bounded engineering evidence; scientific launch, gates, training, evolution and reproductive fairness acceptance remain false.
+
+## Implementation and execution
+
+The separate `evolving-minds-d0-funding-v1` profile derives native funding laws from immutable mutation-v1 templates. It changes only the parent energy eligibility/debit, escrow deposit/copy guard and newborn reserve. Every parent pays `1+B+copy_cost(L)`; the request unit dissipates, copying dissipates only on birth, and B transfers without injecting energy. Invalid syntax refunds the unused `B+copy_cost(L)` and retains the paid request cost. Construction, upkeep, resource inflow/caps, copying fee, death/refund, native engine and scheduling remain fixed. All syntax-valid unreachable offspring remain paid seeds and fail through native development. Legacy default reserve remains 12.
+
+The [prospective contract](../experiments/evolving_minds/contracts/d0_funding_v1.md) crosses budgets 12/24 with all 58 prior recipes: 21 cue edits, 35 delayed-cue edits and two unchanged controls per budget. All **116 cells ran all 64 ticks / 334080 advances** with no replacement, retry or outcome filtering. Each founder supplies exactly one native first request; that offspring receives the enumerated edit and descendants copy faithfully. Founder exclusion and global counter serialization are diagnostic interventions, not the future semantic-admission ecology. The parent always retains the original program; same-size immediate/coin genotypes here are offspring variants, not matched scientific founders.
+
+Native archive: [funding development](../output/evolving_minds_funding_development_20261003/manifest.json). The real root/cell manifests are Completed. Frozen inventory: 123 source files. Execution used eight workers, took 384.194s including publication, and consumed 133.328s summed native advancement (maximum cell 8.394s). Native evidence before auxiliary receipts was 184249538 bytes (175.714 MiB), within the fixed 512 MiB cap. Independent checking took 123.143s and reconstructed full graphs/events, typed material, ownership, energy/escrow, proposals/settlements, lineage/genotypes/reset, all 64 rows and child lifetimes for every cell. [Independent receipt](../output/evolving_minds_funding_development_20261003/independent_replay.json) and [read-only audit](../output/evolving_minds_funding_development_20261003/read_only_audit.json) bind the frozen checker. All 2102 audit input files retained identical inventory and hashes; no bytecode was written into the archive. The native run and its original checker both succeeded; no corrective rerun was needed.
+
+## Complete edited denominators
+
+Unchanged controls are separate from the edited counts below. Rejects and energy-censored development stay in the denominators.
+
+| Parent-paid budget / program | Edits | Syntax valid | Grammar reachable | Paid construction | First child reproduces | Sustained turnover at 64 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 12 / cue, length 3 | 21 | 7 | 1 | 1 | 0 | 0 |
+| 24 / cue, length 3 | 21 | 7 | 1 | 1 | 0 | 0 |
+| 12 / delayed cue, length 5 | 35 | 14 | 4 | 0 | 0 | 0 |
+| 24 / delayed cue, length 5 | 35 | 14 | 4 | 4 | 1 | 1 |
+
+The five-instruction construction/upkeep budget through Halt is 21.625. At B12 the unchanged child dies at tick 8 after three paid instructions, without an attempted action. At B24 it completes five instructions, makes three attempts (one success, two failures), harvests 8, then dies empty at tick 13 without reproducing. Paying for construction and achieving a viable policy are separate outcomes.
+
+At B24, the same-size edit **g103 source 2 ->0** wires the actuator directly to the current cue instead of the buffered state. Its first child is born at tick 5, pays for five instructions, makes 12 successful attempts, harvests 96 and reaches its age limit at tick 21. It commits a faithful descendant; four further descendants are born in the full 64-tick lineage, one inherited organism remains alive at 64, maximum inherited depth is five, and inherited-lineage harvest is 440. The unchanged B24 lineage harvest is 8, so the descriptive difference is +432 on this exposed world. The state module and its costs remain present. This establishes a lawful inherited variant with engineering headroom, not an evolved discovery or evidence across worlds.
+
+The other reachable five-instruction edits (g102 source 1 or 3; g103 source 1) complete development and each harvest 16, but die without reproducing. The three-instruction coin edit at B24 survives to the age limit, with seven successes/seven failures and harvest 56, but cannot fund a descendant. Negative outcomes remain recorded.
+
+Both unchanged cue budgets sustain turnover with 25 further descendants and eight inherited organisms alive at 64. Their lineage harvest differs: 2392 at B12 versus 2320 at B24. The larger child transfer also raises each later parent's birth affordability threshold; it is not free extra energy or neutral across architectures. On this fixed world the original founders' first request ticks remain three for cue and five for delayed cue. This does not measure broader admission opportunity, environmental sensitivity or fairness.
+
+Under the frozen SourceKernel probabilities, B24 delayed-cue paid-completion mass is `.25 + .75*(4/35) = .335714...`; reproduction/sustained-turnover mass is `.75*(1/35) = 3/140`, about 2.14%. B12 delayed-cue reproduction mass is zero; cue reproduction mass is .25 under either budget, entirely from unchanged proposals. These weights describe one supplied first request with faithful descendants on one exposed world. They are not estimates of unknown-world success, population growth, ongoing stochastic mutation or statistical power. Useful support remains sparse and the unchanged delayed baseline fails to replace itself here.
+
+## Compatibility and validation
+
+All 58 B12 cells reproduce the prior neighborhood archive byte for byte across **812 native/evidence files / 167040 advances**, including full journals, initial/final graphs, rules, proposals, lifetimes and outcomes. [Compatibility receipt](../output/evolving_minds_funding_development_20261003/baseline_compatibility.json). All 34 earlier sealed Evolving Minds archives /4571 files retain identical inventories and hashes. [Preservation receipt](../output/evolving_minds_funding_development_20261003/prior_archive_preservation.json). Existing checkpoint formats and fixed admission/streaming profiles retain their original meaning.
+
+Seventeen native tests passed: funding 2, mutation 6, neighborhood 3, admission 3 and streaming 3. Funding tests cover exact B12 legacy traces, one/four-worker identity, paid construction, invalid/refund/no retry, unreachable paid failure, conservation and unsupported checkpoint rejection. Thirty-six Python tests passed: funding 10, legacy mutation 18 and neighborhood 8. Adversarial checks reject funding/charge/refund/guard changes, forged lifetime/lineage/scientific status and an omitted cell; loader writes no bytecode. Feature-on and feature-off library checks passed. [Validation receipt](../output/evolving_minds_funding_development_20261003/validation.json).
+
+Run locally with `cargo run -p hg-sim-core --features evolving-minds --bin evolving-minds -- funding NEW_DIRECTORY`. Audit a completed archive with `python3 -B NEW_DIRECTORY/checker.py NEW_DIRECTORY`. Funding-v1 deliberately rejects checkpoint export because its supplied diagnostic state is not encoded in legacy checkpoints; no resume/recovery claim is made for this new profile.
+
+## Next milestone and scientific boundary
+
+Integrate a separately versioned **configurable funded semantic-admission profile**, with complete parent-funded accounting and authored matched five-instruction delayed/immediate/coin founders. Preserve legacy profiles and do not carry the supplied founder exclusion into that ecology. Bind seed/program/endowment/kernel/scheduling parameters into native laws, validators, independently reconstructed evidence and live checkpoints. Test exact continuation and fixed resource/recovery failures before a bounded development opportunity pilot.
+
+That pilot must count actual eligible requests, funded admissions, failures/refunds, construction and paid action opportunities for the declared controls, using fixed worlds/denominators and full horizons. The current 2.14% diagnostic support and failing faithful baseline make request count and prospective power consequential. Check whether the conditional 64-tick design and proposed comparisons can answer the intended question before freezing any scientific preregistration; do not infer adequacy from this favorable edit or change criteria to admit a result. The [H3a proposal](evolving_minds_h3a_conditional_proposal_20261003.md) remains conditional, and none of its development or held-out seeds was executed here. No scientific gate opens in this package.

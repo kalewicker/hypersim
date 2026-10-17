@@ -1,0 +1,116 @@
+{
+  "profile": "E2-rule-prevention-transfer-panel-v1",
+  "native_profile": "E2-rule-prevention-transfer-native-v1",
+  "classification": "frozen_controller_transfer_engineering",
+  "contexts": [
+    [
+      10,
+      11
+    ],
+    [
+      10,
+      21
+    ],
+    [
+      10,
+      31
+    ],
+    [
+      20,
+      11
+    ],
+    [
+      20,
+      21
+    ],
+    [
+      20,
+      31
+    ],
+    [
+      30,
+      11
+    ],
+    [
+      30,
+      21
+    ],
+    [
+      30,
+      31
+    ]
+  ],
+  "conditions": [
+    "learned_paid",
+    "learned_exhaustion",
+    "learned_unpaid",
+    "learned_disabled",
+    "learned_no_hazard",
+    "masked_paid",
+    "blind_paid",
+    "oracle_paid"
+  ],
+  "native_arms": [
+    "paid",
+    "exhaustion",
+    "unpaid",
+    "disabled",
+    "no_hazard",
+    "paid",
+    "paid",
+    "paid"
+  ],
+  "policy_indices": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    3,
+    1,
+    null
+  ],
+  "defense_fuel": [
+    4,
+    2,
+    0,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "repair_fuel": 0,
+  "birth_fuel": 2,
+  "seal_cost": 1,
+  "request_steps": [
+    15,
+    31,
+    47,
+    63
+  ],
+  "threat_resolution_steps": [
+    16,
+    32,
+    48,
+    64
+  ],
+  "damage_priority": 300,
+  "absorb_priority": 400,
+  "native_seed": 993748718001,
+  "draw_seed": 993748724001,
+  "horizon": 96,
+  "cells": 72,
+  "maximum_native_advances": 6912,
+  "maximum_nonadvancing_seal_applications": 72,
+  "native_deadline_seconds": 180,
+  "output_limit_bytes": 268435456,
+  "match_work_limit": 50000,
+  "match_result_limit": 50000,
+  "reference_interval": 16,
+  "optimizer_updates": 0,
+  "scientific_acceptance": false,
+  "sustained_claim": false,
+  "training_admitted": false,
+  "independent_physics_replay": false
+}

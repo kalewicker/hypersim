@@ -1,0 +1,111 @@
+{
+  "date": "2026-09-29",
+  "scope": "engineering_follow_up_only",
+  "development_only": true,
+  "gate_pass": false,
+  "training_admitted": false,
+  "scientific_retry_performed": false,
+  "full_audit_revalidation_performed": false,
+  "engine_advancing_steps": 0,
+  "failed_archive_files_verified_unchanged": 340,
+  "timing": {
+    "attempted_steps_cross_checked": 505392,
+    "checker_sha256": "f1bd1a2b949f4c041038eb2de01b3398135bdfdb2499621a0beb6c2fd75a6b67",
+    "classification_rows_declared": 10000,
+    "complete_full_audit_pass": false,
+    "development_only": true,
+    "gate_pass": false,
+    "input_sha256": {
+      "classifications.jsonl.gz": "6f314d857277a396e25b0292b76ff9ac99e9d5ef6ada1d099867bda41498aeba",
+      "manifest.json": "f9d097a92d2ed939b80ad4979ee573e44d09978a8a0f017185e5145ae0873d42",
+      "native_controls_timing.json": "3116b0fc0c622c9f27f1055f520da0c3734d8d360ada6d1bf48386b914c617ce",
+      "native_trajectory_timing.json": "62657e2f78a34ea17f1177db965514cbcac8718d59ade7928c0b8bd473154bd5",
+      "run_status.json": "98ba431f67e66b0883a8badf1b56655fa45d9e20ba07f0f9ac65734f5ba34764"
+    },
+    "native_children": 4886,
+    "peak_rss_bytes": 46301184,
+    "rss_cap_bytes": 1073741824,
+    "scope": "timing_stage_only",
+    "seconds": 23.836425042245537,
+    "timing_check_pass": true,
+    "training_admitted": false,
+    "wall_cap_seconds": 120
+  },
+  "matcher": {
+    "diagnostics": [
+      {
+        "development_only": true,
+        "engine_steps": 0,
+        "exact_recorded_cap_reproduced": true,
+        "gate_pass": false,
+        "results": 372,
+        "training_admitted": false,
+        "work": 400000
+      },
+      {
+        "development_only": true,
+        "diagnostic_reordered_work": 357,
+        "gate_pass": false,
+        "installed": false,
+        "ordinary_self_pairs": 0,
+        "results": 0,
+        "training_admitted": false,
+        "truncated": false
+      }
+    ],
+    "tests_passed": 4,
+    "successful_suite_executions": 2,
+    "total_matcher_calls": 16,
+    "max_counted_work_per_call": 400000,
+    "max_results_per_call": 50000,
+    "aggregate_counted_work_upper_bound": 6400000,
+    "kernel_change_installed": false,
+    "source_provenance": {
+      "crates/hg-core/src/arena.rs": {
+        "frozen_sha256": "56f48da64e5b9808ed4a8fa12e8ec9aac6c3fca335c33993a581decb33f6e8c2",
+        "identical": false,
+        "live_sha256": "9dd9609393603f4cb7cbc0972fc690f215ab1a6cc6e9f4c574d36e359605ed60"
+      },
+      "crates/hg-core/src/graph.rs": {
+        "frozen_sha256": "3acbfa1aef8c3d030c92c15e4b5870a2d7cba75d5966dbe379eb289365d06172",
+        "identical": false,
+        "live_sha256": "df5841fdbd8cc4c690bf076cbad6f1e067cd52157e0852364ada7f7f37c1f212"
+      },
+      "crates/hg-core/src/snapshot.rs": {
+        "frozen_sha256": "c403fe4bad16e16c6c431811abd0435b72aeeeb1bf9278808de38761f3d9185c",
+        "identical": true,
+        "live_sha256": "c403fe4bad16e16c6c431811abd0435b72aeeeb1bf9278808de38761f3d9185c"
+      },
+      "crates/hg-engine/src/matcher.rs": {
+        "frozen_sha256": "61d0643395edc511b8c6b50cc80b8fe0bfed428e2d83e395c8ffca25751ab065",
+        "identical": true,
+        "live_sha256": "61d0643395edc511b8c6b50cc80b8fe0bfed428e2d83e395c8ffca25751ab065"
+      },
+      "crates/hg-rules/src/compiled.rs": {
+        "frozen_sha256": "a5850b8ceb5ef13948520ae8c23cc2670aa76493afea31fd07b7f6ddb113405f",
+        "identical": true,
+        "live_sha256": "a5850b8ceb5ef13948520ae8c23cc2670aa76493afea31fd07b7f6ddb113405f"
+      }
+    },
+    "fixture_scope": "read_only_matcher_snapshot_not_allocator_or_engine_continuation",
+    "canonical_index_order_not_runtime_insertion_order": true
+  },
+  "tests": {
+    "timing_regressions_passed": 8,
+    "existing_predicates_passed": 9,
+    "native_fixture_tests_skipped_without_fixture": 6,
+    "existing_integration_passed": 31,
+    "existing_integration_failed": 2,
+    "integration_failure_reasons": [
+      "historical arena.rs design-time pin no longer matches pre-existing live core changes",
+      "historical pending-launch assertion expects now-executed archive not to exist"
+    ],
+    "initial_rust_fixture_validation_failure_corrected": "canonical scalar energy JSON 0 versus Rust 0.0 spelling; preserve explicitly f32 value and tagged properties"
+  },
+  "interpretation": [
+    "Timing stage passes on full-size material; this is not a completed full audit.",
+    "The capped Proposal cannot match: no eligible repeated-endpoint pair exists in terminal snapshot.",
+    "Diagnostic edge reordering changes counted work/truncation, is not installed and does not prove finite-prefix/counter/RNG/trajectory equivalence.",
+    "Failed scientific archive remains failed/unmeasured; no scientific retry or training is authorized by this engineering work."
+  ]
+}

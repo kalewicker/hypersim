@@ -1,0 +1,8 @@
+seed = 42
+sites = 16
+ticks = 64
+max_nodes = 256
+max_edges = 512
+match_work = 100000
+match_results = 10000
+output_bytes = 67108864

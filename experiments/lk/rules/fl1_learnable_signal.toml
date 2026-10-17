@@ -1,0 +1,117 @@
+# F-L1 — the learnable-signal fixture (NN plan §9).
+#
+# Two rules on a GliderRing, one right and one wrong, with the correct
+# behaviour expressible by `StaticBias` (one logit per rule) and nothing
+# more. This is the end-to-end validation of the whole loop: seam,
+# features, fitness, optimizer, reproducibility. If CMA-ES cannot solve it,
+# the training loop is broken — not the hypothesis.
+#
+#   rule 0  `glider`  — structure-forming. A pure conservative relabel: the
+#                       mark hops two positions around the ring forever,
+#                       node count fixed, type histogram stationary. The
+#                       mark class persists while its MEMBERS change, which
+#                       is what the active-persistence gate is looking for.
+#
+#   rule 1  `churn`   — feeds nothing. Replaces a node in an unmarked
+#                       3-edge with a fresh one: node count CONSTANT, but
+#                       identities churn continuously, so persistence
+#                       collapses and the type histogram never settles.
+#                       That is the WhiteNoiseSoup corner, which F2
+#                       penalizes.
+#
+# ## Why `churn` rather than a growth rule
+#
+# The first version of this fixture used a graph-growing rule as the wrong
+# answer. Measured, it was not wrong at all: steady growth that mints fresh
+# WL classes lands in `GenerativeCandidate` and scored F2 = 1.0, against
+# 0.25 for the glider. Worse, the growth rule held essentially every
+# candidate in the pool, so a budget-matched `RandomSubset` control would
+# have picked it too and there would have been no margin for a learned
+# policy to win — the fixture would have "passed" while measuring nothing.
+#
+# `churn` keeps the node count constant so it cannot accidentally satisfy a
+# growth-flavoured gate, and destroys persistence so it cannot satisfy a
+# persistence-flavoured one.
+#
+# ## Why the correct rule is the RARE one
+#
+# On a ring of n nodes exactly ONE glider binding exists per step (the mark
+# occupies position `a` in exactly one 3-edge) against ~n churn bindings.
+# A budget-matched `RandomSubset` therefore almost never picks the glider,
+# which is what leaves room for a learned policy to beat it.
+# `StaticBias`'s allocation is group-size INDEPENDENT — budget split by
+# softmax over rule logits, uniform within a rule's group — so preferring
+# the rare-but-correct rule is exactly within its expressive range, and
+# nothing else is.
+#
+# ## Ring size
+#
+# Use an ODD `node_count` that does not divide `2 · metrics_window_interval`.
+# The mark advances two positions per hop, so on a 32-ring with a 64-step
+# window it travels 128 ≡ 0 (mod 32) and lands back where it started: the
+# window's first and last states are identical, the window reads as
+# unchanged, and the regime alternates into `Frozen` — a penalized regime —
+# for no reason but arithmetic. `node_count = 31` avoids it (128 ≡ 4) and,
+# being odd, also lets the mark visit every node rather than half of them.
+
+[[rules]]
+name     = "glider"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b", "c"],
+]
+
+[rules.lhs.node_labels]
+a = 1
+b = 0
+c = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c"]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b", "c"],
+]
+
+[rules.rhs.node_labels]
+a = 0
+c = 1
+
+[[rules]]
+name     = "bloat"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b", "c"],
+]
+
+[rules.lhs.node_labels]
+a = 0
+b = 0
+c = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c"]
+
+[rules.rhs]
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "b", "c"],
+  ["a", "b", "d"],
+]
+
+[rules.rhs.node_labels]
+d = 0

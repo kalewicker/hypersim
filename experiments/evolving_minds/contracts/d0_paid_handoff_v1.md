@@ -1,0 +1,19 @@
+# Paid supplied-edit handoff diagnostic v1
+
+Frozen before execution. Engineering only; no training, evolution, scientific acceptance, fairness acceptance, power adequacy or scientific launch. Held-out worlds211/223/227/229/233/239/241/251 remain unused.
+
+## Native mechanism and fixed denominator
+
+New profile evolving-minds-d0-paid-handoff-v1, streaming profile evolving-minds-d0-handoff-streaming-v1 and codec HGEMHO01. Existing funded/retained/legacy codecs and policy meanings stay intact. Handoff config has policy paid-beneficial-edit-v1, supplied Useful/Unchanged/Invalid/Unreachable and descendant_kernel Faithful/SourceKernel. Both founders are authored Delayed, five instructions, B24 endowment, homes0/4, rotation0, semantic-lottery-v1,64ticks. Parent genomes stay unchanged. The only intervention occurs after native paid reservation: each founder proposal uses a declared constant edit (Useful:g103 source2->0; Unchanged:identity; Invalid:Halt source0->1; Unreachable:g103 source2->7). No random draws for supplied proposals. All subsequent descendant requests use the declared request-local kernel; SourceKernel remains unconditioned. Copying charges5, request charges1, child endowment24, invalid refunds29, all native development/death rules remain unchanged. Constant policy is bounded immutable host state, not a mutable proposal cache.
+
+Fresh diagnostic worlds401/403/407/409, two main arms Useful with Faithful or SourceKernel descendants (eight cells). Four controls on exposed seed17: Unchanged/Faithful, Invalid/Faithful, Unreachable/Faithful, Useful/Faithful CleanStop at24 then fresh-process resume to64. Total12 initial cells plus one continuation. Register every cell before native execution; preserve every negative/no-request/unreachable/invalid/interrupted/pending route. No retries, replacement, culling, post-hoc thresholds or arm selection.
+
+## Checks and meaning
+
+Main admission screen: each of two founders must have a charged supplied request producing a completed first child; each founder family must contain a paid descendant reproductive request in the faithful arm by64. Report each predicate for all four worlds; failure is retained. SourceKernel outcomes stay in fixed denominator even if no descendant reproduces. Compare full64tick descendant-only harvested yield, requests, completed/failed children, lineage depth, costs/refunds and lifetimes descriptively; no superiority or adaptation gate. This measures paid handoff of an authored useful genotype and later variation exposure, not de novo discovery. Controls must preserve identity, syntax rejection/refund and paid material failure respectively. CleanStop retains its actual Interrupted manifest; continuation must exactly match an uninterrupted control via independent physical replay.
+
+Independent replay must reconstruct every graph, row, admission record, lineage, ledger and live state at all published eight-tick checkpoints, with complete64tick paid lifetime/opportunity accounting. Shared replay must preserve original reference AST and every checkpoint check. Tamper tests cover supplied bytes/metadata, policy/kernel/profile identity, checkpoint graph, latest publication and invalid/unknown config. Worker1/4 and reversed allocation preserve semantic outcomes. Run old funded/retained/stream codec regressions.
+
+## Caps and receipts
+
+Four native workers. Per segment existing32MiB output,16MiB payload,2MiB live checkpoint,256nodes/768edges and120s advancement. Panel512MiB,3600s wall,2400s summed advancement; independent audit3600s/512MiB. Retain source/checker/contract bytes and hashes, lifecycle manifests, exact published state denominator, checkpoint/recovery receipts and immutable SHA256 seal. All44 previous sealed archives remain byte-identical. Source changes after freeze require a new registered run, never overwrite evidence.

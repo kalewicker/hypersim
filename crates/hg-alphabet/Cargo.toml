@@ -1,0 +1,22 @@
+[package]
+name = "hg-alphabet"
+version = "0.1.0"
+edition = "2021"
+
+# FIREWALL (A-track binding rule 4): substrate characterisation, zero biology.
+# `hg-alife` is deliberately absent from this dependency list and no `alife`
+# feature is reachable from here. If a future edit adds it, the firewall test
+# in tests/a0_firewall.rs is the thing that should stop it.
+[dependencies]
+hg-core = { path = "../hg-core" }
+hg-rules = { path = "../hg-rules" }
+hg-engine = { path = "../hg-engine" }
+hg-observe = { path = "../hg-observe" }
+ahash = { workspace = true }
+# Initial conditions only (the C-track's randomly-labelled crystal). No
+# measurement path draws randomness — the harness is deterministic.
+rand = { workspace = true }
+rand_chacha = { workspace = true }
+rustc-hash = { workspace = true }
+slotmap = { workspace = true }
+smallvec = { workspace = true }

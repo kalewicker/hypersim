@@ -1,0 +1,126 @@
+# lk_pair_capped.toml — the LK-R rule family with the v3 §3 generation
+# cap: lk_metered_subdivide additionally requires x.generation < g_max
+# and children inherit generation = parent + 1. lk_transport unchanged.
+#
+# Generation is property key 6 (Float; docs/property_registry.md). The
+# IC initializer must set generation = 0.0 on every original lattice
+# node ([lk_rules] g_max = <value> turns that on) — a missing key makes
+# this guard silently not-match and FAKES a collapse result (v3 hazard
+# 1; pinned by ic_initializer_sets_generation_zero).
+#
+# Inheritance (v3 §1.4, order-sensitive, pinned):
+#   w.generation scale_from x ×1.0   -- creates the missing key on fresh w
+#   w.generation add 1.0             -- then increments
+# `add` alone would skip on the fresh node (docs/rule_grammar.md), the
+# same missing-key semantics that forced the `w.energy set q` deviation.
+#
+# The guard value below is the g_max = 4 default (Appendix A). Sweep
+# harnesses substitute the probe values {1, 2, 4, 8}; the ∞-control uses
+# 1e18 (same rule shape, cap unreachable). Keep [lk_rules] g_max in sync
+# with the guard value — the manifest records the config, and drift
+# between them is a harness bug.
+#
+# Everything else is byte-for-byte lk_pair.toml; keep them in sync.
+
+[[rules]]
+name     = "lk_metered_subdivide"
+priority = 1
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["x", "y"]
+edges = [
+  ["x", "y"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["x", "y"]
+
+[[rules.lhs.node_property_guards]]
+var      = "x"
+property = 1
+op       = "gte"
+value    = 100.0
+
+[[rules.lhs.node_property_guards]]
+var      = "x"
+property = 6
+op       = "lt"
+value    = 4.0
+
+[rules.rhs]
+nodes = ["x", "w", "y"]
+edges = [
+  ["x", "w"],
+  ["w", "y"],
+]
+
+[[rules.rhs.property_effects]]
+var   = "w"
+key   = 1
+op    = "set"
+value = 50.0
+
+[[rules.rhs.property_effects]]
+var   = "x"
+key   = 1
+op    = "subtract"
+value = 60.0
+
+[[rules.rhs.property_effects]]
+var        = "w"
+key        = 6
+op         = "scale_from"
+source_var = "x"
+source_key = 6
+factor     = 1.0
+
+[[rules.rhs.property_effects]]
+var   = "w"
+key   = 6
+op    = "add"
+value = 1.0
+
+[[rules]]
+name     = "lk_transport"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["x", "y"]
+edges = [
+  ["x", "y"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["x", "y"]
+
+[[rules.lhs.node_property_compares]]
+var_a  = "x"
+key_a  = 1
+op     = "gte"
+var_b  = "y"
+key_b  = 1
+offset = 50.0
+
+[rules.rhs]
+nodes = ["x", "y"]
+edges = [
+  ["x", "y"],
+]
+
+[[rules.rhs.property_effects]]
+var   = "x"
+key   = 1
+op    = "subtract"
+value = 25.0
+
+[[rules.rhs.property_effects]]
+var   = "y"
+key   = 1
+op    = "add"
+value = 25.0

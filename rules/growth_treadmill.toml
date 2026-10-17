@@ -1,0 +1,32 @@
+# Growth treadmill rule
+# A labeled node grows by spawning a new connected node while maintaining structure
+
+[[rules]]
+name     = "growth_treadmill"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [
+  ["a", "b"],
+]
+
+[rules.lhs.node_labels]
+a = 1
+b = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b"]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b"],
+  ["a", "c"],
+]
+
+[rules.rhs.node_labels]
+c = 1

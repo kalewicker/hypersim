@@ -1,0 +1,62 @@
+# lk_metered_subdivide (LK-R, plan v2 §6.1): dissipative structural
+# growth. A node holding at least θ energy subdivides an incident edge
+# into a 2-path through a fresh midpoint w; w is endowed with the
+# constant quantum q and the parent pays q + c, where c > 0 is the
+# per-event sink that bounds the run (boundedness comes from explicit
+# dissipation, not conservation — v2 §0).
+#
+# Audit invariant (v2 §6.2, exact at every window):
+#   E_total(t) + c · N_subdivisions(t) = E₀
+#
+# Constants (Appendix B): θ = 100, q = 50, c = 10 → parent pays 60.
+# Integers in f64: sums exact. Keep [lk_rules] c in sync (the audit
+# reads the config; drift is flagged, never rationalized).
+#
+# DEVIATION from the plan's effect list (documented): the plan wrote
+# "w.energy add q", but `add` skips when the target key is missing and w
+# is created fresh with no properties — `set q` is the semantically
+# identical spelling for a fresh node (docs/rule_grammar.md).
+#
+# Priority 1: PINNED above lk_transport (subdivide before transport,
+# v2 §6.1); order-sensitivity is test-pinned.
+
+[[rules]]
+name     = "lk_metered_subdivide"
+priority = 1
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["x", "y"]
+edges = [
+  ["x", "y"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["x", "y"]
+
+[[rules.lhs.node_property_guards]]
+var      = "x"
+property = 1
+op       = "gte"
+value    = 100.0
+
+[rules.rhs]
+nodes = ["x", "w", "y"]
+edges = [
+  ["x", "w"],
+  ["w", "y"],
+]
+
+[[rules.rhs.property_effects]]
+var   = "w"
+key   = 1
+op    = "set"
+value = 50.0
+
+[[rules.rhs.property_effects]]
+var   = "x"
+key   = 1
+op    = "subtract"
+value = 60.0

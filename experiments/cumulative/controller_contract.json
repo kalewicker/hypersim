@@ -1,0 +1,14 @@
+{
+  "profile": "cumulative-campaign-controller-readiness-v1",
+  "scope": "zero-native durable scheduling, saved-evidence integration and full-scale synthetic accounting rehearsal",
+  "parent": {"archive": "output/cumulative_campaign_measurement_v2_20261010", "seal_sha256": "01a16236d750e8f331dc8a73a2fcc1868e32d149feee330075f7da0b3931b3bd"},
+  "limits": {"native_rewrites": 0, "workflow_seconds": 1200, "output_bytes": 134217728},
+  "routes": ["saved_development", "full_scale", "interrupted"],
+  "virtual_resource_ceilings": {"rewrites": 2000000, "native_ms": 10800000, "workflow_ms": 21600000, "storage_bytes": 8589934592},
+  "claim_scope": "cumulative functional evolution and paired self-modification advantage within the fixed world law and fixed diagnostic environment only",
+  "closure": "Preserve the complete proposed denominator. Validate durable controller ordering, resource reservations, registry barrier, batches and unknown-work closure without running any native unit. Timing and storage inputs are rehearsal accounting, not a claim of live dispatch integration. No scientific launch or budget approval.",
+  "readiness_gate_complete": false,
+  "scientific_acceptance": false,
+  "evolution_demonstrated": false,
+  "campaign_launch_authorized": false
+}

@@ -1,0 +1,462 @@
+{
+  "artifacts": {
+    "ta1_gate0_audit_20261016": {
+      "exact_file_coverage": true,
+      "manifest_state": "Completed",
+      "payload_hashes_verified": true,
+      "seal_sha256": "ee55cdc7aea253d26f5172bf4c82b94ccfefdcb1d264f720d8d112ec5fa3d997",
+      "sealed_files": 3,
+      "total_bytes": 355048
+    },
+    "ta1_gate0_development_20261016": {
+      "exact_file_coverage": true,
+      "manifest_state": "Completed",
+      "payload_hashes_verified": true,
+      "seal_sha256": "c50823c4d287967679777094b59a43a15955734dc341b3cce6dde41a64100c6b",
+      "sealed_files": 212,
+      "total_bytes": 16489983
+    },
+    "ta1_gate1_audit_continuation_20261017": {
+      "exact_file_coverage": true,
+      "manifest_state": "Completed",
+      "payload_hashes_verified": true,
+      "seal_sha256": "9b1e8e020b3a1b69138d8fe1f7e0d702c73084549c21dacfeaacf3182e7c86cb",
+      "sealed_files": 6,
+      "total_bytes": 1163318
+    },
+    "ta1_gate1_audit_v2_20261016": {
+      "exact_file_coverage": true,
+      "manifest_state": "Interrupted",
+      "payload_hashes_verified": true,
+      "seal_sha256": "2cc5e546c29d08713ed81ec2a3bb829142124c1a0913a3edfc988fb700e2d7af",
+      "sealed_files": 2,
+      "total_bytes": 921
+    },
+    "ta1_gate1_development_v2_20261016": {
+      "exact_file_coverage": true,
+      "manifest_state": "Completed",
+      "payload_hashes_verified": true,
+      "seal_sha256": "f23ef0ab8142399006e280f52332104a776b2842948602847f3e563650741661",
+      "sealed_files": 503,
+      "total_bytes": 40845809
+    },
+    "ta1_mutation_stress_audit_20261017": {
+      "exact_file_coverage": true,
+      "manifest_state": "Completed",
+      "payload_hashes_verified": true,
+      "seal_sha256": "4fe50a633225b548c7fd492d3c0646a460325e3f1303e4bd77693ab5ab8f926a",
+      "sealed_files": 3,
+      "total_bytes": 1382350
+    },
+    "ta1_mutation_stress_development_20261017": {
+      "exact_file_coverage": true,
+      "manifest_state": "Completed",
+      "payload_hashes_verified": true,
+      "seal_sha256": "b1af5d06cc4098fb6b86eec9a394777c67e2283430a5e93d521223996e2bd0d9",
+      "sealed_files": 646,
+      "total_bytes": 48242846
+    },
+    "ta1_mutation_stress_probe_20261017": {
+      "exact_file_coverage": true,
+      "manifest_state": "Completed",
+      "payload_hashes_verified": true,
+      "seal_sha256": "f05e7ecb0befc5be7e63cfa63f694dae86f157616886bec01889b3d50b5b8bda",
+      "sealed_files": 106,
+      "total_bytes": 9136186
+    },
+    "ta1_mutation_stress_probe_audit_20261017": {
+      "exact_file_coverage": true,
+      "manifest_state": "Completed",
+      "payload_hashes_verified": true,
+      "seal_sha256": "04bc69a42722d131f1896929bdf4e5f365514913776b10bc7d8f3ec395eac260",
+      "sealed_files": 3,
+      "total_bytes": 187608
+    }
+  },
+  "audit_pass": true,
+  "combined_probe_and_main_native_advances": 55936,
+  "cumulative_reuse_established": false,
+  "current_binary_matches_probe_and_main": true,
+  "current_frozen_source_files_match": 177,
+  "date": "2026-10-17",
+  "development_advance_screen_pass": false,
+  "development_only": true,
+  "development_screen_measured": true,
+  "discovery_established": false,
+  "documentation_links_checked": 63,
+  "documentation_sha256": {
+    "docs/README.md": "6f5b3f30fb728d2874ea9efaa407781add4fc23d6047b9cb5cea9a58d03a585f",
+    "docs/transferable_adaptation_implementation_plan_20261016.md": "a75cba69cbf46e39315ac11e1609aedcf4e43b9a4ca9be36e91fa655b8b58df9",
+    "docs/transferable_adaptation_mutation_stress_findings_20261017.md": "ad26adac4487613197480e51cfbe392ede38b0f56088f9d5c6787e133b78c427",
+    "docs/transferable_adaptation_mutation_stress_implementation_20261017.md": "988e18b16c8a406211412f80345b95b447e5643fe4ec43e267c3293032e71aea"
+  },
+  "engineering_complete": true,
+  "evaluation_blocks_unexposed_by_this_work": 8,
+  "evaluation_cells_unexposed_by_this_work": 96,
+  "evolution_enabled": false,
+  "exposed_development_seeds": [
+    17,
+    23
+  ],
+  "failed_checks": [
+    "world17_Alternating_grammar:family1_persistence",
+    "world17_Alternating_grammar:family2_persistence",
+    "world17_Blocks4_grammar:family1_persistence",
+    "world17_Blocks4_grammar:family2_persistence",
+    "world23_Alternating_grammar:active_offspring_gain",
+    "world23_Alternating_grammar:family1_persistence",
+    "world23_Alternating_grammar:family2_persistence",
+    "world23_Blocks4_grammar:active_offspring_gain",
+    "world23_Blocks4_grammar:net_resource_gain",
+    "world23_Blocks4_grammar:family1_persistence",
+    "world23_Blocks4_grammar:family2_persistence"
+  ],
+  "faithful_positive_control_pass": true,
+  "grammar_retention_screen_pass": false,
+  "independent_replicates_added_by_recovery_or_probe": 0,
+  "main_logical_cells": 17,
+  "main_panel_native_advances": 50048,
+  "main_segments": 18,
+  "measured_resources": {
+    "audit_seconds": 88.23836895823479,
+    "max_checkpoint_bytes": 27800,
+    "max_segment_advance_seconds": 10.402471041000004,
+    "max_segment_bytes": 3369216,
+    "max_segment_payload_bytes": 1821911,
+    "native_panel_seconds": 187.091963,
+    "panel_bytes": 48242846,
+    "summed_advance_seconds": 97.46350207300002
+  },
+  "native_completed": true,
+  "native_execution_binary_sha256": "01463ae60e1fa4d565c970623e5c7980b0886f4fa5e4243b7d95bfdb38075ca1",
+  "nested_schedule_conditions": [
+    "Alternating",
+    "Blocks4"
+  ],
+  "next_gate_automatically_authorized": false,
+  "no_outcome_driven_retry_or_replacement": true,
+  "old_gate0_gate1_seals_and_payloads_preserved": true,
+  "original_source_retention_screen_pass": false,
+  "power_adequacy_established": false,
+  "preflight_registration_binary_and_probe_seal_binding_verified": true,
+  "prior_interrupted_gate1_directory_preserved": true,
+  "probe_and_main_frozen_sources_identical": true,
+  "probe_native_advances": 5888,
+  "probe_packaging_and_recovery_pass": true,
+  "probe_retention_screen_measured": false,
+  "profile": "evolving-minds-ta1-mutation-stress-development-v1",
+  "published_states_reconstructed": 154,
+  "python_distinct_tests_passed": 25,
+  "python_suites_passed": {
+    "gate0_transfer": 9,
+    "gate1_transfer": 8,
+    "mutation_stress": 8
+  },
+  "ready_for_scientific_launch": false,
+  "recorded_utc": "2026-10-17T07:36:30.763553+00:00",
+  "regression_counts_exclude_repeated_fixture_runs": true,
+  "reproductive_fairness_accepted": false,
+  "resource_caps_pass": true,
+  "results": [
+    {
+      "active_offspring": 16,
+      "active_offspring_advantage": 14,
+      "arm": "faithful",
+      "born_offspring": 16,
+      "changed_genotype_edges_on_witness_paths": [
+        0,
+        0
+      ],
+      "development_failures": 0,
+      "functional_paid_depths": [
+        5,
+        5
+      ],
+      "net_resource_advantage": 372.875,
+      "net_resource_gain": 244.875,
+      "pattern": "Alternating",
+      "refunds": 0.0,
+      "requests": 16,
+      "retention_cell_pass": true,
+      "syntax_rejections": 0,
+      "unreachable_paid_births": 0,
+      "world": 17
+    },
+    {
+      "active_offspring": 5,
+      "active_offspring_advantage": 3,
+      "arm": "grammar",
+      "born_offspring": 9,
+      "changed_genotype_edges_on_witness_paths": [
+        1,
+        1
+      ],
+      "development_failures": 4,
+      "functional_paid_depths": [
+        2,
+        2
+      ],
+      "net_resource_advantage": 135.5,
+      "net_resource_gain": 7.5,
+      "pattern": "Alternating",
+      "refunds": 0.0,
+      "requests": 9,
+      "retention_cell_pass": false,
+      "syntax_rejections": 0,
+      "unreachable_paid_births": 4,
+      "world": 17
+    },
+    {
+      "active_offspring": 5,
+      "active_offspring_advantage": 3,
+      "arm": "source",
+      "born_offspring": 8,
+      "changed_genotype_edges_on_witness_paths": [
+        0,
+        0
+      ],
+      "development_failures": 3,
+      "functional_paid_depths": [
+        3,
+        0
+      ],
+      "net_resource_advantage": 134.125,
+      "net_resource_gain": 6.125,
+      "pattern": "Alternating",
+      "refunds": 116.0,
+      "requests": 12,
+      "retention_cell_pass": false,
+      "syntax_rejections": 4,
+      "unreachable_paid_births": 3,
+      "world": 17
+    },
+    {
+      "active_offspring": 16,
+      "active_offspring_advantage": 12,
+      "arm": "faithful",
+      "born_offspring": 16,
+      "changed_genotype_edges_on_witness_paths": [
+        0,
+        0
+      ],
+      "development_failures": 0,
+      "functional_paid_depths": [
+        5,
+        5
+      ],
+      "net_resource_advantage": 277.875,
+      "net_resource_gain": 244.875,
+      "pattern": "Blocks4",
+      "refunds": 0.0,
+      "requests": 16,
+      "retention_cell_pass": true,
+      "syntax_rejections": 0,
+      "unreachable_paid_births": 0,
+      "world": 17
+    },
+    {
+      "active_offspring": 5,
+      "active_offspring_advantage": 1,
+      "arm": "grammar",
+      "born_offspring": 9,
+      "changed_genotype_edges_on_witness_paths": [
+        1,
+        1
+      ],
+      "development_failures": 4,
+      "functional_paid_depths": [
+        2,
+        2
+      ],
+      "net_resource_advantage": 40.5,
+      "net_resource_gain": 7.5,
+      "pattern": "Blocks4",
+      "refunds": 0.0,
+      "requests": 9,
+      "retention_cell_pass": false,
+      "syntax_rejections": 0,
+      "unreachable_paid_births": 4,
+      "world": 17
+    },
+    {
+      "active_offspring": 5,
+      "active_offspring_advantage": 1,
+      "arm": "source",
+      "born_offspring": 8,
+      "changed_genotype_edges_on_witness_paths": [
+        0,
+        0
+      ],
+      "development_failures": 3,
+      "functional_paid_depths": [
+        3,
+        0
+      ],
+      "net_resource_advantage": 31.125,
+      "net_resource_gain": -1.875,
+      "pattern": "Blocks4",
+      "refunds": 116.0,
+      "requests": 12,
+      "retention_cell_pass": false,
+      "syntax_rejections": 4,
+      "unreachable_paid_births": 3,
+      "world": 17
+    },
+    {
+      "active_offspring": 16,
+      "active_offspring_advantage": 14,
+      "arm": "faithful",
+      "born_offspring": 16,
+      "changed_genotype_edges_on_witness_paths": [
+        0,
+        0
+      ],
+      "development_failures": 0,
+      "functional_paid_depths": [
+        5,
+        5
+      ],
+      "net_resource_advantage": 372.875,
+      "net_resource_gain": 244.875,
+      "pattern": "Alternating",
+      "refunds": 0.0,
+      "requests": 16,
+      "retention_cell_pass": true,
+      "syntax_rejections": 0,
+      "unreachable_paid_births": 0,
+      "world": 23
+    },
+    {
+      "active_offspring": 0,
+      "active_offspring_advantage": -2,
+      "arm": "grammar",
+      "born_offspring": 4,
+      "changed_genotype_edges_on_witness_paths": [
+        0,
+        0
+      ],
+      "development_failures": 4,
+      "functional_paid_depths": [
+        0,
+        0
+      ],
+      "net_resource_advantage": 53.0,
+      "net_resource_gain": -75.0,
+      "pattern": "Alternating",
+      "refunds": 0.0,
+      "requests": 4,
+      "retention_cell_pass": false,
+      "syntax_rejections": 0,
+      "unreachable_paid_births": 4,
+      "world": 23
+    },
+    {
+      "active_offspring": 1,
+      "active_offspring_advantage": -1,
+      "arm": "source",
+      "born_offspring": 5,
+      "changed_genotype_edges_on_witness_paths": [
+        0,
+        0
+      ],
+      "development_failures": 4,
+      "functional_paid_depths": [
+        0,
+        1
+      ],
+      "net_resource_advantage": 66.5,
+      "net_resource_gain": -61.5,
+      "pattern": "Alternating",
+      "refunds": 87.0,
+      "requests": 8,
+      "retention_cell_pass": false,
+      "syntax_rejections": 3,
+      "unreachable_paid_births": 4,
+      "world": 23
+    },
+    {
+      "active_offspring": 16,
+      "active_offspring_advantage": 12,
+      "arm": "faithful",
+      "born_offspring": 16,
+      "changed_genotype_edges_on_witness_paths": [
+        0,
+        0
+      ],
+      "development_failures": 0,
+      "functional_paid_depths": [
+        5,
+        5
+      ],
+      "net_resource_advantage": 277.875,
+      "net_resource_gain": 244.875,
+      "pattern": "Blocks4",
+      "refunds": 0.0,
+      "requests": 16,
+      "retention_cell_pass": true,
+      "syntax_rejections": 0,
+      "unreachable_paid_births": 0,
+      "world": 23
+    },
+    {
+      "active_offspring": 0,
+      "active_offspring_advantage": -4,
+      "arm": "grammar",
+      "born_offspring": 4,
+      "changed_genotype_edges_on_witness_paths": [
+        0,
+        0
+      ],
+      "development_failures": 4,
+      "functional_paid_depths": [
+        0,
+        0
+      ],
+      "net_resource_advantage": -42.0,
+      "net_resource_gain": -75.0,
+      "pattern": "Blocks4",
+      "refunds": 0.0,
+      "requests": 4,
+      "retention_cell_pass": false,
+      "syntax_rejections": 0,
+      "unreachable_paid_births": 4,
+      "world": 23
+    },
+    {
+      "active_offspring": 1,
+      "active_offspring_advantage": -3,
+      "arm": "source",
+      "born_offspring": 5,
+      "changed_genotype_edges_on_witness_paths": [
+        0,
+        0
+      ],
+      "development_failures": 4,
+      "functional_paid_depths": [
+        0,
+        1
+      ],
+      "net_resource_advantage": -28.5,
+      "net_resource_gain": -61.5,
+      "pattern": "Blocks4",
+      "refunds": 87.0,
+      "requests": 8,
+      "retention_cell_pass": false,
+      "syntax_rejections": 3,
+      "unreachable_paid_births": 4,
+      "world": 23
+    }
+  ],
+  "rust_suites_passed": {
+    "funded_admission": 4,
+    "mutation_stress": 4,
+    "temporal_transfer": 5
+  },
+  "rust_tests_passed": 13,
+  "scientific_acceptance": false,
+  "scientific_run_launched": false,
+  "training_admitted": false,
+  "transfer_established": false,
+  "unit_test_simulations_excluded_from_panel_counts": true,
+  "version_stopped": true
+}

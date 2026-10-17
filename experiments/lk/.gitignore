@@ -1,0 +1,5 @@
+/target/
+/runs/
+/output/
+/crates/hg-selfmod/runs/
+/crates/hg-train/runs_stage2/

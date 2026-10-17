@@ -1,0 +1,23 @@
+{
+  "profile": "E2-rule-relational-v1",
+  "contexts": [[10,11],[10,21],[10,31],[20,11],[20,21],[20,31],[30,11],[30,21],[30,31]],
+  "ordinary_labels": [10,20,30,11,21,31,12],
+  "choices": [[null,10,20,30],[null,11,21,31]],
+  "seeds": [993748718001,993748718002],
+  "arms": ["live_paid","frozen_paid","live_unpaid","live_disabled","preseeded_lure","one_fuel","reverse_paid"],
+  "horizon": 24,
+  "cells": 396,
+  "maximum_native_attempts": 9504,
+  "native_deadline_seconds": 180,
+  "match_work_limit": 50000,
+  "match_result_limit": 50000,
+  "policy_parameters": 16,
+  "category_only_cue": [10,11],
+  "category_only_balanced_reward_upper_bound": 0.041666666666666664,
+  "probe_diagonal_weight": 4,
+  "minimum_graph_probe_expected_reward": 0.3,
+  "training_updates": 0,
+  "training_admitted": false,
+  "scientific_acceptance": false,
+  "independent_physics_replay": false
+}

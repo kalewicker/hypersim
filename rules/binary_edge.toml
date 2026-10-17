@@ -1,0 +1,28 @@
+# Binary edge rule
+# A 2-node edge becomes two 2-node edges sharing a new node
+
+[[rules]]
+name     = "binary_edge"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [
+  ["a", "b"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b"]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "c"],
+  ["b", "c"],
+]
+
+[rules.rhs.node_labels]
+c = 0

@@ -1,0 +1,7 @@
+# NOTE: multi-run campaigns are not part of the v4 substrate-only pipeline
+# (the report's "Campaign Summary" section says "Not applicable" for single
+# runs). Drive sweeps externally for now, e.g.:
+#
+#   for seed in 1 2 3; do
+#     hypersim-cli run --config configs/example_binary_edge.toml --seed $seed
+#   done

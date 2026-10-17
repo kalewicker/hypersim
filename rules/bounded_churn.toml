@@ -1,0 +1,99 @@
+# Bounded-churn substrate — flat n(t) with full identity turnover.
+#
+# Lifted verbatim (guards, keys, thresholds) from the H1 characterisation
+# harness so the substrate is byte-comparable with the one already
+# characterised, and promoted here into the rule zoo, where it belongs: it is
+# PHYSICS, not biology. Nothing in this file references a carrier, a genome, or
+# any ALife machinery — property key 1 is a substrate fill level maintained by
+# the `influx` rule in this same file, and key 22 is an occupancy flag that is
+# written `false` and never read true by anything on the substrate track.
+#
+# Mechanism: `influx` fills any label-0 node up to the cap (20). `churn` matches
+# a FULL, unoccupied node bridging two neighbours, deletes it, and mints a fresh
+# empty label-0 node re-bridging the same pair. Net node count per firing is
+# zero (delete 1 + create 1), so n(t) is flat BY CONSTRUCTION while node
+# identity turns over completely. The two rules' guards are disjoint
+# (energy < cap vs energy >= cap) so they never compete for the same node, and
+# keeping TWO edges on the RHS stops connectivity collapsing to dust.
+#
+# Recorded substrate parameter: influx rate = 1.0, i.e. an identity half-life of
+# about 20 steps at cap 20 from fill 5. It is recorded, not tuned to a target.
+#
+# WL identity excludes the properties map (the Q2 invariant), so this substrate
+# moves its WL structure only through topology — which is exactly what makes it
+# the interesting case for an event-alphabet measurement.
+
+[[rules]]
+name = "influx"
+priority = 0
+
+[rules.lhs]
+nodes = ["s"]
+edges = []
+
+[rules.lhs.node_labels]
+s = 0
+
+[[rules.lhs.node_property_guards]]
+var = "s"
+property = 1
+op = "lt"
+value = 20.0
+
+[rules.rhs]
+nodes = ["s"]
+edges = []
+
+[[rules.rhs.property_effects]]
+var = "s"
+key = 1
+op = "add"
+value = 1.0
+
+[[rules]]
+name = "churn"
+priority = 2
+
+[rules.lhs]
+nodes = ["a", "old", "b"]
+edges = [["a", "old"], ["old", "b"]]
+
+[rules.lhs.node_labels]
+a = 0
+old = 0
+b = 0
+
+[[rules.lhs.node_property_guards]]
+var = "old"
+property = 1
+op = "gte"
+value = 20.0
+
+[[rules.lhs.node_property_guards]]
+var = "old"
+property = 22
+op = "eq"
+value = false
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "old", "b"]
+
+[rules.rhs]
+nodes = ["a", "fresh", "b"]
+edges = [["a", "fresh"], ["fresh", "b"]]
+
+[rules.rhs.node_labels]
+fresh = 0
+
+[[rules.rhs.property_effects]]
+var = "fresh"
+key = 1
+op = "set"
+value = 0.0
+
+[[rules.rhs.property_effects]]
+var = "fresh"
+key = 22
+op = "set"
+value = false

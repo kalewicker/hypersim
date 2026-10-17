@@ -1,0 +1,20 @@
+{
+  "profile": "E2-resource-token-adapter-engineering-v1",
+  "observation_step": 13,
+  "states": 8,
+  "source_cells": 16,
+  "modes": ["full", "forecast_masked", "bounty_masked", "cues_masked"],
+  "actions": ["defend", "harvest"],
+  "parameters": 4,
+  "initial_parameters": [0.0, 0.0, 0.0, 0.0],
+  "arithmetic_probe_parameters": [0.07, -0.11, 0.13, -0.17],
+  "bounty_scale": 12,
+  "finite_difference_epsilon": 0.000001,
+  "derivative_tolerance": 0.00000002,
+  "native_advances": 0,
+  "optimizer_updates": 0,
+  "scientific_acceptance": false,
+  "training_admitted": false,
+  "sustained_claim": false,
+  "independent_physics_replay": false
+}

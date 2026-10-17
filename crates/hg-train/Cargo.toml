@@ -1,0 +1,80 @@
+[package]
+name = "hg-train"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+ere = ["hg-sim-core/hg-meta", "dep:hg-rules", "dep:flate2"]
+ere-complete-signal = ["ere", "hg-sim-core/repeated-edge-feasibility"]
+
+# The learning layer's outer loop (NN plan §2.2). Drives everything through
+# hg-sim-core's rollout API and NEVER imports hg-engine — "only hg-sim-core
+# imports hg-engine" (v4 §2.3) holds unchanged.
+
+[lib]
+name = "hg_train"
+path = "src/lib.rs"
+
+[[bin]]
+name = "hg-train"
+path = "src/main.rs"
+
+[dependencies]
+flate2 = { version = "=1.1.9", optional = true }
+hg-rules = { path = "../hg-rules", optional = true }
+hg-cognition = { path = "../hg-cognition" }
+hg-sim-core = { path = "../hg-sim-core", features = ["cognition"] }
+hg-schema = { path = "../hg-schema" }
+hg-output = { path = "../hg-output" }
+hg-observe = { path = "../hg-observe" }
+hg-core = { path = "../hg-core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+toml = { workspace = true }
+rayon = { workspace = true }
+nalgebra = { workspace = true }
+rand = { workspace = true }
+rand_chacha = { workspace = true }
+chrono = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+csv = { workspace = true }
+
+[[bin]]
+name = "ere-train"
+path = "src/bin/ere-train.rs"
+required-features = ["ere"]
+
+[[bin]]
+name = "ere-categorical-adapter"
+path = "src/bin/ere-categorical-adapter.rs"
+required-features = ["ere-complete-signal"]
+
+[[bin]]
+name = "ere-categorical-comparison"
+path = "src/bin/ere-categorical-comparison.rs"
+required-features = ["ere-complete-signal"]
+
+[[bin]]
+name = "ere-categorical-comparison-bridge"
+path = "src/bin/ere-categorical-comparison-bridge.rs"
+required-features = ["ere-complete-signal"]
+
+[[bin]]
+name = "ere-categorical-feasible"
+path = "src/bin/ere-categorical-feasible.rs"
+required-features = ["ere-complete-signal"]
+
+[[bin]]
+name = "ere-categorical-feasible-development"
+path = "src/bin/ere-categorical-feasible-development.rs"
+required-features = ["ere-complete-signal"]
+
+[[bin]]
+name = "ere-resource-learning"
+path = "src/bin/ere-resource-learning.rs"
+required-features = ["ere"]

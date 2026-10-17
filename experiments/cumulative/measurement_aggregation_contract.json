@@ -1,0 +1,49 @@
+{
+  "profile": "cumulative-campaign-measurement-aggregation-v2",
+  "scope": "complete census and thirteen-role intervention wiring on saved development worlds",
+  "parent": {
+    "archive": "output/cumulative_spool_integration_20261010",
+    "seal_sha256": "a4460392316a6689cac371d474e04ba1e3290cdd5a8cb68160bf4dc8efe728be"
+  },
+  "adapter_parent": {
+    "archive": "output/cumulative_campaign_adapter_readiness_20261010",
+    "seal_sha256": "827890af64baf8cf8c25d67056a5006294c6c95fcddd888d03870c6d6287f794"
+  },
+  "storage_parent": {
+    "archive": "output/cumulative_storage_validation_20261010",
+    "seal_sha256": "a31f079f7227c2bab62b7d3f1c454949e3742dc775139859c093aafda34752c8"
+  },
+  "limits": {
+    "native_rewrites": 0,
+    "native_seconds": 0,
+    "workflow_seconds": 1200,
+    "output_bytes": 134217728,
+    "spool_cap_bytes": 268435456
+  },
+  "development_worlds": [
+    "endogenous",
+    "external",
+    "nonheritable",
+    "frozen"
+  ],
+  "censuses": [
+    0,
+    4,
+    8,
+    12,
+    16
+  ],
+  "slots_per_census": 2,
+  "request_identity": "role plus exact ordered stage vector, complete registry frozen before any new assay; empty vectors retain null references without replacement",
+  "pair_provenance": "exact acquisition identities, ancestor birth cutoff, paid transmissions and distinct active descendant generations from independently audited native histories",
+  "synthetic_checks": "explicitly hypothetical decoder and decision inputs; no native-law or evolutionary claims",
+  "closure": "Zero-native aggregation of the exact registry and completed assay journals in the sealed failed parent. Preserve the failed report assembly and its source snapshots. No native redispatch or scientific world execution. Audit original and relocated packages.",
+  "readiness_gate_complete": false,
+  "scientific_acceptance": false,
+  "evolution_demonstrated": false,
+  "campaign_launch_authorized": false,
+  "reuse_native_parent": {
+    "archive": "output/cumulative_campaign_measurement_20261010",
+    "seal_sha256": "fb8eb8c9f3fafeff8758500d42d0afc95ec25cf0703d99eb7e6b9384041b0ca1"
+  }
+}

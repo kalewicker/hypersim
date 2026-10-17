@@ -1,0 +1,28 @@
+[package]
+name = "hg-gui"
+version = "0.1.0"
+edition = "2021"
+
+# v4 §2.3: hg-app-api always; hg-sim-core ONLY behind the "live" feature —
+# the Phase 8 mock-data shell needs nothing else.
+
+[features]
+default = []
+live = ["dep:hg-sim-core", "dep:rfd"]
+# The ALife layer requires the live runner, so it implies `live` and forwards
+# the feature to hg-sim-core (scope §4: gated on hg-sim-core AND hg-gui).
+alife = ["live", "hg-sim-core/alife"]
+
+[dependencies]
+hg-app-api = { path = "../hg-app-api" }
+hg-schema = { path = "../hg-schema" }
+hg-sim-core = { path = "../hg-sim-core", optional = true }
+rfd = { workspace = true, optional = true }
+eframe = { workspace = true }
+egui = { workspace = true }
+egui_plot = { workspace = true }
+slotmap = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+serde_json = { workspace = true }

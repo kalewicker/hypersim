@@ -1,0 +1,581 @@
+//! The step loop: creation-rule firing, matching, policy seam, conflict
+//! resolution, apply.
+
+
+use crate::matcher::{find_bindings_counted, GuardStats};
+use hg_core::{HyperEdge, HypergraphStore, NodeData, NodeId, PropertyValue};
+use hg_observe::{Binding, ObserverChain, RewriteEvent, RuleSelectionPolicy, StepStats};
+use hg_rules::{CompiledRule, StepMode};
+use rand::seq::SliceRandom;
+use rand::SeedableRng;
+use rand_chacha::ChaCha8Rng;
+use smallvec::SmallVec;
+
+pub struct Engine {
+    rules: Vec<CompiledRule>,
+    step_mode: StepMode,
+    rng: ChaCha8Rng,
+    max_pairings_per_step: usize,
+    stats: StepStats,
+    observers: ObserverChain,
+    policy: Option<Box<dyn RuleSelectionPolicy>>,
+    /// v4 §1.1 guard-engagement counters, cumulative since the last
+    /// [`Engine::drain_guard_stats`] call, indexed by rule id.
+    guard_stats: Vec<GuardStats>,
+    /// v7 §1.2 DIRECTIONAL contention counters: `(loser_rule_id,
+    /// winner_rule_id) -> refusals`, cumulative since the last
+    /// [`Engine::drain_contention`]. Records which rule lost a binding to
+    /// node contention and which rule took the node — the audit direction
+    /// F-LK22 showed cannot be inferred from its converse. MaxParallel
+    /// only (the sequential modes pick one binding and never contend).
+    contention: std::collections::HashMap<(usize, usize), u64>,
+}
+
+impl Engine {
+    /// Rules keep their given order: `rule_id` = index. Priority is honored
+    /// by conflict resolution (`Reverse<i32>` in the sort key), not by
+    /// reordering the rules table.
+    pub fn new(
+        rules: Vec<CompiledRule>,
+        step_mode: StepMode,
+        seed: u64,
+        max_pairings_per_step: usize,
+    ) -> Self {
+        Self {
+            rules,
+            step_mode,
+            rng: ChaCha8Rng::seed_from_u64(seed),
+            max_pairings_per_step: max_pairings_per_step.max(1),
+            stats: StepStats::new(),
+            observers: ObserverChain::new(),
+            policy: None,
+            guard_stats: Vec::new(),
+            contention: std::collections::HashMap::new(),
+        }
+    }
+
+    /// Take and reset the v7 §1.2 directional contention counters:
+    /// `(loser rule name, winner rule name, refusals)`, sorted for
+    /// determinism. Empty for rule sets whose bindings never overlap.
+    pub fn drain_contention(&mut self) -> Vec<(String, String, u64)> {
+        let mut out: Vec<(String, String, u64)> = std::mem::take(&mut self.contention)
+            .into_iter()
+            .map(|((l, w), c)| {
+                (self.rules[l].name.clone(), self.rules[w].name.clone(), c)
+            })
+            .collect();
+        out.sort_unstable();
+        out
+    }
+
+    /// Take and reset the accumulated guard-engagement counters
+    /// (v4 §1.1): one (rule name, stats) entry per rule with any
+    /// declared guards. The runner drains this per window into
+    /// guards.csv.
+    pub fn drain_guard_stats(&mut self) -> Vec<(String, GuardStats)> {
+        let mut out = Vec::new();
+        for (rule_id, stats) in self.guard_stats.iter_mut().enumerate() {
+            if !stats.is_empty() {
+                out.push((self.rules[rule_id].name.clone(), std::mem::take(stats)));
+            }
+        }
+        out
+    }
+
+    pub fn add_observer(&mut self, observer: Box<dyn hg_observe::Observer>) {
+        self.observers.add(observer);
+    }
+
+    pub fn set_policy(&mut self, policy: Box<dyn RuleSelectionPolicy>) {
+        self.policy = Some(policy);
+    }
+
+    pub fn rules(&self) -> &[CompiledRule] {
+        &self.rules
+    }
+
+    pub fn observers_mut(&mut self) -> &mut ObserverChain {
+        &mut self.observers
+    }
+
+    /// Collect the full candidate pool for this step: due creation-rule
+    /// bindings first (v4 §5.3), then ordinary matches, then canonical sort
+    /// so collection (thread) order is irrelevant.
+    fn collect_candidates(&mut self, store: &HypergraphStore) -> Vec<Binding> {
+        let snapshot = store.snapshot();
+        let step = store.step();
+
+        let mut candidates: Vec<Binding> = Vec::new();
+
+        for (rule_id, rule) in self.rules.iter().enumerate() {
+            if !rule.enabled {
+                continue;
+            }
+            if let Some(schedule) = rule.schedule {
+                if schedule.is_due(step) {
+                    // Trivial binding, zero bound nodes: can never conflict.
+                    candidates.push(Binding::new(rule_id, rule.priority, SmallVec::new()));
+                }
+            }
+        }
+
+        if self.guard_stats.len() < self.rules.len() {
+            self.guard_stats.resize(self.rules.len(), GuardStats::default());
+        }
+        #[cfg(feature = "parallel")]
+        {
+            use rayon::prelude::*;
+            let matched: Vec<(usize, Vec<Binding>, GuardStats)> = self
+                .rules
+                .par_iter()
+                .enumerate()
+                .filter(|(_, rule)| rule.enabled && rule.schedule.is_none())
+                .map(|(rule_id, rule)| {
+                    let (b, g) = find_bindings_counted(&snapshot, rule, rule_id);
+                    (rule_id, b, g)
+                })
+                .collect();
+            for (rule_id, bindings, g) in matched {
+                candidates.extend(bindings);
+                self.guard_stats[rule_id].merge(&g);
+            }
+        }
+        #[cfg(not(feature = "parallel"))]
+        {
+            for (rule_id, rule) in self.rules.iter().enumerate() {
+                if rule.enabled && rule.schedule.is_none() {
+                    let (b, g) = find_bindings_counted(&snapshot, rule, rule_id);
+                    candidates.extend(b);
+                    self.guard_stats[rule_id].merge(&g);
+                }
+            }
+        }
+
+        // Canonical order: determinism regardless of thread count.
+        candidates.sort_by_key(|b| b.canonical_key());
+        candidates
+    }
+
+    /// Execute one step; returns the step's stats. Rewrite events go to the
+    /// observer chain's `on_step_end`.
+    pub fn step(&mut self, store: &mut HypergraphStore) -> StepStats {
+        self.stats = StepStats::new();
+
+        let mut candidates = self.collect_candidates(store);
+        self.stats.attempted_matches = candidates.len();
+
+        // Policy seam (v4 §6.1): between candidate collection and conflict
+        // resolution — a policy can narrow the pool but the resolver still
+        // guarantees node-disjointness.
+        if let Some(policy) = self.policy.as_mut() {
+            let snapshot = store.snapshot();
+            let mut keep = policy.select(&snapshot, &candidates);
+            keep.sort_unstable();
+            keep.dedup();
+            candidates = keep
+                .into_iter()
+                .filter_map(|i| candidates.get(i).cloned())
+                .collect();
+        }
+
+        // Due creation firings are always accepted (v4 §5.3) — they can
+        // never conflict, and neither the MaxParallel pairing cap nor the
+        // sequential modes' single-candidate sampling may starve a
+        // schedule. The cap/sampling budgets ordinary rewrites only.
+        // (A RuleSelectionPolicy ran before this split, so a policy may
+        // still deliberately drop a creation candidate.)
+        let (creations, ordinary): (Vec<Binding>, Vec<Binding>) =
+            candidates.into_iter().partition(|b| b.is_creation());
+
+        let chosen_ordinary: Vec<Binding> = match self.step_mode {
+            StepMode::MaxParallel => {
+                // v7 §1.2 directional contention audit: the counted
+                // variant returns the SAME accepted set (pinned by
+                // `counted_resolution_matches_legacy`), plus who lost to
+                // whom on node contention.
+                let (accepted, losses) = crate::conflict::resolve_conflicts_counted(&ordinary);
+                for (loser, winner, count) in losses {
+                    *self.contention.entry((loser, winner)).or_insert(0) += count;
+                }
+                accepted.into_iter().take(self.max_pairings_per_step).collect()
+            }
+            StepMode::SequentialRandom => ordinary
+                .choose(&mut self.rng)
+                .cloned()
+                .into_iter()
+                .collect(),
+            StepMode::SequentialWeighted => ordinary
+                .choose_weighted(&mut self.rng, |b| self.rules[b.rule_id].weight)
+                .ok()
+                .cloned()
+                .into_iter()
+                .collect(),
+        };
+        let chosen: Vec<Binding> = creations.into_iter().chain(chosen_ordinary).collect();
+
+        let mut events: Vec<RewriteEvent> = Vec::with_capacity(chosen.len());
+        for binding in &chosen {
+            // Disjoint field borrows: `rules` immutable, `rng` mutable.
+            // Selection draws happened above, so the streams never
+            // interleave within a step.
+            let rule = &self.rules[binding.rule_id];
+            let (event, applied, skipped) =
+                apply_binding(store, rule, binding, &mut self.rng);
+            self.stats.property_effects_applied += applied;
+            self.stats.property_effects_skipped += skipped;
+            self.stats.accepted_rewrites += 1;
+            self.stats.nodes_created += event.nodes_created.len();
+            self.stats.nodes_deleted += event.nodes_deleted.len();
+            self.stats.edges_created += event.edges_created.len();
+            self.stats.edges_deleted += event.edges_deleted.len();
+            events.push(event);
+        }
+
+        store.set_step(store.step() + 1);
+        self.stats.step = store.step();
+
+        let snapshot = store.snapshot();
+        self.observers.on_step_end(&snapshot, &self.stats, &events);
+
+        self.stats.clone()
+    }
+
+    pub fn stats(&self) -> &StepStats {
+        &self.stats
+    }
+}
+
+/// Apply one accepted binding. Order per docs/rewrite_contract.md:
+/// delete matched edges, delete LHS-only nodes (dangling cleanup), create
+/// RHS nodes, apply property effects (step 5.5), create RHS edges.
+///
+/// Returns `(event, effects_applied, effects_skipped)`. The RNG is drawn
+/// from ONLY when a `jitter` effect actually executes — rulesets without
+/// jitter are stream-identical to pre-feature behavior
+/// (docs/reproducibility_policy.md).
+pub fn apply_binding(
+    store: &mut HypergraphStore,
+    rule: &CompiledRule,
+    binding: &Binding,
+    rng: &mut ChaCha8Rng,
+) -> (RewriteEvent, u64, u64) {
+    let template = &rule.template;
+    let mut nodes_created = Vec::new();
+    let mut nodes_deleted = Vec::new();
+    let mut edges_created = Vec::new();
+    let mut edges_deleted = Vec::new();
+
+    // 1. Delete matched edges.
+    for &edge_id in &binding.matched_edges {
+        if store.get_edge(edge_id).is_some() {
+            store.remove_edge(edge_id);
+            edges_deleted.push(edge_id);
+        }
+    }
+
+    // 2. Delete LHS-only nodes (incident edges removed as dangling cleanup).
+    // Surviving endpoints of cleanup-deleted edges are recorded on the
+    // event: they are the nodes affected through the engine's documented
+    // locality-of-effect exception, and downstream causal analyses report
+    // that channel separately (edge ids alone would be useless post-hoc —
+    // the edges no longer exist to look up).
+    let mut cleanup_neighbors: Vec<NodeId> = Vec::new();
+    let mut vanished_energy = 0.0f64;
+    for &lhs_ix in &template.lhs_deleted {
+        if let Some(&node) = binding.bound_nodes.get(lhs_ix) {
+            if store.get_node(node).is_some() {
+                // v4 §6.3 ledger: energy (key 1) leaves the system with
+                // the node; the amount is recorded on the event, read
+                // BEFORE deletion, exact (no rounding source: reads are
+                // stored f64 values).
+                if let Some(PropertyValue::Float(e)) =
+                    store.get_node(node).and_then(|d| d.get_property(1))
+                {
+                    vanished_energy += e;
+                }
+                let dangling: Vec<_> = store.edges_incident_to(node).to_vec();
+                for e in dangling {
+                    if let Some(edge) = store.get_edge(e) {
+                        for &endpoint in &edge.nodes {
+                            if endpoint != node && !cleanup_neighbors.contains(&endpoint) {
+                                cleanup_neighbors.push(endpoint);
+                            }
+                        }
+                    }
+                    edges_deleted.push(e);
+                }
+                store.remove_node(node);
+                nodes_deleted.push(node);
+            }
+        }
+    }
+
+    // LK v6 §3 transfer-on-fuse: instead of vanishing, the deleted
+    // node's energy is relocated to the lowest-generation surviving
+    // endpoint (tie-break lowest NodeId), so E_total is conserved
+    // in-graph and the ledger's Σ E_vanished stays 0. Survivors are the
+    // LHS-bound nodes that also appear in the RHS (still present — only
+    // lhs_deleted nodes were removed above).
+    if template.transfer_energy_to_survivor && vanished_energy != 0.0 {
+        let mut best: Option<(f64, NodeId)> = None;
+        for &lhs_ix in template.rhs_from_lhs.iter().flatten() {
+            let Some(&node) = binding.bound_nodes.get(lhs_ix) else { continue };
+            let Some(data) = store.get_node(node) else { continue };
+            let gen = match data.get_property(6) {
+                Some(PropertyValue::Float(g)) => g,
+                _ => 0.0,
+            };
+            // Lower generation wins; tie-break on the smaller NodeId so
+            // the choice is deterministic and zero-draw.
+            if best.is_none_or(|(bg, bn)| (gen, node) < (bg, bn)) {
+                best = Some((gen, node));
+            }
+        }
+        if let Some((_, target)) = best {
+            if let Some(data) = store.get_node_mut(target) {
+                let cur = match data.get_property(1) {
+                    Some(PropertyValue::Float(v)) => v,
+                    _ => 0.0,
+                };
+                data.set_property(1, PropertyValue::Float(cur + vanished_energy));
+            }
+        }
+        // Energy relocated, not vanished: the event's ledger term is 0.
+        vanished_energy = 0.0;
+    }
+
+    // 3. Create RHS nodes (survivors resolve to their bound ids; a
+    // survivor with an explicit RHS label is RELABELLED — the conservative
+    // mark-transfer mechanism. This path was missing entirely, which
+    // silently ignored RHS node_labels on surviving vars for every rule).
+    let mut rhs_nodes: Vec<Option<NodeId>> = Vec::with_capacity(template.n_rhs_vars);
+    for rhs_ix in 0..template.n_rhs_vars {
+        match template.rhs_from_lhs[rhs_ix] {
+            Some(lhs_ix) => {
+                let id = binding.bound_nodes.get(lhs_ix).copied();
+                if let (Some(node), Some(Some(new_label))) =
+                    (id, template.rhs_relabels.get(rhs_ix))
+                {
+                    if let Some(data) = store.get_node_mut(node) {
+                        data.label = *new_label;
+                    }
+                }
+                rhs_nodes.push(id);
+            }
+            None => {
+                let label = template.rhs_new_labels[rhs_ix];
+                let id = store.add_node(NodeData::new(label, store.step()));
+                nodes_created.push(id);
+                rhs_nodes.push(Some(id));
+            }
+        }
+    }
+
+    // 4 (a.k.a. step 5.5). Property effects: between RHS node creation
+    // and RHS edge creation, since an effect's source_var may be freshly
+    // created. Sequential, declaration order, reads see earlier writes.
+    let (fx_applied, fx_skipped) = apply_property_effects(store, rule, &rhs_nodes, rng);
+
+    // 5. Create RHS edges (labels from the sparse map; absent = 0).
+    for (var_ixs, label) in &template.rhs_edges {
+        let mut endpoints: SmallVec<[NodeId; 8]> = SmallVec::new();
+        for &ix in var_ixs {
+            match rhs_nodes.get(ix).copied().flatten() {
+                Some(id) if store.get_node(id).is_some() => endpoints.push(id),
+                _ => break,
+            }
+        }
+        if endpoints.len() == var_ixs.len() {
+            let edge_id = store.add_edge(HyperEdge::new(*label, endpoints));
+            edges_created.push(edge_id);
+        }
+    }
+
+    (
+        RewriteEvent {
+            rule_id: binding.rule_id,
+            rule_name: rule.name.clone(),
+            binding: binding.clone(),
+            nodes_created,
+            nodes_deleted,
+            edges_created,
+            edges_deleted,
+            cleanup_neighbors,
+            vanished_energy,
+        },
+        fx_applied,
+        fx_skipped,
+    )
+}
+
+/// Rate-limited skip warning: the counter in `StepStats` is the durable
+/// signal; the log is a courtesy that must not flood.
+fn warn_effect_skipped(rule: &str, reason: &str) {
+    use std::sync::atomic::{AtomicU32, Ordering};
+    static WARNED: AtomicU32 = AtomicU32::new(0);
+    let n = WARNED.fetch_add(1, Ordering::Relaxed);
+    if n < 16 {
+        tracing::warn!(rule, reason, "property effect skipped");
+    } else if n == 16 {
+        tracing::warn!("further property-effect skip warnings suppressed (see StepStats.property_effects_skipped)");
+    }
+}
+
+/// `property_effects` execution (v4 §5.2/§6.3 + jitter): sequential in
+/// declaration order; each effect's reads see earlier effects' writes in
+/// the same rewrite (chaining is under rule-author control — see
+/// docs/rule_grammar.md's 160-vs-80 example). A runtime mismatch skips
+/// THAT effect only: the rewrite always completes (Contract Rule 6
+/// atomicity), the skip is counted, never silent. Int arithmetic
+/// saturates; values are NOT clamped — guards are the author's tool for
+/// preconditions, the engine does arithmetic as written.
+fn apply_property_effects(
+    store: &mut HypergraphStore,
+    rule: &CompiledRule,
+    rhs_nodes: &[Option<NodeId>],
+    rng: &mut ChaCha8Rng,
+) -> (u64, u64) {
+    use hg_rules::CompiledEffectOp;
+    use rand::Rng;
+
+    let mut applied = 0u64;
+    let mut skipped = 0u64;
+    for effect in &rule.template.property_effects {
+        let skip = |reason: &str, n: &mut u64| {
+            warn_effect_skipped(&rule.name, reason);
+            *n += 1;
+        };
+        let Some(target) = rhs_nodes.get(effect.target_ix).copied().flatten() else {
+            skip("target node unresolved", &mut skipped);
+            continue;
+        };
+        // Read phase (immutable): compute the value to write. Reads go
+        // through the store NOW, so earlier effects' writes are visible.
+        let new_value = match &effect.op {
+            CompiledEffectOp::Set { value } => Some(*value),
+            CompiledEffectOp::CopyFrom { source_ix, source_key } => {
+                let Some(source) = rhs_nodes.get(*source_ix).copied().flatten() else {
+                    skip("source node unresolved", &mut skipped);
+                    continue;
+                };
+                match store.get_node(source).and_then(|d| d.get_property(*source_key)) {
+                    Some(v) => Some(v),
+                    None => {
+                        skip("copy_from: source property missing", &mut skipped);
+                        continue;
+                    }
+                }
+            }
+            CompiledEffectOp::ScaleFrom { source_ix, source_key, factor } => {
+                let Some(source) = rhs_nodes.get(*source_ix).copied().flatten() else {
+                    skip("source node unresolved", &mut skipped);
+                    continue;
+                };
+                match store.get_node(source).and_then(|d| d.get_property(*source_key)) {
+                    Some(PropertyValue::Float(f)) => Some(PropertyValue::Float(f * factor)),
+                    Some(_) => {
+                        skip("scale_from: source is not Float", &mut skipped);
+                        continue;
+                    }
+                    None => {
+                        skip("scale_from: source property missing", &mut skipped);
+                        continue;
+                    }
+                }
+            }
+            CompiledEffectOp::Add { value } | CompiledEffectOp::Subtract { value } => {
+                let sub = matches!(effect.op, CompiledEffectOp::Subtract { .. });
+                let current = store
+                    .get_node(target)
+                    .and_then(|d| d.get_property(effect.key));
+                match (current, value) {
+                    (Some(PropertyValue::Int(a)), PropertyValue::Int(b)) => {
+                        Some(PropertyValue::Int(if sub {
+                            a.saturating_sub(*b)
+                        } else {
+                            a.saturating_add(*b)
+                        }))
+                    }
+                    (Some(PropertyValue::Float(a)), PropertyValue::Float(b)) => {
+                        Some(PropertyValue::Float(if sub { a - b } else { a + b }))
+                    }
+                    (None, _) => {
+                        skip("add/subtract: target property missing", &mut skipped);
+                        continue;
+                    }
+                    _ => {
+                        skip("add/subtract: variant mismatch", &mut skipped);
+                        continue;
+                    }
+                }
+            }
+            CompiledEffectOp::AddFromProperty { source_ix, source_key }
+            | CompiledEffectOp::SubtractFromProperty { source_ix, source_key } => {
+                let sub = matches!(effect.op, CompiledEffectOp::SubtractFromProperty { .. });
+                let Some(source) = rhs_nodes.get(*source_ix).copied().flatten() else {
+                    skip("add/subtract_from_property: source node unresolved", &mut skipped);
+                    continue;
+                };
+                let amount = match store.get_node(source).and_then(|d| d.get_property(*source_key)) {
+                    Some(PropertyValue::Float(f)) => f,
+                    Some(_) => {
+                        skip("add/subtract_from_property: source is not Float", &mut skipped);
+                        continue;
+                    }
+                    None => {
+                        skip("add/subtract_from_property: source property missing", &mut skipped);
+                        continue;
+                    }
+                };
+                match store.get_node(target).and_then(|d| d.get_property(effect.key)) {
+                    Some(PropertyValue::Float(a)) => {
+                        Some(PropertyValue::Float(if sub { a - amount } else { a + amount }))
+                    }
+                    Some(_) => {
+                        skip("add/subtract_from_property: target is not Float", &mut skipped);
+                        continue;
+                    }
+                    None => {
+                        skip("add/subtract_from_property: target property missing", &mut skipped);
+                        continue;
+                    }
+                }
+            }
+            CompiledEffectOp::Jitter { magnitude } => {
+                // Validate BEFORE drawing: a skipped jitter consumes no
+                // randomness, so mismatches cannot shift the stream.
+                let current = store
+                    .get_node(target)
+                    .and_then(|d| d.get_property(effect.key));
+                match current {
+                    Some(PropertyValue::Float(f)) => {
+                        let delta: f64 = rng.gen_range(-magnitude..=*magnitude);
+                        Some(PropertyValue::Float(f + delta))
+                    }
+                    Some(PropertyValue::Int(i)) => {
+                        let m = magnitude.floor() as i64;
+                        let delta = if m > 0 { rng.gen_range(-m..=m) } else { 0 };
+                        Some(PropertyValue::Int(i.saturating_add(delta)))
+                    }
+                    Some(_) => {
+                        skip("jitter: target is not Int or Float", &mut skipped);
+                        continue;
+                    }
+                    None => {
+                        skip("jitter: target property missing", &mut skipped);
+                        continue;
+                    }
+                }
+            }
+        };
+        // Write phase.
+        match (store.get_node_mut(target), new_value) {
+            (Some(data), Some(v)) => {
+                data.set_property(effect.key, v);
+                applied += 1;
+            }
+            _ => skip("target node missing at write", &mut skipped),
+        }
+    }
+    (applied, skipped)
+}

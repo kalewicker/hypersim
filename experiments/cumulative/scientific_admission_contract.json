@@ -1,0 +1,71 @@
+{
+  "assay_work_bound": 20,
+  "batch_size": 128,
+  "budget_approved": false,
+  "campaign_launch_authorized": false,
+  "claim_scope": {
+    "assay_seed": 2026100903,
+    "diagnostic_cycles": 4,
+    "diagnostic_environment": 512,
+    "environmental_generalization": false,
+    "independent_unit": "47 matched seed blocks",
+    "open_ended_evolution": false,
+    "primary": "cumulative functional evolution within this fixed world",
+    "secondary": "paired endogenous versus external editing advantage"
+  },
+  "closure": "Read-only admission validation only. Never instantiate worlds, execute native transitions, create journals or accept a launch authorization. Future execution must consume the same admission rules and a separately approved final contract.",
+  "evolution_demonstrated": false,
+  "fixture_counts": {
+    "rejected": 227,
+    "requests": 421,
+    "rust_test_groups": 3,
+    "valid": 194
+  },
+  "fixture_limits": {
+    "native_rewrites": 0,
+    "output_bytes": 134217728,
+    "workflow_seconds": 1200
+  },
+  "journal_byte_allowance": 32505856,
+  "maximum_assays": 78960,
+  "mode": "check_only",
+  "native_execution_enabled": false,
+  "panel_sha256": "834b18e762d127aa9d6eedfcf9809b159902ea8595f95a75c6dbca2a172a2dc6",
+  "parent": {
+    "archive": "output/cumulative_live_controller_20261010",
+    "seal_sha256": "4a7ef1f96d6898bc3990d81af31441854098f844e888cc51c39c02e083ce3f23"
+  },
+  "planning_contract_sha256": "221859ab147bb0a8ce166c17382bda8b2113651fefaf29dc6cb44235514b1692",
+  "profile": "cumulative-scientific-admission-v1",
+  "proposed_budget": {
+    "native_ms": 10800000,
+    "rewrites": 2000000,
+    "storage_bytes": 8589934592,
+    "workflow_ms": 21600000
+  },
+  "readiness_gate_complete": false,
+  "registry_profile": "cumulative-scientific-registry-v1",
+  "request_byte_cap": 33554432,
+  "roles": [
+    "earlier_before",
+    "earlier_after",
+    "later_before",
+    "later_after",
+    "intact",
+    "remove_earlier",
+    "remove_later",
+    "padded_remove_earlier",
+    "single_remove_earlier",
+    "sham",
+    "restored",
+    "padded_remove_later",
+    "padded_remove_both"
+  ],
+  "scientific_acceptance": false,
+  "world_reservations": {
+    "endogenous": 250,
+    "external": 240,
+    "frozen": 202,
+    "nonheritable": 250
+  }
+}

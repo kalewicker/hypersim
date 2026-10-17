@@ -1,0 +1,13 @@
+Command:
+ERE_CLOSURE_CAMPAIGN=1 ERE_COMPLETE_COHERENT_DRAW_ASSAY_OUTPUT=/Users/kalewicker/Documents/hypersim/output/ere_complete_coherent_closure_full_20260929 ERE_COMPLETE_COHERENT_DRAW_ASSAY_APPROVED_STEPS=1016800 ERE_COMPLETE_COHERENT_DRAW_ASSAY_APPROVED_CAPS='3600s,4GiB,900s,1GiB,400k/50k' ERE_COMPLETE_COHERENT_DRAW_ASSAY_APPROVED_CONTRACT=42bc764d215f3ac41783bdc3d7c787a8206f5bd2563a6b9daafaaeb515f6bffc cargo test --release --locked -p hg-sim-core --features hg-meta,repeated-edge-feasibility --test ere_complete_coherent_draw_assay complete_coherent_draw_frozen_assay -- --ignored --exact --nocapture --test-threads=1
+
+Captured output:
+    Finished `release` profile [optimized] target(s) in 0.23s
+     Running tests/ere_complete_coherent_draw_assay.rs (target/release/deps/ere_complete_coherent_draw_assay-4ec6f3adcd3f4f2d)
+
+running 1 test
+test complete_coherent_draw_frozen_assay ... {"scope": "controls", "audit_pass": true, "gate_pass": false, "training_admitted": false}
+{"scope": "full", "audit_pass": true, "gate_pass": true, "training_admitted": false}
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 3389.29s

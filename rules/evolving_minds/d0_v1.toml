@@ -1,0 +1,3192 @@
+# Generic bounded D0 development laws, v1.
+[[rules]]
+"name" = "environment_influx"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["site"]
+"edges" = []
+"var_guards" = []
+"node_property_compares" = []
+[rules.lhs.node_labels]
+"site" = 3774873601
+[rules.lhs.edge_labels]
+[[rules.lhs.node_property_guards]]
+"var" = "site"
+"property" = 1
+"op" = "lte"
+"value" = 56.0
+[rules.rhs]
+"nodes" = ["site"]
+"edges" = []
+[rules.rhs.edge_labels]
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "site"
+"key" = 1
+"op" = "add"
+"value" = 8.0
+
+[[rules]]
+"name" = "sense_0"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["r", "site", "s"]
+"edges" = [["r", "site"], ["r", "s"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"site" = 3774873601
+"s" = 3774873602
+[rules.lhs.edge_labels]
+"0" = 3774873700
+"1" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "site", "s"]
+[[rules.lhs.node_property_guards]]
+"var" = "s"
+"property" = 242005
+"op" = "eq"
+"value" = 0
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[rules.rhs]
+"nodes" = ["r", "site", "s"]
+"edges" = [["r", "site"], ["r", "s"]]
+[rules.rhs.edge_labels]
+"0" = 3774873700
+"1" = 3774939236
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "s"
+"key" = 240005
+"op" = "copy_from"
+"source_var" = "site"
+"source_key" = 241003
+
+[[rules]]
+"name" = "sense_1"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["r", "site", "s"]
+"edges" = [["r", "site"], ["r", "s"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"site" = 3774873601
+"s" = 3774873602
+[rules.lhs.edge_labels]
+"0" = 3774873700
+"1" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "site", "s"]
+[[rules.lhs.node_property_guards]]
+"var" = "s"
+"property" = 242005
+"op" = "eq"
+"value" = 1
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[rules.rhs]
+"nodes" = ["r", "site", "s"]
+"edges" = [["r", "site"], ["r", "s"]]
+[rules.rhs.edge_labels]
+"0" = 3774873700
+"1" = 3774939236
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "s"
+"key" = 240005
+"op" = "copy_from"
+"source_var" = "site"
+"source_key" = 241004
+
+[[rules]]
+"name" = "prepare_2_3774873602_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873602
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_2_3774873602_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873602
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_2_3774939136_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774939136
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_2_3774939136_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774939136
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_2_3774873605_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873605
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_2_3774873605_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873605
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_3_3774873602_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873602
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 3
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_3_3774873602_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873602
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 3
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_3_3774939136_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774939136
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 3
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_3_3774939136_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774939136
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 3
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_3_3774873605_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873605
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 3
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_3_3774873605_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873605
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 3
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_4_3774873602_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873602
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 4
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_4_3774873602_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873602
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 4
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_4_3774939136_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774939136
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 4
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_4_3774939136_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774939136
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 4
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_4_3774873605_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873605
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 4
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_4_3774873605_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873605
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 4
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_5_3774873602_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873602
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 5
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_5_3774873602_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873602
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 5
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_5_3774939136_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774939136
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 5
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_5_3774939136_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774939136
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 5
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_5_3774873605_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873605
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 5
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_5_3774873605_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873605
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 5
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_6_3774873602_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873602
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 6
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_6_3774873602_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873602
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 6
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_6_3774939136_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774939136
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 6
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_6_3774939136_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774939136
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 6
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_6_3774873605_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873605
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 6
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_6_3774873605_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873605
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 6
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_7_3774873602_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873602
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 7
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_7_3774873602_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873602
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 7
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_7_3774939136_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774939136
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 7
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_7_3774939136_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774939136
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 7
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_7_3774873605_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873605
+"c" = 3774873604
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 7
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "prepare_7_3774873605_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.lhs.node_labels]
+"s" = 3774873605
+"c" = 3774873604
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["s", "c", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242005
+"op" = "eq"
+"value" = 7
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "c"
+"key_b" = 240001
+[rules.rhs]
+"nodes" = ["s", "c", "d"]
+"edges" = [["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774873706
+"1" = 3774873707
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "s"
+"source_key" = 240005
+
+[[rules]]
+"name" = "commit_3774939136"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["d"]
+"edges" = []
+"var_guards" = []
+"node_property_compares" = []
+[rules.lhs.node_labels]
+"d" = 3774939136
+[rules.lhs.edge_labels]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242009
+"op" = "eq"
+"value" = true
+[rules.rhs]
+"nodes" = ["d"]
+"edges" = []
+[rules.rhs.edge_labels]
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 240005
+"op" = "copy_from"
+"source_var" = "d"
+"source_key" = 242010
+
+[[rules]]
+"name" = "commit_3774873605"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["d"]
+"edges" = []
+"var_guards" = []
+"node_property_compares" = []
+[rules.lhs.node_labels]
+"d" = 3774873605
+[rules.lhs.edge_labels]
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242009
+"op" = "eq"
+"value" = true
+[rules.rhs]
+"nodes" = ["d"]
+"edges" = []
+[rules.rhs.edge_labels]
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 240005
+"op" = "copy_from"
+"source_var" = "d"
+"source_key" = 242010
+
+[[rules]]
+"name" = "development_create_0"
+"priority" = 1
+[rules.lhs]
+"nodes" = ["r", "g", "slot"]
+"edges" = [["r", "g"], ["r", "slot"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"g" = 3774873603
+"slot" = 3774939137
+[rules.lhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "g", "slot"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "lte"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 1.0
+[[rules.lhs.node_property_guards]]
+"var" = "g"
+"property" = 240002
+"op" = "eq"
+"value" = 0
+[[rules.lhs.node_property_guards]]
+"var" = "slot"
+"property" = 242008
+"op" = "eq"
+"value" = false
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 242003
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 242001
+[[rules.lhs.node_property_compares]]
+"var_a" = "slot"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "slot"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242005
+[rules.rhs]
+"nodes" = ["r", "g", "slot", "p"]
+"edges" = [["r", "g"], ["r", "slot"], ["r", "p"], ["slot", "p"]]
+[rules.rhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+"3" = 3774939237
+[rules.rhs.node_labels]
+"p" = 3774939136
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242001
+"op" = "add"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "slot"
+"key" = 242008
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "p"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "r"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "p"
+"key" = 242005
+"op" = "copy_from"
+"source_var" = "g"
+"source_key" = 242005
+[[rules.rhs.property_effects]]
+"var" = "p"
+"key" = 240005
+"op" = "copy_from"
+"source_var" = "g"
+"source_key" = 242007
+[[rules.rhs.property_effects]]
+"var" = "p"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "g"
+"source_key" = 242007
+[[rules.rhs.property_effects]]
+"var" = "p"
+"key" = 242009
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 240010
+"op" = "add"
+"value" = 1.0
+
+[[rules]]
+"name" = "development_create_1"
+"priority" = 1
+[rules.lhs]
+"nodes" = ["r", "g", "slot"]
+"edges" = [["r", "g"], ["r", "slot"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"g" = 3774873603
+"slot" = 3774939137
+[rules.lhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "g", "slot"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "lte"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 1.0
+[[rules.lhs.node_property_guards]]
+"var" = "g"
+"property" = 240002
+"op" = "eq"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "slot"
+"property" = 242008
+"op" = "eq"
+"value" = false
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242011
+"op" = "eq"
+"value" = false
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 242003
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 242001
+[[rules.lhs.node_property_compares]]
+"var_a" = "slot"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "slot"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242005
+[rules.rhs]
+"nodes" = ["r", "g", "slot", "p"]
+"edges" = [["r", "g"], ["r", "slot"], ["r", "p"], ["slot", "p"]]
+[rules.rhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+"3" = 3774939237
+[rules.rhs.node_labels]
+"p" = 3774873605
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242001
+"op" = "add"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "slot"
+"key" = 242008
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "p"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "r"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "p"
+"key" = 242005
+"op" = "copy_from"
+"source_var" = "g"
+"source_key" = 242005
+[[rules.rhs.property_effects]]
+"var" = "p"
+"key" = 240005
+"op" = "copy_from"
+"source_var" = "g"
+"source_key" = 242007
+[[rules.rhs.property_effects]]
+"var" = "p"
+"key" = 242010
+"op" = "copy_from"
+"source_var" = "g"
+"source_key" = 242007
+[[rules.rhs.property_effects]]
+"var" = "p"
+"key" = 242009
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 240010
+"op" = "add"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242011
+"op" = "set"
+"value" = true
+
+[[rules]]
+"name" = "development_wire_3774873602_3774939136"
+"priority" = 1
+[rules.lhs]
+"nodes" = ["r", "g", "s", "d"]
+"edges" = [["r", "g"], ["r", "s"], ["r", "d"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"g" = 3774873603
+"s" = 3774873602
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "g", "s", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "lte"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 1.0
+[[rules.lhs.node_property_guards]]
+"var" = "g"
+"property" = 240002
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242009
+"op" = "eq"
+"value" = false
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 242003
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 242001
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242006
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242005
+[rules.rhs]
+"nodes" = ["r", "g", "s", "d", "c"]
+"edges" = [["r", "g"], ["r", "s"], ["r", "d"], ["r", "c"], ["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+"3" = 3774939236
+"4" = 3774873706
+"5" = 3774873707
+[rules.rhs.node_labels]
+"c" = 3774873604
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242001
+"op" = "add"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "c"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "r"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242009
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 240010
+"op" = "add"
+"value" = 1.0
+
+[[rules]]
+"name" = "development_wire_3774873602_3774873605"
+"priority" = 1
+[rules.lhs]
+"nodes" = ["r", "g", "s", "d"]
+"edges" = [["r", "g"], ["r", "s"], ["r", "d"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"g" = 3774873603
+"s" = 3774873602
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "g", "s", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "lte"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 1.0
+[[rules.lhs.node_property_guards]]
+"var" = "g"
+"property" = 240002
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242009
+"op" = "eq"
+"value" = false
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 242003
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 242001
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242006
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242005
+[rules.rhs]
+"nodes" = ["r", "g", "s", "d", "c"]
+"edges" = [["r", "g"], ["r", "s"], ["r", "d"], ["r", "c"], ["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+"3" = 3774939236
+"4" = 3774873706
+"5" = 3774873707
+[rules.rhs.node_labels]
+"c" = 3774873604
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242001
+"op" = "add"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "c"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "r"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242009
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 240010
+"op" = "add"
+"value" = 1.0
+
+[[rules]]
+"name" = "development_wire_3774939136_3774939136"
+"priority" = 1
+[rules.lhs]
+"nodes" = ["r", "g", "s", "d"]
+"edges" = [["r", "g"], ["r", "s"], ["r", "d"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"g" = 3774873603
+"s" = 3774939136
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "g", "s", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "lte"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 1.0
+[[rules.lhs.node_property_guards]]
+"var" = "g"
+"property" = 240002
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242009
+"op" = "eq"
+"value" = false
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 242003
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 242001
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242006
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242005
+[rules.rhs]
+"nodes" = ["r", "g", "s", "d", "c"]
+"edges" = [["r", "g"], ["r", "s"], ["r", "d"], ["r", "c"], ["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+"3" = 3774939236
+"4" = 3774873706
+"5" = 3774873707
+[rules.rhs.node_labels]
+"c" = 3774873604
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242001
+"op" = "add"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "c"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "r"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242009
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 240010
+"op" = "add"
+"value" = 1.0
+
+[[rules]]
+"name" = "development_wire_3774939136_3774873605"
+"priority" = 1
+[rules.lhs]
+"nodes" = ["r", "g", "s", "d"]
+"edges" = [["r", "g"], ["r", "s"], ["r", "d"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"g" = 3774873603
+"s" = 3774939136
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "g", "s", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "lte"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 1.0
+[[rules.lhs.node_property_guards]]
+"var" = "g"
+"property" = 240002
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242009
+"op" = "eq"
+"value" = false
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 242003
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 242001
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242006
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242005
+[rules.rhs]
+"nodes" = ["r", "g", "s", "d", "c"]
+"edges" = [["r", "g"], ["r", "s"], ["r", "d"], ["r", "c"], ["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+"3" = 3774939236
+"4" = 3774873706
+"5" = 3774873707
+[rules.rhs.node_labels]
+"c" = 3774873604
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242001
+"op" = "add"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "c"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "r"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242009
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 240010
+"op" = "add"
+"value" = 1.0
+
+[[rules]]
+"name" = "development_wire_3774873605_3774939136"
+"priority" = 1
+[rules.lhs]
+"nodes" = ["r", "g", "s", "d"]
+"edges" = [["r", "g"], ["r", "s"], ["r", "d"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"g" = 3774873603
+"s" = 3774873605
+"d" = 3774939136
+[rules.lhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "g", "s", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "lte"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 1.0
+[[rules.lhs.node_property_guards]]
+"var" = "g"
+"property" = 240002
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242009
+"op" = "eq"
+"value" = false
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 242003
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 242001
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242006
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242005
+[rules.rhs]
+"nodes" = ["r", "g", "s", "d", "c"]
+"edges" = [["r", "g"], ["r", "s"], ["r", "d"], ["r", "c"], ["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+"3" = 3774939236
+"4" = 3774873706
+"5" = 3774873707
+[rules.rhs.node_labels]
+"c" = 3774873604
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242001
+"op" = "add"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "c"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "r"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242009
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 240010
+"op" = "add"
+"value" = 1.0
+
+[[rules]]
+"name" = "development_wire_3774873605_3774873605"
+"priority" = 1
+[rules.lhs]
+"nodes" = ["r", "g", "s", "d"]
+"edges" = [["r", "g"], ["r", "s"], ["r", "d"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"g" = 3774873603
+"s" = 3774873605
+"d" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "g", "s", "d"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "lte"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 1.0
+[[rules.lhs.node_property_guards]]
+"var" = "g"
+"property" = 240002
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_guards]]
+"var" = "d"
+"property" = 242009
+"op" = "eq"
+"value" = false
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 242003
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 242001
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "s"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242006
+[[rules.lhs.node_property_compares]]
+"var_a" = "d"
+"key_a" = 242005
+"op" = "eq"
+"var_b" = "g"
+"key_b" = 242005
+[rules.rhs]
+"nodes" = ["r", "g", "s", "d", "c"]
+"edges" = [["r", "g"], ["r", "s"], ["r", "d"], ["r", "c"], ["s", "c"], ["c", "d"]]
+[rules.rhs.edge_labels]
+"0" = 3774939236
+"1" = 3774939236
+"2" = 3774939236
+"3" = 3774939236
+"4" = 3774873706
+"5" = 3774873707
+[rules.rhs.node_labels]
+"c" = 3774873604
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242001
+"op" = "add"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "c"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "r"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "d"
+"key" = 242009
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 240010
+"op" = "add"
+"value" = 1.0
+
+[[rules]]
+"name" = "development_halt"
+"priority" = 1
+[rules.lhs]
+"nodes" = ["r", "g"]
+"edges" = [["r", "g"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"g" = 3774873603
+[rules.lhs.edge_labels]
+"0" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "g"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "lte"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 1.0
+[[rules.lhs.node_property_guards]]
+"var" = "g"
+"property" = 240002
+"op" = "eq"
+"value" = 3
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 242003
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 242001
+[rules.rhs]
+"nodes" = ["r", "g"]
+"edges" = [["r", "g"]]
+[rules.rhs.edge_labels]
+"0" = 3774939236
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242001
+"op" = "add"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 2
+
+[[rules]]
+"name" = "development_fail"
+"priority" = -1
+[rules.lhs]
+"nodes" = ["r", "g"]
+"edges" = [["r", "g"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"g" = 3774873603
+[rules.lhs.edge_labels]
+"0" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "g"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "lte"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 1.0
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 242003
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 242001
+[rules.rhs]
+"nodes" = ["r", "g"]
+"edges" = [["r", "g"]]
+[rules.rhs.edge_labels]
+"0" = 3774939236
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 3
+
+[[rules]]
+"name" = "development_wait"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["r"]
+"edges" = []
+"var_guards" = []
+"node_property_compares" = []
+[rules.lhs.node_labels]
+"r" = 3774873600
+[rules.lhs.edge_labels]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "eq"
+"value" = 0
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "lt"
+"value" = 1.0
+[rules.rhs]
+"nodes" = ["r"]
+"edges" = []
+[rules.rhs.edge_labels]
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 1
+
+[[rules]]
+"name" = "attempt_commit"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["r", "a"]
+"edges" = [["r", "a"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"a" = 3774873605
+[rules.lhs.edge_labels]
+"0" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "a"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 241007
+"op" = "eq"
+"value" = false
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 1.0
+[[rules.lhs.node_property_compares]]
+"var_a" = "a"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[rules.rhs]
+"nodes" = ["r", "a"]
+"edges" = [["r", "a"]]
+[rules.rhs.edge_labels]
+"0" = 3774939236
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 241008
+"op" = "copy_from"
+"source_var" = "a"
+"source_key" = 240005
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 241007
+"op" = "set"
+"value" = true
+
+[[rules]]
+"name" = "settle_success"
+"priority" = 1
+[rules.lhs]
+"nodes" = ["r", "site"]
+"edges" = [["r", "site"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"site" = 3774873601
+[rules.lhs.edge_labels]
+"0" = 3774873700
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "site"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 241007
+"op" = "eq"
+"value" = true
+[[rules.lhs.node_property_guards]]
+"var" = "site"
+"property" = 1
+"op" = "gte"
+"value" = 8.0
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "lte"
+"value" = 1000.0
+[[rules.lhs.node_property_compares]]
+"var_a" = "r"
+"key_a" = 241008
+"op" = "eq"
+"var_b" = "site"
+"key_b" = 241002
+[rules.rhs]
+"nodes" = ["r", "site"]
+"edges" = [["r", "site"]]
+[rules.rhs.edge_labels]
+"0" = 3774873700
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 241007
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "site"
+"key" = 1
+"op" = "subtract"
+"value" = 8.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "add"
+"value" = 8.0
+
+[[rules]]
+"name" = "settle_failure"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["r", "site"]
+"edges" = [["r", "site"]]
+"node_property_compares" = []
+[rules.lhs.node_labels]
+"r" = 3774873600
+"site" = 3774873601
+[rules.lhs.edge_labels]
+"0" = 3774873700
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "site"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 241007
+"op" = "eq"
+"value" = true
+[rules.rhs]
+"nodes" = ["r", "site"]
+"edges" = [["r", "site"]]
+[rules.rhs.edge_labels]
+"0" = 3774873700
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 241007
+"op" = "set"
+"value" = false
+
+[[rules]]
+"name" = "maintenance_full"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["r"]
+"edges" = []
+"var_guards" = []
+"node_property_guards" = []
+[rules.lhs.node_labels]
+"r" = 3774873600
+[rules.lhs.edge_labels]
+[[rules.lhs.node_property_compares]]
+"var_a" = "r"
+"key_a" = 1
+"op" = "gte"
+"var_b" = "r"
+"key_b" = 240010
+[rules.rhs]
+"nodes" = ["r"]
+"edges" = []
+[rules.rhs.edge_labels]
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract_from_property"
+"source_var" = "r"
+"source_key" = 240010
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 240004
+"op" = "add"
+"value" = 1
+
+[[rules]]
+"name" = "maintenance_exhausted"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["r"]
+"edges" = []
+"var_guards" = []
+"node_property_guards" = []
+[rules.lhs.node_labels]
+"r" = 3774873600
+[rules.lhs.edge_labels]
+[[rules.lhs.node_property_compares]]
+"var_a" = "r"
+"key_a" = 1
+"op" = "lt"
+"var_b" = "r"
+"key_b" = 240010
+[rules.rhs]
+"nodes" = ["r"]
+"edges" = []
+[rules.rhs.edge_labels]
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "set"
+"value" = 0.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 240004
+"op" = "add"
+"value" = 1

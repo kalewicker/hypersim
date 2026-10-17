@@ -1,0 +1,145 @@
+{
+  "profile": "E2-categorical-versus-es-direction-v1",
+  "objective": "mean-constraint-utility-v1",
+  "statistical_unit": "paired_estimator_block",
+  "parameter_panel": "zero-and-alternating-quarter-v1",
+  "parameters": 183,
+  "contexts": 2,
+  "methods": ["es", "categorical"],
+  "estimates_per_method": 2,
+  "raw_alpha": 0.05000000074505806,
+  "es_sigma": 1.0,
+  "es_pairs": 8,
+  "es_candidate_count": 16,
+  "categorical_baseline": "leave-one-out-emission-mean-v1",
+  "step_rule": "actual-f32-delta-group-centered-fixed-l2-v1",
+  "step_radius": 0.1,
+  "maximum_actual_step_norm": 0.100001,
+  "maximum_absolute_coordinate_step": 0.100001,
+  "zero_centered_direction": "retain_base_and_all_allocations",
+  "validation_estimator": "base-leaf-importance-effect-fixed-control-variate-v1",
+  "validation_utility_control_variate": 1.0,
+  "validation_validity_control_variate": 1.0,
+  "weight_clipping": false,
+  "weight_self_normalization": false,
+  "weight_bound": "exp(plus_or_minus_6_times_maximum_absolute_coordinate_step)",
+  "validation_vectors": [
+    "base", "es_a", "es_b", "categorical_a", "categorical_b",
+    "reverse_es_a", "reverse_es_b", "reverse_categorical_a", "reverse_categorical_b"
+  ],
+  "reverse_rule": "f32(2_times_base_minus_forward)",
+  "sign_deadband": 1e-12,
+  "significance_threshold": 0.05,
+  "acceptance": {
+    "complete_fixed_schedule_and_known_outcomes": true,
+    "categorical_alignment_mean_above_deadband_and_sign_p_below_threshold": true,
+    "categorical_utility_effect_mean_above_deadband_and_sign_p_below_threshold": true,
+    "categorical_minus_es_effect_mean_above_deadband_and_sign_p_below_threshold": true,
+    "categorical_utility_effect_above_deadband_in_both_contexts": true,
+    "categorical_weighted_validity_effect_at_least_minus_deadband": true,
+    "conjunction_only": true
+  },
+  "native": {
+    "grammar_profile": "E2-complete-valid-production-grammar-v1",
+    "ordinary_world": "signal-fixed-world-v1",
+    "allocation_mode": "metadata-isolated-v1",
+    "matcher_work_model": "repeated-self-pair-feasibility-v1",
+    "step_mode": "MaxParallel",
+    "max_pairings": 1,
+    "match_budget_policy": "Pooled",
+    "work": 50000,
+    "results": 50000,
+    "horizon": 100,
+    "node_ceiling": 2000,
+    "edge_ceiling": 4000
+  },
+  "resources": {
+    "grammar_compilations": 1,
+    "cell_wall_seconds": 30,
+    "output_cap_bytes": 2147483648,
+    "receipt_reserve_bytes": 134217728,
+    "final_reserve_bytes": 16777216,
+    "auditor_wall_seconds": 900,
+    "optimizer_generations": 0,
+    "training_updates": 0,
+    "full_training_authorized": false,
+    "scientific_launch_requires_separate_approval": true
+  },
+  "seed_domains": {
+    "es_noise": 10000000,
+    "estimation_emission": 20000000,
+    "estimation_physics": 40000000,
+    "validation_emission": 60000000,
+    "validation_physics": 80000000
+  },
+  "seed_strides": {"block": 1000000, "context": 100000, "method": 10000, "estimate": 1000},
+  "scientific": {
+    "mode": "scientific",
+    "master_seed": 253299991248896,
+    "blocks": 8,
+    "es_emissions_per_candidate": 4,
+    "categorical_emissions_per_estimate": 64,
+    "validation_emissions_per_block_context": 128,
+    "validation_physics_per_emission": 4,
+    "direction_estimates": 64,
+    "estimation_evaluations": 4096,
+    "validation_evaluations": 8192,
+    "total_evaluations": 12288,
+    "maximum_native_attempts": 1228800,
+    "wall_seconds": 3600
+  },
+  "development": {
+    "mode": "development",
+    "master_seed": 253304286216192,
+    "blocks": 1,
+    "es_emissions_per_candidate": 1,
+    "categorical_emissions_per_estimate": 16,
+    "validation_emissions_per_block_context": 8,
+    "validation_physics_per_emission": 4,
+    "direction_estimates": 8,
+    "estimation_evaluations": 128,
+    "validation_evaluations": 64,
+    "total_evaluations": 192,
+    "maximum_native_attempts": 19200,
+    "wall_seconds": 900
+  },
+  "lineage": {
+    "direction": {
+      "path": "output/ere_complete_direction_assay_20261001",
+      "root_seal": "ba88c696014fa42ca612f4c20baadb1818cc6c5757fd41594c87a1e4bc1a185a",
+      "sealed_entries": 7686,
+      "scientific_result": "support_direction_false"
+    },
+    "adapter": {
+      "path": "output/ere_categorical_adapter_engineering_v2_20261001",
+      "root_seal": "b889b006889ec2b2d2d978b87b8f444c49e694b04aecc9441cc1ba1adaf7cb5c",
+      "sealed_entries": 734,
+      "evidence_scope": "engineering_arithmetic_only"
+    },
+    "failed_adapter_packaging": {
+      "path": "output/ere_categorical_adapter_engineering_20261001",
+      "root_seal": "05c3cd5a6a4f3f4dfa207af97839ce8a2670687f173e4582d31c2533bd4535c5",
+      "sealed_entries": 732,
+      "evidence_scope": "failed_engineering"
+    }
+  },
+  "excluded_feature_sources": [
+    "crates/hg-sim-core/src/bin/evolving_minds.rs",
+    "crates/hg-sim-core/src/evolving_minds/config.rs",
+    "crates/hg-sim-core/src/evolving_minds/mod.rs",
+    "crates/hg-sim-core/src/evolving_minds/runtime.rs",
+    "crates/hg-sim-core/src/evolving_minds/source_inventory.rs"
+  ],
+  "adapter_registration": {
+    "crates/hg-train/Cargo.toml": {
+      "historical_sha256": "fa64b61240f64bfb968f3558d7ae0ef6d67cffd6509b2fefa105438afb0edb15",
+      "registered_sha256": "6baf24cfb12a13438019ccb9c1a9c09a1377694c3b6b91c3269c8a872261e26a",
+      "change": "append_only_required_feature_offline_binary"
+    },
+    "crates/hg-train/src/ere.rs": {
+      "historical_sha256": "e292012b59c299fa4de51ef717d4ef0725c9a1137aa518fbddec57c9898bafe8",
+      "registered_sha256": "6c8e28f526a791fa47bebe0664c7c99f5c7010dc93dbe2ad941f0674340f45a3",
+      "change": "add_only_feature_gated_categorical_module_export"
+    }
+  }
+}

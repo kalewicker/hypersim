@@ -1,0 +1,40 @@
+# Excitation front (LK2 validation dynamic): a marked node (label 1)
+# excites an unmarked neighbor (label 0) across a 2-edge. Pure relabel —
+# no creation, no deletion, no cleanup, no jitter (zero-draw safe).
+#
+# Acceptance properties (tested in crates/hg-eval/tests/cone_analysis.rs):
+# (a) deterministic under MaxParallel (canonical conflict resolution);
+# (b) no re-firing: a 1–1 edge matches nothing, so the front only grows;
+# (c) the REALIZED front speed is measured on the lattice fixture, not
+#     assumed — conflict sets (shared endpoints) serialize same-source
+#     matches under MaxParallel, so the speed is below 1 site/step and the
+#     measured value is the reference (docs/fixture_calibration.md).
+
+[[rules]]
+name     = "excite"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [
+  ["a", "b"],
+]
+
+[rules.lhs.node_labels]
+a = 1
+b = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b"]
+
+[rules.rhs]
+nodes = ["a", "b"]
+edges = [
+  ["a", "b"],
+]
+
+[rules.rhs.node_labels]
+b = 1

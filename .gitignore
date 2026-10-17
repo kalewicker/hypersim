@@ -1,0 +1,21 @@
+target/
+/output/
+/runs/
+/crates/hg-train/runs_stage2/
+.DS_Store
+hg-selfmod/runs/
+crates/hg-selfmod/runs/
+
+# Machine-local assistant settings and credentials
+.claude/
+.codex/
+.agents/
+.env
+.env.*
+!.env.example
+
+# Rebuildable Python caches and environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/

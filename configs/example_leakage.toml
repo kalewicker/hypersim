@@ -1,0 +1,30 @@
+# Locality & leakage track (LK) example: the excitation-front reference
+# dynamic on a planted-shortcut triangulated lattice, with all leakage
+# artifacts enabled. See docs/user_guide.md §12.5.
+experiment_name = "leakage_example"
+seed = 42
+
+[rules]
+source = "File"
+file_path = "rules/excitation_front.toml"
+
+[initial]
+condition_type = "TriLatticeExcited"
+width = 40
+defect_density = 0.01      # planted shortcut density (0.0 = clean lattice)
+
+[engine]
+step_mode = "MaxParallel"  # required for the twin harness
+max_steps = 120
+metrics_window_interval = 10
+thread_count = 4
+
+[leakage]
+enabled = true
+cadence_steps = 10
+detour_sample_edges = 4800  # near-full census; see the p_min floor in
+                            # docs/fixture_calibration.md before lowering
+cone_events_enabled = true  # write causal_events.jsonl for `cone`
+
+[output]
+snapshots_enabled = true    # required by `hypersim-cli cone`

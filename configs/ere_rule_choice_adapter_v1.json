@@ -1,0 +1,17 @@
+{
+  "profile": "E2-rule-choice-adapter-v1",
+  "contexts": [10, 20, 30],
+  "actions": [null, 10, 20, 30],
+  "seeds": [993748714001, 993748714002],
+  "arms": ["live_paid", "frozen_paid", "live_unpaid", "live_disabled", "preseeded_lure"],
+  "horizon": 24,
+  "cells": 48,
+  "maximum_native_attempts": 1152,
+  "native_deadline_seconds": 60,
+  "match_work_limit": 50000,
+  "match_result_limit": 50000,
+  "reward_denominator": 24,
+  "training_updates": 0,
+  "scientific_acceptance": false,
+  "training_admitted": false
+}

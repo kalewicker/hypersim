@@ -1,0 +1,27 @@
+[package]
+name = "hg-cumulative-readiness"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+hg-core = { path = "../lk/crates/hg-core" }
+hg-rules = { path = "../lk/crates/hg-rules" }
+hg-engine = { path = "../lk/crates/hg-engine" }
+hg-observe = { path = "../lk/crates/hg-observe" }
+smallvec = "1"
+slotmap = "1"
+rand = "0.8"
+rand_chacha = "0.3"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10.9"
+
+[patch.crates-io]
+slotmap = { path = "../lk/vendor/slotmap" }
+
+[[bin]]
+name = "cumulative-readiness"
+path = "src/main.rs"

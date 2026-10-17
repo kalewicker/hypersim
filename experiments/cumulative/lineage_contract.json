@@ -1,0 +1,23 @@
+{
+  "profile": "cumulative-lineage-intervention-readiness-v1",
+  "scope": "development_lineage_measurement_and_standardized_native_interventions",
+  "readiness_gate_complete": false,
+  "scientific_acceptance": false,
+  "evolution_demonstrated": false,
+  "campaign_launch_authorized": false,
+  "limits": {"native_rewrites": 6000, "native_seconds": 300, "build_test_audit_seconds": 1200, "output_bytes": 134217728, "assays": 128, "pairs_per_sample": 28, "samples": 75},
+  "shared_input": {"archive": "output/cumulative_shared_population_readiness_20261009", "seal_sha256": "885748da9a20e93a5ef251352540dd5c3280df5932e04745cc664ff46bcd4c2f"},
+  "retained_failed_development_seal_sha256": "7c7692d7f0db52264658070550cf72d4922fbc5e0d755c6d8536c9b74b119add",
+  "development_seed": 2026100903,
+  "sampling": {"census_ticks": [0, 2, 4, 8], "slots_per_census": 2, "population": "all retained cells, living or dead", "phase": 2, "order": "ascending keyed SplitMix64 score, then cell ID", "missing": "retain empty slots and censuses outside registered case horizon", "control_endpoint": 3},
+  "controls": [
+    {"name":"authored_success", "founder":[0], "editor_mode":1, "edits_by_generation":[[0],[1],[],[]]},
+    {"name":"authored_redundancy", "founder":[0], "editor_mode":1, "edits_by_generation":[[0,0],[1],[],[]]},
+    {"name":"seeded_program", "founder":[0,1,2], "editor_mode":0, "edits_by_generation":[[],[],[],[]]}
+  ],
+  "control_law": {"cycles_per_generation":4, "phase_order":"one registered resource cycle, declared edits, remaining three resource cycles, paid birth; resource-before-edit as in shared population law", "paid_births":3, "environment_per_diagnostic_cell":512, "discovery_evidence":false, "shared_economy_claim":false},
+  "lineage_rule": {"novel_organization":"first executable reaction stage absent from founder and prior retained organization; all neutral duplicates remain recorded", "identity":"founder origin or native edit cell/receipt index; inherited by actual paid birth mapping", "ancestor_cutoff":"stop parent history at the birth of the next member on the selected path", "candidate_pairs":"all ordered pairs of retained novel stage organizations, never ranked by assay outcomes", "minimum_paid_transmissions":2, "minimum_active_descendant_generations":2, "activity":"actual metabolic native receipts using retained organization", "origin":"authored probes, external edits and seeded founder material are never autonomous discovery"},
+  "assay": {"cycles":4, "initial_capital":40, "environment_energy":512, "arm":"frozen", "editor_mode":0, "mutation":"disabled", "birth_requests":1, "unfunded_copy":"retain full resource horizon and refused copy status; candidate cannot pass if any comparison is unfunded", "score":"parent final capital plus transferred child capital minus initial capital; diagnostic child environment excluded", "incremental_acquisition_cost":2, "roles":["earlier_before","earlier_after","later_before","later_after","intact","remove_earlier","remove_later","padded_remove_earlier","single_remove_earlier","sham","restored"], "group_removal":"remove every endpoint gene of the acquired stage; preserve remaining order", "padding":"replace removed earlier-stage genes with legal nonexecutable stage -1, retaining storage and copy load", "single_removal":"remove only first earlier-stage copy to expose redundancy", "sham":"rebuild identical program in a separate native assay", "restoration":"reinsert group at original positions; separate native assay", "cache":"role plus exact stage sequence; all requests fixed before native outcomes"},
+  "acceptance": {"two_authored_positive_controls_recovered":true, "seeded_control_has_no_postfounder_candidate":true, "redundancy_single_removal_inadequate_group_removal_works":true, "all_samples_pairs_requests_and_horizons_retained":true, "independent_lineage_and_sampling_reconstruction":true, "parent_archive_preserved":true},
+  "remaining_readiness": ["appropriate bounded program and mutable editor repertoire", "durable partial campaign routes", "whole-campaign resource projection and replicate justification", "scientific candidate rule and thresholds frozen prospectively on new worlds"]
+}

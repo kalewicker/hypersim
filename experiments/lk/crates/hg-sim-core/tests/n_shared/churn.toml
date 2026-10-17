@@ -1,0 +1,38 @@
+[[rules]]
+name = "churn"
+priority = 2
+[rules.lhs]
+nodes = ["a", "old", "b"]
+edges = [["a", "old"], ["old", "b"]]
+[rules.lhs.node_labels]
+a = 0
+old = 0
+b = 0
+[[rules.lhs.node_property_guards]]
+var = "old"
+property = 1
+op = "gte"
+value = 20.0
+[[rules.lhs.node_property_guards]]
+var = "old"
+property = 22
+op = "eq"
+value = false
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "old", "b"]
+[rules.rhs]
+nodes = ["a", "fresh", "b"]
+edges = [["a", "fresh"], ["fresh", "b"]]
+[rules.rhs.node_labels]
+fresh = 0
+[[rules.rhs.property_effects]]
+var = "fresh"
+key = 1
+op = "set"
+value = 0.0
+[[rules.rhs.property_effects]]
+var = "fresh"
+key = 22
+op = "set"
+value = false

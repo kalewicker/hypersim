@@ -1,0 +1,16 @@
+{
+  "profile": "E2-rule-lifecycle-fixture-v1",
+  "classification": "scripted_engineering_fixture",
+  "seeds": [993748713473, 993748713474, 993748713475],
+  "arms": ["live_paid", "live_replacement", "frozen_paid", "live_unpaid", "live_disabled", "preseeded_lure"],
+  "horizon": 24,
+  "epoch": 2,
+  "work_limit": 50000,
+  "result_limit": 50000,
+  "maximum_pairings": 16,
+  "maximum_native_attempts": 432,
+  "native_wall_seconds": 60,
+  "edit_steps": [1, 9, 17],
+  "training_admitted": false,
+  "scientific_acceptance": false
+}

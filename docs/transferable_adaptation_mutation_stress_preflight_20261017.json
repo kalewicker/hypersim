@@ -1,0 +1,537 @@
+{
+  "development_only": true,
+  "full_development_panel_admitted": true,
+  "held_out_worlds_opened": 0,
+  "probe_audit_passed": true,
+  "probe_audit_seal_sha256": "04bc69a42722d131f1896929bdf4e5f365514913776b10bc7d8f3ec395eac260",
+  "probe_native_seal_sha256": "f05e7ecb0befc5be7e63cfa63f694dae86f157616886bec01889b3d50b5b8bda",
+  "recorded_utc": "2026-10-17T07:27:51.818607+00:00",
+  "registration": {
+    "cases": [
+      {
+        "arm": "ancestor",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Delayed",
+            "Delayed"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "Faithful",
+            "Faithful"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 17
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Alternating"
+        },
+        "fault": "Normal",
+        "name": "world17_Alternating_ancestor"
+      },
+      {
+        "arm": "faithful",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "Faithful",
+            "Faithful"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 17
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Alternating"
+        },
+        "fault": "Normal",
+        "name": "world17_Alternating_faithful"
+      },
+      {
+        "arm": "source",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "SourceKernel",
+            "SourceKernel"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 17
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Alternating"
+        },
+        "fault": "Normal",
+        "name": "world17_Alternating_source"
+      },
+      {
+        "arm": "grammar",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "GrammarSourceKernel",
+            "GrammarSourceKernel"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 17
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Alternating"
+        },
+        "fault": "Normal",
+        "name": "world17_Alternating_grammar"
+      },
+      {
+        "arm": "ancestor",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Delayed",
+            "Delayed"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "Faithful",
+            "Faithful"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 17
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Blocks4"
+        },
+        "fault": "Normal",
+        "name": "world17_Blocks4_ancestor"
+      },
+      {
+        "arm": "faithful",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "Faithful",
+            "Faithful"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 17
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Blocks4"
+        },
+        "fault": "Normal",
+        "name": "world17_Blocks4_faithful"
+      },
+      {
+        "arm": "source",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "SourceKernel",
+            "SourceKernel"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 17
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Blocks4"
+        },
+        "fault": "Normal",
+        "name": "world17_Blocks4_source"
+      },
+      {
+        "arm": "grammar",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "GrammarSourceKernel",
+            "GrammarSourceKernel"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 17
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Blocks4"
+        },
+        "fault": "Normal",
+        "name": "world17_Blocks4_grammar"
+      },
+      {
+        "arm": "ancestor",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Delayed",
+            "Delayed"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "Faithful",
+            "Faithful"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 23
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Alternating"
+        },
+        "fault": "Normal",
+        "name": "world23_Alternating_ancestor"
+      },
+      {
+        "arm": "faithful",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "Faithful",
+            "Faithful"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 23
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Alternating"
+        },
+        "fault": "Normal",
+        "name": "world23_Alternating_faithful"
+      },
+      {
+        "arm": "source",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "SourceKernel",
+            "SourceKernel"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 23
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Alternating"
+        },
+        "fault": "Normal",
+        "name": "world23_Alternating_source"
+      },
+      {
+        "arm": "grammar",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "GrammarSourceKernel",
+            "GrammarSourceKernel"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 23
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Alternating"
+        },
+        "fault": "Normal",
+        "name": "world23_Alternating_grammar"
+      },
+      {
+        "arm": "ancestor",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Delayed",
+            "Delayed"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "Faithful",
+            "Faithful"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 23
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Blocks4"
+        },
+        "fault": "Normal",
+        "name": "world23_Blocks4_ancestor"
+      },
+      {
+        "arm": "faithful",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "Faithful",
+            "Faithful"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 23
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Blocks4"
+        },
+        "fault": "Normal",
+        "name": "world23_Blocks4_faithful"
+      },
+      {
+        "arm": "source",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "SourceKernel",
+            "SourceKernel"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 23
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Blocks4"
+        },
+        "fault": "Normal",
+        "name": "world23_Blocks4_source"
+      },
+      {
+        "arm": "grammar",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "GrammarSourceKernel",
+            "GrammarSourceKernel"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 23
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Blocks4"
+        },
+        "fault": "Normal",
+        "name": "world23_Blocks4_grammar"
+      },
+      {
+        "arm": "recovery",
+        "config": {
+          "endowment": 24,
+          "founders": [
+            "Immediate",
+            "Immediate"
+          ],
+          "home_offsets": [
+            0,
+            4
+          ],
+          "horizon": 64,
+          "kernels": [
+            "GrammarSourceKernel",
+            "GrammarSourceKernel"
+          ],
+          "reversed": false,
+          "rotation": 0,
+          "scheduler": "semantic-lottery-v1",
+          "seed": 17
+        },
+        "environment": {
+          "cue_mode": "Informative",
+          "pattern": "Alternating"
+        },
+        "fault": "CleanStop",
+        "name": "world17_Alternating_recovery"
+      }
+    ],
+    "counts": {
+      "initial_cells": 17,
+      "native_advances_executed": 50048,
+      "patterns": 2,
+      "primary_cells": 16,
+      "published_states": 154,
+      "segments": 18,
+      "ticks": 1088,
+      "worlds": 2
+    },
+    "development_only": true,
+    "discovery_established": false,
+    "grammar_advance_requires_all_four_world_pattern_cells": true,
+    "limits": {
+      "audit_seconds": 3600,
+      "native_seconds": 3600,
+      "panel_bytes": 536870912,
+      "summed_advance_seconds": 2400
+    },
+    "minimum_active_offspring_gain": 1,
+    "minimum_net_resource_gain": 8,
+    "minimum_paid_attempts_per_functional_root": 4,
+    "minimum_success_fraction": "3/4",
+    "mutation_probability": "3/4",
+    "original_source_is_comparator_not_required_gate": true,
+    "profile": "evolving-minds-ta1-mutation-stress-development-v1",
+    "required_functional_paid_transmissions": 3,
+    "scientific_run_launched": false,
+    "transfer_established": false
+  },
+  "scientific_run_launched": false,
+  "unchanged_binary_sha256": "01463ae60e1fa4d565c970623e5c7980b0886f4fa5e4243b7d95bfdb38075ca1"
+}

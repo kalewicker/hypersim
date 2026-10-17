@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" font-family="Helvetica,Arial,sans-serif">
+<rect width="1000" height="560" fill="white"/>
+<text x="500.0" y="26" text-anchor="middle" font-size="17" font-weight="bold">hg-selfmod v5 — a fitness gradient exists, and efficiency still cannot be selected</text>
+<text x="70" y="62" font-size="14" font-weight="bold">A · The gradient was built (G5.1 / G5.2)</text>
+<text x="70" y="79" font-size="11" fill="#555">variance of net_income across productive rules</text>
+<rect x="70" y="90" width="380" height="180" fill="none" stroke="#666"/>
+<rect x="120.0" y="270.0" width="90" height="2.0" fill="#c0392b"/>
+<text x="165.0" y="262.0" text-anchor="middle" font-size="13" font-weight="bold">0.000</text>
+<text x="165.0" y="286" text-anchor="middle" font-size="10">v4 flat</text>
+<text x="165.0" y="299" text-anchor="middle" font-size="10">income</text>
+<rect x="310.0" y="125.6" width="90" height="144.4" fill="#1f6feb"/>
+<text x="355.0" y="117.6" text-anchor="middle" font-size="13" font-weight="bold">5.617</text>
+<text x="355.0" y="286" text-anchor="middle" font-size="10">v5 proportional</text>
+<text x="355.0" y="299" text-anchor="middle" font-size="10">+ match cost</text>
+<text x="78" y="108" font-size="11" fill="#c0392b">exactly 0 — fitness was binary</text>
+<text x="560" y="62" font-size="14" font-weight="bold">B · The invader was strictly more efficient</text>
+<text x="560" y="79" font-size="11" fill="#555">per-step, per-copy averages at the calibrated point</text>
+<rect x="560" y="90" width="380" height="180" fill="none" stroke="#666"/>
+<text x="710" y="110" font-size="11" font-weight="bold" text-anchor="end">resident R3</text>
+<text x="800" y="110" font-size="11" font-weight="bold" text-anchor="end">invader</text>
+<text x="568" y="132" font-size="10">match candidates</text>
+<text x="710" y="132" font-size="11" text-anchor="end">3640</text>
+<text x="800" y="132" font-size="11" text-anchor="end" fill="#111" font-weight="bold">5</text>
+<text x="810" y="132" font-size="10" fill="#111">730x fewer</text>
+<text x="568" y="164" font-size="10">productive / step</text>
+<text x="710" y="164" font-size="11" text-anchor="end">1.57</text>
+<text x="800" y="164" font-size="11" text-anchor="end" fill="#111" font-weight="bold">0.80</text>
+<text x="810" y="164" font-size="10" fill="#111">~half</text>
+<text x="568" y="196" font-size="10">productive per candidate</text>
+<text x="710" y="196" font-size="11" text-anchor="end">0.00043</text>
+<text x="800" y="196" font-size="11" text-anchor="end" fill="#111" font-weight="bold">0.16</text>
+<text x="810" y="196" font-size="10" fill="#111">370x better</text>
+<text x="568" y="228" font-size="10">net income</text>
+<text x="710" y="228" font-size="11" text-anchor="end">+0.03</text>
+<text x="800" y="228" font-size="11" text-anchor="end" fill="#c0392b" font-weight="bold">-0.71</text>
+<text x="810" y="228" font-size="10" fill="#c0392b">LOSES</text>
+<text x="70" y="332" font-size="14" font-weight="bold">C · No parameter setting lets efficiency win (G5.3 FAIL)</text>
+<text x="70" y="349" font-size="11" fill="#555">pre-registered bar: invader lineage share reaches 2x its seed share in at least 6 of 8 seeds</text>
+<rect x="70" y="360" width="870" height="120" fill="none" stroke="#666"/>
+<text x="142.5" y="380" text-anchor="middle" font-size="10">rent 1</text>
+<text x="142.5" y="393" text-anchor="middle" font-size="10">coeff 5e-4</text>
+<text x="142.5" y="422" text-anchor="middle" font-size="11" fill="#c0392b">extinct 0/8</text>
+<text x="142.5" y="440" text-anchor="middle" font-size="11" fill="#c0392b">residents live</text>
+<text x="142.5" y="464" text-anchor="middle" font-size="12" font-weight="bold" fill="#b00">x</text>
+<text x="287.5" y="380" text-anchor="middle" font-size="10">rent 1</text>
+<text x="287.5" y="393" text-anchor="middle" font-size="10">coeff 1e-3</text>
+<text x="287.5" y="422" text-anchor="middle" font-size="11" fill="#c0392b">extinct</text>
+<text x="287.5" y="440" text-anchor="middle" font-size="11" fill="#c0392b">ALL die 0/8</text>
+<text x="287.5" y="464" text-anchor="middle" font-size="12" font-weight="bold" fill="#b00">x</text>
+<text x="432.5" y="380" text-anchor="middle" font-size="10">rent 1</text>
+<text x="432.5" y="393" text-anchor="middle" font-size="10">coeff 2e-3</text>
+<text x="432.5" y="422" text-anchor="middle" font-size="11" fill="#c0392b">extinct</text>
+<text x="432.5" y="440" text-anchor="middle" font-size="11" fill="#c0392b">ALL die 0/8</text>
+<text x="432.5" y="464" text-anchor="middle" font-size="12" font-weight="bold" fill="#b00">x</text>
+<text x="577.5" y="380" text-anchor="middle" font-size="10">rent 0</text>
+<text x="577.5" y="393" text-anchor="middle" font-size="10">coeff 2e-3</text>
+<text x="577.5" y="422" text-anchor="middle" font-size="11" fill="#e67e22">survives 8/8</text>
+<text x="577.5" y="440" text-anchor="middle" font-size="11" fill="#e67e22">share x0.71</text>
+<text x="577.5" y="464" text-anchor="middle" font-size="12" font-weight="bold" fill="#b00">x</text>
+<text x="722.5" y="380" text-anchor="middle" font-size="10">rent 0</text>
+<text x="722.5" y="393" text-anchor="middle" font-size="10">coeff 5e-3</text>
+<text x="722.5" y="422" text-anchor="middle" font-size="11" fill="#e67e22">survives 8/8</text>
+<text x="722.5" y="440" text-anchor="middle" font-size="11" fill="#e67e22">share x0.67</text>
+<text x="722.5" y="464" text-anchor="middle" font-size="12" font-weight="bold" fill="#b00">x</text>
+<text x="867.5" y="380" text-anchor="middle" font-size="10">rent 0</text>
+<text x="867.5" y="393" text-anchor="middle" font-size="10">coeff 1e-2</text>
+<text x="867.5" y="422" text-anchor="middle" font-size="11" fill="#e67e22">survives 8/8</text>
+<text x="867.5" y="440" text-anchor="middle" font-size="11" fill="#e67e22">share x0.50</text>
+<text x="867.5" y="464" text-anchor="middle" font-size="12" font-weight="bold" fill="#b00">x</text>
+<text x="500.0" y="510" text-anchor="middle" font-size="12" font-weight="bold">Share never grows in any regime. Reproduction is gated on an ABSOLUTE token threshold,</text>
+<text x="500.0" y="527" text-anchor="middle" font-size="12" font-weight="bold">so lineage growth tracks absolute income — which scales with volume, not efficiency.</text>
+</svg>

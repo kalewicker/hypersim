@@ -1,0 +1,28 @@
+[package]
+name = "hg-engine"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["parallel"]
+parallel = ["dep:rayon", "dep:hg-parallel"]
+# New counted-work revision; never enabled implicitly by a default build.
+repeated-edge-feasibility = []
+checked-transitions = ["dep:slotmap"]
+
+[dependencies]
+hg-core = { path = "../hg-core" }
+hg-rules = { path = "../hg-rules" }
+hg-observe = { path = "../hg-observe" }
+hg-parallel = { path = "../hg-parallel", optional = true }
+rayon = { workspace = true, optional = true }
+rand = { workspace = true }
+rand_chacha = { workspace = true, features = ["serde1"] }
+serde = { workspace = true }
+tracing = { workspace = true }
+smallvec = { workspace = true }
+
+slotmap = { workspace = true, optional = true }
+
+[dev-dependencies]
+smallvec = { workspace = true }

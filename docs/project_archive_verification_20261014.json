@@ -1,0 +1,69 @@
+{
+  "all_full_restores_verified": true,
+  "archives": [
+    {
+      "compressed_bytes": 1811200322,
+      "entries": 217749,
+      "file_bytes_modes_symlinks_and_hardlinks_verified": true,
+      "file_entries": 194393,
+      "full_restore_verified": true,
+      "inventory": "main-evidence.inventory.json.gz",
+      "inventory_sha256": "5c65bb20c2c910a9c812e2ba636b5f7decdb5025e4ee641816c9757750f833f4",
+      "logical_file_bytes": 20076963259,
+      "name": "main-evidence.tar.zst",
+      "roots": [
+        "output",
+        "runs",
+        "crates/hg-train/runs_stage2",
+        "crates/hg-selfmod/runs"
+      ],
+      "sha256": "f479df3c4145d9be0b392c968fcff33e840c96e68d0ac5048a53654c0e4aaf50",
+      "source_base": "/Users/kalewicker/Documents/hypersim",
+      "source_unchanged_after_restore": true
+    },
+    {
+      "compressed_bytes": 1301355112,
+      "entries": 24234,
+      "file_bytes_modes_symlinks_and_hardlinks_verified": true,
+      "file_entries": 22471,
+      "full_restore_verified": true,
+      "inventory": "lk-evidence.inventory.json.gz",
+      "inventory_sha256": "9c487e283be401bdcdf7ef34f785749c8f865d553b293584c85e5751c44fba04",
+      "logical_file_bytes": 31366949086,
+      "name": "lk-evidence.tar.zst",
+      "roots": [
+        "experiments/lk/output"
+      ],
+      "sha256": "9cfc1b1d53ac8447c04b02cc31bad208f90076e8977b0bfb5625501c25ccc0dd",
+      "source_base": "/Users/kalewicker/Documents/hypersim",
+      "source_unchanged_after_restore": true
+    },
+    {
+      "compressed_bytes": 177021414,
+      "entries": 22877,
+      "file_bytes_modes_symlinks_and_hardlinks_verified": true,
+      "file_entries": 22000,
+      "full_restore_verified": true,
+      "inventory": "lk-historical-runs.inventory.json.gz",
+      "inventory_sha256": "9731b763e174b58ebef8cb3c1a4d2b7bd058dda2bccfee45f14b1043afae31c7",
+      "logical_file_bytes": 7216031102,
+      "name": "lk-historical-runs.tar.zst",
+      "roots": [
+        "runs",
+        "output"
+      ],
+      "sha256": "94ac9516811c7b4c4968bfd85eaa8734be6b1d337f49e11d44ef03f3593c0dad",
+      "source_base": "/Users/kalewicker/Documents/hypersim-lk",
+      "source_unchanged_after_restore": true
+    }
+  ],
+  "date": "2026-10-14",
+  "destination": "/Volumes/B/Hypersim-archives-2026-10-14",
+  "elapsed_seconds": 920.3490967079997,
+  "format": "tar with zstd 1.5.7 -T2 -3; macOS xattrs omitted",
+  "native_simulation": false,
+  "original_evidence_deleted": false,
+  "profile": "hypersim-verified-evidence-archives-v1",
+  "restore": "zstd -d -c ARCHIVE | tar -xpf - -C ORIGINAL_SOURCE_BASE (empty destination; then verify inventory)",
+  "total_compressed_bytes": 3289576848
+}

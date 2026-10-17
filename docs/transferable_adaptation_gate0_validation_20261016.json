@@ -1,0 +1,49 @@
+{
+  "audit_pass": true,
+  "audit_seal_sha256": "ee55cdc7aea253d26f5172bf4c82b94ccfefdcb1d264f720d8d112ec5fa3d997",
+  "binary_hash_matches": true,
+  "cumulative_reuse_established": false,
+  "date": "2026-10-16",
+  "development_only": true,
+  "discovery_established": false,
+  "gate0_feasibility_pass": true,
+  "native_advances": 14720,
+  "native_and_audit_payload_seals_rechecked": true,
+  "native_seal_sha256": "c50823c4d287967679777094b59a43a15955734dc341b3cce6dde41a64100c6b",
+  "new_document_links_resolve": true,
+  "profile": "evolving-minds-ta1-gate0-development-v1",
+  "published_states_reconstructed": 46,
+  "python": {
+    "failed_executed_tests": 0,
+    "historical_replay_tests_skipped": 10,
+    "legacy_descendant_passed": 7,
+    "legacy_handoff_passed": 6,
+    "new_transfer_tests": 9,
+    "passed": 22,
+    "unavailable_suites": [
+      {
+        "reason": "missing EVOLVING_MINDS_STREAMING_FIXTURE; initialization error; zero tests run",
+        "suite": "test_verify_evolving_minds_streaming"
+      },
+      {
+        "reason": "missing EVOLVING_MINDS_FUNDED_ADMISSION_FIXTURE; initialization error; zero tests run",
+        "suite": "test_verify_evolving_minds_funded_admission"
+      }
+    ]
+  },
+  "registration_matches_independent_contract": true,
+  "rust": {
+    "failed": 0,
+    "passed": 12,
+    "suites": {
+      "evolving_minds_funded_admission": 4,
+      "evolving_minds_handoff": 3,
+      "evolving_minds_retained": 3,
+      "evolving_minds_transfer": 2
+    }
+  },
+  "scientific_run_launched": false,
+  "source_inventory_matches_checkout": true,
+  "transfer_established": false,
+  "whitespace_checks_pass": true
+}

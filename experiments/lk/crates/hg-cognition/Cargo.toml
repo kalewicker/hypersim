@@ -1,0 +1,33 @@
+[package]
+name = "hg-cognition"
+version = "0.1.0"
+edition = "2021"
+
+# The learning layer's policy zoo (NN plan §2.1; v4 §2.3 reserved slot).
+# Depends on hg-observe's vocabulary and hg-core's graph types ONLY — never
+# on hg-engine, hg-eval, or hg-sim-core. A crate that plugs into the step
+# loop needs nothing later in the dependency order.
+
+[features]
+default = []
+# Reserved for later feature-set variants that read the causal layer
+# (attribute lookups). Early phases compile without it.
+causal-features = ["dep:hg-causal"]
+
+[dependencies]
+hg-core = { path = "../hg-core" }
+hg-observe = { path = "../hg-observe" }
+hg-causal = { path = "../hg-causal", optional = true }
+serde = { workspace = true }
+rustc-hash = { workspace = true }
+smallvec = { workspace = true }
+rand = { workspace = true }
+rand_chacha = { workspace = true }
+
+[dev-dependencies]
+criterion = { workspace = true }
+toml = { workspace = true }
+
+[[bench]]
+name = "scoring"
+harness = false

@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="900" font-family="Helvetica,Arial,sans-serif">
+<rect width="1000" height="900" fill="white"/>
+<text x="500.0" y="26" text-anchor="middle" font-size="17" font-weight="bold">Persistence and novelty windows over variation rate μ</text>
+<text x="500.0" y="45" text-anchor="middle" font-size="12" fill="#555">hg-selfmod v4 · flux and stock economies produce bit-identical dynamics, so one curve covers both</text>
+
+
+
+<rect x="90" y="95" width="800" height="200" fill="none" stroke="#666"/>
+<text x="90" y="73" font-size="14" font-weight="bold">churn3 — distributed autocatalytic set (k = 3)</text>
+<text x="90" y="88" font-size="11" fill="#555">persistence window EMPTY (P never reaches 0.6) · novelty window EMPTY → branch (c)</text>
+<text x="84" y="299" text-anchor="end" font-size="10" fill="#2e8b57">0</text>
+<text x="84" y="179.0" text-anchor="end" font-size="10" fill="#2e8b57">0.6</text>
+<line x1="90" y1="175.0" x2="890" y2="175.0" stroke="#2e8b57" stroke-width="1" stroke-dasharray="4,3" opacity="0.7"/>
+<text x="84" y="99" text-anchor="end" font-size="10" fill="#2e8b57">1</text>
+<text x="56" y="195.0" font-size="11" fill="#2e8b57" transform="rotate(-90 56 195.0)" text-anchor="middle">persistence P</text>
+<text x="896" y="299.0" font-size="10" fill="#1f6feb">1e-5</text>
+<text x="896" y="249.0" font-size="10" fill="#1f6feb">1e-4</text>
+<text x="896" y="199.0" font-size="10" fill="#1f6feb">1e-3</text>
+<text x="896" y="149.0" font-size="10" fill="#1f6feb">1e-2</text>
+<text x="896" y="99.0" font-size="10" fill="#1f6feb">1e-1</text>
+<line x1="90" y1="245.0" x2="890" y2="245.0" stroke="#1f6feb" stroke-width="1" stroke-dasharray="4,3" opacity="0.7"/>
+<text x="930" y="195.0" font-size="11" fill="#1f6feb" transform="rotate(90 930 195.0)" text-anchor="middle">novelty slope (log)</text>
+<polyline points="90.0,195.0 170.0,220.0 250.0,220.0 330.0,245.0 410.0,245.0 490.0,245.0 570.0,245.0 650.0,245.0 730.0,245.0 810.0,245.0 890.0,245.0" fill="none" stroke="#2e8b57" stroke-width="2.5"/>
+<circle cx="90.0" cy="195.0" r="3.5" fill="#2e8b57"/>
+<circle cx="170.0" cy="220.0" r="3.5" fill="#2e8b57"/>
+<circle cx="250.0" cy="220.0" r="3.5" fill="#2e8b57"/>
+<circle cx="330.0" cy="245.0" r="3.5" fill="#2e8b57"/>
+<circle cx="410.0" cy="245.0" r="3.5" fill="#2e8b57"/>
+<circle cx="490.0" cy="245.0" r="3.5" fill="#2e8b57"/>
+<circle cx="570.0" cy="245.0" r="3.5" fill="#2e8b57"/>
+<circle cx="650.0" cy="245.0" r="3.5" fill="#2e8b57"/>
+<circle cx="730.0" cy="245.0" r="3.5" fill="#2e8b57"/>
+<circle cx="810.0" cy="245.0" r="3.5" fill="#2e8b57"/>
+<circle cx="890.0" cy="245.0" r="3.5" fill="#2e8b57"/>
+<polyline points="90.0,295.0 170.0,295.0 250.0,295.0 330.0,295.0 410.0,295.0 490.0,295.0 570.0,295.0 650.0,295.0 730.0,295.0 810.0,295.0 890.0,295.0" fill="none" stroke="#1f6feb" stroke-width="2.5" stroke-dasharray="7,3"/>
+<circle cx="90.0" cy="295.0" r="3.5" fill="#1f6feb"/>
+<circle cx="170.0" cy="295.0" r="3.5" fill="#1f6feb"/>
+<circle cx="250.0" cy="295.0" r="3.5" fill="#1f6feb"/>
+<circle cx="330.0" cy="295.0" r="3.5" fill="#1f6feb"/>
+<circle cx="410.0" cy="295.0" r="3.5" fill="#1f6feb"/>
+<circle cx="490.0" cy="295.0" r="3.5" fill="#1f6feb"/>
+<circle cx="570.0" cy="295.0" r="3.5" fill="#1f6feb"/>
+<circle cx="650.0" cy="295.0" r="3.5" fill="#1f6feb"/>
+<circle cx="730.0" cy="295.0" r="3.5" fill="#1f6feb"/>
+<circle cx="810.0" cy="295.0" r="3.5" fill="#1f6feb"/>
+<circle cx="890.0" cy="295.0" r="3.5" fill="#1f6feb"/>
+<text x="90.0" y="310" text-anchor="middle" font-size="9">0</text>
+<text x="170.0" y="310" text-anchor="middle" font-size="9">0.005</text>
+<text x="250.0" y="310" text-anchor="middle" font-size="9">0.01</text>
+<text x="330.0" y="310" text-anchor="middle" font-size="9">0.02</text>
+<text x="410.0" y="310" text-anchor="middle" font-size="9">0.03</text>
+<text x="490.0" y="310" text-anchor="middle" font-size="9">0.05</text>
+<text x="570.0" y="310" text-anchor="middle" font-size="9">0.1</text>
+<text x="650.0" y="310" text-anchor="middle" font-size="9">0.2</text>
+<text x="730.0" y="310" text-anchor="middle" font-size="9">0.4</text>
+<text x="810.0" y="310" text-anchor="middle" font-size="9">0.7</text>
+<text x="890.0" y="310" text-anchor="middle" font-size="9">1</text>
+<text x="490.0" y="327" text-anchor="middle" font-size="11">variation rate μ</text>
+<text x="886" y="111" text-anchor="end" font-size="12" font-weight="bold" fill="#b00">OVERLAP: EMPTY</text>
+<rect x="90.0" y="400" width="280.0" height="200" fill="#2e8b57" opacity="0.16"/>
+<rect x="370.0" y="400" width="520.0" height="200" fill="#1f6feb" opacity="0.16"/>
+
+<rect x="90" y="400" width="800" height="200" fill="none" stroke="#666"/>
+<text x="90" y="378" font-size="14" font-weight="bold">churnK — minimal self-sufficient sustainer (k = 1)</text>
+<text x="90" y="393" font-size="11" fill="#555">persistence window {μ ≤ 0.02} · novelty window {μ ≥ 0.03} · exactly adjacent, never overlapping → branch (b)</text>
+<text x="84" y="604" text-anchor="end" font-size="10" fill="#2e8b57">0</text>
+<text x="84" y="484.0" text-anchor="end" font-size="10" fill="#2e8b57">0.6</text>
+<line x1="90" y1="480.0" x2="890" y2="480.0" stroke="#2e8b57" stroke-width="1" stroke-dasharray="4,3" opacity="0.7"/>
+<text x="84" y="404" text-anchor="end" font-size="10" fill="#2e8b57">1</text>
+<text x="56" y="500.0" font-size="11" fill="#2e8b57" transform="rotate(-90 56 500.0)" text-anchor="middle">persistence P</text>
+<text x="896" y="604.0" font-size="10" fill="#1f6feb">1e-5</text>
+<text x="896" y="554.0" font-size="10" fill="#1f6feb">1e-4</text>
+<text x="896" y="504.0" font-size="10" fill="#1f6feb">1e-3</text>
+<text x="896" y="454.0" font-size="10" fill="#1f6feb">1e-2</text>
+<text x="896" y="404.0" font-size="10" fill="#1f6feb">1e-1</text>
+<line x1="90" y1="550.0" x2="890" y2="550.0" stroke="#1f6feb" stroke-width="1" stroke-dasharray="4,3" opacity="0.7"/>
+<text x="930" y="500.0" font-size="11" fill="#1f6feb" transform="rotate(90 930 500.0)" text-anchor="middle">novelty slope (log)</text>
+<polyline points="90.0,400.0 170.0,425.0 250.0,425.0 330.0,450.0 410.0,550.0 490.0,550.0 570.0,600.0 650.0,600.0 730.0,575.0 810.0,600.0 890.0,600.0" fill="none" stroke="#2e8b57" stroke-width="2.5"/>
+<circle cx="90.0" cy="400.0" r="3.5" fill="#2e8b57"/>
+<circle cx="170.0" cy="425.0" r="3.5" fill="#2e8b57"/>
+<circle cx="250.0" cy="425.0" r="3.5" fill="#2e8b57"/>
+<circle cx="330.0" cy="450.0" r="3.5" fill="#2e8b57"/>
+<circle cx="410.0" cy="550.0" r="3.5" fill="#2e8b57"/>
+<circle cx="490.0" cy="550.0" r="3.5" fill="#2e8b57"/>
+<circle cx="570.0" cy="600.0" r="3.5" fill="#2e8b57"/>
+<circle cx="650.0" cy="600.0" r="3.5" fill="#2e8b57"/>
+<circle cx="730.0" cy="575.0" r="3.5" fill="#2e8b57"/>
+<circle cx="810.0" cy="600.0" r="3.5" fill="#2e8b57"/>
+<circle cx="890.0" cy="600.0" r="3.5" fill="#2e8b57"/>
+<polyline points="90.0,600.0 170.0,535.2 250.0,531.2 330.0,517.7 410.0,519.2 490.0,514.2 570.0,493.8 650.0,485.5 730.0,473.7 810.0,466.7 890.0,452.1" fill="none" stroke="#1f6feb" stroke-width="2.5" stroke-dasharray="7,3"/>
+<circle cx="90.0" cy="600.0" r="3.5" fill="#1f6feb"/>
+<circle cx="170.0" cy="535.2" r="3.5" fill="#1f6feb"/>
+<circle cx="250.0" cy="531.2" r="3.5" fill="#1f6feb"/>
+<circle cx="330.0" cy="517.7" r="3.5" fill="#1f6feb"/>
+<circle cx="410.0" cy="519.2" r="3.5" fill="#1f6feb"/>
+<circle cx="490.0" cy="514.2" r="3.5" fill="#1f6feb"/>
+<circle cx="570.0" cy="493.8" r="3.5" fill="#1f6feb"/>
+<circle cx="650.0" cy="485.5" r="3.5" fill="#1f6feb"/>
+<circle cx="730.0" cy="473.7" r="3.5" fill="#1f6feb"/>
+<circle cx="810.0" cy="466.7" r="3.5" fill="#1f6feb"/>
+<circle cx="890.0" cy="452.1" r="3.5" fill="#1f6feb"/>
+<text x="90.0" y="615" text-anchor="middle" font-size="9">0</text>
+<text x="170.0" y="615" text-anchor="middle" font-size="9">0.005</text>
+<text x="250.0" y="615" text-anchor="middle" font-size="9">0.01</text>
+<text x="330.0" y="615" text-anchor="middle" font-size="9">0.02</text>
+<text x="410.0" y="615" text-anchor="middle" font-size="9">0.03</text>
+<text x="490.0" y="615" text-anchor="middle" font-size="9">0.05</text>
+<text x="570.0" y="615" text-anchor="middle" font-size="9">0.1</text>
+<text x="650.0" y="615" text-anchor="middle" font-size="9">0.2</text>
+<text x="730.0" y="615" text-anchor="middle" font-size="9">0.4</text>
+<text x="810.0" y="615" text-anchor="middle" font-size="9">0.7</text>
+<text x="890.0" y="615" text-anchor="middle" font-size="9">1</text>
+<text x="490.0" y="632" text-anchor="middle" font-size="11">variation rate μ</text>
+<text x="886" y="416" text-anchor="end" font-size="12" font-weight="bold" fill="#b00">OVERLAP: EMPTY</text>
+<rect x="90" y="690" width="800" height="140" fill="none" stroke="#666"/>
+<text x="90" y="668" font-size="14" font-weight="bold">Persistence is horizon-dependent for every μ &gt; 0 (churnK)</text>
+<text x="90" y="683" font-size="11" fill="#555">only μ = 0 holds P = 1.00 as the observation window triples — elsewhere "persistence" is just "not dead yet"</text>
+<rect x="179.0" y="690.0" width="10" height="140.0" fill="#9ecae1"/>
+<text x="184.0" y="686.0" text-anchor="middle" font-size="9">1.00</text>
+<rect x="191.0" y="690.0" width="10" height="140.0" fill="#08519c"/>
+<text x="196.0" y="686.0" text-anchor="middle" font-size="9">1.00</text>
+<text x="190.0" y="845" text-anchor="middle" font-size="10">μ=0</text>
+<rect x="379.0" y="706.8" width="10" height="123.2" fill="#9ecae1"/>
+<text x="384.0" y="702.8" text-anchor="middle" font-size="9">0.88</text>
+<rect x="391.0" y="760.0" width="10" height="70.0" fill="#08519c"/>
+<text x="396.0" y="756.0" text-anchor="middle" font-size="9">0.50</text>
+<text x="390.0" y="845" text-anchor="middle" font-size="10">μ=0.005</text>
+<rect x="579.0" y="706.8" width="10" height="123.2" fill="#9ecae1"/>
+<text x="584.0" y="702.8" text-anchor="middle" font-size="9">0.88</text>
+<rect x="591.0" y="760.0" width="10" height="70.0" fill="#08519c"/>
+<text x="596.0" y="756.0" text-anchor="middle" font-size="9">0.50</text>
+<text x="590.0" y="845" text-anchor="middle" font-size="10">μ=0.01</text>
+<rect x="779.0" y="725.0" width="10" height="105.0" fill="#9ecae1"/>
+<text x="784.0" y="721.0" text-anchor="middle" font-size="9">0.75</text>
+<rect x="791.0" y="760.0" width="10" height="70.0" fill="#08519c"/>
+<text x="796.0" y="756.0" text-anchor="middle" font-size="9">0.50</text>
+<text x="790.0" y="845" text-anchor="middle" font-size="10">μ=0.02</text>
+<line x1="90" y1="746.0" x2="890" y2="746.0" stroke="#2e8b57" stroke-dasharray="4,3" stroke-width="1"/>
+<text x="886" y="742.0" text-anchor="end" font-size="9" fill="#2e8b57">P = 0.6</text>
+<rect x="740" y="698" width="10" height="10" fill="#9ecae1"/><text x="754" y="707" font-size="10">20k steps</text>
+<rect x="820" y="698" width="10" height="10" fill="#08519c"/><text x="834" y="707" font-size="10">60k steps</text>
+<g font-size="11">
+<line x1="90" y1="862" x2="120" y2="662" stroke="#2e8b57" stroke-width="2.5"/><text x="126" y="866">persistence P (fraction of 8 seeds surviving to budget)</text>
+<line x1="470" y1="862" x2="500" y2="862" stroke="#1f6feb" stroke-width="2.5" stroke-dasharray="7,3"/><text x="506" y="866">median late-window slope of M_rules (novelty)</text>
+<rect x="90" y="878" width="14" height="11" fill="#2e8b57" opacity="0.16"/><text x="110" y="888">persistence window</text>
+<rect x="240" y="878" width="14" height="11" fill="#1f6feb" opacity="0.16"/><text x="260" y="888">novelty window</text>
+<rect x="370" y="878" width="14" height="11" fill="#d62728" opacity="0.55"/><text x="390" y="888">overlap (would be a Goldilocks band — none exists at any μ, for either k)</text>
+</g></svg>

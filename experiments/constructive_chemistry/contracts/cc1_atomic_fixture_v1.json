@@ -1,0 +1,982 @@
+{
+  "acceptance": {
+    "all_exact_invariants_required": true,
+    "independent_semantic_reference_required": true,
+    "malformed_inputs_retained": true,
+    "native_allocator_rejection_identity_required": true,
+    "rejected_attempts_advance_physics": false,
+    "reversed_disjoint_comparison": "physical projection of bead identities/species/activation/placement, bond endpoints/roles/ports, reservoir and energy/heat totals; exclude administrative bond IDs, arena handles, creation generations, commit revision and receipt order; preserve raw artifacts",
+    "same_order_worker_exact_identity_required": true
+  },
+  "atomicity": {
+    "diagnostics": "returned separately; not physical state",
+    "fingerprint_scope": [
+      "graph including exact generational identities",
+      "allocator continuation",
+      "law/config/world identity",
+      "revision",
+      "semantic_id_frontier",
+      "reservoirs",
+      "heat",
+      "accepted_event_journal"
+    ],
+    "guard": "world identity + global revision + exact state fingerprint",
+    "publication": "single owned ChemistryWorld replacement",
+    "rejection_preserves_all_fingerprint_fields": true,
+    "rng": null,
+    "stale_disjoint_preparations": "reject_then_reprepare"
+  },
+  "caps": {
+    "action_offers_per_case": 32,
+    "artifact_bytes_per_case": 16777216,
+    "audit_seconds": 300,
+    "focused_build_and_test_seconds": 1200,
+    "graph_edges": 64,
+    "graph_nodes": 32,
+    "native_seconds": 300,
+    "physical_beads": 16,
+    "sites": 3,
+    "state_bytes_per_case": 1048576,
+    "total_output_bytes": 134217728
+  },
+  "cases": [
+    {
+      "expected": {
+        "accepted": 1,
+        "rejected": [
+          "StaleState",
+          "InactiveFuel"
+        ],
+        "winner": [
+          10,
+          20,
+          30
+        ]
+      },
+      "fixture": "shared_fuel",
+      "id": "shared_fuel_forward",
+      "layer": "commit",
+      "operation": "prepare_both_commit_first_then_second_then_reprepare_second",
+      "order": [
+        [
+          10,
+          20,
+          30
+        ],
+        [
+          11,
+          21,
+          30
+        ]
+      ]
+    },
+    {
+      "expected": {
+        "accepted": 1,
+        "rejected": [
+          "StaleState",
+          "InactiveFuel"
+        ],
+        "winner": [
+          11,
+          21,
+          30
+        ]
+      },
+      "fixture": "shared_fuel",
+      "id": "shared_fuel_reverse",
+      "layer": "commit",
+      "operation": "prepare_both_commit_first_then_second_then_reprepare_second",
+      "order": [
+        [
+          11,
+          21,
+          30
+        ],
+        [
+          10,
+          20,
+          30
+        ]
+      ]
+    },
+    {
+      "expected": {
+        "accepted": 2,
+        "physical_result": {
+          "bonds": [
+            [
+              10,
+              20
+            ],
+            [
+              11,
+              21
+            ]
+          ],
+          "heat": 4,
+          "inactive_fuels": [
+            30,
+            31
+          ]
+        },
+        "rejected": [
+          "StaleState"
+        ]
+      },
+      "fixture": "disjoint",
+      "id": "disjoint_forward",
+      "layer": "commit",
+      "operation": "prepare_both_commit_first_then_reprepare_second",
+      "order": [
+        [
+          10,
+          20,
+          30
+        ],
+        [
+          11,
+          21,
+          31
+        ]
+      ]
+    },
+    {
+      "expected": {
+        "accepted": 2,
+        "physical_result": {
+          "bonds": [
+            [
+              10,
+              20
+            ],
+            [
+              11,
+              21
+            ]
+          ],
+          "heat": 4,
+          "inactive_fuels": [
+            30,
+            31
+          ]
+        },
+        "rejected": [
+          "StaleState"
+        ]
+      },
+      "fixture": "disjoint",
+      "id": "disjoint_reverse",
+      "layer": "commit",
+      "operation": "prepare_both_commit_first_then_reprepare_second",
+      "order": [
+        [
+          11,
+          21,
+          31
+        ],
+        [
+          10,
+          20,
+          30
+        ]
+      ]
+    },
+    {
+      "binding": [
+        10,
+        20,
+        30
+      ],
+      "expected": {
+        "rejection": "InactiveFuel"
+      },
+      "fixture": "inactive",
+      "id": "inactive_fuel",
+      "layer": "prepare",
+      "operation": "form_bond"
+    },
+    {
+      "binding": [
+        10,
+        20,
+        30
+      ],
+      "expected": {
+        "rejection": "MissingHandle"
+      },
+      "fixture": "no_fuel",
+      "id": "missing_fuel",
+      "layer": "prepare",
+      "operation": "form_bond_with_missing_handle"
+    },
+    {
+      "binding": [
+        10,
+        21,
+        31
+      ],
+      "expected": {
+        "rejection": "PortOccupied"
+      },
+      "fixture": "occupied",
+      "id": "port_occupied",
+      "layer": "prepare",
+      "operation": "form_bond"
+    },
+    {
+      "binding": [
+        10,
+        20,
+        30
+      ],
+      "expected": {
+        "rejection": "Nonlocal"
+      },
+      "fixture": "nonlocal",
+      "id": "nonlocal_binding",
+      "layer": "prepare",
+      "operation": "form_bond"
+    },
+    {
+      "binding": [
+        10,
+        10,
+        30
+      ],
+      "expected": {
+        "rejection": "Distinctness"
+      },
+      "fixture": "single",
+      "id": "duplicate_binding",
+      "layer": "prepare",
+      "operation": "form_bond"
+    },
+    {
+      "binding": [
+        20,
+        10,
+        30
+      ],
+      "expected": {
+        "rejection": "Species"
+      },
+      "fixture": "single",
+      "id": "wrong_species_binding",
+      "layer": "prepare",
+      "operation": "form_bond"
+    },
+    {
+      "activated": true,
+      "expected": {
+        "accepted": 2,
+        "heat": 0,
+        "material_and_energy_totals_unchanged": true,
+        "world_material_returns_to_initial": true
+      },
+      "fixture": "boundary_empty",
+      "id": "boundary_roundtrip_active",
+      "layer": "commit",
+      "operation": "transfer_in_then_out"
+    },
+    {
+      "activated": false,
+      "expected": {
+        "accepted": 2,
+        "heat": 0,
+        "material_and_energy_totals_unchanged": true,
+        "world_material_returns_to_initial": true
+      },
+      "fixture": "boundary_empty",
+      "id": "boundary_roundtrip_inactive",
+      "layer": "commit",
+      "operation": "transfer_in_then_out"
+    },
+    {
+      "activated": true,
+      "expected": {
+        "rejection": "ReservoirExhausted"
+      },
+      "fixture": "empty_reservoir",
+      "id": "boundary_exhaustion",
+      "layer": "prepare",
+      "operation": "transfer_fuel_in"
+    },
+    {
+      "activated": true,
+      "expected": {
+        "rejection": "Capacity"
+      },
+      "fixture": "full_site",
+      "id": "boundary_capacity",
+      "layer": "prepare",
+      "operation": "transfer_fuel_in"
+    },
+    {
+      "expected": {
+        "rejection": "Species"
+      },
+      "fixture": "single",
+      "id": "boundary_wrong_species",
+      "layer": "prepare",
+      "operation": "transfer_bead_out",
+      "semantic_id": 10
+    },
+    {
+      "expected": {
+        "rejection": "Boundary"
+      },
+      "fixture": "nonboundary_fuel",
+      "id": "boundary_wrong_site",
+      "layer": "prepare",
+      "operation": "transfer_fuel_out",
+      "semantic_id": 30
+    },
+    {
+      "binding": [
+        10,
+        20,
+        30
+      ],
+      "expected": {
+        "rejection": "ArithmeticOverflow"
+      },
+      "fixture": "heat_max",
+      "id": "heat_overflow",
+      "layer": "prepare",
+      "operation": "form_bond"
+    },
+    {
+      "binding": [
+        10,
+        20,
+        30
+      ],
+      "expected": {
+        "rejection": "ArithmeticOverflow"
+      },
+      "fixture": "frontier_max",
+      "id": "identity_overflow",
+      "layer": "prepare",
+      "operation": "form_bond"
+    },
+    {
+      "binding": [
+        10,
+        20,
+        30
+      ],
+      "expected": {
+        "rejection": "ArithmeticOverflow"
+      },
+      "fixture": "revision_max",
+      "id": "revision_overflow",
+      "layer": "prepare",
+      "operation": "form_bond"
+    },
+    {
+      "binding": [
+        10,
+        21,
+        31
+      ],
+      "expected": {
+        "intervening_accepted": 1,
+        "rejected": [
+          "StaleState",
+          "PortOccupied"
+        ]
+      },
+      "fixture": "disjoint",
+      "id": "stale_port_observation",
+      "intervening": [
+        10,
+        20,
+        30
+      ],
+      "layer": "commit",
+      "operation": "prepare_then_intervening_bond_then_commit_and_reprepare"
+    },
+    {
+      "binding": [
+        10,
+        20,
+        30
+      ],
+      "expected": {
+        "rejected": [
+          "StaleState",
+          "MissingHandle"
+        ],
+        "same_arena_index_new_generation": true
+      },
+      "fixture": "single",
+      "id": "deleted_and_reused_fuel_handle",
+      "layer": "commit",
+      "operation": "prepare_then_transfer_out_and_in_then_try_old_handle"
+    },
+    {
+      "expected": {
+        "rejection": "WorldIdentity"
+      },
+      "fixture": "single",
+      "id": "cross_world_commit",
+      "layer": "commit",
+      "operation": "commit_prepared_in_distinct_world"
+    },
+    {
+      "expected": {
+        "rejection": "UnexpectedCleanup"
+      },
+      "fixture": "occupied",
+      "id": "unexpected_cleanup",
+      "layer": "generic_stage",
+      "operation": "remove_node_without_full_incident_footprint",
+      "semantic_id": 10
+    },
+    {
+      "expected": {
+        "rejection": "PropertyType"
+      },
+      "fixture": "single",
+      "id": "property_type_mismatch",
+      "layer": "generic_stage",
+      "operation": "replace_activation_bool_with_int"
+    },
+    {
+      "binding": [
+        10,
+        20,
+        30
+      ],
+      "expected": {
+        "exact_live_state_unchanged": true,
+        "rejection": "InjectedFault"
+      },
+      "fault": "after_fuel_update",
+      "fixture": "single",
+      "id": "fault_after_fuel_update",
+      "layer": "commit_fault",
+      "operation": "form_bond"
+    },
+    {
+      "binding": [
+        10,
+        20,
+        30
+      ],
+      "expected": {
+        "exact_live_state_unchanged": true,
+        "rejection": "InjectedFault"
+      },
+      "fault": "after_bond_node",
+      "fixture": "single",
+      "id": "fault_after_bond_node",
+      "layer": "commit_fault",
+      "operation": "form_bond"
+    },
+    {
+      "binding": [
+        10,
+        20,
+        30
+      ],
+      "expected": {
+        "exact_live_state_unchanged": true,
+        "rejection": "InjectedFault"
+      },
+      "fault": "after_first_incidence",
+      "fixture": "single",
+      "id": "fault_after_first_incidence",
+      "layer": "commit_fault",
+      "operation": "form_bond"
+    },
+    {
+      "binding": [
+        10,
+        20,
+        30
+      ],
+      "expected": {
+        "exact_live_state_unchanged": true,
+        "rejection": "InjectedFault"
+      },
+      "fault": "after_ledger_update",
+      "fixture": "single",
+      "id": "fault_after_ledger_update",
+      "layer": "commit_fault",
+      "operation": "form_bond"
+    },
+    {
+      "binding": [
+        10,
+        20,
+        30
+      ],
+      "expected": {
+        "exact_live_state_unchanged": true,
+        "rejection": "InjectedFault"
+      },
+      "fault": "before_publication",
+      "fixture": "single",
+      "id": "fault_before_publication",
+      "layer": "commit_fault",
+      "operation": "form_bond"
+    },
+    {
+      "expected": {
+        "rejection": "MaterialBalance"
+      },
+      "fixture": "single",
+      "id": "invariant_extra_unpaid_bead",
+      "layer": "invariant_check",
+      "mutation": "extra_unpaid_bead",
+      "operation": "validate_mutant_poststate_without_publication"
+    },
+    {
+      "expected": {
+        "rejection": "EnergyBalance"
+      },
+      "fixture": "single",
+      "id": "invariant_missing_heat",
+      "layer": "invariant_check",
+      "mutation": "missing_heat",
+      "operation": "validate_mutant_poststate_without_publication"
+    },
+    {
+      "expected": {
+        "rejection": "EnergyBalance"
+      },
+      "fixture": "single",
+      "id": "invariant_double_fuel_credit",
+      "layer": "invariant_check",
+      "mutation": "double_fuel_credit",
+      "operation": "validate_mutant_poststate_without_publication"
+    },
+    {
+      "expected": {
+        "rejection": "MaterialBalance"
+      },
+      "fixture": "single",
+      "id": "invariant_missing_reservoir_material_debit",
+      "layer": "invariant_check",
+      "mutation": "missing_reservoir_material_debit",
+      "operation": "validate_mutant_poststate_without_publication"
+    },
+    {
+      "expected": {
+        "rejection": "LedgerRange"
+      },
+      "fixture": "single",
+      "id": "invariant_negative_heat",
+      "layer": "invariant_check",
+      "mutation": "negative_heat",
+      "operation": "validate_mutant_poststate_without_publication"
+    },
+    {
+      "expected": {
+        "accepted": 0,
+        "rejection": "MalformedInitialState"
+      },
+      "fixture": "single",
+      "id": "malformed_missing_property",
+      "layer": "initial_admission",
+      "mutation": "missing_property",
+      "operation": "validate_raw_initial_state"
+    },
+    {
+      "expected": {
+        "accepted": 0,
+        "rejection": "MalformedInitialState"
+      },
+      "fixture": "single",
+      "id": "malformed_wrong_property_type",
+      "layer": "initial_admission",
+      "mutation": "wrong_property_type",
+      "operation": "validate_raw_initial_state"
+    },
+    {
+      "expected": {
+        "accepted": 0,
+        "rejection": "MalformedInitialState"
+      },
+      "fixture": "single",
+      "id": "malformed_duplicate_property",
+      "layer": "initial_admission",
+      "mutation": "duplicate_property",
+      "operation": "validate_raw_initial_state"
+    },
+    {
+      "expected": {
+        "accepted": 0,
+        "rejection": "MalformedInitialState"
+      },
+      "fixture": "single",
+      "id": "malformed_dangling_endpoint",
+      "layer": "initial_admission",
+      "mutation": "dangling_endpoint",
+      "operation": "validate_raw_initial_state"
+    },
+    {
+      "expected": {
+        "accepted": 0,
+        "rejection": "MalformedInitialState"
+      },
+      "fixture": "single",
+      "id": "malformed_extra_untyped_edge",
+      "layer": "initial_admission",
+      "mutation": "extra_untyped_edge",
+      "operation": "validate_raw_initial_state"
+    },
+    {
+      "expected": {
+        "accepted": 0,
+        "rejection": "MalformedInitialState"
+      },
+      "fixture": "single",
+      "id": "malformed_overoccupied_site",
+      "layer": "initial_admission",
+      "mutation": "overoccupied_site",
+      "operation": "validate_raw_initial_state"
+    },
+    {
+      "expected": {
+        "accepted": 0,
+        "rejection": "MalformedInitialState"
+      },
+      "fixture": "single",
+      "id": "malformed_negative_reservoir",
+      "layer": "initial_admission",
+      "mutation": "negative_reservoir",
+      "operation": "validate_raw_initial_state"
+    }
+  ],
+  "contract_version": 1,
+  "created_date": "2026-10-05",
+  "defaults": {
+    "initial_graph_step": 0,
+    "initial_heat": 0,
+    "initial_revision": 0,
+    "reservoir_active_fuel": 0,
+    "reservoir_inactive_fuel": 0,
+    "semantic_id_frontier": "one greater than maximum admitted semantic_id"
+  },
+  "denominator": {
+    "all_cases_retained": true,
+    "cases": 41,
+    "no_outcome_dependent_replacement": true,
+    "total_case_variants": 82,
+    "worker_counts": [
+      1,
+      4
+    ],
+    "worker_variants_are_replicates": false,
+    "worker_variants_per_case": 2
+  },
+  "energy": {
+    "activated_fuel_quanta": 4,
+    "bond_formation_heat": 2,
+    "bond_quanta": 2,
+    "derived_total_integer": "checked_i128_decimal_strings",
+    "field_integer": "checked_i64",
+    "invariant": "world_U+reservoir_U+heat=initial_total",
+    "physical_time": null,
+    "reservoir_formula": "4*reservoir_activated_F_count",
+    "work": 0,
+    "world_formula": "4*activated_F_count+2*AB_bond_count"
+  },
+  "evolution_enabled": false,
+  "fixtures": {
+    "boundary_empty": {
+      "beads": [],
+      "reservoir_active_fuel": 1,
+      "reservoir_inactive_fuel": 1
+    },
+    "disjoint": {
+      "beads": [
+        {
+          "activated": false,
+          "id": 10,
+          "site": 0,
+          "species": "A"
+        },
+        {
+          "activated": false,
+          "id": 11,
+          "site": 0,
+          "species": "A"
+        },
+        {
+          "activated": false,
+          "id": 20,
+          "site": 0,
+          "species": "B"
+        },
+        {
+          "activated": false,
+          "id": 21,
+          "site": 0,
+          "species": "B"
+        },
+        {
+          "activated": true,
+          "id": 30,
+          "site": 0,
+          "species": "F"
+        },
+        {
+          "activated": true,
+          "id": 31,
+          "site": 0,
+          "species": "F"
+        }
+      ]
+    },
+    "empty_reservoir": {
+      "beads": [],
+      "reservoir_active_fuel": 0,
+      "reservoir_inactive_fuel": 0
+    },
+    "frontier_max": {
+      "base": "single",
+      "semantic_id_frontier": "9223372036854775807"
+    },
+    "full_site": {
+      "beads": [
+        {
+          "activated": false,
+          "id": 10,
+          "site": 0,
+          "species": "F"
+        },
+        {
+          "activated": false,
+          "id": 11,
+          "site": 0,
+          "species": "F"
+        },
+        {
+          "activated": false,
+          "id": 12,
+          "site": 0,
+          "species": "F"
+        },
+        {
+          "activated": false,
+          "id": 13,
+          "site": 0,
+          "species": "F"
+        },
+        {
+          "activated": false,
+          "id": 14,
+          "site": 0,
+          "species": "F"
+        },
+        {
+          "activated": false,
+          "id": 15,
+          "site": 0,
+          "species": "F"
+        },
+        {
+          "activated": false,
+          "id": 16,
+          "site": 0,
+          "species": "F"
+        },
+        {
+          "activated": false,
+          "id": 17,
+          "site": 0,
+          "species": "F"
+        }
+      ],
+      "reservoir_active_fuel": 1
+    },
+    "heat_max": {
+      "base": "single",
+      "initial_heat": "9223372036854775807"
+    },
+    "inactive": {
+      "base": "single",
+      "set_activation": {
+        "30": false
+      }
+    },
+    "no_fuel": {
+      "base": "single",
+      "omit_beads": [
+        30
+      ]
+    },
+    "nonboundary_fuel": {
+      "base": "single",
+      "set_site": {
+        "30": 1
+      }
+    },
+    "nonlocal": {
+      "base": "single",
+      "set_site": {
+        "20": 1
+      }
+    },
+    "occupied": {
+      "base": "disjoint",
+      "initial_bond_ids": [
+        40
+      ],
+      "initial_bonds": [
+        [
+          10,
+          20
+        ]
+      ]
+    },
+    "revision_max": {
+      "base": "single",
+      "initial_graph_step": "18446744073709551615",
+      "initial_revision": "18446744073709551615"
+    },
+    "shared_fuel": {
+      "beads": [
+        {
+          "activated": false,
+          "id": 10,
+          "site": 0,
+          "species": "A"
+        },
+        {
+          "activated": false,
+          "id": 11,
+          "site": 0,
+          "species": "A"
+        },
+        {
+          "activated": false,
+          "id": 20,
+          "site": 0,
+          "species": "B"
+        },
+        {
+          "activated": false,
+          "id": 21,
+          "site": 0,
+          "species": "B"
+        },
+        {
+          "activated": true,
+          "id": 30,
+          "site": 0,
+          "species": "F"
+        }
+      ]
+    },
+    "single": {
+      "beads": [
+        {
+          "activated": false,
+          "id": 10,
+          "site": 0,
+          "species": "A"
+        },
+        {
+          "activated": false,
+          "id": 20,
+          "site": 0,
+          "species": "B"
+        },
+        {
+          "activated": true,
+          "id": 30,
+          "site": 0,
+          "species": "F"
+        }
+      ]
+    }
+  },
+  "gate_pass": false,
+  "independent_scientific_worlds": 0,
+  "law_version": "cc1-ab-fuel-ledger-v1",
+  "next_gate": "CC-2 physical kinetics, full provenance and durable continuation",
+  "planned_validation_commands": [
+    "cargo test -p hg-core",
+    "cargo test -p hg-engine",
+    "cargo test -p hg-engine --features checked-transitions",
+    "cargo test -p hg-sim-core --features constructive-chemistry --test constructive_chemistry_cc1",
+    "cargo test -p hg-sim-core --features evolving-minds --test evolving_minds_descendant",
+    "cargo test -p hg-sim-core --features hg-meta --test ere_rule_lifecycle"
+  ],
+  "power_adequacy_established": false,
+  "prerequisite": "CC-0",
+  "profile": "constructive-chemistry-cc1-atomic-fixture-v1",
+  "ready_for_scientific_launch": false,
+  "reproductive_fairness_accepted": false,
+  "schema": {
+    "adjacency": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "labels": {
+      "ADJACENT": "0xE2000064",
+      "BEAD": "0xE2000001",
+      "BOND": "0xE2000002",
+      "BOND_A": "0xE2000066",
+      "BOND_B": "0xE2000067",
+      "PLACED": "0xE2000065",
+      "SITE": "0xE2000000"
+    },
+    "legacy_node_energy": "positive_zero_bits",
+    "locality": "same-site-radius0",
+    "material_valence": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 1,
+      "F": 0
+    },
+    "properties": {
+      "activated": 243004,
+      "bond_kind": 243005,
+      "port_a": 243006,
+      "port_b": 243007,
+      "semantic_id": 243001,
+      "site_index": 243002,
+      "species": 243003
+    },
+    "site_capacity": 8,
+    "site_indices": [
+      0,
+      1,
+      2
+    ],
+    "site_semantic_ids": [
+      1,
+      2,
+      3
+    ],
+    "species": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "F"
+    ],
+    "unknown_labels_or_properties": "reject"
+  },
+  "scientific_acceptance": false,
+  "scientific_run_launched": false,
+  "scope": "bounded deterministic engineering fixture; scripted proposal API; no physical kinetics",
+  "seeds": [],
+  "status": "prospectively_frozen_not_executed",
+  "sustained_claim": false,
+  "timezone": "America/Phoenix",
+  "training_admitted": false
+}

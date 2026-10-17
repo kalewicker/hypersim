@@ -1,0 +1,347 @@
+# alife_base.toml — THE BIOLOGY (hg-alife, scope §4.1).
+#
+# Every rule is ONE biological process, named, with a purpose comment stating
+# which process it implements and why it is not composable from existing rules.
+# Carriers are hypergraph nodes with label 100 (= hg_alife::CARRIER_LABEL); the
+# numeric value here is the single point where the rule file commits to it.
+# Genome/energy property keys (docs/property_registry.md ALife block):
+#   1 energy · 10 harvest_rate · 11 replication_threshold · 12 maintenance_cost
+#   13 satiation · 20 carrier_marker · 21 lifetime
+#
+# Build order (plan S3): each rule is added and tested in ISOLATION on a fixture
+# with an energy-conservation assertion before composition. This file currently
+# holds S3.1 (bootstrap_seed); harvest/metabolise/die_and_recycle/influx/
+# replicate follow.
+
+# ---------------------------------------------------------------------------
+# bootstrap_seed (S3.1) — creation of the FIRST carrier.
+# A substrate node pre-marked with carrier_marker=true sprouts a carrier on a
+# freshly created neighbour, then clears its own marker so it fires exactly
+# once. NOT a creation rule (those make ISOLATED nodes and could not attach to
+# the substrate); it must MATCH the marked node to attach an occupancy edge.
+# Single-node LHS with edges=[] is matchable (verified S3.1) — no pre-attached
+# partner needed. Energy/genome are SET to initial values (a genuine energy
+# source only here, at seeding; the closed economy is maintained by influx).
+# ---------------------------------------------------------------------------
+[[rules]]
+name = "bootstrap_seed"
+[rules.lhs]
+nodes = ["site"]
+edges = []
+[[rules.lhs.node_property_guards]]
+var = "site"
+property = 20            # carrier_marker
+op = "eq"
+value = true
+
+[rules.rhs]
+nodes = ["site", "carrier"]
+edges = [["site", "carrier"]]
+[rules.rhs.node_labels]
+carrier = 100            # CARRIER_LABEL
+
+[[rules.rhs.property_effects]]
+var = "carrier"
+key = 1                  # energy
+op = "set"
+value = 10.0
+[[rules.rhs.property_effects]]
+var = "carrier"
+key = 10                 # harvest_rate
+op = "set"
+value = 1.0
+[[rules.rhs.property_effects]]
+var = "carrier"
+key = 11                 # replication_threshold
+op = "set"
+value = 15.0
+[[rules.rhs.property_effects]]
+var = "carrier"
+key = 12                 # maintenance_cost
+op = "set"
+value = 1.0
+[[rules.rhs.property_effects]]
+var = "carrier"
+key = 13                 # satiation
+op = "set"
+value = 20.0             # MUST exceed replication_threshold (15): a carrier
+                         # harvests only up to satiation, so satiation <=
+                         # repl_threshold makes reproduction unreachable (sterile).
+[[rules.rhs.property_effects]]
+var = "site"
+key = 20                 # clear the marker: fire once
+op = "set"
+value = false
+[[rules.rhs.property_effects]]
+var = "site"
+key = 22                 # occupied: the founding site now holds a carrier
+op = "set"
+value = true             # NAC surrogate; kept in sync by replicate/die (genome.rs)
+
+# ---------------------------------------------------------------------------
+# harvest (S3.2) — energy flows substrate node → carrier, satiation-gated.
+# A carrier draws a FIXED quantum from the substrate node it occupies, but only
+# while hungry (energy < satiation) — so a full carrier yields the site to a
+# hungrier cohabitant (scope §6.2 crowding, via conflict resolution). The site
+# must have a quantum to give (guard), so its energy never goes negative and a
+# depleted site cannot be harvested. Genome-scaled harvest_rate is DEFERRED
+# (needs a property×property effect op that does not exist); a fixed quantum
+# still gives a working economy. Energy-conserving: site loses exactly what the
+# carrier gains. Re-declares the occupancy edge on the RHS so it is preserved.
+# ---------------------------------------------------------------------------
+[[rules]]
+name = "harvest"
+priority = 1               # eat before draining (beats metabolise on a shared carrier)
+[rules.lhs]
+nodes = ["site", "carrier"]
+edges = [["site", "carrier"]]
+[rules.lhs.node_labels]
+carrier = 100            # only a carrier harvests
+[[rules.lhs.node_property_guards]]
+var = "site"
+property = 1             # site has energy to give…
+op = "gte"
+value = 1.0             # …at least one quantum (no negative site energy)
+[[rules.lhs.node_property_compares]]
+var_a = "carrier"
+key_a = 1               # carrier energy
+op = "lt"
+var_b = "carrier"
+key_b = 13              # < satiation ⟹ still hungry (the S1 PropertyCompare)
+
+[rules.rhs]
+nodes = ["site", "carrier"]
+edges = [["site", "carrier"]]
+[[rules.rhs.property_effects]]
+var = "site"
+key = 1
+op = "subtract"
+value = 1.0
+[[rules.rhs.property_effects]]
+var = "carrier"
+key = 1
+op = "add"
+value = 1.0
+
+# ---------------------------------------------------------------------------
+# metabolise (S3.3) — carrier energy decays by a fixed maintenance quantum.
+# The metabolic drain that makes energy scarce; with harvest it forms the
+# carrier's energy budget. Single-node LHS (no edge): matches every carrier,
+# leaves the occupancy edge untouched. A carrier that also matches harvest
+# CONFLICTS with it on the carrier node ⟹ only one fires per step (harvest when
+# hungry, otherwise it drains) — so metabolise need not be self-gated here.
+# Genome-scaled maintenance_cost is DEFERRED with harvest_rate. This is a
+# declared energy SINK (entropy), not a conservative transfer.
+# ---------------------------------------------------------------------------
+[[rules]]
+name = "metabolise"
+[rules.lhs]
+nodes = ["carrier"]
+edges = []
+[rules.lhs.node_labels]
+carrier = 100
+[rules.rhs]
+nodes = ["carrier"]
+edges = []
+[[rules.rhs.property_effects]]
+var = "carrier"
+key = 1
+op = "subtract"
+value = 0.5
+
+# ---------------------------------------------------------------------------
+# die_and_recycle (S3.4) — a carrier at energy <= 0 dies.
+# The carrier is ABSENT from the RHS ⟹ deleted; its occupancy edge is a matched
+# LHS edge that is not re-declared ⟹ gone (and Contract Rule 5 cleans any other
+# dangling edge). A FIXED recycle amount returns to the site.
+#
+# ENERGY ACCOUNTING (fixed, and held constant across the influx sweep or the
+# sweep is uninterpretable — scope §11 Q4): a dying carrier has energy <= 0, so
+# "80% recovery" cannot be a fraction of CURRENT energy. It is 80% of the
+# reference BIRTH energy (10.0): recycle 8.0 to the site, 2.0 (20%) lost as
+# entropy. This is a declared injection tied to birth energy — matched against
+# the site's payment at replication (replicate: site pays child_node_cost) so
+# the pair nets out; influx remains the sole *unmatched* source.
+# ---------------------------------------------------------------------------
+[[rules]]
+name = "die_and_recycle"
+priority = 3               # a dead carrier MUST die — never starved by metabolise/harvest (S3.7)
+[rules.lhs]
+nodes = ["site", "carrier"]
+edges = [["site", "carrier"]]
+[rules.lhs.node_labels]
+carrier = 100
+[[rules.lhs.node_property_guards]]
+var = "carrier"
+property = 1
+op = "lte"
+value = 0.0
+[rules.rhs]
+nodes = ["site"]           # carrier deleted; occupancy edge auto-cleaned
+[[rules.rhs.property_effects]]
+var = "site"
+key = 1
+op = "add"
+value = 8.0                # 0.8 × birth energy (10.0); 20% entropy loss
+[[rules.rhs.property_effects]]
+var = "site"
+key = 22                   # occupied: the site is now free for re-colonisation
+op = "set"
+value = false              # keeps count(occupied)==count(carriers) (genome.rs)
+
+# ---------------------------------------------------------------------------
+# influx (S3.5) — a depleted substrate node gains energy, up to a cap.
+# The SOLE energy SOURCE; carrying capacity emerges from influx vs metabolic
+# drain + entropy loss (scope §6.1), NOT a hard-coded ceiling. Guarded so only
+# depleted nodes match (also the S0.3 performance fix — bounds bindings/step).
+# Constrained to the substrate label (0) so it never refills a carrier (single-
+# node LHS would otherwise match any low-energy node). `<influx rate>` is THE
+# swept parameter for Experiment 5. Requires substrate nodes to carry energy
+# key 1 (initialised at run start) — a property-less node cannot match `< cap`.
+# ---------------------------------------------------------------------------
+[[rules]]
+name = "influx"
+[rules.lhs]
+nodes = ["site"]
+edges = []
+[rules.lhs.node_labels]
+site = 0                   # substrate only, never a carrier (label 100)
+[[rules.lhs.node_property_guards]]
+var = "site"
+property = 1
+op = "lt"
+value = 20.0               # influx cap: capped nodes do not match
+[rules.rhs]
+nodes = ["site"]
+edges = []
+[[rules.rhs.property_effects]]
+var = "site"
+key = 1
+op = "add"
+value = 2.0                # influx rate (swept)
+
+# ---------------------------------------------------------------------------
+# replicate (S3.6 + S4 birth-dispersal) — node-funded reproduction with the child
+# placed on an ADJACENT unoccupied substrate node, not the parent's own site.
+#
+# S4's first composed run proved single-site confinement: the original rule put
+# the child on the parent's site, so two carriers shared one site, split its
+# single harvest quantum, and froze just below threshold — the population never
+# left the founding site (docs/experiment5_preregistration.md §6). Per the plan's
+# S6.3 conditional ("only add a move rule if stationarity provably prevents a
+# criterion"), stationarity provably fails criteria 4/5/6, so the pre-committed
+# escape hatch fires. This is BIRTH-dispersal, NOT motility: carriers never move;
+# only the birth location changes — so S6.3's motility question stays deferred.
+#
+# TARGET-PAYS: the neighbouring substrate node the child lands on funds the child
+# cost (target subtract 10), so children only colonise where energy exists — the
+# population spreads along the substrate's own geometry (spontaneous over seeded).
+# The parent's energy is STILL untouched (node-funded, scope §7.3): replicating
+# costs the parent nothing, so §1's degenerate attractor persists but now with a
+# SPATIAL signature (a depleted halo around a low-threshold lineage — pre-
+# registered in §6). Genome inherited per-trait via copy_from(parent)+jitter.
+#
+# UNOCCUPIED target: the matcher has no negative application condition, so
+# "adjacent substrate node with no carrier" is guarded via the rule-maintained
+# `occupied` Bool (key 22): target.occupied == false to match, set true on birth,
+# cleared by die_and_recycle. The invariant count(occupied)==count(carriers) is
+# asserted every step in alife_dispersal.rs (genome.rs OCCUPIED doc). The [site,
+# target] structural edge is re-declared on the RHS so dispersal does NOT tear
+# the substrate lattice; [target,child] is the child's new occupancy edge.
+# ---------------------------------------------------------------------------
+[[rules]]
+name = "replicate"
+priority = 2               # reproduce before draining the opportunity away (beats metabolise) (S3.7)
+[rules.lhs]
+nodes = ["site", "parent", "target"]
+edges = [["site", "parent"], ["site", "target"]]
+[rules.lhs.node_labels]
+parent = 100               # the reproducing carrier
+site = 0                   # substrate node the parent occupies
+target = 0                 # an ADJACENT substrate node (shares a lattice edge)
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["site", "parent", "target"]   # target must be a DIFFERENT node than site
+[[rules.lhs.node_property_compares]]
+var_a = "parent"
+key_a = 1                  # parent energy
+op = "gte"
+var_b = "parent"
+key_b = 11                 # >= replication_threshold (genome trait)
+[[rules.lhs.node_property_guards]]
+var = "target"
+property = 1               # the TARGET (not the parent's site) pays the child cost
+op = "gte"
+value = 10.0              # child_node_cost
+[[rules.lhs.node_property_guards]]
+var = "target"
+property = 22              # occupied flag (NAC surrogate)
+op = "eq"
+value = false             # only disperse onto an UNoccupied neighbour
+
+[rules.rhs]
+nodes = ["site", "parent", "target", "child"]
+edges = [["site", "parent"], ["site", "target"], ["target", "child"]]
+[rules.rhs.node_labels]
+child = 100
+# The TARGET pays; the parent is untouched (node-funded).
+[[rules.rhs.property_effects]]
+var = "target"
+key = 1
+op = "subtract"
+value = 10.0              # child_node_cost, funded by the colonised neighbour
+[[rules.rhs.property_effects]]
+var = "target"
+key = 22                  # the target now holds the child
+op = "set"
+value = true             # maintains count(occupied)==count(carriers)
+[[rules.rhs.property_effects]]
+var = "child"
+key = 1
+op = "set"
+value = 8.0              # child birth energy (0.8 × cost; 20% birth entropy)
+# Inherit each genome trait: copy the parent's value, then jitter the copy.
+[[rules.rhs.property_effects]]
+var = "child"
+key = 10                  # harvest_rate
+op = "copy_from"
+source_var = "parent"
+source_key = 10
+[[rules.rhs.property_effects]]
+var = "child"
+key = 10
+op = "jitter"
+magnitude = 0.5
+[[rules.rhs.property_effects]]
+var = "child"
+key = 11                  # replication_threshold
+op = "copy_from"
+source_var = "parent"
+source_key = 11
+[[rules.rhs.property_effects]]
+var = "child"
+key = 11
+op = "jitter"
+magnitude = 0.5
+[[rules.rhs.property_effects]]
+var = "child"
+key = 12                  # maintenance_cost
+op = "copy_from"
+source_var = "parent"
+source_key = 12
+[[rules.rhs.property_effects]]
+var = "child"
+key = 12
+op = "jitter"
+magnitude = 0.5
+[[rules.rhs.property_effects]]
+var = "child"
+key = 13                  # satiation
+op = "copy_from"
+source_var = "parent"
+source_key = 13
+[[rules.rhs.property_effects]]
+var = "child"
+key = 13
+op = "jitter"
+magnitude = 0.5

@@ -1,0 +1,75 @@
+# tri_two — a two-rule substrate for Stage 2, on TriLattice.
+#
+# The second co-live pairing in `docs/policy_config.md` §2.5's liveness
+# matrix: on `TriLattice` both `binary_edge` (1 354 128 attempted matches
+# over 64 steps) and `triangle_subdivide` (774 912) fire. See
+# `rules/wn_three.toml` for why a multi-rule substrate is needed at all —
+# `StaticBias` has one parameter per rule and is provably identical to
+# budget-matched random on a single-rule set.
+#
+# `tri_two` exists alongside `wn_three` because the two differ in the one
+# way that matters for Stage 2's hypothesis: on `TriLattice` the two rules
+# have *comparable* candidate volume (1.35M vs 0.77M), while on
+# `WhiteNoise` one rule supplies 95% of the pool. If a per-rule preference
+# vector only works when the rules are volume-matched, that is worth
+# knowing, and one substrate cannot show it.
+#
+# Priorities flattened to 0 for the reason given in `wn_three.toml`.
+
+[[rules]]
+name     = "binary_edge"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [
+  ["a", "b"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b"]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "c"],
+  ["b", "c"],
+]
+
+[rules.rhs.node_labels]
+c = 0
+
+[[rules]]
+name     = "triangle_subdivide"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b"],
+  ["b", "c"],
+  ["a", "c"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c"]
+
+[rules.rhs]
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "d"],
+  ["b", "d"],
+  ["c", "d"],
+  ["a", "b"],
+  ["b", "c"],
+  ["a", "c"],
+]
+
+[rules.rhs.node_labels]
+d = 0

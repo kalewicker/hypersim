@@ -1,0 +1,47 @@
+[[rules]]
+name = "relocate"
+priority = 2
+[rules.lhs]
+nodes = ["site", "carrier", "target"]
+edges = [["site", "carrier"], ["site", "target"]]
+[rules.lhs.node_labels]
+carrier = 100
+site = 0
+target = 0
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["site", "carrier", "target"]
+[[rules.lhs.node_property_compares]]
+var_a = "carrier"
+key_a = 1
+op = "lt"
+var_b = "carrier"
+key_b = 13
+[[rules.lhs.node_property_guards]]
+var = "target"
+property = 1
+op = "gte"
+value = 1.0
+[[rules.lhs.node_property_guards]]
+var = "target"
+property = 22
+op = "eq"
+value = false
+[[rules.lhs.node_property_guards]]
+var = "site"
+property = 1
+op = "lt"
+value = 1.0
+[rules.rhs]
+nodes = ["site", "carrier", "target"]
+edges = [["site", "target"], ["target", "carrier"]]
+[[rules.rhs.property_effects]]
+var = "site"
+key = 22
+op = "set"
+value = false
+[[rules.rhs.property_effects]]
+var = "target"
+key = 22
+op = "set"
+value = true

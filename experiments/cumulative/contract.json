@@ -1,0 +1,60 @@
+{
+  "profile": "cumulative-readiness-v1",
+  "scope": "integrated_cell_capacity_fixture",
+  "campaign_launch_authorized": false,
+  "readiness_gate_complete": false,
+  "limits": {
+    "native_rewrites": 4000,
+    "native_seconds": 300,
+    "build_test_audit_seconds": 1200,
+    "output_bytes": 134217728,
+    "genes_per_cell": 8,
+    "nodes_per_cell": 16,
+    "edges_per_cell": 16,
+    "microsteps_per_cycle": 4
+  },
+  "law": {
+    "parcel_energy": 16,
+    "settlement_values": [0, 4, 8, 14, 16],
+    "legal_reaction": "stage s to s+1, with 0 <= s < 4",
+    "execution_cost": 1,
+    "storage_cost": "1 plus number of gene nodes per resource cycle",
+    "edit_cost": 2,
+    "copy_cost": "2 plus number of gene nodes plus one editor node",
+    "child_capital": 8,
+    "initial_capital": 40,
+    "initial_environment_energy": 512,
+    "founder_stages": [0],
+    "editor": "native duplicate-gene rewrite; copied stage jitter -1..1; identity and funding graph-bound",
+    "cycles_per_capacity_case": 12
+  },
+  "capacity_cases": [
+    {"name": "founder", "stages": [0]},
+    {"name": "first", "stages": [0, 1]},
+    {"name": "second", "stages": [0, 1, 2]},
+    {"name": "earlier_ablation", "stages": [0, 2]},
+    {"name": "later_ablation", "stages": [0, 1]},
+    {"name": "sham", "stages": [0, 1, 2]},
+    {"name": "restoration", "stages": [0, 1, 2]},
+    {"name": "redundant_bloat", "stages": [0, 1, 2, 0]}
+  ],
+  "development_seed": 2026100901,
+  "acceptance": {
+    "founder_net_per_cycle": 1,
+    "first_net_per_cycle": 3,
+    "second_net_per_cycle": 7,
+    "legal_paid_edit_path": true,
+    "three_paid_transmissions": true,
+    "checkpoint_exact_continuation": true,
+    "candidate_order_invariance": true,
+    "allocation_offset_invariance": true,
+    "all_accounting_and_controls": true
+  },
+  "remaining_readiness": [
+    "shared-resource population competition and full scheduler opportunity audit",
+    "broader editable instruction repertoire and mutable editor regulation",
+    "lineage sampling and causal intervention selection fixed before evolution",
+    "whole-campaign resource projection",
+    "world replication sensitivity and final campaign thresholds"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "deterministic": "../output/ere_complete_gates_fresh_20260926",
+  "long_gates": "../output/ere_complete_long_gates_full_20260927",
+  "closure": "../output/ere_complete_coherent_closure_full_20260929",
+  "grammar": "../output/ere_valid_production_grammar_20260929",
+  "runtime": "../output/ere_runtime50k_signal_panel_20260930"
+}

@@ -1,0 +1,39 @@
+{
+  "all_admitted_roots_absent": true,
+  "archive_checks": "All compressed archive/index hashes and every current local original compared to full restored inventory before any removal.",
+  "archive_destination": "/Volumes/B/Hypersim-archives-2026-10-14",
+  "archive_manifest_sha256": "7413b9207465a5ac4166d24e563b9b2d447914aacd0eb980b4363b4b4af6aa12",
+  "cache_roots": [
+    "target",
+    "experiments/lk/target",
+    "experiments/cumulative/target",
+    "bins/hypersim-cli/target"
+  ],
+  "checkout_allocated_bytes_after": 2685710336,
+  "checkout_allocated_bytes_before": 73876459520,
+  "date": "2026-10-14",
+  "elapsed_seconds": 199.20953041687608,
+  "evidence_roots": [
+    "crates/hg-selfmod/runs",
+    "crates/hg-train/runs_stage2",
+    "experiments/lk/output",
+    "output",
+    "runs"
+  ],
+  "external_original_lk_workspace_removed": false,
+  "native_simulation": false,
+  "profile": "hypersim-verified-evidence-cleanup-v1",
+  "reclaimed_allocated_bytes": 71190749184,
+  "removed": [
+    "crates/hg-selfmod/runs",
+    "crates/hg-train/runs_stage2",
+    "experiments/lk/output",
+    "output",
+    "runs",
+    "target",
+    "experiments/lk/target",
+    "experiments/cumulative/target",
+    "bins/hypersim-cli/target"
+  ],
+  "status": "complete"
+}

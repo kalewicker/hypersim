@@ -1,0 +1,61 @@
+{
+  "profile": "cumulative-storage-validation-v1",
+  "scope": "zero_native_lossless_saved_evidence_storage_validation",
+  "codec": {
+    "name": "gzip",
+    "level": 6,
+    "mtime": 0,
+    "granularity": "one original file per independent gzip member; no deduplication; no rewriting JSON"
+  },
+  "limits": {
+    "native_rewrites": 0,
+    "workflow_seconds": 1200,
+    "output_bytes": 134217728,
+    "decoded_object_bytes": 33554432,
+    "decoded_fixture_bytes": 134217728
+  },
+  "corpus": [
+    {
+      "name": "adapter",
+      "archive": "output/cumulative_campaign_adapter_readiness_20261010",
+      "seal_sha256": "827890af64baf8cf8c25d67056a5006294c6c95fcddd888d03870c6d6287f794",
+      "audit_module": "audit_campaign_adapter"
+    },
+    {
+      "name": "durability",
+      "archive": "output/cumulative_durable_journal_readiness_v3_20261009",
+      "seal_sha256": "8ae372d4e9f71cb34441453d2333dd524b0431b025028f20c7226c19f1709fe1",
+      "audit_module": "audit_durability"
+    }
+  ],
+  "projection": {
+    "worlds": 188,
+    "ticks": 16,
+    "assays": 78960,
+    "assay_batches": 617,
+    "same_record_count_formula_as_parent": true,
+    "allocation_block_bytes": 4096,
+    "index_bytes_per_projected_record": 1024,
+    "filesystem_metadata_bytes_per_projected_record": 4096,
+    "fixed_other_evidence_reserve_bytes": 1073741824,
+    "bounded_raw_scratch_bytes": 134217728,
+    "retained_emergency_raw_bytes": 268435456,
+    "campaign_output_cap_bytes": 8589934592,
+    "timing_margin_multiplier": 2,
+    "campaign_native_seconds_projection": 9426.364445663989,
+    "workflow_cap_seconds": 21600
+  },
+  "acceptance": [
+    "Every sealed source file, including original seal, failed routes and torn staging files, decodes byte-for-byte to its known source hash.",
+    "Existing frozen independent auditors return their original semantic results through the compact read-only namespace. No full journal expansion on disk.",
+    "Original and relocated checks use only their compact stores and authenticated frozen scripts.",
+    "Corruption, partial publication, path escape, duplicate entries, missing files, oversized decode and concatenated gzip are rejected.",
+    "Observed-max projection plus explicit index, filesystem, metadata and bounded scratch reserves fits 8 GiB; classify this as observed storage feasibility, not a universal compressibility or whole-campaign guarantee."
+  ],
+  "production_boundary": "A future campaign must compact sealed journal units incrementally, verify and sync the compact copy before releasing only its owned raw spool, restore at most the bounded unit required for continuation, charge actual retained bytes before advancing, and stop preserving failures on a cap hit. Existing original archives are never removed. Production spool integration is not implemented or admitted here.",
+  "closure": "Seal the storage finding. No native replay, scientific seed pilots, changed criteria, source journal mutation, dropped records or scientific launch.",
+  "readiness_gate_complete": false,
+  "scientific_acceptance": false,
+  "evolution_demonstrated": false,
+  "campaign_launch_authorized": false
+}

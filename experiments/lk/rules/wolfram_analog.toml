@@ -1,0 +1,24 @@
+# Wolfram Rule-110 analog (salvaged from the pre-v4 experiments/ tree).
+# Complexity reference: edge rewriting that generates rich structure.
+[[rules]]
+name = "wolfram_like"
+priority = 0
+weight = 1.0
+enabled = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [["a", "b"]]
+
+[rules.lhs.node_labels]
+a = 0
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "c"],
+  ["c", "b"]
+]
+
+[rules.rhs.node_labels]
+c = 1

@@ -1,0 +1,20 @@
+[package]
+name = "hg-causal"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hg-core = { path = "../hg-core" }
+hg-observe = { path = "../hg-observe" }
+hg-schema = { path = "../hg-schema" }
+serde = { workspace = true }
+ahash = { workspace = true }
+petgraph = { workspace = true }
+nalgebra = { workspace = true }
+smallvec = { workspace = true }
+slotmap = { workspace = true }
+serde_json = { workspace = true }
+
+[dev-dependencies]
+rand = { workspace = true }
+rand_chacha = { workspace = true }

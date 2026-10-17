@@ -1,0 +1,23 @@
+{
+  "profile": "E2-complete-short-training-v1",
+  "master_seed": 989251764225,
+  "horizon": 100,
+  "parameters": 183,
+  "initial_parameter_value": 0.0,
+  "precheck_generations": 5,
+  "precheck_pairs": 4,
+  "generations": 20,
+  "candidates": 16,
+  "held_out_draws": 64,
+  "precheck_physics": [1601, 1699, 1801, 1901],
+  "training_physics": [2003, 2111, 2203, 2309],
+  "held_out_physics": [2411, 2503, 2609, 2707],
+  "sigma": 1.0,
+  "alpha": 0.05,
+  "minimum_valid_training_pairs": 4,
+  "work": 50000,
+  "results": 50000,
+  "wall_seconds": 3600,
+  "cell_wall_seconds": 30,
+  "output_cap_bytes": 536870912
+}

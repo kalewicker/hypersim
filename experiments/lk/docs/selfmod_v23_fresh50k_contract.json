@@ -1,0 +1,225 @@
+{
+  "protocol": "selfmod-v23-fresh50k-v1",
+  "seeds": [
+    503,
+    509,
+    521,
+    523,
+    541,
+    547,
+    557,
+    563
+  ],
+  "arms": [
+    "faithful",
+    "edited"
+  ],
+  "initial_prefix_limit": 256,
+  "readiness_steps": 10000,
+  "second_prefix_limit": 256,
+  "second_readiness_steps": 10000,
+  "third_prefix_limit": 256,
+  "horizon": 50000,
+  "warmup_steps": 2000,
+  "window_steps": 1000,
+  "subwindow_steps": 250,
+  "replication_threshold": 6,
+  "limit": 8,
+  "policy": "replace8",
+  "future_mutation": false,
+  "primary_family": "third_child_and_immutable_genealogical_descendants",
+  "third_target_family": "second_child_and_immutable_genealogical_descendants",
+  "initial_prune": {
+    "id": "op11_member0_draw1",
+    "operator": 11,
+    "parameters": [
+      14984134727853237840,
+      12375471953779355968,
+      14176329756113589063,
+      15783146528319595889,
+      2475482604415574477
+    ],
+    "mutant_class_hash": 6722725964470947410,
+    "decoded_spec": {
+      "creates": [
+        2
+      ],
+      "deletes": [],
+      "guards": [],
+      "n_vars": 2,
+      "pedges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "priority": 0,
+      "redges": [
+        [
+          2,
+          1
+        ]
+      ],
+      "relabels": [],
+      "var_labels": [
+        0,
+        1
+      ]
+    }
+  },
+  "second_edit": {
+    "id": "op03_member0_draw1",
+    "operator": 3,
+    "parameters": [
+      1280996023369054932,
+      2506804415545024566,
+      15872639235278076553,
+      5490797566994465895,
+      11698519157483846130
+    ],
+    "parent_spec": {
+      "creates": [
+        2
+      ],
+      "deletes": [],
+      "guards": [],
+      "n_vars": 2,
+      "pedges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "priority": 0,
+      "redges": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "relabels": [],
+      "var_labels": [
+        0,
+        1
+      ]
+    },
+    "decoded_spec": {
+      "creates": [
+        2
+      ],
+      "deletes": [],
+      "guards": [],
+      "n_vars": 2,
+      "pedges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "priority": 0,
+      "redges": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "relabels": [],
+      "var_labels": [
+        null,
+        1
+      ]
+    },
+    "mutant_class_hash": 10434338941108498023
+  },
+  "second_composite_spec": {
+    "creates": [
+      2
+    ],
+    "deletes": [],
+    "guards": [],
+    "n_vars": 2,
+    "pedges": [
+      [
+        0,
+        1
+      ]
+    ],
+    "priority": 0,
+    "redges": [
+      [
+        2,
+        1
+      ]
+    ],
+    "relabels": [],
+    "var_labels": [
+      null,
+      1
+    ]
+  },
+  "second_composite_class_hash": 4713340462273116244,
+  "third_edit": {
+    "id": "named_op02_restore_var0_label0",
+    "operator": 2,
+    "parameters": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "parameter_origin": "prospectively named tuple; no random-draw claim"
+  },
+  "composite_spec": {
+    "creates": [
+      2
+    ],
+    "deletes": [],
+    "guards": [],
+    "n_vars": 2,
+    "pedges": [
+      [
+        0,
+        1
+      ]
+    ],
+    "priority": 0,
+    "redges": [
+      [
+        2,
+        1
+      ]
+    ],
+    "relabels": [],
+    "var_labels": [
+      0,
+      1
+    ]
+  },
+  "target_variable": 0,
+  "max_scientific_advancing_steps": 966144,
+  "authorization": "User: ok lets do the 50000 step panel; fresh matched ordinary-initialization serial panel",
+  "composite_class_hash": 6722725964470947410,
+  "target_label": 0,
+  "novel_genotype": false,
+  "engineering_seeds": [
+    7,
+    42
+  ],
+  "engineering_horizon": 2000,
+  "scored_windows": 48,
+  "temporal_blocks": 6,
+  "independent_replication": true,
+  "no_intermediate_qualification_gate": true,
+  "max_verification_advancing_steps": 120768,
+  "max_parallel_processes": 4,
+  "criteria": "original 2000-step third-birth warmup only; all48 scored windows; six8-window blocks using unchanged v17 component rules; all selected worlds retain denominator8"
+}

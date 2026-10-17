@@ -1,0 +1,69 @@
+# Retained first-request comparator: implementation and engineering findings
+
+2026-10-04. The third arm of the conditional H3a design now has a native implementation, exact live continuation and independent reconstruction. Each founder samples its configured kernel at its first admitted paid request, retains that proposal on later requests, and leaves descendants to copy their inherited genotype faithfully. The fixed engineering panel passed. Broader opportunity, control and power calibration remains pending; scientific execution is unlaunched.
+
+Dynamics `evolving-minds-d0-retained-proposal-v1`, storage `evolving-minds-d0-retained-streaming-v1`, policy `founder-first-proposal-v1`. `development_only=true`; `scientific_run_launched`, `gate_pass`, `training_admitted`, `evolution_enabled` and `reproductive_fairness_accepted` remain false. The [prospective contract](../experiments/evolving_minds/contracts/d0_retained_proposal_v1.md) and all six cases were frozen before native advancement. Only exposed engineering seeds17/23 were used. Development worlds101/103/107/109 and held-out worlds211/223/227/229/233/239/241/251 remain unexposed.
+
+## Native behavior and persistence
+
+The comparator uses the existing configurable funded admission path: the request first pays native charge1 and reserves parent-funded escrow, then receives its proposal. The first proposal receipt records the authored founder program, proposed bytes, semantic edit, kernel, request/tick/site and complete draw provenance. The cached receipt keeps its original unsettled fields; actual copy/refund/child settlement is recorded separately on each request. Founders retain their authored genotype. The production comparator uses SourceKernel; Faithful, Invalid and MissingPort are registered engineering controls.
+
+Later founder requests reuse the original proposed program, syntax/reachability outcome and edit provenance, with fresh native identities and settlement. They record `operator=retained_founder`, `stream=retained-founder-v1:FIRST_REQUEST_ID`, zero draw cursors and empty raw draws. Descendant requests use Faithful on their own inherited genotype. Invalid proposals stay invalid on every request, paying charge1 and refunding29 under B24; unreachable proposals produce paid seeds whose native development fails. No redraw, repair, viability filter or replacement occurs.
+
+The new `HGEMRP01` live envelope carries the existing funded live state and bounded host policy/sample records for the two initial founders. Samples survive founder death and history pruning. Native decode regenerates each original proposal from the declared founder/kernel/request stream and validates its provenance, bytes, status and unsettled fields. Profile/config/policy bind headers, attestations and parent continuation. Quiescent boundaries, allocator/RNG/engine state, evidence cursors and strict latest-publication checks remain required. The independent prefix audit also detects omitted retained samples. External commits and hashes provide integrity checks; they do not authenticate a producer.
+
+This adds host comparator records and no graph keys, labels, material prices or scheduler laws. `HGEMS001` and `HGEMFS01` retain their meanings and layouts. The relevant implementations are [retained state](../crates/hg-sim-core/src/evolving_minds/retained.rs), [native integration/checkpoints](../crates/hg-sim-core/src/evolving_minds/family.rs), [segment output](../crates/hg-sim-core/src/evolving_minds/stream_output.rs), [fixed panel](../crates/hg-sim-core/src/evolving_minds/retained_output.rs), and [independent checker](../scripts/verify_evolving_minds_retained.py).
+
+## Complete fixed engineering outcomes
+
+Each baseline includes both founders and every one of its64 ticks. Descendant yield excludes founders by ancestry and is reconstructed from successful native resource transfers. All development, attempt, upkeep, request, copy, escrow, refunds and death returns reconcile through complete lifetime records. Extinction and grammar failures retain their places in the fixed denominator. The recovered chain reproduces the invalid baseline and is verification evidence, not an additional world.
+
+| Fixed baseline | Descendant yield | Founder yield | Births | Descendants completed | Grammar failures | Alive at64 | Requests |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Delayed SourceKernel, seed17 | 8 | 48 | 2 | 1 | 1 | 0 | 2 |
+| Delayed SourceKernel, seed23 | 440 | 80 | 5 | 5 | 0 | 1 | 15 |
+| Immediate Faithful, seed17 | 1384 | 192 | 16 | 16 | 0 | 3 | 16 |
+| Immediate Invalid, seed17 | 0 | 192 | 0 | 0 | 0 | 0 | 24 |
+| Immediate MissingPort, seed17 | 0 | 192 | 4 | 0 | 4 | 0 | 4 |
+| Delayed SourceKernel, seed23, reversed allocation | 440 | 80 | 5 | 5 | 0 | 1 | 15 |
+
+Seed17 retained proposals were unchanged for founder1 and unreachable g102 source2 for founder2. Both founders and their descendants are extinct by64. The descendant yield8 matches the previously archived continuously mutating source control and remains below the faithful delayed control's16.
+
+Seed23 founder1's first request44 sampled the reachable g103 source0 program; founder2's first request46 sampled syntax-invalid g101 source2. Founder2 paid ten requests with the same invalid proposal. Four descendant requests copied faithfully, yielding a five-birth lineage with depth5 and one live descendant at64. Retained yield440 exceeds the earlier continuously mutating control's104 on this one exposed world. This descriptive difference does not establish inherited adaptation, population power or held-out passage; it shows why the retained comparator must be included. Reversed allocation preserves semantic events, retained samples, lineage and endpoint/lifetime records.
+
+The invalid-immediate control makes24 rejected requests, including22 reuses, charging24 and refunding696 without births or copy charges. MissingPort commits four paid failed seeds with copy fees20 and endowment transfers96, yielding no descendant harvest. Faithful-immediate supplies12 descendant requests and two founder reuses. These unfavorable routes remain recorded. [Independent reconstruction and complete opportunity/lifetime records](../output/evolving_minds_retained_development_20261004/independent_replay.json).
+
+## Recovery, resources and independent checks
+
+Six baselines plus a BeforeCommit fault prefix and its continuation comprise eight segments and seven complete chains. The prefix reached native tick16 but published only tick8; its real manifest remains Interrupted and pending tick16 publication remains present. Recovery uses the latest committed tick8 into a fresh directory and matches the full uninterrupted invalid baseline. A separate CLI process resumed the same prefix exactly through64. No corrupt-latest fallback or pending-publication promotion is allowed.
+
+The root manifest's20608 steps describe unique committed advances across seven chains. Actual panel execution was20976 advances, including368 unpublished/repeated tail advances. Fresh retained continuation and fresh old-funded compatibility continuation each added2576, for26128 native advances in this registered package. Unit-test execution is separate. [Execution denominator](../output/evolving_minds_retained_development_20261004/execution_counts.json), [native root manifest](../output/evolving_minds_retained_development_20261004/manifest.json), [fresh retained manifest](../output/evolving_minds_retained_process_resume_20261004/manifest.json).
+
+The independent checker regenerated native graph transitions, full event/accounting evidence, genotype/lineage, admission scheduling, first proposals and all applications at **72 published states**:64 states in the panel and eight in the fresh process. It verified all six baselines, seven complete chains and eight panel segments. It independently derived B24 laws from the frozen original admission laws and reconstructed complete descendant-only lifetime/opportunity accounting. Audit elapsed174.235s and kept all284 panel input files and33 fresh-continuation input files unchanged. [Audit](../output/evolving_minds_retained_development_20261004/independent_replay.json), [read-only proof](../output/evolving_minds_retained_development_20261004/read_only_audit.json).
+
+The old funded prefix was also resumed in a fresh process. The original archive's frozen independent modules verified complete graph/event/row/lineage/proposal identity against its old uninterrupted mixed-reject baseline, retaining `HGEMFS01` and the old funded profile. This compatibility audit took6.648s and preserved all686 old input files plus33 new continuation files. The older `HGEMS001` path is covered by the existing streaming regression tests. [Compatibility receipt](../output/evolving_minds_retained_development_20261004/legacy_compatibility.json).
+
+The native panel took84.179s with four workers. It produced20655484 bytes across284 files before auxiliary receipts/docs/seal. Summed native advancement was50.487s, checkpoint work18.039s and I/O2.224s; the slowest segment advancement was10.163s. The largest checkpoint was28660 bytes, well below2MiB. Drained per-tick evidence peaked at46 entries, one row and one round; retained founder samples remain bounded to two, including after death. These measurements satisfy the engineering panel's declared ceilings and do not establish full campaign resource feasibility.
+
+Eleven native tests passed: three retained integration tests, one rehashed-provenance-forgery unit test, four funded regression tests and three legacy streaming regression tests. Thirty-six Python tests passed: seven retained audit tests, fifteen admission tests and fourteen streaming tests. Feature-on and feature-off library builds passed. Coverage includes full-history/live identity, no-request prefix4, sampled/dead-founder checkpoints, one/four workers, allocation reversal, repeated invalid refunds, paid unreachable failure, exact interruption/recovery, forged provenance/policy/missing samples and corrupt latest publication. The no-request fixture covers a prefix before first admission; it does not establish a full64-tick no-offer ecology. [Validation](../output/evolving_minds_retained_development_20261004/validation.json).
+
+All139 frozen source files match the current checkout, including the checker, contracts and references; source identity is distinct from the independent correctness checks. All39 prior sealed Evolving Minds archives, comprising7471 files, retain exact inventories and hashes. Native negative/fault artifacts and earlier findings remain intact. [Source receipt](../output/evolving_minds_retained_development_20261004/source_identity.json), [preservation](../output/evolving_minds_retained_development_20261004/prior_archive_preservation.json), [audit manifest](../output/evolving_minds_retained_development_20261004/audit_manifest.json).
+
+## Reproduction and next boundary
+
+Run only into fresh destinations; the original archives are exclusive and sealed.
+
+```sh
+RAYON_NUM_THREADS=4 cargo run -p hg-sim-core --features evolving-minds --bin evolving-minds -- retained output/NEW_RETAINED_PANEL
+RAYON_NUM_THREADS=4 target/debug/evolving-minds retained-run output/NEW_RETAINED_RUN --config configs/evolving_minds/retained_proposal_source_v1.json
+RAYON_NUM_THREADS=4 target/debug/evolving-minds retained-resume output/NEW_RETAINED_PANEL/fault_before_commit output/NEW_PROCESS_RESUME
+python3 -B output/NEW_RETAINED_PANEL/checker.py output/NEW_RETAINED_PANEL --extra-segment output/NEW_PROCESS_RESUME
+EVOLVING_MINDS_RETAINED_FIXTURE=output/evolving_minds_retained_development_20261004 python3 -B -m unittest discover -s scripts -p test_verify_evolving_minds_retained.py -v
+```
+
+The next package should prospectively freeze the matched five-arm development pilot on worlds101/103/107/109: continuous inherited variation, faithful delayed inheritance, retained first-request variant, faithful immediate control and faithful coin control. Fix complete denominators,64-tick endpoints, numerical opportunity/control admission rules and native/storage/audit limits before execution. Use its complete results to decide ecological feasibility and resource/power adequacy before finalizing a scientific contract. The stringent eight-positive-world requirement and64-unit effect floor remain conditional; this exposed comparator panel supplies neither a power estimate nor permission to relax them. Scientific launch, training, evolution and broad reproductive fairness remain pending. [Updated roadmap](evolving_minds_hypersim_implementation_plan.md), [conditional proposal](evolving_minds_h3a_conditional_proposal_20261003.md).
+
+
+## Matched development calibration decision (2026-10-04)
+
+The [matched five-arm pilot](evolving_minds_matched_development_findings_20261004.md) now completed all20 registered cells on development worlds101/103/107/109. Independent reconstruction passed180 published states and140 full organism records. Both inherited-improvement screens failed: inherited-minus-faithful differences0/-56/-96/-64 (mean-54), and inherited-minus-retained all0. Immediate/coin discrimination and faithful paid descendant construction passed, but world101 delayed arms had action-funding exposure failures. The conservative full-campaign audit projection7642.513s also failed its7200s ceiling. These are completed negative calibration results; no criterion, seed or horizon was relaxed. The four development worlds are now exposed; all eight proposed held-out worlds remain unexposed. Power adequacy is unestablished and the current design is no-go for scientific launch. Next is archive-only failure decomposition and independently checked audit-cost optimization; any native design revision requires a separate prospective diagnostic. Earlier text and sealed evidence above retain their historical meanings.

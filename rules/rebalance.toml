@@ -1,0 +1,75 @@
+# E-track / E2 — `rebalance`: the rule the grammar previously could not express.
+#
+# Node-count-neutral, edge-count-neutral, degree-CHANGING, and **self-balancing
+# with zero constants**.
+#
+# MECHANISM. Match two node-disjoint 2-edges {a, b} and {c, d} where `c` has
+# STRICTLY GREATER degree than `a`. Move the incidence at `c` to `a`:
+#
+#   deg(a) += 1     deg(c) -= 1     deg(b), deg(d) unchanged
+#
+# The move therefore always runs from the higher-degree node to the lower-degree
+# one, and the direction REVERSES the moment the comparison flips.
+#
+# WHAT THIS FIXES. `rules/rewire.toml` is the same rewrite without the guard: it
+# moves incidence in ONE direction always, which is rich-get-richer with an
+# absorbing state. Measured (D2.3): max degree ran 6 -> 85 within 1000 steps,
+# one node joined every one of the 85 edges, no two node-disjoint 2-edges
+# remained, and the rule ate its own precondition — 560 firings in 8000 steps,
+# 0 in the final 10%. Firewall gate kill.
+#
+# `rules/rewire_bounded.toml` recovered perpetuality by bounding both ends with
+# CONSTANTS read off the substrate (receiver < 6, donor > 2). That works, but it
+# pins degrees inside the substrate's own initial range and so limits how far
+# the treatment departs from the `swap` control it is meant to contrast with.
+#
+# This rule replaces both constants with the single comparison that expresses
+# the mechanism directly. **It has no parameters at all**, so there is nothing
+# to sweep (E-track rule 4).
+#
+# WHY IT NEEDED A GRAMMAR EXTENSION. `NodeDegreeCompare` compares a node's
+# degree to a CONSTANT; there was no var-to-var form, so "the higher-degree of
+# two matched nodes" was inexpressible. `node_quantity_compares` is that form,
+# added as a general var-to-var comparison of a derived node quantity (E1.1),
+# not as a bespoke degree-difference guard.
+#
+# NAMED RISK (pre-registered, E2.3). Self-balancing has its own absorbing state:
+# degree uniformity. 170 incidences over 36 nodes is mean 4.72, not an integer,
+# so a perfectly regular graph is unreachable and SOME pair always satisfies the
+# guard — but that pair must also sit on two node-disjoint 2-edges. Once degrees
+# contract to {4, 5}, every firing swaps a 4 and a 5, which PRESERVES the degree
+# sequence — the very property separating this arm from `swap`.
+
+[[rules]]
+name     = "rebalance"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "b"],
+  ["c", "d"],
+]
+
+# The whole point of the track: compare the two matched nodes to each other,
+# with no constant anywhere in the rule.
+[[rules.lhs.node_quantity_compares]]
+var_a    = "c"
+quantity = "degree"
+op       = "gt"
+var_b    = "a"
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c", "d"]
+
+[rules.rhs]
+# All four nodes retained, so node count is exactly flat — `c` survives, it
+# merely loses an incidence.
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "b"],
+  ["a", "d"],
+]

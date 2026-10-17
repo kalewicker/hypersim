@@ -1,0 +1,135 @@
+{
+  "date_local": "2026-10-01",
+  "before": [
+    {
+      "path": "/Users/kalewicker/Documents/hypersim",
+      "allocated_kib": 57879016
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/target",
+      "allocated_kib": 15370500
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/experiments/lk/target",
+      "allocated_kib": 1814800
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/bins/hypersim-cli/target",
+      "allocated_kib": 414848
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/output",
+      "allocated_kib": 8092836
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/experiments/lk/output",
+      "allocated_kib": 25360472
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/runs",
+      "allocated_kib": 5285756
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/.git",
+      "allocated_kib": 1485584
+    },
+    {
+      "path": "/private/tmp",
+      "allocated_kib": 2912756
+    },
+    {
+      "path": "/Users/kalewicker/.cargo",
+      "allocated_kib": 331256
+    },
+    {
+      "path": "/Users/kalewicker/.cache/uv",
+      "allocated_kib": 2916968
+    },
+    {
+      "path": "/Users/kalewicker/.cache/codex-runtimes",
+      "allocated_kib": 3967448
+    }
+  ],
+  "cleanup_candidates": [
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/target/debug/incremental",
+      "allocated_kib": 7138128,
+      "reason": "Regenerable Rust incremental compiler cache",
+      "deletion_command_completed": true,
+      "after_allocated_kib": 88980,
+      "present_at_final_check": true
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/experiments/lk/target/debug/incremental",
+      "allocated_kib": 740516,
+      "reason": "Regenerable Rust incremental compiler cache",
+      "deletion_command_completed": true,
+      "after_allocated_kib": 0,
+      "present_at_final_check": false
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/bins/hypersim-cli/target/debug/incremental",
+      "allocated_kib": 62824,
+      "reason": "Regenerable Rust incremental compiler cache",
+      "deletion_command_completed": true,
+      "after_allocated_kib": 0,
+      "present_at_final_check": false
+    }
+  ],
+  "active_hypersim_or_rust_processes_observed": false,
+  "preserved": [
+    "output",
+    "experiments/lk/output",
+    "runs",
+    ".git",
+    "compiled binaries and dependencies",
+    "/private/tmp frozen source and executable archives",
+    "shared user caches"
+  ],
+  "cache_reduction_allocated_kib": 7852488,
+  "after": [
+    {
+      "path": "/Users/kalewicker/Documents/hypersim",
+      "allocated_kib": 52149020
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/target",
+      "allocated_kib": 10239768
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/experiments/lk/target",
+      "allocated_kib": 1278492
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/bins/hypersim-cli/target",
+      "allocated_kib": 369748
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/output",
+      "allocated_kib": 8092836
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/experiments/lk/output",
+      "allocated_kib": 25360472
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/runs",
+      "allocated_kib": 5285756
+    },
+    {
+      "path": "/Users/kalewicker/Documents/hypersim/.git",
+      "allocated_kib": 1485584
+    }
+  ],
+  "output_file_counts": {
+    "output": 56423,
+    "experiments/lk/output": 20801,
+    "runs": 15132
+  },
+  "notes": [
+    "A small ere_categorical_adapter incremental cache was recreated between deletion and final verification; preserved. No matching build process remained at the final process check.",
+    "Selected shared caches and temporary locations were inspected, not a whole disk scan.",
+    "No tests or builds launched for this cache-only cleanup.",
+    "Separately measured cache sizes overlap hard-linked build files: project allocated usage decreased 5.47 GiB, rather than the summed 7.49 GiB cache measurement. Output and run directory sizes were unchanged at final check."
+  ]
+}

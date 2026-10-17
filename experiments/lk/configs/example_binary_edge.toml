@@ -1,0 +1,28 @@
+# Example headless run: binary-edge growth on a white-noise seed.
+experiment_name = "binary_edge_demo"
+seed = 42
+out_dir = "output"
+
+[rules]
+source = "Builtin"
+builtin_name = "binary_edge"
+
+[initial]
+condition_type = "WhiteNoise"
+node_count = 30
+edge_count = 40
+max_arity = 2
+label_range = 3
+
+[engine]
+step_mode = "MaxParallel"
+max_steps = 4096
+metrics_window_interval = 256
+max_pairings_per_step = 12
+thread_count = 4
+
+[evaluator]
+enabled = true
+
+[causal]
+enabled = true

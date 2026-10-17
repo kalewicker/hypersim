@@ -1,0 +1,437 @@
+{
+  "profile": "cumulative-campaign-adapter-readiness-v1",
+  "scope": "bounded_development_adapter_and_maximum_dimension_record_benchmark",
+  "development_seed": 2026101001,
+  "limits": {
+    "native_rewrites": 6000,
+    "native_seconds": 300,
+    "workflow_seconds": 1200,
+    "output_bytes": 134217728
+  },
+  "roles": [
+    "earlier_before",
+    "earlier_after",
+    "later_before",
+    "later_after",
+    "intact",
+    "remove_earlier",
+    "remove_later",
+    "padded_remove_earlier",
+    "single_remove_earlier",
+    "sham",
+    "restored",
+    "padded_remove_later",
+    "padded_remove_both"
+  ],
+  "parent": {
+    "archive": "output/cumulative_campaign_planning_v2_20261009",
+    "seal_sha256": "a82f42baf4d6f12ee3c7f576b6a47ca1d208df5a3f386de74ca185bc172a9dc9"
+  },
+  "registry_limit": 78960,
+  "native_batch_limit": 128,
+  "arms": [
+    "endogenous",
+    "external",
+    "nonheritable",
+    "frozen"
+  ],
+  "world_spec": {
+    "name": "matched_development",
+    "programs": [
+      {
+        "stages": [
+          0
+        ],
+        "enabled": 1,
+        "mask": 31
+      },
+      {
+        "stages": [
+          0
+        ],
+        "enabled": 1,
+        "mask": 31
+      }
+    ],
+    "sites": 8,
+    "parcels_per_tick": 2,
+    "reservoir": 512,
+    "capital": 40,
+    "arm": "endogenous",
+    "ticks": 16
+  },
+  "stress_spec": {
+    "name": "synthetic_maximum_dimensions",
+    "programs": [
+      {
+        "stages": [
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3
+        ],
+        "enabled": 1,
+        "mask": 2
+      },
+      {
+        "stages": [
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3
+        ],
+        "enabled": 1,
+        "mask": 2
+      },
+      {
+        "stages": [
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3
+        ],
+        "enabled": 1,
+        "mask": 2
+      },
+      {
+        "stages": [
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3
+        ],
+        "enabled": 1,
+        "mask": 2
+      },
+      {
+        "stages": [
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3
+        ],
+        "enabled": 1,
+        "mask": 2
+      },
+      {
+        "stages": [
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3
+        ],
+        "enabled": 1,
+        "mask": 2
+      },
+      {
+        "stages": [
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3
+        ],
+        "enabled": 1,
+        "mask": 2
+      },
+      {
+        "stages": [
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3
+        ],
+        "enabled": 1,
+        "mask": 2
+      }
+    ],
+    "sites": 8,
+    "parcels_per_tick": 8,
+    "reservoir": 512,
+    "capital": 64,
+    "arm": "endogenous",
+    "ticks": 16
+  },
+  "stress_repeats": 8,
+  "stress_preparation": "At tick 15, eight living founders each have three synthetic dead children; all 32 cells have eight genes. Founders: 55 capital, 33 dissipated, 24 transferred, 3 grants. Children: 0 capital, 8 dissipated. World bank128. Accounting-valid prepared state, not an observed reachable pedigree. Execute exactly one native tick per fresh restore.",
+  "assay_control_programs": [
+    [
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      -1,
+      2
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      1,
+      -1
+    ],
+    [
+      0,
+      -1,
+      -1
+    ]
+  ],
+  "stress_assays": 129,
+  "stress_assay_rule": "Eight-gene [0,1,2,3,0,1,2,3] requests with role cycling through all 13 roles; duplicate requests retained deliberately to test crossing the batch boundary. No selection by outcomes.",
+  "routes": [
+    {
+      "name": "world_endogenous",
+      "unit": "world",
+      "arm": "endogenous",
+      "status": "complete"
+    },
+    {
+      "name": "world_external",
+      "unit": "world",
+      "arm": "external",
+      "status": "complete"
+    },
+    {
+      "name": "world_nonheritable",
+      "unit": "world",
+      "arm": "nonheritable",
+      "status": "complete"
+    },
+    {
+      "name": "world_frozen",
+      "unit": "world",
+      "arm": "frozen",
+      "status": "complete"
+    },
+    {
+      "name": "stress_0",
+      "unit": "stress",
+      "status": "complete"
+    },
+    {
+      "name": "stress_1",
+      "unit": "stress",
+      "status": "complete"
+    },
+    {
+      "name": "stress_2",
+      "unit": "stress",
+      "status": "complete"
+    },
+    {
+      "name": "stress_3",
+      "unit": "stress",
+      "status": "complete"
+    },
+    {
+      "name": "stress_4",
+      "unit": "stress",
+      "status": "complete"
+    },
+    {
+      "name": "stress_5",
+      "unit": "stress",
+      "status": "complete"
+    },
+    {
+      "name": "stress_6",
+      "unit": "stress",
+      "status": "complete"
+    },
+    {
+      "name": "stress_7",
+      "unit": "stress",
+      "status": "complete"
+    },
+    {
+      "name": "world_boundary",
+      "unit": "world",
+      "status": "partial",
+      "fault": {
+        "index": 0,
+        "point": "after_result"
+      }
+    },
+    {
+      "name": "world_continue",
+      "unit": "world",
+      "status": "complete",
+      "source": "world_boundary"
+    },
+    {
+      "name": "world_unknown",
+      "unit": "world",
+      "status": "partial",
+      "unknown": true,
+      "fault": {
+        "index": 0,
+        "point": "before_result"
+      }
+    },
+    {
+      "name": "world_refused",
+      "unit": "world",
+      "rejection": "pending_source",
+      "source": "world_unknown"
+    },
+    {
+      "name": "assays_0",
+      "unit": "assays",
+      "range": {
+        "start": 0,
+        "end": 128
+      },
+      "status": "complete"
+    },
+    {
+      "name": "assays_1",
+      "unit": "assays",
+      "range": {
+        "start": 128,
+        "end": 142
+      },
+      "status": "complete"
+    },
+    {
+      "name": "assay_boundary",
+      "unit": "assays",
+      "range": {
+        "start": 0,
+        "end": 13
+      },
+      "status": "partial",
+      "fault": {
+        "index": 0,
+        "point": "after_result"
+      }
+    },
+    {
+      "name": "assay_continue",
+      "unit": "assays",
+      "range": {
+        "start": 0,
+        "end": 13
+      },
+      "status": "complete",
+      "source": "assay_boundary"
+    },
+    {
+      "name": "late_invalid_registry",
+      "unit": "assays",
+      "range": {
+        "start": 0,
+        "end": 128
+      },
+      "rejection": "last_row_invalid"
+    },
+    {
+      "name": "wrong_registry_hash",
+      "unit": "assays",
+      "range": {
+        "start": 0,
+        "end": 128
+      },
+      "rejection": "registry_hash"
+    },
+    {
+      "name": "scientific_seed_refused",
+      "unit": "world",
+      "rejection": "scientific_seed"
+    },
+    {
+      "name": "changed_source_refused",
+      "unit": "world",
+      "source": "world_boundary",
+      "rejection": "source_identity"
+    },
+    {
+      "name": "world_cap_zero",
+      "unit": "world",
+      "execution_allowance": 0,
+      "status": "budget_stop"
+    }
+  ],
+  "proposed_campaign_envelope": {
+    "native_rewrites": 2000000,
+    "output_bytes": 8589934592,
+    "native_seconds": 10800,
+    "workflow_seconds": 21600,
+    "status": "proposal_only_not_launch_approval"
+  },
+  "confirmation_policy": "All 47 reserved blocks are untouched prospective confirmation worlds. Frozen intervention chemistry is deterministic; changing its unused seed is not an independent environmental confirmation. No added confirmation context is claimed.",
+  "closure": "Seal this component and stop. Scientific orchestration, complete census/lineage-to-13-role provenance, campaign pre-registration and approved campaign budgets remain separate gates.",
+  "readiness_gate_complete": false,
+  "scientific_acceptance": false,
+  "evolution_demonstrated": false,
+  "campaign_launch_authorized": false,
+  "rejected_scientific_seed": 16718833058922127749
+}

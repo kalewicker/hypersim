@@ -1,0 +1,20 @@
+[package]
+name = "hg-eval"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hg-core = { path = "../hg-core" }
+hg-observe = { path = "../hg-observe" }
+hg-schema = { path = "../hg-schema" }
+hg-causal = { path = "../hg-causal" }
+hg-output = { path = "../hg-output" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+bincode = { workspace = true }
+slotmap = { workspace = true }
+ahash = { workspace = true }
+rustc-hash = { workspace = true }
+smallvec = { workspace = true }
+rand = { workspace = true }
+rand_chacha = { workspace = true }

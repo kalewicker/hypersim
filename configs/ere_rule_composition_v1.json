@@ -1,0 +1,20 @@
+{
+  "profile": "E2-rule-composition-v1",
+  "contexts": [[10,11],[10,21],[10,31],[20,11],[20,21],[20,31],[30,11],[30,21],[30,31]],
+  "choices": [[null,10,20,30],[null,11,21,31]],
+  "seeds": [993748716001,993748716002],
+  "arms": ["live_paid","frozen_paid","live_unpaid","live_disabled","preseeded_lure","one_fuel","reverse_paid"],
+  "development_combinations": [[10,21],[10,31],[20,11],[20,31],[30,11],[30,21]],
+  "reserved_update_combinations": [[10,11],[20,21],[30,31]],
+  "edit_steps": [1,5],
+  "horizon": 24,
+  "cells": 396,
+  "maximum_native_attempts": 9504,
+  "native_deadline_seconds": 120,
+  "match_work_limit": 50000,
+  "match_result_limit": 50000,
+  "reward_denominator": 24,
+  "training_updates": 0,
+  "scientific_acceptance": false,
+  "training_admitted": false
+}

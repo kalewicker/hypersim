@@ -1,0 +1,47 @@
+# D-track / D2.2 arm E — `rewire`: node-count-neutral and DEGREE-CHANGING.
+#
+# The matched treatment for `swap`, differing from it in EXACTLY ONE property:
+# the invariant the instrument reads. `swap` conserves the degree sequence
+# exactly, and the C-track's diagnosis of its saturation is that on an
+# unlabelled substrate WL classes ARE degree structure, so `swap` conserves
+# precisely what is being measured. `rewire` does not.
+#
+# MECHANISM. Match two node-disjoint 2-edges {a, b} and {c, d}. Rewrite to
+# {a, b} and {a, d}: the incidence at `c` MOVES to `a`. So
+#
+#   deg(a) += 1     deg(c) -= 1     deg(b), deg(d) unchanged
+#
+# Node count exactly flat (all four nodes are retained on the RHS), edge count
+# exactly flat (two edges in, two out), degree SEQUENCE not conserved.
+#
+# ZERO tunable parameters, like `swap`. The alternative route the plan offered —
+# degree-changing via edge add/remove pairs — was rejected on mechanism: a rule
+# that adds and removes edges in the same step has two failure modes (thinning
+# and runaway) that need a parameter to balance, and D-track rule 3 forbids
+# acquiring a parameter that would then be swept.
+
+[[rules]]
+name     = "rewire"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "b"],
+  ["c", "d"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c", "d"]
+
+[rules.rhs]
+# All four nodes are listed so that node count is exactly flat — `c` survives
+# the rewrite, it merely loses an incidence.
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "b"],
+  ["a", "d"],
+]

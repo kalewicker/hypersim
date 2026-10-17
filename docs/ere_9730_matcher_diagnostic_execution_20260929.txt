@@ -1,0 +1,12 @@
+Finished `release` profile [optimized] target(s) in 6.54s
+     Running tests/ere_9730_matcher_diagnostic.rs (target/release/deps/ere_9730_matcher_diagnostic-4fc1b75c8669d4e6)
+
+running 4 tests
+test recorded_cap_is_reproduced_without_an_engine_step ... ERE_9730_DIAGNOSTIC {"development_only":true,"engine_steps":0,"exact_recorded_cap_reproduced":true,"gate_pass":false,"results":372,"training_admitted":false,"work":400000}
+ok
+test repeated_vars_require_repeated_endpoints_and_distinct_pattern_edges ... ok
+test selective_first_edge_is_only_a_diagnostic_not_a_kernel_change ... ERE_9730_DIAGNOSTIC {"development_only":true,"diagnostic_reordered_work":357,"gate_pass":false,"installed":false,"ordinary_self_pairs":0,"results":0,"training_admitted":false,"truncated":false}
+ok
+test small_positive_reordering_preserves_variables_and_translated_edge_identity ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s

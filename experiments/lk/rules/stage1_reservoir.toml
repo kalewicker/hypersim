@@ -1,0 +1,187 @@
+# Stage 1 — the reservoir-characterization substrate (NN plan §11 Stage 1).
+#
+# A tape of bits is injected through the paired creation rules `inject_one`
+# / `inject_zero`, gated by `StimulusDriver` against the tape. The question
+# Stage 1 asks is whether the substrate's state, read as a bucketed WL
+# type-histogram at each window boundary, carries linearly decodable
+# information about the input history.
+#
+# ## The coupling problem, and what this rule set does about it
+#
+# A creation rule has an EMPTY left-hand side, so it can only create
+# structure that is disconnected from everything already in the graph. It
+# cannot attach the injected symbol to the substrate — there is nothing in
+# its pattern to attach to. Input injection through the existing seam is
+# therefore inherently indirect, and a rule set that stopped there would be
+# measuring "does the graph contain the union of everything injected so
+# far", i.e. a pure integrator, whose memory of any individual symbol is
+# poor by construction.
+#
+# So the symbol is injected as a small structure the substrate's own rules
+# can then act on, and both the structure and its distinguishing mark are
+# given decay paths:
+#
+#   rule 0  `glider`      mark transfer around a 3-edge track — the
+#                         dynamics, unchanged from the standard fixture
+#   rule 1  `quench`      a marked node loses its mark. Marks decay, so the
+#                         mark population is a LEAKY integrator of the
+#                         1-symbols rather than a running total — which is
+#                         what gives fading memory rather than a monotone
+#                         accumulation
+#   rule 2  `decay`       an all-unmarked 3-edge is deleted. Structure
+#                         decays too, so the graph stays bounded and old
+#                         input eventually leaves the state entirely
+#   rule 3  `inject_one`  creation: a 3-edge carrying one mark
+#   rule 4  `inject_zero` creation: a 3-edge carrying none
+#
+# `inject_one` and `inject_zero` create the SAME amount of structure and
+# differ only in the mark. Without that, the readout could decode the tape
+# from node count alone and the memory capacity would be about bookkeeping
+# rather than about dynamics.
+#
+# ## Initial condition: `Empty`
+#
+# The first version of this fixture ran on a `GliderRing`, and `decay` ate
+# it: the ring's 3-edges are all-unmarked, so they match `decay` exactly as
+# an injected triangle does. Node count collapsed 31 -> 7 inside the first
+# window, the WL bucket histogram went CONSTANT (every bucket sd = 0.0000
+# across 32 windows), and memory capacity came out at exactly 0.0000 — a
+# number that looked like a substrate finding and was nothing of the kind.
+#
+# The reservoir is therefore the token population itself, on an `Empty`
+# initial condition. There is no pre-existing substrate for `decay` to
+# destroy, and the state the probe reads is entirely input-driven, which is
+# what a reservoir state is supposed to be.
+#
+# ## Step mode and rate limiting
+#
+# `MaxParallel` with the ordinary rewrites throttled by a budget, via
+# `PolicyStack(StimulusDriver, RandomSubset(k))`. Injection fires every step
+# (the driver holds each symbol for a whole window), while ordinary rewrites
+# are capped at `k` per step. That ratio is what sets the token population's
+# equilibrium size, and hence the decay timescale — which is the reservoir's
+# memory horizon. Unthrottled, decay clears the population within a step or
+# two of arrival and the memory horizon falls below one window.
+
+[[rules]]
+name     = "glider"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c"]
+edges = [["a", "b", "c"]]
+
+[rules.lhs.node_labels]
+a = 1
+b = 0
+c = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c"]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [["a", "b", "c"]]
+
+[rules.rhs.node_labels]
+a = 0
+c = 1
+
+[[rules]]
+name     = "quench"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c"]
+edges = [["a", "b", "c"]]
+
+[rules.lhs.node_labels]
+a = 1
+b = 0
+c = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c"]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [["a", "b", "c"]]
+
+[rules.rhs.node_labels]
+a = 0
+
+[[rules]]
+name     = "decay"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c"]
+edges = [["a", "b", "c"]]
+
+[rules.lhs.node_labels]
+a = 0
+b = 0
+c = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c"]
+
+# Empty RHS: the matched 3-edge and its nodes are removed.
+[rules.rhs]
+nodes = []
+edges = []
+
+[[rules]]
+name     = "inject_one"
+priority = 5
+weight   = 1.0
+enabled  = true
+
+[rules.schedule]
+mode = "every_n_steps"
+n    = 1
+
+[rules.lhs]
+nodes = []
+edges = []
+
+[rules.rhs]
+nodes = ["p", "q", "r"]
+edges = [["p", "q", "r"]]
+
+[rules.rhs.node_labels]
+p = 1
+q = 0
+r = 0
+
+[[rules]]
+name     = "inject_zero"
+priority = 5
+weight   = 1.0
+enabled  = true
+
+[rules.schedule]
+mode = "every_n_steps"
+n    = 1
+
+[rules.lhs]
+nodes = []
+edges = []
+
+[rules.rhs]
+nodes = ["p", "q", "r"]
+edges = [["p", "q", "r"]]
+
+[rules.rhs.node_labels]
+p = 0
+q = 0
+r = 0

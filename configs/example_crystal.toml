@@ -1,0 +1,30 @@
+# Crystal seed with triangle subdivision — small, fast demo run.
+experiment_name = "crystal_test"
+seed = 42
+out_dir = "runs"
+
+[rules]
+source = "Builtin"
+builtin_name = "triangle_subdivide"
+
+[initial]
+condition_type = "PureCrystal"
+width = 6
+height = 6
+arity = 3
+periodic = false
+
+[engine]
+step_mode = "MaxParallel"
+max_steps = 96
+metrics_window_interval = 24
+# Triangle subdivision multiplies triangle count each firing — keep the
+# pairing budget small or match enumeration grows superlinearly.
+max_pairings_per_step = 4
+thread_count = 4
+
+[evaluator]
+enabled = true
+
+[causal]
+enabled = true

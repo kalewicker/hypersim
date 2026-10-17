@@ -1,0 +1,7 @@
+# Paid handoff audit continuation v1
+
+Declared after native execution and the first read-only audit failed before physical replay. Native input is the sealed 471-file archive output/evolving_minds_handoff_development_20261004, SHA256 seal289591b6e0fcdf864a0618c2ac3477a04eeb83c233822ac15ee4f4bcdaff5981. Original failed checker, traceback and read-only receipt stay sealed. No native rerun, replacement, threshold change or new world.
+
+The frozen checker constructs dict(total_bytes=actual, **resource), but native resource already has total_bytes. The continuation derives verify with one AST keyword-name substitution: observed_total_bytes=actual. Both native measured total_bytes and complete observed file size are retained. Restore that single name and require exact original AST equality; preserve all physical, lifecycle, denominator, control, source, resource and exposure predicates. Original checker remains unchanged and still source-bound to its compiled snapshot.
+
+Freeze continuation source, focused metadata-derivation tests and this contract before running it against the fixed native panel. Reconstruct all109 published states, all12 full64tick cells including one two-segment fresh-process recovery, and full opportunity/payment/lineage records. Preserve all negatives. Cap3600s,512MiB native inputs and256MiB continuation output. Rehash the complete sealed input before/after. Continuation native_advances=0, scientific acceptance/training/evolution/power/fairness/launch stay false, regardless of exposure screen result. Seal continuation independently.

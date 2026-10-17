@@ -1,0 +1,11 @@
+{
+  "seed": 17,
+  "endowment": 24,
+  "founders": ["Immediate", "Immediate"],
+  "kernels": ["Faithful", "Faithful"],
+  "home_offsets": [0, 4],
+  "rotation": 0,
+  "reversed": false,
+  "horizon": 64,
+  "scheduler": "semantic-lottery-v1"
+}

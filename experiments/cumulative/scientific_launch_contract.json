@@ -1,0 +1,36 @@
+{
+  "admission_sha256": "0245389286fe7f9daaac964c02d13c605740c248e1c21ba8f99d33ac4f1013a3",
+  "approval_policy": "A local authorization record binds one campaign directory, exact source snapshot, executable, panel, law and ceilings. Only record approval after explicit human launch authorization. Preview records cannot execute. This is a cooperative execution guard, not authentication of a human signature.",
+  "budget_approved": false,
+  "campaign_launch_authorized": false,
+  "claim_scope": {
+    "assay_seed": 2026100903,
+    "diagnostic_cycles": 4,
+    "diagnostic_environment": 512,
+    "environmental_generalization": false,
+    "independent_unit": "47 matched seed blocks",
+    "open_ended_evolution": false,
+    "primary": "cumulative functional evolution within this fixed world",
+    "secondary": "paired endogenous versus external editing advantage"
+  },
+  "fixture_limits": {
+    "native_rewrites": 0,
+    "output_bytes": 134217728,
+    "workflow_seconds": 1200
+  },
+  "journal_byte_allowance": 32505856,
+  "limits": {
+    "native_ms": 10800000,
+    "rewrites": 2000000,
+    "storage_bytes": 8589934592,
+    "workflow_ms": 21600000
+  },
+  "panel_sha256": "834b18e762d127aa9d6eedfcf9809b159902ea8595f95a75c6dbca2a172a2dc6",
+  "parent": {
+    "archive": "output/cumulative_executor_controller_20261011",
+    "seal_sha256": "2424277b247b5345f4dd7c8af6e49132cb6c03ee1f45490c58f328d371142358"
+  },
+  "per_unit_ms": 30000,
+  "planning_sha256": "221859ab147bb0a8ce166c17382bda8b2113651fefaf29dc6cb44235514b1692",
+  "profile": "cumulative-scientific-launch-v1"
+}

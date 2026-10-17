@@ -1,0 +1,57 @@
+# swap — degree-preserving double-edge swap (C-track C1.1, topology churn).
+#
+# Match two node-disjoint 2-edges {a,b} and {c,d}; replace them with {a,d} and
+# {c,b}. The canonical Markov move on the space of graphs with a FIXED DEGREE
+# SEQUENCE — every node keeps exactly the degree it had, the edge count is
+# exactly preserved, and the node count is exactly preserved. Nothing is minted
+# and nothing is retired.
+#
+# WHY THIS RULE EXISTS. The A- and B-tracks found the zoo bimodal: growing rules
+# mint exactly one node per firing (so |A|/n_events = 1.000 and no symbol can
+# ever recur), and flat rules plateau at a handful of symbols. Nothing sits in
+# between. A rule that is node-count-neutral while still minting fresh CONTEXT
+# would let recurrence accumulate as structure keeps changing. `swap` attacks
+# that gap through topology: the wiring wanders a configuration space that is
+# large but finite, so novelty is high early and recurrence accumulates as
+# coverage grows.
+#
+# ZERO TUNABLE PARAMETERS. There is no rate, no threshold, no period. C-track
+# binding rule 3 forbids sweeping parameters until the success criterion is met;
+# this rule has none to sweep, which is the cleanest possible compliance.
+#
+# MULTI-EDGES ARE PART OF THE MOVE, NOT A DEFECT. If {a,d} already exists the
+# swap creates a parallel edge. That is a legitimate point of the configuration
+# space of multigraphs with this degree sequence, and the degree sequence is
+# still exactly preserved. It is recorded rather than guarded away.
+#
+# PREDICTED, before measurement (docs/ctrack_preregistration.md C1.1):
+#   minted/event = 0.0000 exactly (stronger than "< 1")
+#   n(t) and e(t) both exactly flat, forever
+#   S3 degree signature DEGENERATE at |A| = 1 — degrees never change, so the
+#     radius-free witness must see nothing. A falsifiable, mechanism-derived
+#     prediction.
+#   |A|/n_events well below 1; recurrent count GROWING with horizon.
+
+[[rules]]
+name     = "swap"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "b"],
+  ["c", "d"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c", "d"]
+
+[rules.rhs]
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "d"],
+  ["c", "b"],
+]

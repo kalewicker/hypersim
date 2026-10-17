@@ -1,0 +1,50 @@
+{
+  "profile": "cumulative-shared-population-readiness-v1",
+  "scope": "well_mixed_compartment_population_engineering",
+  "readiness_gate_complete": false,
+  "scientific_acceptance": false,
+  "evolution_demonstrated": false,
+  "campaign_launch_authorized": false,
+  "limits": {"native_rewrites": 6000, "native_seconds": 300, "build_test_audit_seconds": 1200, "output_bytes": 134217728, "cells": 32, "sites": 8, "ticks": 16, "genes_per_cell": 8},
+  "law": {
+    "parcel_energy": 16,
+    "settlement_values": [0, 4, 8, 14, 16],
+    "storage_cost": "1 plus current gene count every world tick, including unfed ticks",
+    "execution_cost": 1,
+    "edit_cost": 2,
+    "copy_cost": "3 plus parent current gene count",
+    "child_capital": 8,
+    "birth_reserve": 24,
+    "child_environment_energy": 0,
+    "resource_inflow": "fixed initial reservoir only; no additional resource at birth",
+    "death": "failure to pay complete storage charge; remaining capital dissipates",
+    "reproduction": "funded parent requests one child per tick; requests compete for unoccupied physical sites",
+    "endogenous_editing": "one blind native edit at ticks 0,3,6,... when funded; no outcome or utility input",
+    "external_editing": "one blind native edit after paid birth; child pays the same edit cost",
+    "scheduler": "SplitMix64 keyed by world seed, tick, phase and immutable cell identity; full enumeration; no truncation",
+    "checkpoint": "all cells including dead, ownership graphs and allocator continuation, genealogy, reservoir, clocks and RNG cursors"
+  },
+  "development_seed": 2026100902,
+  "cases": [
+    {"name":"founder_population","arm":"frozen","genomes":[[0],[0]],"capital":40,"reservoir":128,"parcels_per_tick":1,"sites":8,"ticks":8},
+    {"name":"mixed_capacity","arm":"frozen","genomes":[[0],[0,1,2]],"capital":40,"reservoir":128,"parcels_per_tick":1,"sites":8,"ticks":8},
+    {"name":"endogenous","arm":"endogenous","genomes":[[0],[0]],"capital":40,"reservoir":128,"parcels_per_tick":1,"sites":8,"ticks":8},
+    {"name":"external","arm":"external","genomes":[[0],[0]],"capital":40,"reservoir":128,"parcels_per_tick":1,"sites":8,"ticks":8},
+    {"name":"nonheritable","arm":"nonheritable","genomes":[[0],[0]],"capital":40,"reservoir":128,"parcels_per_tick":1,"sites":8,"ticks":8},
+    {"name":"no_supply_death","arm":"frozen","genomes":[[0]],"capital":3,"reservoir":0,"parcels_per_tick":0,"sites":2,"ticks":4},
+    {"name":"unfunded_copy","arm":"frozen","genomes":[[0]],"capital":11,"reservoir":0,"parcels_per_tick":0,"sites":2,"ticks":2},
+    {"name":"no_free_site","arm":"frozen","genomes":[[0]],"capital":40,"reservoir":32,"parcels_per_tick":1,"sites":1,"ticks":2},
+    {"name":"finite_reservoir","arm":"frozen","genomes":[[0],[0]],"capital":40,"reservoir":16,"parcels_per_tick":2,"sites":8,"ticks":3}
+  ],
+  "acceptance": {
+    "all_cases_and_horizons_retained": true,
+    "every_world_and_cell_energy_balance_exact": true,
+    "all_opportunities_and_keyed_scores_independently_reconstructed": true,
+    "births_have_zero_free_environment_credit": true,
+    "death_unfunded_copy_site_refusal_and_exhaustion_controls": true,
+    "four_arm_semantics_and_paid_ancestry": true,
+    "candidate_order_parity": true,
+    "allocation_offset_projection_parity": true,
+    "exact_population_checkpoint_continuation": true
+  }
+}

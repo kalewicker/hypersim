@@ -1,0 +1,20 @@
+[package]
+name = "hg-meta"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hg-core = { path = "../hg-core" }
+hg-rules = { path = "../hg-rules" }
+hg-observe = { path = "../hg-observe" }
+ahash = { workspace = true }
+rustc-hash = { workspace = true }
+serde = { workspace = true }
+slotmap = { workspace = true }
+smallvec = { workspace = true }
+
+[dev-dependencies]
+rand = { workspace = true }
+rand_chacha = { workspace = true }
+hg-engine = { path = "../hg-engine" }
+hg-causal = { path = "../hg-causal" }

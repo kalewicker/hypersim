@@ -1,0 +1,72 @@
+# D-track / D2.3 — `rewire_bounded`: the ONE recorded post-hoc deviation from
+# arm E, corrected for a named mechanism defect. Same status as the C-track's
+# `cyclic3` torus arm: reported separately, never as the pre-registered result.
+#
+# WHY arm E FAILED. `rewire` moves an incidence from `c` to `a` in ONE direction
+# always, so it is a rich-get-richer process with an absorbing state. Measured:
+# max degree ran 6 -> 85 within 1000 steps, i.e. a single hub joined EVERY edge,
+# after which no two node-disjoint 2-edges exist and the rule cannot match. It
+# self-terminated at 560 firings in 8000 steps, 0 in the final 10%.
+#
+# WHY THE OBVIOUS FIX IS NOT AVAILABLE. The natural correction is to reverse the
+# direction by comparing the two matched nodes — move the incidence from the
+# HIGHER-degree node to the LOWER-degree one. The rule grammar cannot express it:
+# `NodeDegreeCompare` is `degree(var) <op> (value + offset)`, a comparison
+# against a CONSTANT, with no var-to-var form (`crates/hg-rules/src/guards.rs`).
+# So direction-reversal by degree is not expressible, and the correction has to
+# be made with constants.
+#
+# THE CORRECTION, AND WHY ITS CONSTANTS ARE NOT PARAMETERS. Bound the movement
+# at both ends: a receiver may only gain if it is below the substrate's initial
+# MAXIMUM degree, and a donor may only lose if it is above the substrate's
+# initial MINIMUM degree. On `PureCrystal(6x6 arity 3)` those are 6 and 2, read
+# off the substrate rather than chosen, in the same discipline as N0's "derive
+# the bars from arm A". Neither may be swept (D-track rule 3).
+#
+# WHY IT CANNOT DEADLOCK BY GUARD EXHAUSTION — a counting argument, stated
+# before measurement. The substrate has 36 nodes and 85 2-edges = 170
+# incidences, mean degree 4.72. All 36 nodes at degree 6 would need 216
+# incidences and all at degree <= 2 would need at most 72, so at EVERY reachable
+# state some node has degree < 6 and some node has degree > 2. Both guards are
+# therefore always satisfiable. That does not prove the rule is perpetual — the
+# two edges must also be node-disjoint, which is structural and is exactly what
+# the D2.3 gate measures — but it does rule out the failure mode that killed
+# arm E.
+
+[[rules]]
+name     = "rewire_bounded"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "b"],
+  ["c", "d"],
+]
+
+# Receiver cap: `a` gains an incidence, so it may not already be at the
+# substrate's initial maximum degree.
+[[rules.lhs.node_degree_compares]]
+var   = "a"
+op    = "lt"
+value = 6
+
+# Donor floor: `c` loses an incidence, so it may not already be at the
+# substrate's initial minimum degree.
+[[rules.lhs.node_degree_compares]]
+var   = "c"
+op    = "gt"
+value = 2
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c", "d"]
+
+[rules.rhs]
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "b"],
+  ["a", "d"],
+]

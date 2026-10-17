@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "/Users/kalewicker/Documents/hypersim/output/ere_complete_coherent_draw_full_20260929/source_snapshots/scripts/verify_ere_complete_coherent_draw_assay.py", line 1771, in <module>
+    main()
+  File "/Users/kalewicker/Documents/hypersim/output/ere_complete_coherent_draw_full_20260929/source_snapshots/scripts/verify_ere_complete_coherent_draw_assay.py", line 1761, in main
+    result = audit(out, args.stage, args.development)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalewicker/Documents/hypersim/output/ere_complete_coherent_draw_full_20260929/source_snapshots/scripts/verify_ere_complete_coherent_draw_assay.py", line 1587, in audit
+    check_native_timing(out, m, totals)
+  File "/Users/kalewicker/Documents/hypersim/output/ere_complete_coherent_draw_full_20260929/source_snapshots/scripts/verify_ere_complete_coherent_draw_assay.py", line 1505, in check_native_timing
+    classifications = list(stream(out / "classifications.jsonl.gz"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kalewicker/Documents/hypersim/output/ere_complete_coherent_draw_full_20260929/source_snapshots/scripts/verify_ere_complete_coherent_draw_assay.py", line 111, in stream
+    guard()
+  File "/Users/kalewicker/Documents/hypersim/output/ere_complete_coherent_draw_full_20260929/source_snapshots/scripts/verify_ere_complete_coherent_draw_assay.py", line 66, in guard
+    assert rss * (1 if sys.platform == "darwin" else 1024) <= MEMORY, "auditor RSS cap"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: auditor RSS cap
+
+thread 'complete_coherent_draw_frozen_assay' (53737303) panicked at crates/hg-sim-core/tests/ere_complete_coherent_draw_assay.rs:1928:38:
+called `Result::unwrap()` on an `Err` value: "frozen auditor failed"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+
+failures:
+
+failures:
+    complete_coherent_draw_frozen_assay
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 15 filtered out; finished in 3305.63s
+
+error: test failed, to rerun pass `-p hg-sim-core --test ere_complete_coherent_draw_assay`
+env  ERE_COMPLETE_COHERENT_DRAW_ASSAY_APPROVED_STEPS=1016800   cargo test   -  3226.65s user 61.31s system 99% cpu 55:06.11 total
+

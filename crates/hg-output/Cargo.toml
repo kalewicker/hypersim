@@ -1,0 +1,19 @@
+[package]
+name = "hg-output"
+version = "0.1.0"
+edition = "2021"
+
+# v4 §2.2: NO internal dependencies — deliberate. CsvWriter<T> is generic
+# over Serialize; RunState/RunManifest are defined here; binary writers
+# accept pre-serialized bytes.
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+csv = { workspace = true }
+chrono = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }

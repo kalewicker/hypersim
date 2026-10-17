@@ -1,0 +1,19 @@
+[package]
+name = "hg-alife"
+version = "0.1.0"
+edition = "2021"
+
+# SCOPE DISCIPLINE (scope §1.2, §4): hg-alife hosts genome bookkeeping, a motif
+# classifier, an observer, lineage, and ecology metrics — NOT dynamics. The
+# biology is `rules/alife_base.toml`, run by the engine. This crate MUST NEVER
+# depend on hg-engine; the absence of that dependency is enforced here, and a
+# compile failure if anyone adds it is the desired behavior.
+[dependencies]
+hg-core = { path = "../hg-core" }
+hg-observe = { path = "../hg-observe" }
+hg-causal = { path = "../hg-causal" }
+hg-schema = { path = "../hg-schema" }
+serde = { workspace = true }
+ahash = { workspace = true }
+smallvec = { workspace = true }
+thiserror = { workspace = true }

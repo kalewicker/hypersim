@@ -1,0 +1,308 @@
+{
+  "budget_approved": false,
+  "campaign_launch_authorized": false,
+  "closure": "Native unit executor and independent journal audit only. Scientific launch remains disabled until campaign controller integration and explicit budget authorization. No resume or retry of uncertain work.",
+  "development_seed": 2026101001,
+  "evolution_demonstrated": false,
+  "journal_byte_allowance": 32505856,
+  "limits": {
+    "native_rewrites": 1500,
+    "native_seconds": 180,
+    "output_bytes": 134217728,
+    "workflow_seconds": 1200
+  },
+  "parent": {
+    "archive": "output/cumulative_scientific_admission_20261011",
+    "seal_sha256": "4f3e56d081c30a7e5aa7098ab962314ae08631b791758f31fb8ee601ca3f9ba4"
+  },
+  "profile": "cumulative-scientific-executor-readiness-v1",
+  "readiness_gate_complete": false,
+  "routes": [
+    {
+      "execution_allowance": 250,
+      "fault": null,
+      "items": [],
+      "name": "endogenous",
+      "seed": 2026101001,
+      "spec": {
+        "arm": "endogenous",
+        "capital": 40,
+        "name": "executor-development-endogenous",
+        "parcels_per_tick": 2,
+        "programs": [
+          {
+            "enabled": 1,
+            "mask": 31,
+            "stages": [
+              0
+            ]
+          },
+          {
+            "enabled": 1,
+            "mask": 31,
+            "stages": [
+              0
+            ]
+          }
+        ],
+        "reservoir": 512,
+        "sites": 8,
+        "ticks": 16
+      },
+      "unit": "world"
+    },
+    {
+      "execution_allowance": 240,
+      "fault": null,
+      "items": [],
+      "name": "external",
+      "seed": 2026101001,
+      "spec": {
+        "arm": "external",
+        "capital": 40,
+        "name": "executor-development-external",
+        "parcels_per_tick": 2,
+        "programs": [
+          {
+            "enabled": 0,
+            "mask": 0,
+            "stages": [
+              0
+            ]
+          },
+          {
+            "enabled": 0,
+            "mask": 0,
+            "stages": [
+              0
+            ]
+          }
+        ],
+        "reservoir": 512,
+        "sites": 8,
+        "ticks": 16
+      },
+      "unit": "world"
+    },
+    {
+      "execution_allowance": 250,
+      "fault": null,
+      "items": [],
+      "name": "nonheritable",
+      "seed": 2026101001,
+      "spec": {
+        "arm": "nonheritable",
+        "capital": 40,
+        "name": "executor-development-nonheritable",
+        "parcels_per_tick": 2,
+        "programs": [
+          {
+            "enabled": 1,
+            "mask": 31,
+            "stages": [
+              0
+            ]
+          },
+          {
+            "enabled": 1,
+            "mask": 31,
+            "stages": [
+              0
+            ]
+          }
+        ],
+        "reservoir": 512,
+        "sites": 8,
+        "ticks": 16
+      },
+      "unit": "world"
+    },
+    {
+      "execution_allowance": 202,
+      "fault": null,
+      "items": [],
+      "name": "frozen",
+      "seed": 2026101001,
+      "spec": {
+        "arm": "frozen",
+        "capital": 40,
+        "name": "executor-development-frozen",
+        "parcels_per_tick": 2,
+        "programs": [
+          {
+            "enabled": 0,
+            "mask": 0,
+            "stages": [
+              0
+            ]
+          },
+          {
+            "enabled": 0,
+            "mask": 0,
+            "stages": [
+              0
+            ]
+          }
+        ],
+        "reservoir": 512,
+        "sites": 8,
+        "ticks": 16
+      },
+      "unit": "world"
+    },
+    {
+      "execution_allowance": 260,
+      "fault": null,
+      "items": [
+        {
+          "id": 0,
+          "role": "earlier_before",
+          "stages": [
+            0
+          ]
+        },
+        {
+          "id": 1,
+          "role": "earlier_after",
+          "stages": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": 2,
+          "role": "later_before",
+          "stages": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": 3,
+          "role": "later_after",
+          "stages": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "id": 4,
+          "role": "intact",
+          "stages": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "id": 5,
+          "role": "remove_earlier",
+          "stages": [
+            0,
+            2
+          ]
+        },
+        {
+          "id": 6,
+          "role": "remove_later",
+          "stages": [
+            0,
+            1
+          ]
+        },
+        {
+          "id": 7,
+          "role": "padded_remove_earlier",
+          "stages": [
+            0,
+            -1,
+            2
+          ]
+        },
+        {
+          "id": 8,
+          "role": "single_remove_earlier",
+          "stages": [
+            0,
+            2
+          ]
+        },
+        {
+          "id": 9,
+          "role": "sham",
+          "stages": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "id": 10,
+          "role": "restored",
+          "stages": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "id": 11,
+          "role": "padded_remove_later",
+          "stages": [
+            0,
+            1,
+            -1
+          ]
+        },
+        {
+          "id": 12,
+          "role": "padded_remove_both",
+          "stages": [
+            0,
+            -1,
+            -1
+          ]
+        }
+      ],
+      "name": "assays",
+      "seed": 2026101001,
+      "spec": null,
+      "unit": "assays"
+    },
+    {
+      "execution_allowance": 250,
+      "fault": "after_intent",
+      "items": [],
+      "name": "pending_intent",
+      "seed": 2026101001,
+      "spec": {
+        "arm": "endogenous",
+        "capital": 40,
+        "name": "executor-development-endogenous",
+        "parcels_per_tick": 2,
+        "programs": [
+          {
+            "enabled": 1,
+            "mask": 31,
+            "stages": [
+              0
+            ]
+          },
+          {
+            "enabled": 1,
+            "mask": 31,
+            "stages": [
+              0
+            ]
+          }
+        ],
+        "reservoir": 512,
+        "sites": 8,
+        "ticks": 16
+      },
+      "unit": "world"
+    }
+  ],
+  "scientific_acceptance": false
+}

@@ -1,0 +1,98 @@
+# relay_pair — a two-rule substrate whose co-liveness is a LABEL cycle.
+#
+# Authored for plan v3 §8.3 (Stage 8 replication). `tri_two` is the only
+# substrate carrying the programme's positive result, so every claim in
+# plan §3 is single-substrate until something else reproduces it.
+#
+# WHAT THE DESIGN CRITERION IS, AND WHAT IT IS NOT
+#
+# §8.1: sustained co-liveness is a property of the rule set's *dependency
+# graph*, not of any initial condition. What P-1 needs is a cycle — A's RHS
+# regenerating B's LHS and B's regenerating A's — so neither rule can
+# exhaust the other's substrate.
+#
+# Here the cycle runs through **node labels**, and that choice is the point.
+# `relay_up` consumes a label-0 node and emits a label-1 node; `relay_down`
+# consumes a label-1 node and emits a label-0 node. Neither rule can run out
+# of substrate while the other runs, and the mutual regeneration is visible
+# in the rule text rather than dependent on what the graph happens to look
+# like.
+#
+# **Plan risk 2, addressed rather than asserted.** Designing for cyclic
+# dependency is designing for a property, and the standing prior against
+# imposing structure applies. What makes this admissible is that a label
+# cycle specifies *nothing about what gets built*: the rules say which node
+# is eligible next, not what shape the graph takes. No motif is planted, no
+# rule is the right answer, and there is no reward-carrying structure. If
+# any interesting behaviour here turns out to be traceable to an authored
+# motif, this substrate is contaminated and must be reported as such.
+#
+# Structurally both rules do the same small thing — preserve the matched
+# edge, hang one fresh node off it — so the two differ *only* in which label
+# they consume and which they emit. That is deliberate: it makes rule
+# identity the one axis a policy can act on, with no confounding difference
+# in what a firing costs or builds. Contrast `fan_merge.toml`, authored
+# alongside this one, where the two rules have deliberately opposite
+# structural effects.
+#
+# PRIORITIES ARE EQUAL, for the reason `wn_three.toml` gives: a standing
+# resolver preference among the rules would confound "the policy chose rule
+# X" with "the resolver preferred rule X".
+
+[[rules]]
+name     = "relay_up"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [
+  ["a", "b"],
+]
+
+[rules.lhs.node_labels]
+a = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b"]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b"],
+  ["b", "c"],
+]
+
+[rules.rhs.node_labels]
+c = 1
+
+[[rules]]
+name     = "relay_down"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [
+  ["a", "b"],
+]
+
+[rules.lhs.node_labels]
+a = 1
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b"]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b"],
+  ["a", "c"],
+]
+
+[rules.rhs.node_labels]
+c = 0

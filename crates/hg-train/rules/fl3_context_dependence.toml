@@ -1,0 +1,154 @@
+# F-L3 — the context-dependence fixture (NN plan §9).
+#
+# WHAT IT HAS TO DO
+#
+# "An environment where the *same* rule is beneficial applied at low-degree
+# sites and harmful at high-degree sites, so rule identity alone (the entire
+# expressive range of `StaticBias`) is insufficient and per-candidate
+# features are necessary. Without this fixture, 'MLP beats StaticBias' has
+# no environment in which it is even possible, and Stage 3 would be
+# uninterpretable."
+#
+# HOW IT DOES IT
+#
+# `sprout` (rule 0) carries NO degree guard: it matches at every live site,
+# high-degree and low-degree alike, and a policy choosing by rule identity
+# cannot tell those apart. Each firing hangs one new leaf on `a`, raising
+# a's degree by one and leaving `a` marked, so the site persists.
+#
+# `overload` (rule 1) is the consequence. It carries a degree guard and
+# retires any marked node that has reached OVERLOAD_DEGREE incident edges,
+# relabelling it to a dead label no rule matches — the node and everything
+# hanging off it leave play. Sprouting on a low-degree node compounds;
+# sprouting near the threshold spends the site.
+#
+# The optimal policy is therefore "sprout, but only where `a` has low
+# degree" — a condition on the CANDIDATE, not on the RULE. `StaticBias`
+# allocates budget across rule identities and cannot express it. The
+# `feature_set = "v1"` degree features hand it to `MlpScorer` directly.
+#
+# WHY EXACTLY TWO RULES, AND WHY NOT A FILLER RULE
+#
+# `StaticBias` needs >= 2 rules to be expressible at all (a softmax over one
+# logit is 1.0 whatever the logit is). The first version of this fixture
+# added a third `filler` rule to supply that choice, and it was a design
+# error twice over. Filler was a pure relabel no-op that matched every
+# unmarked edge, so it swamped the candidate pool, random selection spent
+# essentially the whole budget doing nothing, and every arm sat in `Frozen`
+# at F2 = -0.500 — measured, at all six budget rungs. Worse, had it worked,
+# the winning strategy would have been "downweight filler", which is a pure
+# RULE-IDENTITY decision and exactly the thing `StaticBias` is good at. A
+# fixture whose optimum is reachable by rule identity cannot separate the
+# two policy classes.
+#
+# The `sprout`/`overload` pair supplies the choice honestly. `StaticBias`
+# can trade the two off — suppress `overload` and hubs never retire, so the
+# graph runs away into `Exploding`; let it run and structure keeps getting
+# spent. Neither is as good as placing sprouts well, and that is the
+# ceiling the MLP has to beat.
+#
+# THRESHOLD IS SET ABOVE THE INITIAL CONDITION, NOT GUESSED
+#
+# `WhiteNoise` here is 24 nodes and 40 binary edges (`max_arity` defaults to
+# 2), so mean degree is ~3.3 and the initial hubs sit around 6-7. At the
+# first version's threshold of 6, `overload` retired the starting marked
+# nodes before a single sprout landed and the fixture had no dynamics at
+# all. 9 is above the initial distribution, so crossing it is something
+# sprouting DID rather than something the generator handed over.
+# `fl3_context_dependence.rs` measures the initial degree distribution and
+# fails if that separation stops holding.
+#
+# `WhiteNoise` is the one shipped IC with a genuine spread of node degrees;
+# on a constructed lattice every node has the same degree and "low-degree
+# site" names nothing.
+
+# --- rule 0: the context-dependent rule. No degree guard, by design.
+[[rules]]
+name     = "sprout"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [
+  ["a", "b"],
+]
+
+[rules.lhs.node_labels]
+a = 1
+b = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b"]
+
+# `c` is attached to BOTH `a` and `b`, and is born MARKED.
+#
+# Both details are load-bearing and both were found by measurement. The
+# first version created an unmarked leaf attached only to `a`. Marked nodes
+# were then a finite, monotonically shrinking population — `sprout` never
+# made one and `overload` retired them — so the run provably had to stall.
+# It did: 24 -> 53 nodes and then nothing, `Frozen` at F2 = -0.500 on every
+# arm at all six budget rungs.
+#
+# Born marked, `c` is a fresh site. Attached to `b` as well, it has an
+# unmarked neighbour to sprout from, so the site is usable rather than a
+# dead end — with the leaf hanging off `a` alone, `c`'s only neighbour is
+# marked and `sprout`'s `b = 0` can never match there.
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b"],
+  ["a", "c"],
+  ["b", "c"],
+]
+
+[rules.rhs.node_labels]
+c = 1
+
+# --- rule 1: burnout. Fires only on hubs; higher priority so a node that
+# crosses the threshold is retired rather than sprouted on again.
+[[rules]]
+name     = "overload"
+priority = 2
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [
+  ["a", "b"],
+]
+
+[rules.lhs.node_labels]
+a = 1
+
+[[rules.lhs.node_degree_compares]]
+var = "a"
+op = "gte"
+value = 9
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b"]
+
+# `a` is DELETED, not relabelled: it is absent from `rhs.nodes`, so it and
+# every edge incident to it go. `b` survives.
+#
+# Relabelling `a` to a dead label was the first version and it was too
+# gentle. The structure `a` had accumulated stayed in the graph, so hub
+# burnout cost nothing measurable and budget-matched random sat at the F2
+# ceiling of 1.000 at every budget rung and every horizon out to 3072 steps
+# — a fixture whose control is already optimal cannot separate two policy
+# classes.
+#
+# Deletion is what makes placement matter, and it does so through a
+# property of uniform sampling rather than of the rules: a degree-d node
+# appears in ~d bindings, so a policy sampling uniformly over BINDINGS
+# over-represents hubs, drives them over the threshold sooner, and destroys
+# more. Avoiding hubs is then worth something, and it is expressible only as
+# a condition on the candidate.
+[rules.rhs]
+nodes = ["b"]
+edges = []

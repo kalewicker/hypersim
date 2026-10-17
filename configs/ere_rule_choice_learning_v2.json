@@ -1,0 +1,38 @@
+{
+  "profile": "E2-rule-choice-learning-v2",
+  "policy_seeds": [
+    993748715001,
+    993748715002,
+    993748715003
+  ],
+  "native_seeds": [
+    993748714001,
+    993748714002
+  ],
+  "contexts": [
+    10,
+    20,
+    30
+  ],
+  "actions": [
+    null,
+    10,
+    20,
+    30
+  ],
+  "updates_per_policy": 12,
+  "samples_per_context": 2,
+  "learning_rate": 1,
+  "baseline": 0,
+  "horizon": 24,
+  "training_cells": 432,
+  "evaluation_cells": 108,
+  "total_cells": 540,
+  "maximum_native_attempts": 12960,
+  "native_deadline_seconds": 180,
+  "minimum_expected_reward_gain_per_run": 0.05,
+  "require_every_context_probability_gain": true,
+  "full_training_authorized": false,
+  "scientific_acceptance": false,
+  "source_scope": "ere-learning-feature-scoped-v2"
+}

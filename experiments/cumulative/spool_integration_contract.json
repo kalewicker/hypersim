@@ -1,0 +1,65 @@
+{
+  "profile": "cumulative-spool-integration-readiness-v1",
+  "scope": "bounded_saved_evidence_faults_and_development_native_spool_handoff",
+  "parent": {
+    "archive": "output/cumulative_storage_validation_20261010",
+    "seal_sha256": "a31f079f7227c2bab62b7d3f1c454949e3742dc775139859c093aafda34752c8"
+  },
+  "adapter_parent": {
+    "archive": "output/cumulative_campaign_adapter_readiness_20261010",
+    "seal_sha256": "827890af64baf8cf8c25d67056a5006294c6c95fcddd888d03870c6d6287f794"
+  },
+  "limits": {
+    "native_rewrites": 250,
+    "native_seconds": 60,
+    "workflow_seconds": 1200,
+    "output_bytes": 134217728,
+    "spool_cap_bytes": 268435456
+  },
+  "fault_cases": [
+    "after_seal",
+    "after_compact",
+    "after_verified",
+    "during_release"
+  ],
+  "saved_routes": [
+    "world_boundary",
+    "world_unknown",
+    "stress_0"
+  ],
+  "rejections": [
+    "cap_before_dispatch",
+    "reserved_writer_no_retry",
+    "pending_native_no_restore",
+    "torn_native_no_restore",
+    "partial_compact_no_overwrite",
+    "corrupt_compact_no_release",
+    "foreign_raw_no_release",
+    "symlink_raw_no_release",
+    "modified_restore_no_release"
+  ],
+  "native_routes": [
+    {
+      "name": "complete",
+      "fault": null
+    },
+    {
+      "name": "boundary",
+      "fault": {
+        "index": 0,
+        "point": "after_result"
+      }
+    },
+    {
+      "name": "continue",
+      "source": "boundary",
+      "fault": null
+    }
+  ],
+  "native_spec": "unchanged matched endogenous world from adapter contract, seed2026101001; compare complete run against interrupted+restored-source continuation",
+  "closure": "Stop after exact native equivalence, bounded storage accounting, frozen independent audits and relocated recheck. No scientific seed execution, parameter changes, new biology or campaign launch. Incomplete extraction/publication remains charged and fails closed; it is not retried.",
+  "readiness_gate_complete": false,
+  "scientific_acceptance": false,
+  "evolution_demonstrated": false,
+  "campaign_launch_authorized": false
+}

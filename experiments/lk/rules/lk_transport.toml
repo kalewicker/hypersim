@@ -1,0 +1,58 @@
+# lk_transport (LK-R, plan v2 §6.1): exactly conservative energy
+# diffusion. Guard x.energy >= y.energy + 2τ (the offset opens a dead
+# zone |Δ| < 2τ so transfers never oscillate); effects move exactly τ.
+# Deterministic: property comparison only, zero RNG draws. Same-source
+# instances conflict on the shared bound node and serialize under the
+# deterministic tie-break — one transfer per node per step (documented,
+# not fought).
+#
+# Constants (Appendix B): τ = 25.0, so offset = 2τ = 50.0. All constants
+# are integers in f64 — sums stay exact, which the §6.2 audit invariant
+# requires. If you change τ here, update [lk_rules] tau (the audit reads
+# the config; disagreement shows up as audit_invariant_drift — loudly).
+#
+# Priority 0: PINNED below lk_metered_subdivide (priority 1). Where both
+# match the same edge, subdivision wins deterministically (v2 §6.1);
+# order-sensitivity is test-pinned.
+
+[[rules]]
+name     = "lk_transport"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["x", "y"]
+edges = [
+  ["x", "y"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["x", "y"]
+
+[[rules.lhs.node_property_compares]]
+var_a  = "x"
+key_a  = 1
+op     = "gte"
+var_b  = "y"
+key_b  = 1
+offset = 50.0
+
+[rules.rhs]
+nodes = ["x", "y"]
+edges = [
+  ["x", "y"],
+]
+
+[[rules.rhs.property_effects]]
+var   = "x"
+key   = 1
+op    = "subtract"
+value = 25.0
+
+[[rules.rhs.property_effects]]
+var   = "y"
+key   = 1
+op    = "add"
+value = 25.0

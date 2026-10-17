@@ -1,0 +1,3182 @@
+{
+  "date": "2026-09-29",
+  "profile": "E2-complete-coherent-draw-assay-v1",
+  "archive": "output/ere_complete_coherent_draw_full_20260929",
+  "status": {
+    "development_only": false,
+    "elapsed_seconds": 3305.630581416,
+    "error": "frozen auditor failed",
+    "gate_pass": false,
+    "primary_mutations": "partial",
+    "scientific_run_launched": true,
+    "status": "failed_or_unmeasured",
+    "training_admitted": false
+  },
+  "scientific_run_authorized": true,
+  "scientific_run_launched": true,
+  "scientific_acceptance": false,
+  "training_admitted": false,
+  "invocations": 1,
+  "retries": 0,
+  "code_or_criteria_changes_during_run_by_this_task": false,
+  "gate_pass": false,
+  "measurement_complete": false,
+  "complete_full_audit_pass": false,
+  "root_completion_seal_present": false,
+  "assay_wall_seconds": 3305.630581416,
+  "outer_wall_seconds": 3306.11,
+  "runner_exit_code": 101,
+  "auditor_failure": {
+    "reason": "auditor RSS cap",
+    "resident_memory_cap_bytes": 1073741824,
+    "actual_peak_rss_not_recorded": true,
+    "function": "check_native_timing",
+    "source_line": 1505,
+    "operation": "classifications = list(stream(out / \"classifications.jsonl.gz\"))",
+    "timing_tamper_and_final_seal_stages_not_completed": true
+  },
+  "native_observations": {
+    "independent_full_audit_receipt_absent": true,
+    "primary_samples": 10000,
+    "attempted_engine_steps": 505392,
+    "advancing_engine_steps": 505391,
+    "summary": {
+      "mode_changes": 824,
+      "neutral_soundness_checked": 50,
+      "neutral_soundness_failures": 0,
+      "numerical_pass": false,
+      "parent_baselines_complete": true,
+      "strata": {
+        "activation": {
+          "catastrophic": 134,
+          "divergent": 164,
+          "near_neutral": 526,
+          "neutral": 800,
+          "samples": 1624,
+          "valid": 1624
+        },
+        "active:false": {
+          "catastrophic": 775,
+          "divergent": 447,
+          "near_neutral": 544,
+          "neutral": 2562,
+          "rejected": 685,
+          "samples": 5013,
+          "valid": 4328
+        },
+        "active:true": {
+          "catastrophic": 522,
+          "divergent": 718,
+          "near_neutral": 1829,
+          "neutral": 1270,
+          "rejected": 647,
+          "samples": 4987,
+          "unmeasured": 1,
+          "valid": 4340
+        },
+        "active_parent_actual_pattern_change": {
+          "catastrophic": 361,
+          "divergent": 548,
+          "near_neutral": 887,
+          "rejected": 548,
+          "samples": 2345,
+          "unmeasured": 1,
+          "valid": 1797
+        },
+        "active_parent_structural": {
+          "catastrophic": 456,
+          "divergent": 628,
+          "near_neutral": 1567,
+          "neutral": 860,
+          "rejected": 647,
+          "samples": 4159,
+          "unmeasured": 1,
+          "valid": 3512
+        },
+        "active_parent_topology_operator": {
+          "catastrophic": 361,
+          "divergent": 548,
+          "near_neutral": 887,
+          "neutral": 127,
+          "rejected": 647,
+          "samples": 2571,
+          "unmeasured": 1,
+          "valid": 1924
+        },
+        "actual_pattern_change": {
+          "catastrophic": 944,
+          "divergent": 913,
+          "near_neutral": 887,
+          "neutral": 937,
+          "rejected": 1130,
+          "samples": 4812,
+          "unmeasured": 1,
+          "valid": 3682
+        },
+        "applicable:false": {
+          "neutral": 1369,
+          "samples": 1369,
+          "valid": 1369
+        },
+        "applicable:true": {
+          "catastrophic": 1297,
+          "divergent": 1165,
+          "near_neutral": 2373,
+          "neutral": 2463,
+          "rejected": 1332,
+          "samples": 8631,
+          "unmeasured": 1,
+          "valid": 7299
+        },
+        "at_cap:false": {
+          "catastrophic": 1154,
+          "divergent": 1053,
+          "near_neutral": 2042,
+          "neutral": 3215,
+          "rejected": 1024,
+          "samples": 8489,
+          "unmeasured": 1,
+          "valid": 7465
+        },
+        "at_cap:true": {
+          "catastrophic": 143,
+          "divergent": 112,
+          "near_neutral": 331,
+          "neutral": 617,
+          "rejected": 308,
+          "samples": 1511,
+          "valid": 1203
+        },
+        "genotype_parent:0": {
+          "catastrophic": 11,
+          "divergent": 2,
+          "near_neutral": 6,
+          "neutral": 26,
+          "rejected": 12,
+          "samples": 57,
+          "valid": 45
+        },
+        "genotype_parent:1": {
+          "near_neutral": 28,
+          "neutral": 16,
+          "rejected": 8,
+          "samples": 52,
+          "valid": 44
+        },
+        "genotype_parent:10": {
+          "catastrophic": 9,
+          "divergent": 4,
+          "near_neutral": 3,
+          "neutral": 23,
+          "rejected": 18,
+          "samples": 57,
+          "valid": 39
+        },
+        "genotype_parent:100": {
+          "catastrophic": 23,
+          "near_neutral": 2,
+          "neutral": 27,
+          "rejected": 2,
+          "samples": 54,
+          "valid": 52
+        },
+        "genotype_parent:101": {
+          "catastrophic": 18,
+          "divergent": 12,
+          "near_neutral": 16,
+          "neutral": 11,
+          "rejected": 5,
+          "samples": 62,
+          "valid": 57
+        },
+        "genotype_parent:102": {
+          "catastrophic": 12,
+          "divergent": 2,
+          "near_neutral": 8,
+          "neutral": 38,
+          "rejected": 6,
+          "samples": 66,
+          "valid": 60
+        },
+        "genotype_parent:103": {
+          "catastrophic": 7,
+          "divergent": 6,
+          "near_neutral": 22,
+          "neutral": 15,
+          "rejected": 6,
+          "samples": 56,
+          "valid": 50
+        },
+        "genotype_parent:104": {
+          "catastrophic": 7,
+          "divergent": 6,
+          "near_neutral": 12,
+          "neutral": 39,
+          "rejected": 6,
+          "samples": 70,
+          "valid": 64
+        },
+        "genotype_parent:105": {
+          "catastrophic": 12,
+          "divergent": 4,
+          "near_neutral": 22,
+          "neutral": 22,
+          "rejected": 3,
+          "samples": 63,
+          "valid": 60
+        },
+        "genotype_parent:106": {
+          "catastrophic": 15,
+          "divergent": 6,
+          "near_neutral": 3,
+          "neutral": 33,
+          "rejected": 7,
+          "samples": 64,
+          "valid": 57
+        },
+        "genotype_parent:107": {
+          "catastrophic": 12,
+          "divergent": 10,
+          "near_neutral": 12,
+          "neutral": 17,
+          "rejected": 5,
+          "samples": 56,
+          "valid": 51
+        },
+        "genotype_parent:108": {
+          "catastrophic": 9,
+          "divergent": 5,
+          "near_neutral": 9,
+          "neutral": 34,
+          "rejected": 7,
+          "samples": 64,
+          "valid": 57
+        },
+        "genotype_parent:109": {
+          "catastrophic": 5,
+          "divergent": 3,
+          "near_neutral": 34,
+          "neutral": 13,
+          "rejected": 2,
+          "samples": 57,
+          "valid": 55
+        },
+        "genotype_parent:11": {
+          "divergent": 22,
+          "near_neutral": 11,
+          "neutral": 10,
+          "rejected": 14,
+          "samples": 57,
+          "valid": 43
+        },
+        "genotype_parent:110": {
+          "catastrophic": 12,
+          "divergent": 5,
+          "near_neutral": 12,
+          "neutral": 24,
+          "rejected": 4,
+          "samples": 57,
+          "valid": 53
+        },
+        "genotype_parent:111": {
+          "catastrophic": 11,
+          "divergent": 5,
+          "near_neutral": 14,
+          "neutral": 14,
+          "rejected": 6,
+          "samples": 50,
+          "valid": 44
+        },
+        "genotype_parent:112": {
+          "catastrophic": 18,
+          "divergent": 1,
+          "near_neutral": 3,
+          "neutral": 28,
+          "rejected": 9,
+          "samples": 59,
+          "valid": 50
+        },
+        "genotype_parent:113": {
+          "catastrophic": 9,
+          "divergent": 13,
+          "near_neutral": 12,
+          "neutral": 17,
+          "rejected": 8,
+          "samples": 59,
+          "valid": 51
+        },
+        "genotype_parent:114": {
+          "catastrophic": 10,
+          "divergent": 4,
+          "near_neutral": 5,
+          "neutral": 30,
+          "rejected": 4,
+          "samples": 53,
+          "valid": 49
+        },
+        "genotype_parent:115": {
+          "catastrophic": 2,
+          "divergent": 5,
+          "near_neutral": 25,
+          "neutral": 18,
+          "rejected": 4,
+          "samples": 54,
+          "valid": 50
+        },
+        "genotype_parent:116": {
+          "catastrophic": 13,
+          "divergent": 1,
+          "near_neutral": 5,
+          "neutral": 32,
+          "rejected": 10,
+          "samples": 61,
+          "valid": 51
+        },
+        "genotype_parent:117": {
+          "catastrophic": 13,
+          "divergent": 6,
+          "near_neutral": 15,
+          "neutral": 16,
+          "rejected": 2,
+          "samples": 52,
+          "valid": 50
+        },
+        "genotype_parent:118": {
+          "catastrophic": 13,
+          "divergent": 3,
+          "near_neutral": 6,
+          "neutral": 30,
+          "rejected": 3,
+          "samples": 55,
+          "valid": 52
+        },
+        "genotype_parent:119": {
+          "catastrophic": 14,
+          "divergent": 12,
+          "near_neutral": 9,
+          "neutral": 23,
+          "rejected": 7,
+          "samples": 65,
+          "valid": 58
+        },
+        "genotype_parent:12": {
+          "catastrophic": 16,
+          "divergent": 2,
+          "near_neutral": 7,
+          "neutral": 22,
+          "rejected": 18,
+          "samples": 65,
+          "valid": 47
+        },
+        "genotype_parent:120": {
+          "catastrophic": 5,
+          "divergent": 14,
+          "near_neutral": 6,
+          "neutral": 33,
+          "samples": 58,
+          "valid": 58
+        },
+        "genotype_parent:121": {
+          "catastrophic": 1,
+          "divergent": 12,
+          "near_neutral": 36,
+          "neutral": 17,
+          "rejected": 1,
+          "samples": 67,
+          "valid": 66
+        },
+        "genotype_parent:122": {
+          "catastrophic": 8,
+          "divergent": 12,
+          "near_neutral": 9,
+          "neutral": 37,
+          "rejected": 1,
+          "samples": 67,
+          "valid": 66
+        },
+        "genotype_parent:123": {
+          "catastrophic": 5,
+          "divergent": 9,
+          "near_neutral": 26,
+          "neutral": 15,
+          "rejected": 1,
+          "samples": 56,
+          "valid": 55
+        },
+        "genotype_parent:124": {
+          "catastrophic": 12,
+          "divergent": 14,
+          "near_neutral": 4,
+          "neutral": 35,
+          "rejected": 2,
+          "samples": 67,
+          "valid": 65
+        },
+        "genotype_parent:125": {
+          "catastrophic": 11,
+          "divergent": 16,
+          "near_neutral": 23,
+          "neutral": 9,
+          "rejected": 2,
+          "samples": 61,
+          "valid": 59
+        },
+        "genotype_parent:126": {
+          "catastrophic": 6,
+          "divergent": 10,
+          "near_neutral": 10,
+          "neutral": 37,
+          "rejected": 2,
+          "samples": 65,
+          "valid": 63
+        },
+        "genotype_parent:127": {
+          "catastrophic": 2,
+          "divergent": 8,
+          "near_neutral": 34,
+          "neutral": 14,
+          "rejected": 1,
+          "samples": 59,
+          "valid": 58
+        },
+        "genotype_parent:128": {
+          "catastrophic": 4,
+          "divergent": 2,
+          "near_neutral": 10,
+          "neutral": 49,
+          "rejected": 1,
+          "samples": 66,
+          "valid": 65
+        },
+        "genotype_parent:129": {
+          "catastrophic": 3,
+          "divergent": 13,
+          "near_neutral": 33,
+          "neutral": 12,
+          "rejected": 3,
+          "samples": 64,
+          "valid": 61
+        },
+        "genotype_parent:13": {
+          "divergent": 2,
+          "near_neutral": 35,
+          "neutral": 17,
+          "rejected": 7,
+          "samples": 61,
+          "valid": 54
+        },
+        "genotype_parent:130": {
+          "catastrophic": 13,
+          "divergent": 7,
+          "near_neutral": 2,
+          "neutral": 26,
+          "samples": 48,
+          "valid": 48
+        },
+        "genotype_parent:131": {
+          "catastrophic": 8,
+          "divergent": 7,
+          "near_neutral": 19,
+          "neutral": 17,
+          "samples": 51,
+          "valid": 51
+        },
+        "genotype_parent:132": {
+          "catastrophic": 3,
+          "divergent": 15,
+          "near_neutral": 8,
+          "neutral": 37,
+          "samples": 63,
+          "valid": 63
+        },
+        "genotype_parent:133": {
+          "catastrophic": 3,
+          "divergent": 8,
+          "near_neutral": 23,
+          "neutral": 15,
+          "samples": 49,
+          "valid": 49
+        },
+        "genotype_parent:134": {
+          "catastrophic": 2,
+          "divergent": 10,
+          "near_neutral": 7,
+          "neutral": 32,
+          "samples": 51,
+          "valid": 51
+        },
+        "genotype_parent:135": {
+          "catastrophic": 7,
+          "divergent": 20,
+          "near_neutral": 28,
+          "neutral": 22,
+          "rejected": 1,
+          "samples": 78,
+          "valid": 77
+        },
+        "genotype_parent:136": {
+          "catastrophic": 11,
+          "divergent": 14,
+          "near_neutral": 3,
+          "neutral": 38,
+          "rejected": 5,
+          "samples": 71,
+          "valid": 66
+        },
+        "genotype_parent:137": {
+          "catastrophic": 9,
+          "divergent": 14,
+          "near_neutral": 18,
+          "neutral": 15,
+          "rejected": 1,
+          "samples": 57,
+          "valid": 56
+        },
+        "genotype_parent:138": {
+          "catastrophic": 6,
+          "divergent": 8,
+          "near_neutral": 8,
+          "neutral": 35,
+          "rejected": 2,
+          "samples": 59,
+          "valid": 57
+        },
+        "genotype_parent:139": {
+          "divergent": 9,
+          "near_neutral": 26,
+          "neutral": 15,
+          "rejected": 1,
+          "samples": 52,
+          "unmeasured": 1,
+          "valid": 51
+        },
+        "genotype_parent:14": {
+          "catastrophic": 9,
+          "near_neutral": 18,
+          "neutral": 20,
+          "rejected": 22,
+          "samples": 69,
+          "valid": 47
+        },
+        "genotype_parent:140": {
+          "catastrophic": 2,
+          "divergent": 10,
+          "near_neutral": 12,
+          "neutral": 29,
+          "rejected": 2,
+          "samples": 55,
+          "valid": 53
+        },
+        "genotype_parent:141": {
+          "catastrophic": 3,
+          "divergent": 9,
+          "near_neutral": 21,
+          "neutral": 13,
+          "rejected": 1,
+          "samples": 47,
+          "valid": 46
+        },
+        "genotype_parent:142": {
+          "catastrophic": 10,
+          "divergent": 8,
+          "near_neutral": 5,
+          "neutral": 40,
+          "rejected": 2,
+          "samples": 65,
+          "valid": 63
+        },
+        "genotype_parent:143": {
+          "catastrophic": 8,
+          "divergent": 19,
+          "near_neutral": 25,
+          "neutral": 15,
+          "rejected": 1,
+          "samples": 68,
+          "valid": 67
+        },
+        "genotype_parent:144": {
+          "catastrophic": 10,
+          "divergent": 2,
+          "near_neutral": 9,
+          "neutral": 35,
+          "rejected": 19,
+          "samples": 75,
+          "valid": 56
+        },
+        "genotype_parent:145": {
+          "near_neutral": 29,
+          "neutral": 19,
+          "rejected": 7,
+          "samples": 55,
+          "valid": 48
+        },
+        "genotype_parent:146": {
+          "catastrophic": 7,
+          "near_neutral": 3,
+          "neutral": 35,
+          "rejected": 16,
+          "samples": 61,
+          "valid": 45
+        },
+        "genotype_parent:147": {
+          "catastrophic": 11,
+          "near_neutral": 21,
+          "neutral": 15,
+          "rejected": 13,
+          "samples": 60,
+          "valid": 47
+        },
+        "genotype_parent:148": {
+          "catastrophic": 12,
+          "divergent": 9,
+          "near_neutral": 1,
+          "neutral": 28,
+          "rejected": 14,
+          "samples": 64,
+          "valid": 50
+        },
+        "genotype_parent:149": {
+          "divergent": 20,
+          "near_neutral": 17,
+          "neutral": 17,
+          "rejected": 10,
+          "samples": 64,
+          "valid": 54
+        },
+        "genotype_parent:15": {
+          "catastrophic": 8,
+          "divergent": 1,
+          "near_neutral": 20,
+          "neutral": 12,
+          "rejected": 15,
+          "samples": 56,
+          "valid": 41
+        },
+        "genotype_parent:150": {
+          "catastrophic": 8,
+          "near_neutral": 7,
+          "neutral": 26,
+          "rejected": 15,
+          "samples": 56,
+          "valid": 41
+        },
+        "genotype_parent:151": {
+          "near_neutral": 33,
+          "neutral": 21,
+          "rejected": 16,
+          "samples": 70,
+          "valid": 54
+        },
+        "genotype_parent:152": {
+          "catastrophic": 12,
+          "near_neutral": 7,
+          "neutral": 44,
+          "rejected": 10,
+          "samples": 73,
+          "valid": 63
+        },
+        "genotype_parent:153": {
+          "catastrophic": 6,
+          "divergent": 2,
+          "near_neutral": 23,
+          "neutral": 15,
+          "rejected": 10,
+          "samples": 56,
+          "valid": 46
+        },
+        "genotype_parent:154": {
+          "catastrophic": 9,
+          "divergent": 7,
+          "near_neutral": 4,
+          "neutral": 40,
+          "rejected": 11,
+          "samples": 71,
+          "valid": 60
+        },
+        "genotype_parent:155": {
+          "divergent": 22,
+          "near_neutral": 15,
+          "neutral": 13,
+          "rejected": 13,
+          "samples": 63,
+          "valid": 50
+        },
+        "genotype_parent:156": {
+          "catastrophic": 17,
+          "divergent": 1,
+          "near_neutral": 5,
+          "neutral": 37,
+          "rejected": 10,
+          "samples": 70,
+          "valid": 60
+        },
+        "genotype_parent:157": {
+          "divergent": 2,
+          "near_neutral": 27,
+          "neutral": 20,
+          "rejected": 14,
+          "samples": 63,
+          "valid": 49
+        },
+        "genotype_parent:158": {
+          "catastrophic": 8,
+          "near_neutral": 9,
+          "neutral": 32,
+          "rejected": 12,
+          "samples": 61,
+          "valid": 49
+        },
+        "genotype_parent:159": {
+          "catastrophic": 3,
+          "divergent": 2,
+          "near_neutral": 19,
+          "neutral": 15,
+          "rejected": 14,
+          "samples": 53,
+          "valid": 39
+        },
+        "genotype_parent:16": {
+          "catastrophic": 4,
+          "divergent": 7,
+          "near_neutral": 5,
+          "neutral": 28,
+          "rejected": 13,
+          "samples": 57,
+          "valid": 44
+        },
+        "genotype_parent:160": {
+          "catastrophic": 7,
+          "divergent": 5,
+          "near_neutral": 3,
+          "neutral": 38,
+          "rejected": 6,
+          "samples": 59,
+          "valid": 53
+        },
+        "genotype_parent:161": {
+          "divergent": 13,
+          "near_neutral": 17,
+          "neutral": 17,
+          "rejected": 9,
+          "samples": 56,
+          "valid": 47
+        },
+        "genotype_parent:162": {
+          "catastrophic": 10,
+          "divergent": 1,
+          "near_neutral": 8,
+          "neutral": 31,
+          "rejected": 13,
+          "samples": 63,
+          "valid": 50
+        },
+        "genotype_parent:163": {
+          "divergent": 1,
+          "near_neutral": 25,
+          "neutral": 10,
+          "rejected": 11,
+          "samples": 47,
+          "valid": 36
+        },
+        "genotype_parent:164": {
+          "catastrophic": 6,
+          "divergent": 1,
+          "near_neutral": 10,
+          "neutral": 34,
+          "rejected": 22,
+          "samples": 73,
+          "valid": 51
+        },
+        "genotype_parent:165": {
+          "catastrophic": 8,
+          "divergent": 1,
+          "near_neutral": 20,
+          "neutral": 14,
+          "rejected": 16,
+          "samples": 59,
+          "valid": 43
+        },
+        "genotype_parent:166": {
+          "catastrophic": 9,
+          "divergent": 6,
+          "near_neutral": 4,
+          "neutral": 34,
+          "rejected": 13,
+          "samples": 66,
+          "valid": 53
+        },
+        "genotype_parent:167": {
+          "divergent": 17,
+          "near_neutral": 15,
+          "neutral": 27,
+          "rejected": 14,
+          "samples": 73,
+          "valid": 59
+        },
+        "genotype_parent:17": {
+          "divergent": 17,
+          "near_neutral": 20,
+          "neutral": 13,
+          "rejected": 16,
+          "samples": 66,
+          "valid": 50
+        },
+        "genotype_parent:18": {
+          "catastrophic": 7,
+          "divergent": 2,
+          "near_neutral": 4,
+          "neutral": 26,
+          "rejected": 13,
+          "samples": 52,
+          "valid": 39
+        },
+        "genotype_parent:19": {
+          "divergent": 2,
+          "near_neutral": 23,
+          "neutral": 12,
+          "rejected": 9,
+          "samples": 46,
+          "valid": 37
+        },
+        "genotype_parent:2": {
+          "catastrophic": 6,
+          "near_neutral": 7,
+          "neutral": 22,
+          "rejected": 17,
+          "samples": 52,
+          "valid": 35
+        },
+        "genotype_parent:20": {
+          "catastrophic": 17,
+          "divergent": 1,
+          "near_neutral": 10,
+          "neutral": 30,
+          "rejected": 14,
+          "samples": 72,
+          "valid": 58
+        },
+        "genotype_parent:21": {
+          "catastrophic": 9,
+          "divergent": 1,
+          "near_neutral": 22,
+          "neutral": 15,
+          "rejected": 16,
+          "samples": 63,
+          "valid": 47
+        },
+        "genotype_parent:22": {
+          "catastrophic": 5,
+          "divergent": 4,
+          "near_neutral": 4,
+          "neutral": 27,
+          "rejected": 11,
+          "samples": 51,
+          "valid": 40
+        },
+        "genotype_parent:23": {
+          "divergent": 15,
+          "near_neutral": 17,
+          "neutral": 9,
+          "rejected": 14,
+          "samples": 55,
+          "valid": 41
+        },
+        "genotype_parent:24": {
+          "catastrophic": 3,
+          "divergent": 9,
+          "near_neutral": 10,
+          "neutral": 18,
+          "rejected": 6,
+          "samples": 46,
+          "valid": 40
+        },
+        "genotype_parent:25": {
+          "catastrophic": 1,
+          "divergent": 8,
+          "near_neutral": 20,
+          "neutral": 14,
+          "rejected": 8,
+          "samples": 51,
+          "valid": 43
+        },
+        "genotype_parent:26": {
+          "catastrophic": 1,
+          "divergent": 10,
+          "near_neutral": 10,
+          "neutral": 25,
+          "rejected": 12,
+          "samples": 58,
+          "valid": 46
+        },
+        "genotype_parent:27": {
+          "catastrophic": 4,
+          "divergent": 18,
+          "near_neutral": 29,
+          "neutral": 22,
+          "rejected": 14,
+          "samples": 87,
+          "valid": 73
+        },
+        "genotype_parent:28": {
+          "divergent": 7,
+          "near_neutral": 2,
+          "neutral": 31,
+          "rejected": 7,
+          "samples": 47,
+          "valid": 40
+        },
+        "genotype_parent:29": {
+          "catastrophic": 2,
+          "divergent": 17,
+          "near_neutral": 15,
+          "neutral": 19,
+          "rejected": 15,
+          "samples": 68,
+          "valid": 53
+        },
+        "genotype_parent:3": {
+          "catastrophic": 6,
+          "divergent": 1,
+          "near_neutral": 28,
+          "neutral": 10,
+          "rejected": 19,
+          "samples": 64,
+          "valid": 45
+        },
+        "genotype_parent:30": {
+          "catastrophic": 6,
+          "divergent": 12,
+          "near_neutral": 9,
+          "neutral": 34,
+          "rejected": 10,
+          "samples": 71,
+          "valid": 61
+        },
+        "genotype_parent:31": {
+          "divergent": 11,
+          "near_neutral": 25,
+          "neutral": 20,
+          "rejected": 11,
+          "samples": 67,
+          "valid": 56
+        },
+        "genotype_parent:32": {
+          "catastrophic": 8,
+          "divergent": 5,
+          "near_neutral": 7,
+          "neutral": 41,
+          "rejected": 13,
+          "samples": 74,
+          "valid": 61
+        },
+        "genotype_parent:33": {
+          "catastrophic": 1,
+          "divergent": 6,
+          "near_neutral": 26,
+          "neutral": 12,
+          "rejected": 8,
+          "samples": 53,
+          "valid": 45
+        },
+        "genotype_parent:34": {
+          "catastrophic": 7,
+          "divergent": 12,
+          "near_neutral": 2,
+          "neutral": 33,
+          "rejected": 8,
+          "samples": 62,
+          "valid": 54
+        },
+        "genotype_parent:35": {
+          "catastrophic": 1,
+          "divergent": 12,
+          "near_neutral": 17,
+          "neutral": 13,
+          "rejected": 12,
+          "samples": 55,
+          "valid": 43
+        },
+        "genotype_parent:36": {
+          "catastrophic": 6,
+          "divergent": 14,
+          "near_neutral": 6,
+          "neutral": 37,
+          "rejected": 23,
+          "samples": 86,
+          "valid": 63
+        },
+        "genotype_parent:37": {
+          "catastrophic": 1,
+          "divergent": 5,
+          "near_neutral": 26,
+          "neutral": 12,
+          "rejected": 11,
+          "samples": 55,
+          "valid": 44
+        },
+        "genotype_parent:38": {
+          "catastrophic": 2,
+          "divergent": 13,
+          "near_neutral": 2,
+          "neutral": 33,
+          "rejected": 7,
+          "samples": 57,
+          "valid": 50
+        },
+        "genotype_parent:39": {
+          "catastrophic": 3,
+          "divergent": 7,
+          "near_neutral": 26,
+          "neutral": 20,
+          "rejected": 11,
+          "samples": 67,
+          "valid": 56
+        },
+        "genotype_parent:4": {
+          "catastrophic": 11,
+          "divergent": 5,
+          "near_neutral": 4,
+          "neutral": 24,
+          "rejected": 21,
+          "samples": 65,
+          "valid": 44
+        },
+        "genotype_parent:40": {
+          "catastrophic": 2,
+          "divergent": 10,
+          "near_neutral": 4,
+          "neutral": 34,
+          "rejected": 7,
+          "samples": 57,
+          "valid": 50
+        },
+        "genotype_parent:41": {
+          "catastrophic": 1,
+          "divergent": 23,
+          "near_neutral": 14,
+          "neutral": 8,
+          "rejected": 12,
+          "samples": 58,
+          "valid": 46
+        },
+        "genotype_parent:42": {
+          "catastrophic": 2,
+          "divergent": 5,
+          "near_neutral": 10,
+          "neutral": 31,
+          "rejected": 6,
+          "samples": 54,
+          "valid": 48
+        },
+        "genotype_parent:43": {
+          "catastrophic": 1,
+          "divergent": 14,
+          "near_neutral": 25,
+          "neutral": 13,
+          "rejected": 4,
+          "samples": 57,
+          "valid": 53
+        },
+        "genotype_parent:44": {
+          "catastrophic": 5,
+          "divergent": 13,
+          "near_neutral": 9,
+          "neutral": 19,
+          "rejected": 9,
+          "samples": 55,
+          "valid": 46
+        },
+        "genotype_parent:45": {
+          "divergent": 13,
+          "near_neutral": 21,
+          "neutral": 14,
+          "rejected": 17,
+          "samples": 65,
+          "valid": 48
+        },
+        "genotype_parent:46": {
+          "catastrophic": 3,
+          "divergent": 11,
+          "near_neutral": 6,
+          "neutral": 28,
+          "rejected": 9,
+          "samples": 57,
+          "valid": 48
+        },
+        "genotype_parent:47": {
+          "divergent": 28,
+          "near_neutral": 14,
+          "neutral": 16,
+          "rejected": 7,
+          "samples": 65,
+          "valid": 58
+        },
+        "genotype_parent:48": {
+          "catastrophic": 9,
+          "divergent": 2,
+          "near_neutral": 4,
+          "neutral": 41,
+          "rejected": 5,
+          "samples": 61,
+          "valid": 56
+        },
+        "genotype_parent:49": {
+          "catastrophic": 7,
+          "divergent": 7,
+          "near_neutral": 17,
+          "neutral": 18,
+          "rejected": 1,
+          "samples": 50,
+          "valid": 49
+        },
+        "genotype_parent:5": {
+          "divergent": 24,
+          "near_neutral": 10,
+          "neutral": 14,
+          "rejected": 13,
+          "samples": 61,
+          "valid": 48
+        },
+        "genotype_parent:50": {
+          "catastrophic": 13,
+          "divergent": 5,
+          "near_neutral": 8,
+          "neutral": 27,
+          "rejected": 3,
+          "samples": 56,
+          "valid": 53
+        },
+        "genotype_parent:51": {
+          "catastrophic": 6,
+          "divergent": 5,
+          "near_neutral": 30,
+          "neutral": 14,
+          "rejected": 4,
+          "samples": 59,
+          "valid": 55
+        },
+        "genotype_parent:52": {
+          "catastrophic": 14,
+          "divergent": 6,
+          "near_neutral": 3,
+          "neutral": 20,
+          "rejected": 5,
+          "samples": 48,
+          "valid": 43
+        },
+        "genotype_parent:53": {
+          "catastrophic": 15,
+          "divergent": 11,
+          "near_neutral": 14,
+          "neutral": 9,
+          "rejected": 6,
+          "samples": 55,
+          "valid": 49
+        },
+        "genotype_parent:54": {
+          "catastrophic": 12,
+          "divergent": 5,
+          "near_neutral": 2,
+          "neutral": 20,
+          "rejected": 4,
+          "samples": 43,
+          "valid": 39
+        },
+        "genotype_parent:55": {
+          "catastrophic": 4,
+          "divergent": 7,
+          "near_neutral": 36,
+          "neutral": 21,
+          "rejected": 7,
+          "samples": 75,
+          "valid": 68
+        },
+        "genotype_parent:56": {
+          "catastrophic": 12,
+          "divergent": 6,
+          "near_neutral": 8,
+          "neutral": 29,
+          "rejected": 6,
+          "samples": 61,
+          "valid": 55
+        },
+        "genotype_parent:57": {
+          "catastrophic": 7,
+          "divergent": 2,
+          "near_neutral": 30,
+          "neutral": 18,
+          "rejected": 3,
+          "samples": 60,
+          "valid": 57
+        },
+        "genotype_parent:58": {
+          "catastrophic": 10,
+          "divergent": 7,
+          "near_neutral": 2,
+          "neutral": 28,
+          "rejected": 4,
+          "samples": 51,
+          "valid": 47
+        },
+        "genotype_parent:59": {
+          "catastrophic": 14,
+          "divergent": 8,
+          "near_neutral": 20,
+          "neutral": 10,
+          "rejected": 8,
+          "samples": 60,
+          "valid": 52
+        },
+        "genotype_parent:6": {
+          "catastrophic": 5,
+          "divergent": 1,
+          "near_neutral": 5,
+          "neutral": 22,
+          "rejected": 11,
+          "samples": 44,
+          "valid": 33
+        },
+        "genotype_parent:60": {
+          "catastrophic": 15,
+          "divergent": 1,
+          "near_neutral": 7,
+          "neutral": 25,
+          "rejected": 4,
+          "samples": 52,
+          "valid": 48
+        },
+        "genotype_parent:61": {
+          "catastrophic": 7,
+          "divergent": 8,
+          "near_neutral": 28,
+          "neutral": 5,
+          "rejected": 7,
+          "samples": 55,
+          "valid": 48
+        },
+        "genotype_parent:62": {
+          "catastrophic": 13,
+          "divergent": 3,
+          "near_neutral": 4,
+          "neutral": 30,
+          "rejected": 7,
+          "samples": 57,
+          "valid": 50
+        },
+        "genotype_parent:63": {
+          "catastrophic": 7,
+          "divergent": 3,
+          "near_neutral": 34,
+          "neutral": 13,
+          "rejected": 2,
+          "samples": 59,
+          "valid": 57
+        },
+        "genotype_parent:64": {
+          "catastrophic": 18,
+          "divergent": 3,
+          "near_neutral": 5,
+          "neutral": 37,
+          "rejected": 4,
+          "samples": 67,
+          "valid": 63
+        },
+        "genotype_parent:65": {
+          "catastrophic": 20,
+          "divergent": 6,
+          "near_neutral": 10,
+          "neutral": 9,
+          "rejected": 3,
+          "samples": 48,
+          "valid": 45
+        },
+        "genotype_parent:66": {
+          "catastrophic": 6,
+          "divergent": 8,
+          "near_neutral": 8,
+          "neutral": 22,
+          "rejected": 9,
+          "samples": 53,
+          "valid": 44
+        },
+        "genotype_parent:67": {
+          "catastrophic": 12,
+          "divergent": 7,
+          "near_neutral": 23,
+          "neutral": 15,
+          "rejected": 13,
+          "samples": 70,
+          "valid": 57
+        },
+        "genotype_parent:68": {
+          "catastrophic": 7,
+          "divergent": 1,
+          "near_neutral": 10,
+          "neutral": 27,
+          "rejected": 4,
+          "samples": 49,
+          "valid": 45
+        },
+        "genotype_parent:69": {
+          "catastrophic": 11,
+          "divergent": 6,
+          "near_neutral": 25,
+          "neutral": 9,
+          "rejected": 6,
+          "samples": 57,
+          "valid": 51
+        },
+        "genotype_parent:7": {
+          "divergent": 1,
+          "near_neutral": 22,
+          "neutral": 16,
+          "rejected": 11,
+          "samples": 50,
+          "valid": 39
+        },
+        "genotype_parent:70": {
+          "catastrophic": 14,
+          "divergent": 6,
+          "near_neutral": 4,
+          "neutral": 31,
+          "rejected": 5,
+          "samples": 60,
+          "valid": 55
+        },
+        "genotype_parent:71": {
+          "catastrophic": 18,
+          "divergent": 9,
+          "near_neutral": 19,
+          "neutral": 13,
+          "rejected": 5,
+          "samples": 64,
+          "valid": 59
+        },
+        "genotype_parent:72": {
+          "catastrophic": 6,
+          "divergent": 3,
+          "near_neutral": 10,
+          "neutral": 32,
+          "rejected": 2,
+          "samples": 53,
+          "valid": 51
+        },
+        "genotype_parent:73": {
+          "catastrophic": 3,
+          "divergent": 11,
+          "near_neutral": 21,
+          "neutral": 10,
+          "rejected": 6,
+          "samples": 51,
+          "valid": 45
+        },
+        "genotype_parent:74": {
+          "catastrophic": 7,
+          "divergent": 4,
+          "near_neutral": 13,
+          "neutral": 26,
+          "rejected": 10,
+          "samples": 60,
+          "valid": 50
+        },
+        "genotype_parent:75": {
+          "catastrophic": 16,
+          "divergent": 4,
+          "near_neutral": 19,
+          "neutral": 14,
+          "rejected": 2,
+          "samples": 55,
+          "valid": 53
+        },
+        "genotype_parent:76": {
+          "catastrophic": 7,
+          "divergent": 7,
+          "near_neutral": 3,
+          "neutral": 31,
+          "rejected": 4,
+          "samples": 52,
+          "valid": 48
+        },
+        "genotype_parent:77": {
+          "catastrophic": 17,
+          "divergent": 9,
+          "near_neutral": 12,
+          "neutral": 16,
+          "rejected": 9,
+          "samples": 63,
+          "valid": 54
+        },
+        "genotype_parent:78": {
+          "catastrophic": 13,
+          "near_neutral": 9,
+          "neutral": 30,
+          "rejected": 6,
+          "samples": 58,
+          "valid": 52
+        },
+        "genotype_parent:79": {
+          "catastrophic": 5,
+          "divergent": 11,
+          "near_neutral": 23,
+          "neutral": 15,
+          "rejected": 12,
+          "samples": 66,
+          "valid": 54
+        },
+        "genotype_parent:8": {
+          "catastrophic": 5,
+          "divergent": 1,
+          "near_neutral": 13,
+          "neutral": 26,
+          "rejected": 14,
+          "samples": 59,
+          "valid": 45
+        },
+        "genotype_parent:80": {
+          "catastrophic": 10,
+          "divergent": 1,
+          "near_neutral": 8,
+          "neutral": 32,
+          "rejected": 7,
+          "samples": 58,
+          "valid": 51
+        },
+        "genotype_parent:81": {
+          "catastrophic": 15,
+          "divergent": 2,
+          "near_neutral": 16,
+          "neutral": 17,
+          "rejected": 4,
+          "samples": 54,
+          "valid": 50
+        },
+        "genotype_parent:82": {
+          "catastrophic": 13,
+          "divergent": 7,
+          "near_neutral": 6,
+          "neutral": 29,
+          "rejected": 8,
+          "samples": 63,
+          "valid": 55
+        },
+        "genotype_parent:83": {
+          "catastrophic": 18,
+          "divergent": 8,
+          "near_neutral": 10,
+          "neutral": 17,
+          "rejected": 6,
+          "samples": 59,
+          "valid": 53
+        },
+        "genotype_parent:84": {
+          "catastrophic": 13,
+          "divergent": 2,
+          "near_neutral": 6,
+          "neutral": 28,
+          "rejected": 5,
+          "samples": 54,
+          "valid": 49
+        },
+        "genotype_parent:85": {
+          "catastrophic": 7,
+          "divergent": 8,
+          "near_neutral": 25,
+          "neutral": 12,
+          "rejected": 9,
+          "samples": 61,
+          "valid": 52
+        },
+        "genotype_parent:86": {
+          "catastrophic": 6,
+          "divergent": 2,
+          "near_neutral": 2,
+          "neutral": 30,
+          "rejected": 8,
+          "samples": 48,
+          "valid": 40
+        },
+        "genotype_parent:87": {
+          "catastrophic": 11,
+          "divergent": 4,
+          "near_neutral": 23,
+          "neutral": 12,
+          "rejected": 8,
+          "samples": 58,
+          "valid": 50
+        },
+        "genotype_parent:88": {
+          "catastrophic": 12,
+          "divergent": 10,
+          "near_neutral": 3,
+          "neutral": 33,
+          "rejected": 6,
+          "samples": 64,
+          "valid": 58
+        },
+        "genotype_parent:89": {
+          "catastrophic": 12,
+          "divergent": 10,
+          "near_neutral": 13,
+          "neutral": 13,
+          "rejected": 5,
+          "samples": 53,
+          "valid": 48
+        },
+        "genotype_parent:9": {
+          "catastrophic": 9,
+          "near_neutral": 15,
+          "neutral": 18,
+          "rejected": 14,
+          "samples": 56,
+          "valid": 42
+        },
+        "genotype_parent:90": {
+          "catastrophic": 14,
+          "divergent": 3,
+          "near_neutral": 8,
+          "neutral": 29,
+          "rejected": 7,
+          "samples": 61,
+          "valid": 54
+        },
+        "genotype_parent:91": {
+          "catastrophic": 4,
+          "divergent": 4,
+          "near_neutral": 34,
+          "neutral": 22,
+          "rejected": 7,
+          "samples": 71,
+          "valid": 64
+        },
+        "genotype_parent:92": {
+          "catastrophic": 14,
+          "near_neutral": 12,
+          "neutral": 18,
+          "rejected": 7,
+          "samples": 51,
+          "valid": 44
+        },
+        "genotype_parent:93": {
+          "catastrophic": 12,
+          "divergent": 2,
+          "near_neutral": 20,
+          "neutral": 21,
+          "rejected": 8,
+          "samples": 63,
+          "valid": 55
+        },
+        "genotype_parent:94": {
+          "catastrophic": 11,
+          "divergent": 9,
+          "near_neutral": 2,
+          "neutral": 23,
+          "rejected": 9,
+          "samples": 54,
+          "valid": 45
+        },
+        "genotype_parent:95": {
+          "catastrophic": 18,
+          "divergent": 6,
+          "near_neutral": 12,
+          "neutral": 17,
+          "rejected": 7,
+          "samples": 60,
+          "valid": 53
+        },
+        "genotype_parent:96": {
+          "catastrophic": 12,
+          "divergent": 4,
+          "near_neutral": 8,
+          "neutral": 29,
+          "rejected": 5,
+          "samples": 58,
+          "valid": 53
+        },
+        "genotype_parent:97": {
+          "catastrophic": 10,
+          "divergent": 9,
+          "near_neutral": 25,
+          "neutral": 16,
+          "rejected": 2,
+          "samples": 62,
+          "valid": 60
+        },
+        "genotype_parent:98": {
+          "catastrophic": 15,
+          "divergent": 3,
+          "near_neutral": 7,
+          "neutral": 38,
+          "rejected": 4,
+          "samples": 67,
+          "valid": 63
+        },
+        "genotype_parent:99": {
+          "catastrophic": 8,
+          "divergent": 3,
+          "near_neutral": 27,
+          "neutral": 21,
+          "rejected": 3,
+          "samples": 62,
+          "valid": 59
+        },
+        "logical_change:false": {
+          "catastrophic": 353,
+          "divergent": 252,
+          "near_neutral": 1486,
+          "neutral": 2895,
+          "rejected": 202,
+          "samples": 5188,
+          "valid": 4986
+        },
+        "logical_change:true": {
+          "catastrophic": 944,
+          "divergent": 913,
+          "near_neutral": 887,
+          "neutral": 937,
+          "rejected": 1130,
+          "samples": 4812,
+          "unmeasured": 1,
+          "valid": 3682
+        },
+        "metadata_change:false": {
+          "neutral": 2510,
+          "rejected": 202,
+          "samples": 2712,
+          "valid": 2510
+        },
+        "metadata_change:true": {
+          "catastrophic": 1297,
+          "divergent": 1165,
+          "near_neutral": 2373,
+          "neutral": 1322,
+          "rejected": 1130,
+          "samples": 7288,
+          "unmeasured": 1,
+          "valid": 6158
+        },
+        "operator:Activate": {
+          "catastrophic": 68,
+          "divergent": 74,
+          "near_neutral": 264,
+          "neutral": 410,
+          "samples": 816,
+          "valid": 816
+        },
+        "operator:AddLabel": {
+          "catastrophic": 159,
+          "divergent": 40,
+          "near_neutral": 278,
+          "neutral": 318,
+          "samples": 795,
+          "valid": 795
+        },
+        "operator:AddPatternEdge": {
+          "catastrophic": 193,
+          "divergent": 159,
+          "near_neutral": 196,
+          "neutral": 187,
+          "samples": 736,
+          "unmeasured": 1,
+          "valid": 736
+        },
+        "operator:AddSlot": {
+          "catastrophic": 164,
+          "divergent": 142,
+          "near_neutral": 176,
+          "neutral": 157,
+          "rejected": 111,
+          "samples": 750,
+          "valid": 639
+        },
+        "operator:AddVar": {
+          "catastrophic": 181,
+          "divergent": 133,
+          "near_neutral": 184,
+          "neutral": 161,
+          "rejected": 91,
+          "samples": 750,
+          "valid": 659
+        },
+        "operator:ChangeLabel": {
+          "catastrophic": 36,
+          "divergent": 6,
+          "near_neutral": 32,
+          "neutral": 658,
+          "samples": 732,
+          "valid": 732
+        },
+        "operator:ChangePriority": {
+          "catastrophic": 24,
+          "divergent": 42,
+          "near_neutral": 510,
+          "neutral": 192,
+          "samples": 768,
+          "valid": 768
+        },
+        "operator:Deactivate": {
+          "catastrophic": 66,
+          "divergent": 90,
+          "near_neutral": 262,
+          "neutral": 390,
+          "samples": 808,
+          "valid": 808
+        },
+        "operator:RemoveLabel": {
+          "near_neutral": 140,
+          "neutral": 651,
+          "samples": 791,
+          "valid": 791
+        },
+        "operator:RemovePatternEdge": {
+          "catastrophic": 72,
+          "divergent": 162,
+          "near_neutral": 74,
+          "neutral": 121,
+          "rejected": 343,
+          "samples": 772,
+          "valid": 429
+        },
+        "operator:RemoveSlot": {
+          "catastrophic": 51,
+          "divergent": 86,
+          "near_neutral": 71,
+          "neutral": 89,
+          "rejected": 515,
+          "samples": 812,
+          "valid": 297
+        },
+        "operator:RemoveVar": {
+          "catastrophic": 157,
+          "divergent": 157,
+          "near_neutral": 76,
+          "neutral": 120,
+          "rejected": 251,
+          "samples": 761,
+          "valid": 510
+        },
+        "operator:RetargetSlot": {
+          "catastrophic": 126,
+          "divergent": 74,
+          "near_neutral": 110,
+          "neutral": 378,
+          "rejected": 21,
+          "samples": 709,
+          "valid": 688
+        },
+        "overall": {
+          "catastrophic": 1297,
+          "divergent": 1165,
+          "near_neutral": 2373,
+          "neutral": 3832,
+          "rejected": 1332,
+          "samples": 10000,
+          "unmeasured": 1,
+          "valid": 8668
+        },
+        "parent_identity:453152434632000000000200000000000000000000010000000200010100000002000100000000": {
+          "catastrophic": 28,
+          "divergent": 7,
+          "near_neutral": 17,
+          "neutral": 72,
+          "rejected": 50,
+          "samples": 174,
+          "valid": 124
+        },
+        "parent_identity:4531524346320000000002000000000000000000000100000002000101000000020001010000000f000000000501000000000000000000000000": {
+          "catastrophic": 29,
+          "divergent": 9,
+          "near_neutral": 30,
+          "neutral": 70,
+          "rejected": 53,
+          "samples": 191,
+          "valid": 138
+        },
+        "parent_identity:453152434632000000000200000000000000000000010000000800010001000100010100000008000100010001000100000000": {
+          "catastrophic": 29,
+          "divergent": 11,
+          "near_neutral": 13,
+          "neutral": 98,
+          "rejected": 49,
+          "samples": 200,
+          "valid": 151
+        },
+        "parent_identity:4531524346320000000002000000000000000000000100000008000100010001000101000000080001000100010001010000000f000000000501000000000000000000000000": {
+          "catastrophic": 32,
+          "divergent": 6,
+          "near_neutral": 17,
+          "neutral": 107,
+          "rejected": 28,
+          "samples": 190,
+          "valid": 162
+        },
+        "parent_identity:453152434632000000000200000000000100000000010000000201000100000002010000000000": {
+          "catastrophic": 19,
+          "divergent": 6,
+          "near_neutral": 21,
+          "neutral": 71,
+          "rejected": 43,
+          "samples": 160,
+          "valid": 117
+        },
+        "parent_identity:4531524346320000000002000000000001000000000100000002010001000000020100010000000f000000010501000000000000000000000000": {
+          "catastrophic": 29,
+          "divergent": 7,
+          "near_neutral": 18,
+          "neutral": 83,
+          "rejected": 38,
+          "samples": 175,
+          "valid": 137
+        },
+        "parent_identity:453152434632000000000200000000000100000000010000000801000100010001000100000008010001000100010000000000": {
+          "catastrophic": 29,
+          "divergent": 7,
+          "near_neutral": 18,
+          "neutral": 110,
+          "rejected": 36,
+          "samples": 200,
+          "valid": 164
+        },
+        "parent_identity:4531524346320000000002000000000001000000000100000008010001000100010001000000080100010001000100010000000f000000010501000000000000000000000000": {
+          "catastrophic": 25,
+          "divergent": 8,
+          "near_neutral": 22,
+          "neutral": 99,
+          "rejected": 48,
+          "samples": 202,
+          "valid": 154
+        },
+        "parent_identity:4531524346320000000003000000000000000000000000000000010000000200010200000002000202010200000000": {
+          "catastrophic": 4,
+          "divergent": 26,
+          "near_neutral": 22,
+          "neutral": 74,
+          "rejected": 25,
+          "samples": 151,
+          "valid": 126
+        },
+        "parent_identity:45315243463200000000030000000000000000000000000000000100000002000102000000020002020102010000000f000000000501000000000000000000000000": {
+          "catastrophic": 10,
+          "divergent": 37,
+          "near_neutral": 12,
+          "neutral": 104,
+          "rejected": 37,
+          "samples": 200,
+          "valid": 163
+        },
+        "parent_identity:453152434632000000000300000000000000000000000000000001000000030001020200000002000102010200000000": {
+          "catastrophic": 36,
+          "divergent": 13,
+          "near_neutral": 15,
+          "neutral": 88,
+          "rejected": 13,
+          "samples": 165,
+          "valid": 152
+        },
+        "parent_identity:4531524346320000000003000000000000000000000000000000010000000300010202000000020001020102010000000f000000000501000000000000000000000000": {
+          "catastrophic": 46,
+          "divergent": 7,
+          "near_neutral": 16,
+          "neutral": 92,
+          "rejected": 15,
+          "samples": 176,
+          "valid": 161
+        },
+        "parent_identity:4531524346320000000003000000000000000000000000000000020000000200010201020100000002000200000000": {
+          "catastrophic": 20,
+          "divergent": 14,
+          "near_neutral": 26,
+          "neutral": 89,
+          "rejected": 16,
+          "samples": 165,
+          "valid": 149
+        },
+        "parent_identity:45315243463200000000030000000000000000000000000000000200000002000102010201000000020002010000000f000000000501000000000000000000000000": {
+          "catastrophic": 31,
+          "divergent": 14,
+          "near_neutral": 11,
+          "neutral": 91,
+          "rejected": 19,
+          "samples": 166,
+          "valid": 147
+        },
+        "parent_identity:453152434632000000000300000000000000000000000000000002000000020001020102010000000300010200000000": {
+          "catastrophic": 50,
+          "divergent": 7,
+          "near_neutral": 17,
+          "neutral": 94,
+          "rejected": 11,
+          "samples": 179,
+          "valid": 168
+        },
+        "parent_identity:4531524346320000000003000000000000000000000000000000020000000200010201020100000003000102010000000f000000000501000000000000000000000000": {
+          "catastrophic": 39,
+          "divergent": 11,
+          "near_neutral": 24,
+          "neutral": 86,
+          "rejected": 20,
+          "samples": 180,
+          "valid": 160
+        },
+        "parent_identity:4531524346320000000003000000000000000000000100000000010000000202000200000002000102020100000000": {
+          "catastrophic": 21,
+          "divergent": 29,
+          "near_neutral": 18,
+          "neutral": 108,
+          "rejected": 31,
+          "samples": 207,
+          "valid": 176
+        },
+        "parent_identity:45315243463200000000030000000000000000000001000000000100000002020002000000020001020201010000000f000000020501000000000000000000000000": {
+          "catastrophic": 10,
+          "divergent": 29,
+          "near_neutral": 25,
+          "neutral": 78,
+          "rejected": 24,
+          "samples": 166,
+          "valid": 142
+        },
+        "parent_identity:453152434632000000000300000000000000000000010000000001000000030200010200000002000102020000000000": {
+          "catastrophic": 34,
+          "divergent": 18,
+          "near_neutral": 12,
+          "neutral": 77,
+          "rejected": 14,
+          "samples": 155,
+          "valid": 141
+        },
+        "parent_identity:4531524346320000000003000000000000000000000100000000010000000302000102000000020001020200010000000f000000020501000000000000000000000000": {
+          "catastrophic": 27,
+          "divergent": 15,
+          "near_neutral": 22,
+          "neutral": 80,
+          "rejected": 18,
+          "samples": 162,
+          "valid": 144
+        },
+        "parent_identity:4531524346320000000003000000000000000000000100000000020000000200010202000100000002020100000000": {
+          "catastrophic": 36,
+          "divergent": 8,
+          "near_neutral": 23,
+          "neutral": 91,
+          "rejected": 21,
+          "samples": 179,
+          "valid": 158
+        },
+        "parent_identity:45315243463200000000030000000000000000000001000000000200000002000102020001000000020201010000000f000000020501000000000000000000000000": {
+          "catastrophic": 39,
+          "divergent": 12,
+          "near_neutral": 22,
+          "neutral": 70,
+          "rejected": 23,
+          "samples": 166,
+          "valid": 143
+        },
+        "parent_identity:453152434632000000000300000000000000000000010000000002000000020001020200010000000302000100000000": {
+          "catastrophic": 34,
+          "divergent": 14,
+          "near_neutral": 23,
+          "neutral": 110,
+          "rejected": 19,
+          "samples": 200,
+          "valid": 181
+        },
+        "parent_identity:4531524346320000000003000000000000000000000100000000020000000200010202000100000003020001010000000f000000020501000000000000000000000000": {
+          "catastrophic": 36,
+          "divergent": 8,
+          "near_neutral": 16,
+          "neutral": 92,
+          "rejected": 17,
+          "samples": 169,
+          "valid": 152
+        },
+        "parent_identity:4531524346320000000004000000000000000000000000000000000000000001000000030001020300000003000103030002030301020300000000": {
+          "catastrophic": 25,
+          "divergent": 40,
+          "near_neutral": 19,
+          "neutral": 105,
+          "rejected": 3,
+          "samples": 192,
+          "valid": 189
+        },
+        "parent_identity:45315243463200000000040000000000000000000000000000000000000000010000000300010203000000030001030300020303010203010000000f000000000501000000000000000000000000": {
+          "catastrophic": 16,
+          "divergent": 39,
+          "near_neutral": 18,
+          "neutral": 107,
+          "rejected": 5,
+          "samples": 185,
+          "valid": 180
+        },
+        "parent_identity:4531524346320000000004000000000000000000000000000000010000000001000000030300010300000003000102030300020303010200000000": {
+          "catastrophic": 23,
+          "divergent": 19,
+          "near_neutral": 22,
+          "neutral": 112,
+          "rejected": 3,
+          "samples": 179,
+          "valid": 176
+        },
+        "parent_identity:45315243463200000000040000000000000000000000000000000100000000010000000303000103000000030001020303000203030102010000000f000000030501000000000000000000000000": {
+          "catastrophic": 18,
+          "divergent": 26,
+          "near_neutral": 25,
+          "neutral": 104,
+          "rejected": 6,
+          "samples": 179,
+          "valid": 173
+        },
+        "parent_identity:45322d50524f4752414d00020000002700000045315243463200000000020000000000000000000001000000020001010000000200010000000027000000453152434632010000000200000000000000000000010000000200010100000002000100000000": {
+          "near_neutral": 28,
+          "neutral": 16,
+          "rejected": 8,
+          "samples": 52,
+          "valid": 44
+        },
+        "parent_identity:45322d50524f4752414d00020000002700000045315243463200000000020000000000000000000001000000020001010000000200010000000027000000453152434632010000000200000000000101000000010000000201000100000002010000000000": {
+          "catastrophic": 6,
+          "divergent": 1,
+          "near_neutral": 28,
+          "neutral": 10,
+          "rejected": 19,
+          "samples": 64,
+          "valid": 45
+        },
+        "parent_identity:45322d50524f4752414d0002000000270000004531524346320000000002000000000000000000000100000002000101000000020001000000002a000000453152434632010000000200000000000000000000010000000200010200000002000002000100000000": {
+          "divergent": 24,
+          "near_neutral": 10,
+          "neutral": 14,
+          "rejected": 13,
+          "samples": 61,
+          "valid": 48
+        },
+        "parent_identity:45322d50524f4752414d00020000002700000045315243463200000000020000000000010000000001000000020100010000000201000000000027000000453152434632010000000200000000000100000000010000000201000100000002010000000000": {
+          "divergent": 1,
+          "near_neutral": 22,
+          "neutral": 16,
+          "rejected": 11,
+          "samples": 50,
+          "valid": 39
+        },
+        "parent_identity:45322d50524f4752414d00020000002700000045315243463200000000020000000000010000000001000000020100010000000201000000000027000000453152434632010000000200000000000101000000010000000201000100000002010000000000": {
+          "catastrophic": 9,
+          "near_neutral": 15,
+          "neutral": 18,
+          "rejected": 14,
+          "samples": 56,
+          "valid": 42
+        },
+        "parent_identity:45322d50524f4752414d0002000000270000004531524346320000000002000000000001000000000100000002010001000000020100000000002a000000453152434632010000000200000000000100000000010000000201000200000002010002010100000000": {
+          "divergent": 22,
+          "near_neutral": 11,
+          "neutral": 10,
+          "rejected": 14,
+          "samples": 57,
+          "valid": 43
+        },
+        "parent_identity:45322d50524f4752414d00020000002f00000045315243463200000000030000000000000000000000000000000100000002000102000000020002020102000000002f0000004531524346320100000003000000000000000000000000000000010000000200010200000002000202010200000000": {
+          "catastrophic": 1,
+          "divergent": 8,
+          "near_neutral": 20,
+          "neutral": 14,
+          "rejected": 8,
+          "samples": 51,
+          "valid": 43
+        },
+        "parent_identity:45322d50524f4752414d00020000002f00000045315243463200000000030000000000000000000000000000000100000002000102000000020002020102000000002f0000004531524346320100000003000000000000000000000101000000010000000202000200000002000102020100000000": {
+          "catastrophic": 4,
+          "divergent": 18,
+          "near_neutral": 29,
+          "neutral": 22,
+          "rejected": 14,
+          "samples": 87,
+          "valid": 73
+        },
+        "parent_identity:45322d50524f4752414d00020000002f0000004531524346320000000003000000000000000000000000000000010000000200010200000002000202010200000000320000004531524346320100000003000000000000000000000000000000010000000200010300000002000002000202010200000000": {
+          "catastrophic": 2,
+          "divergent": 17,
+          "near_neutral": 15,
+          "neutral": 19,
+          "rejected": 15,
+          "samples": 68,
+          "valid": 53
+        },
+        "parent_identity:45322d50524f4752414d00020000002f00000045315243463200000000030000000000000000000000000000000200000002000102010201000000020002000000002f0000004531524346320100000003000000000000000000000000000000020000000200010201020100000002000200000000": {
+          "catastrophic": 3,
+          "divergent": 11,
+          "near_neutral": 21,
+          "neutral": 10,
+          "rejected": 6,
+          "samples": 51,
+          "valid": 45
+        },
+        "parent_identity:45322d50524f4752414d00020000002f00000045315243463200000000030000000000000000000000000000000200000002000102010201000000020002000000002f0000004531524346320100000003000000000000000000000101000000020000000200010202000100000002020100000000": {
+          "catastrophic": 16,
+          "divergent": 4,
+          "near_neutral": 19,
+          "neutral": 14,
+          "rejected": 2,
+          "samples": 55,
+          "valid": 53
+        },
+        "parent_identity:45322d50524f4752414d00020000002f0000004531524346320000000003000000000000000000000000000000020000000200010201020100000002000200000000320000004531524346320100000003000000000000000000000000000000020000000200010201020200000002000002000200000000": {
+          "catastrophic": 17,
+          "divergent": 9,
+          "near_neutral": 12,
+          "neutral": 16,
+          "rejected": 9,
+          "samples": 63,
+          "valid": 54
+        },
+        "parent_identity:45322d50524f4752414d00020000002f00000045315243463200000000030000000000000000000001000000000100000002020002000000020001020201000000002f0000004531524346320100000003000000000000000000000100000000010000000202000200000002000102020100000000": {
+          "divergent": 11,
+          "near_neutral": 25,
+          "neutral": 20,
+          "rejected": 11,
+          "samples": 67,
+          "valid": 56
+        },
+        "parent_identity:45322d50524f4752414d00020000002f00000045315243463200000000030000000000000000000001000000000100000002020002000000020001020201000000002f0000004531524346320100000003000000000000000000000101000000010000000202000200000002000102020100000000": {
+          "catastrophic": 1,
+          "divergent": 6,
+          "near_neutral": 26,
+          "neutral": 12,
+          "rejected": 8,
+          "samples": 53,
+          "valid": 45
+        },
+        "parent_identity:45322d50524f4752414d00020000002f0000004531524346320000000003000000000000000000000100000000010000000202000200000002000102020100000000320000004531524346320100000003000000000000000000000100000000010000000202000300000002000102020102020200000000": {
+          "catastrophic": 1,
+          "divergent": 12,
+          "near_neutral": 17,
+          "neutral": 13,
+          "rejected": 12,
+          "samples": 55,
+          "valid": 43
+        },
+        "parent_identity:45322d50524f4752414d00020000002f00000045315243463200000000030000000000000000000001000000000200000002000102020001000000020201000000002f0000004531524346320100000003000000000000000000000100000000020000000200010202000100000002020100000000": {
+          "catastrophic": 5,
+          "divergent": 11,
+          "near_neutral": 23,
+          "neutral": 15,
+          "rejected": 12,
+          "samples": 66,
+          "valid": 54
+        },
+        "parent_identity:45322d50524f4752414d00020000002f00000045315243463200000000030000000000000000000001000000000200000002000102020001000000020201000000002f0000004531524346320100000003000000000000000000000101000000020000000200010202000100000002020100000000": {
+          "catastrophic": 15,
+          "divergent": 2,
+          "near_neutral": 16,
+          "neutral": 17,
+          "rejected": 4,
+          "samples": 54,
+          "valid": 50
+        },
+        "parent_identity:45322d50524f4752414d00020000002f0000004531524346320000000003000000000000000000000100000000020000000200010202000100000002020100000000320000004531524346320100000003000000000000000000000100000000020000000200010202000200000002020102020200000000": {
+          "catastrophic": 18,
+          "divergent": 8,
+          "near_neutral": 10,
+          "neutral": 17,
+          "rejected": 6,
+          "samples": 59,
+          "valid": 53
+        },
+        "parent_identity:45322d50524f4752414d00020000003000000045315243463200000000030000000000000000000000000000000100000003000102020000000200010201020000000030000000453152434632010000000300000000000000000000000000000001000000030001020200000002000102010200000000": {
+          "catastrophic": 7,
+          "divergent": 7,
+          "near_neutral": 17,
+          "neutral": 18,
+          "rejected": 1,
+          "samples": 50,
+          "valid": 49
+        },
+        "parent_identity:45322d50524f4752414d00020000003000000045315243463200000000030000000000000000000000000000000100000003000102020000000200010201020000000030000000453152434632010000000300000000000000000000010100000001000000030200010200000002000102020000000000": {
+          "catastrophic": 6,
+          "divergent": 5,
+          "near_neutral": 30,
+          "neutral": 14,
+          "rejected": 4,
+          "samples": 59,
+          "valid": 55
+        },
+        "parent_identity:45322d50524f4752414d00020000003000000045315243463200000000030000000000000000000000000000000100000003000102020000000200010201020000000033000000453152434632010000000300000000000000000000000000000001000000030001020300000002000002000102010200000000": {
+          "catastrophic": 15,
+          "divergent": 11,
+          "near_neutral": 14,
+          "neutral": 9,
+          "rejected": 6,
+          "samples": 55,
+          "valid": 49
+        },
+        "parent_identity:45322d50524f4752414d00020000003000000045315243463200000000030000000000000000000000000000000200000002000102010201000000030001020000000030000000453152434632010000000300000000000000000000000000000002000000020001020102010000000300010200000000": {
+          "catastrophic": 10,
+          "divergent": 9,
+          "near_neutral": 25,
+          "neutral": 16,
+          "rejected": 2,
+          "samples": 62,
+          "valid": 60
+        },
+        "parent_identity:45322d50524f4752414d00020000003000000045315243463200000000030000000000000000000000000000000200000002000102010201000000030001020000000030000000453152434632010000000300000000000000000000010100000002000000020001020200010000000302000100000000": {
+          "catastrophic": 8,
+          "divergent": 3,
+          "near_neutral": 27,
+          "neutral": 21,
+          "rejected": 3,
+          "samples": 62,
+          "valid": 59
+        },
+        "parent_identity:45322d50524f4752414d00020000003000000045315243463200000000030000000000000000000000000000000200000002000102010201000000030001020000000033000000453152434632010000000300000000000000000000000000000002000000020001020102020000000200000300010200000000": {
+          "catastrophic": 18,
+          "divergent": 12,
+          "near_neutral": 16,
+          "neutral": 11,
+          "rejected": 5,
+          "samples": 62,
+          "valid": 57
+        },
+        "parent_identity:45322d50524f4752414d00020000003000000045315243463200000000030000000000000000000001000000000100000003020001020000000200010202000000000030000000453152434632010000000300000000000000000000010000000001000000030200010200000002000102020000000000": {
+          "catastrophic": 4,
+          "divergent": 7,
+          "near_neutral": 36,
+          "neutral": 21,
+          "rejected": 7,
+          "samples": 75,
+          "valid": 68
+        },
+        "parent_identity:45322d50524f4752414d00020000003000000045315243463200000000030000000000000000000001000000000100000003020001020000000200010202000000000030000000453152434632010000000300000000000000000000010100000001000000030200010200000002000102020000000000": {
+          "catastrophic": 7,
+          "divergent": 2,
+          "near_neutral": 30,
+          "neutral": 18,
+          "rejected": 3,
+          "samples": 60,
+          "valid": 57
+        },
+        "parent_identity:45322d50524f4752414d00020000003000000045315243463200000000030000000000000000000001000000000100000003020001020000000200010202000000000033000000453152434632010000000300000000000000000000010000000001000000030200010300000002000102020002020200000000": {
+          "catastrophic": 14,
+          "divergent": 8,
+          "near_neutral": 20,
+          "neutral": 10,
+          "rejected": 8,
+          "samples": 60,
+          "valid": 52
+        },
+        "parent_identity:45322d50524f4752414d00020000003000000045315243463200000000030000000000000000000001000000000200000002000102020001000000030200010000000030000000453152434632010000000300000000000000000000010000000002000000020001020200010000000302000100000000": {
+          "catastrophic": 7,
+          "divergent": 6,
+          "near_neutral": 22,
+          "neutral": 15,
+          "rejected": 6,
+          "samples": 56,
+          "valid": 50
+        },
+        "parent_identity:45322d50524f4752414d00020000003000000045315243463200000000030000000000000000000001000000000200000002000102020001000000030200010000000030000000453152434632010000000300000000000000000000010100000002000000020001020200010000000302000100000000": {
+          "catastrophic": 12,
+          "divergent": 4,
+          "near_neutral": 22,
+          "neutral": 22,
+          "rejected": 3,
+          "samples": 63,
+          "valid": 60
+        },
+        "parent_identity:45322d50524f4752414d00020000003000000045315243463200000000030000000000000000000001000000000200000002000102020001000000030200010000000033000000453152434632010000000300000000000000000000010000000002000000020001020200020000000302000102020200000000": {
+          "catastrophic": 12,
+          "divergent": 10,
+          "near_neutral": 12,
+          "neutral": 17,
+          "rejected": 5,
+          "samples": 56,
+          "valid": 51
+        },
+        "parent_identity:45322d50524f4752414d00020000003300000045315243463200000000020000000000000000000001000000080001000100010001010000000800010001000100010000000033000000453152434632010000000200000000000000000000010000000800010001000100010100000008000100010001000100000000": {
+          "near_neutral": 29,
+          "neutral": 19,
+          "rejected": 7,
+          "samples": 55,
+          "valid": 48
+        },
+        "parent_identity:45322d50524f4752414d00020000003300000045315243463200000000020000000000000000000001000000080001000100010001010000000800010001000100010000000033000000453152434632010000000200000000000101000000010000000801000100010001000100000008010001000100010000000000": {
+          "catastrophic": 11,
+          "near_neutral": 21,
+          "neutral": 15,
+          "rejected": 13,
+          "samples": 60,
+          "valid": 47
+        },
+        "parent_identity:45322d50524f4752414d00020000003300000045315243463200000000020000000000000000000001000000080001000100010001010000000800010001000100010000000036000000453152434632010000000200000000000000000000010000000800010001000100010200000002000008000100010001000100000000": {
+          "divergent": 20,
+          "near_neutral": 17,
+          "neutral": 17,
+          "rejected": 10,
+          "samples": 64,
+          "valid": 54
+        },
+        "parent_identity:45322d50524f4752414d00020000003300000045315243463200000000020000000000010000000001000000080100010001000100010000000801000100010001000000000033000000453152434632010000000200000000000100000000010000000801000100010001000100000008010001000100010000000000": {
+          "near_neutral": 33,
+          "neutral": 21,
+          "rejected": 16,
+          "samples": 70,
+          "valid": 54
+        },
+        "parent_identity:45322d50524f4752414d00020000003300000045315243463200000000020000000000010000000001000000080100010001000100010000000801000100010001000000000033000000453152434632010000000200000000000101000000010000000801000100010001000100000008010001000100010000000000": {
+          "catastrophic": 6,
+          "divergent": 2,
+          "near_neutral": 23,
+          "neutral": 15,
+          "rejected": 10,
+          "samples": 56,
+          "valid": 46
+        },
+        "parent_identity:45322d50524f4752414d00020000003300000045315243463200000000020000000000010000000001000000080100010001000100010000000801000100010001000000000036000000453152434632010000000200000000000100000000010000000801000100010001000200000008010001000100010002010100000000": {
+          "divergent": 22,
+          "near_neutral": 15,
+          "neutral": 13,
+          "rejected": 13,
+          "samples": 63,
+          "valid": 50
+        },
+        "parent_identity:45322d50524f4752414d00020000003a0000004531524346320000000002000000000000000000000100000002000101000000020001010000000f0000000005010000000000000000000000003a0000004531524346320100000002000000000000000000000100000002000101000000020001010000000f000000000501000000000000000000000000": {
+          "divergent": 2,
+          "near_neutral": 35,
+          "neutral": 17,
+          "rejected": 7,
+          "samples": 61,
+          "valid": 54
+        },
+        "parent_identity:45322d50524f4752414d00020000003a0000004531524346320000000002000000000000000000000100000002000101000000020001010000000f0000000005010000000000000000000000003a0000004531524346320100000002000000000001010000000100000002010001000000020100010000000f000000010501000000000000000000000000": {
+          "catastrophic": 8,
+          "divergent": 1,
+          "near_neutral": 20,
+          "neutral": 12,
+          "rejected": 15,
+          "samples": 56,
+          "valid": 41
+        },
+        "parent_identity:45322d50524f4752414d00020000003a0000004531524346320000000002000000000000000000000100000002000101000000020001010000000f0000000005010000000000000000000000003d0000004531524346320100000002000000000000000000000100000002000102000000020000020001010000000f000000000501000000000000000000000000": {
+          "divergent": 17,
+          "near_neutral": 20,
+          "neutral": 13,
+          "rejected": 16,
+          "samples": 66,
+          "valid": 50
+        },
+        "parent_identity:45322d50524f4752414d00020000003a0000004531524346320000000002000000000001000000000100000002010001000000020100010000000f0000000105010000000000000000000000003a0000004531524346320100000002000000000001000000000100000002010001000000020100010000000f000000010501000000000000000000000000": {
+          "divergent": 2,
+          "near_neutral": 23,
+          "neutral": 12,
+          "rejected": 9,
+          "samples": 46,
+          "valid": 37
+        },
+        "parent_identity:45322d50524f4752414d00020000003a0000004531524346320000000002000000000001000000000100000002010001000000020100010000000f0000000105010000000000000000000000003a0000004531524346320100000002000000000001010000000100000002010001000000020100010000000f000000010501000000000000000000000000": {
+          "catastrophic": 9,
+          "divergent": 1,
+          "near_neutral": 22,
+          "neutral": 15,
+          "rejected": 16,
+          "samples": 63,
+          "valid": 47
+        },
+        "parent_identity:45322d50524f4752414d00020000003a0000004531524346320000000002000000000001000000000100000002010001000000020100010000000f0000000105010000000000000000000000003d0000004531524346320100000002000000000001000000000100000002010002000000020100020101010000000f000000010501000000000000000000000000": {
+          "divergent": 15,
+          "near_neutral": 17,
+          "neutral": 9,
+          "rejected": 14,
+          "samples": 55,
+          "valid": 41
+        },
+        "parent_identity:45322d50524f4752414d00020000003b00000045315243463200000000040000000000000000000000000000000000000000010000000300010203000000030001030300020303010203000000003b0000004531524346320100000004000000000000000000000000000000000000000001000000030001020300000003000103030002030301020300000000": {
+          "catastrophic": 1,
+          "divergent": 12,
+          "near_neutral": 36,
+          "neutral": 17,
+          "rejected": 1,
+          "samples": 67,
+          "valid": 66
+        },
+        "parent_identity:45322d50524f4752414d00020000003b00000045315243463200000000040000000000000000000000000000000000000000010000000300010203000000030001030300020303010203000000003b0000004531524346320100000004000000000000000000000000000000010100000001000000030300010300000003000102030300020303010200000000": {
+          "catastrophic": 5,
+          "divergent": 9,
+          "near_neutral": 26,
+          "neutral": 15,
+          "rejected": 1,
+          "samples": 56,
+          "valid": 55
+        },
+        "parent_identity:45322d50524f4752414d00020000003b00000045315243463200000000040000000000000000000000000000000000000000010000000300010203000000030001030300020303010203000000003e0000004531524346320100000004000000000000000000000000000000000000000001000000030001020400000002000003000103030002030301020300000000": {
+          "catastrophic": 11,
+          "divergent": 16,
+          "near_neutral": 23,
+          "neutral": 9,
+          "rejected": 2,
+          "samples": 61,
+          "valid": 59
+        },
+        "parent_identity:45322d50524f4752414d00020000003b00000045315243463200000000040000000000000000000000000000000100000000010000000303000103000000030001020303000203030102000000003b0000004531524346320100000004000000000000000000000000000000010000000001000000030300010300000003000102030300020303010200000000": {
+          "catastrophic": 2,
+          "divergent": 8,
+          "near_neutral": 34,
+          "neutral": 14,
+          "rejected": 1,
+          "samples": 59,
+          "valid": 58
+        },
+        "parent_identity:45322d50524f4752414d00020000003b00000045315243463200000000040000000000000000000000000000000100000000010000000303000103000000030001020303000203030102000000003b0000004531524346320100000004000000000000000000000000000000010100000001000000030300010300000003000102030300020303010200000000": {
+          "catastrophic": 3,
+          "divergent": 13,
+          "near_neutral": 33,
+          "neutral": 12,
+          "rejected": 3,
+          "samples": 64,
+          "valid": 61
+        },
+        "parent_identity:45322d50524f4752414d00020000003b00000045315243463200000000040000000000000000000000000000000100000000010000000303000103000000030001020303000203030102000000003e0000004531524346320100000004000000000000000000000000000000010000000001000000030300010400000003000102030300020303010202030300000000": {
+          "catastrophic": 8,
+          "divergent": 7,
+          "near_neutral": 19,
+          "neutral": 17,
+          "samples": 51,
+          "valid": 51
+        },
+        "parent_identity:45322d50524f4752414d00020000004200000045315243463200000000030000000000000000000000000000000100000002000102000000020002020102010000000f0000000005010000000000000000000000004200000045315243463201000000030000000000000000000000000000000100000002000102000000020002020102010000000f000000000501000000000000000000000000": {
+          "catastrophic": 1,
+          "divergent": 5,
+          "near_neutral": 26,
+          "neutral": 12,
+          "rejected": 11,
+          "samples": 55,
+          "valid": 44
+        },
+        "parent_identity:45322d50524f4752414d00020000004200000045315243463200000000030000000000000000000000000000000100000002000102000000020002020102010000000f0000000005010000000000000000000000004200000045315243463201000000030000000000000000000001010000000100000002020002000000020001020201010000000f000000020501000000000000000000000000": {
+          "catastrophic": 3,
+          "divergent": 7,
+          "near_neutral": 26,
+          "neutral": 20,
+          "rejected": 11,
+          "samples": 67,
+          "valid": 56
+        },
+        "parent_identity:45322d50524f4752414d00020000004200000045315243463200000000030000000000000000000000000000000100000002000102000000020002020102010000000f0000000005010000000000000000000000004500000045315243463201000000030000000000000000000000000000000100000002000103000000020000020002020102010000000f000000000501000000000000000000000000": {
+          "catastrophic": 1,
+          "divergent": 23,
+          "near_neutral": 14,
+          "neutral": 8,
+          "rejected": 12,
+          "samples": 58,
+          "valid": 46
+        },
+        "parent_identity:45322d50524f4752414d00020000004200000045315243463200000000030000000000000000000000000000000200000002000102010201000000020002010000000f0000000005010000000000000000000000004200000045315243463201000000030000000000000000000000000000000200000002000102010201000000020002010000000f000000000501000000000000000000000000": {
+          "catastrophic": 7,
+          "divergent": 8,
+          "near_neutral": 25,
+          "neutral": 12,
+          "rejected": 9,
+          "samples": 61,
+          "valid": 52
+        },
+        "parent_identity:45322d50524f4752414d00020000004200000045315243463200000000030000000000000000000000000000000200000002000102010201000000020002010000000f0000000005010000000000000000000000004200000045315243463201000000030000000000000000000001010000000200000002000102020001000000020201010000000f000000020501000000000000000000000000": {
+          "catastrophic": 11,
+          "divergent": 4,
+          "near_neutral": 23,
+          "neutral": 12,
+          "rejected": 8,
+          "samples": 58,
+          "valid": 50
+        },
+        "parent_identity:45322d50524f4752414d00020000004200000045315243463200000000030000000000000000000000000000000200000002000102010201000000020002010000000f0000000005010000000000000000000000004500000045315243463201000000030000000000000000000000000000000200000002000102010202000000020000020002010000000f000000000501000000000000000000000000": {
+          "catastrophic": 12,
+          "divergent": 10,
+          "near_neutral": 13,
+          "neutral": 13,
+          "rejected": 5,
+          "samples": 53,
+          "valid": 48
+        },
+        "parent_identity:45322d50524f4752414d00020000004200000045315243463200000000030000000000000000000001000000000100000002020002000000020001020201010000000f0000000205010000000000000000000000004200000045315243463201000000030000000000000000000001000000000100000002020002000000020001020201010000000f000000020501000000000000000000000000": {
+          "catastrophic": 1,
+          "divergent": 14,
+          "near_neutral": 25,
+          "neutral": 13,
+          "rejected": 4,
+          "samples": 57,
+          "valid": 53
+        },
+        "parent_identity:45322d50524f4752414d00020000004200000045315243463200000000030000000000000000000001000000000100000002020002000000020001020201010000000f0000000205010000000000000000000000004200000045315243463201000000030000000000000000000001010000000100000002020002000000020001020201010000000f000000020501000000000000000000000000": {
+          "divergent": 13,
+          "near_neutral": 21,
+          "neutral": 14,
+          "rejected": 17,
+          "samples": 65,
+          "valid": 48
+        },
+        "parent_identity:45322d50524f4752414d00020000004200000045315243463200000000030000000000000000000001000000000100000002020002000000020001020201010000000f0000000205010000000000000000000000004500000045315243463201000000030000000000000000000001000000000100000002020003000000020001020201020202010000000f000000020501000000000000000000000000": {
+          "divergent": 28,
+          "near_neutral": 14,
+          "neutral": 16,
+          "rejected": 7,
+          "samples": 65,
+          "valid": 58
+        },
+        "parent_identity:45322d50524f4752414d00020000004200000045315243463200000000030000000000000000000001000000000200000002000102020001000000020201010000000f0000000205010000000000000000000000004200000045315243463201000000030000000000000000000001000000000200000002000102020001000000020201010000000f000000020501000000000000000000000000": {
+          "catastrophic": 4,
+          "divergent": 4,
+          "near_neutral": 34,
+          "neutral": 22,
+          "rejected": 7,
+          "samples": 71,
+          "valid": 64
+        },
+        "parent_identity:45322d50524f4752414d00020000004200000045315243463200000000030000000000000000000001000000000200000002000102020001000000020201010000000f0000000205010000000000000000000000004200000045315243463201000000030000000000000000000001010000000200000002000102020001000000020201010000000f000000020501000000000000000000000000": {
+          "catastrophic": 12,
+          "divergent": 2,
+          "near_neutral": 20,
+          "neutral": 21,
+          "rejected": 8,
+          "samples": 63,
+          "valid": 55
+        },
+        "parent_identity:45322d50524f4752414d00020000004200000045315243463200000000030000000000000000000001000000000200000002000102020001000000020201010000000f0000000205010000000000000000000000004500000045315243463201000000030000000000000000000001000000000200000002000102020002000000020201020202010000000f000000020501000000000000000000000000": {
+          "catastrophic": 18,
+          "divergent": 6,
+          "near_neutral": 12,
+          "neutral": 17,
+          "rejected": 7,
+          "samples": 60,
+          "valid": 53
+        },
+        "parent_identity:45322d50524f4752414d0002000000430000004531524346320000000003000000000000000000000000000000010000000300010202000000020001020102010000000f000000000501000000000000000000000000430000004531524346320100000003000000000000000000000000000000010000000300010202000000020001020102010000000f000000000501000000000000000000000000": {
+          "catastrophic": 7,
+          "divergent": 8,
+          "near_neutral": 28,
+          "neutral": 5,
+          "rejected": 7,
+          "samples": 55,
+          "valid": 48
+        },
+        "parent_identity:45322d50524f4752414d0002000000430000004531524346320000000003000000000000000000000000000000010000000300010202000000020001020102010000000f000000000501000000000000000000000000430000004531524346320100000003000000000000000000000101000000010000000302000102000000020001020200010000000f000000020501000000000000000000000000": {
+          "catastrophic": 7,
+          "divergent": 3,
+          "near_neutral": 34,
+          "neutral": 13,
+          "rejected": 2,
+          "samples": 59,
+          "valid": 57
+        },
+        "parent_identity:45322d50524f4752414d0002000000430000004531524346320000000003000000000000000000000000000000010000000300010202000000020001020102010000000f000000000501000000000000000000000000460000004531524346320100000003000000000000000000000000000000010000000300010203000000020000020001020102010000000f000000000501000000000000000000000000": {
+          "catastrophic": 20,
+          "divergent": 6,
+          "near_neutral": 10,
+          "neutral": 9,
+          "rejected": 3,
+          "samples": 48,
+          "valid": 45
+        },
+        "parent_identity:45322d50524f4752414d0002000000430000004531524346320000000003000000000000000000000000000000020000000200010201020100000003000102010000000f000000000501000000000000000000000000430000004531524346320100000003000000000000000000000000000000020000000200010201020100000003000102010000000f000000000501000000000000000000000000": {
+          "catastrophic": 5,
+          "divergent": 3,
+          "near_neutral": 34,
+          "neutral": 13,
+          "rejected": 2,
+          "samples": 57,
+          "valid": 55
+        },
+        "parent_identity:45322d50524f4752414d0002000000430000004531524346320000000003000000000000000000000000000000020000000200010201020100000003000102010000000f000000000501000000000000000000000000430000004531524346320100000003000000000000000000000101000000020000000200010202000100000003020001010000000f000000020501000000000000000000000000": {
+          "catastrophic": 11,
+          "divergent": 5,
+          "near_neutral": 14,
+          "neutral": 14,
+          "rejected": 6,
+          "samples": 50,
+          "valid": 44
+        },
+        "parent_identity:45322d50524f4752414d0002000000430000004531524346320000000003000000000000000000000000000000020000000200010201020100000003000102010000000f000000000501000000000000000000000000460000004531524346320100000003000000000000000000000000000000020000000200010201020200000002000003000102010000000f000000000501000000000000000000000000": {
+          "catastrophic": 9,
+          "divergent": 13,
+          "near_neutral": 12,
+          "neutral": 17,
+          "rejected": 8,
+          "samples": 59,
+          "valid": 51
+        },
+        "parent_identity:45322d50524f4752414d0002000000430000004531524346320000000003000000000000000000000100000000010000000302000102000000020001020200010000000f000000020501000000000000000000000000430000004531524346320100000003000000000000000000000100000000010000000302000102000000020001020200010000000f000000020501000000000000000000000000": {
+          "catastrophic": 12,
+          "divergent": 7,
+          "near_neutral": 23,
+          "neutral": 15,
+          "rejected": 13,
+          "samples": 70,
+          "valid": 57
+        },
+        "parent_identity:45322d50524f4752414d0002000000430000004531524346320000000003000000000000000000000100000000010000000302000102000000020001020200010000000f000000020501000000000000000000000000430000004531524346320100000003000000000000000000000101000000010000000302000102000000020001020200010000000f000000020501000000000000000000000000": {
+          "catastrophic": 11,
+          "divergent": 6,
+          "near_neutral": 25,
+          "neutral": 9,
+          "rejected": 6,
+          "samples": 57,
+          "valid": 51
+        },
+        "parent_identity:45322d50524f4752414d0002000000430000004531524346320000000003000000000000000000000100000000010000000302000102000000020001020200010000000f000000020501000000000000000000000000460000004531524346320100000003000000000000000000000100000000010000000302000103000000020001020200020202010000000f000000020501000000000000000000000000": {
+          "catastrophic": 18,
+          "divergent": 9,
+          "near_neutral": 19,
+          "neutral": 13,
+          "rejected": 5,
+          "samples": 64,
+          "valid": 59
+        },
+        "parent_identity:45322d50524f4752414d0002000000430000004531524346320000000003000000000000000000000100000000020000000200010202000100000003020001010000000f000000020501000000000000000000000000430000004531524346320100000003000000000000000000000100000000020000000200010202000100000003020001010000000f000000020501000000000000000000000000": {
+          "catastrophic": 2,
+          "divergent": 5,
+          "near_neutral": 25,
+          "neutral": 18,
+          "rejected": 4,
+          "samples": 54,
+          "valid": 50
+        },
+        "parent_identity:45322d50524f4752414d0002000000430000004531524346320000000003000000000000000000000100000000020000000200010202000100000003020001010000000f000000020501000000000000000000000000430000004531524346320100000003000000000000000000000101000000020000000200010202000100000003020001010000000f000000020501000000000000000000000000": {
+          "catastrophic": 13,
+          "divergent": 6,
+          "near_neutral": 15,
+          "neutral": 16,
+          "rejected": 2,
+          "samples": 52,
+          "valid": 50
+        },
+        "parent_identity:45322d50524f4752414d0002000000430000004531524346320000000003000000000000000000000100000000020000000200010202000100000003020001010000000f000000020501000000000000000000000000460000004531524346320100000003000000000000000000000100000000020000000200010202000200000003020001020202010000000f000000020501000000000000000000000000": {
+          "catastrophic": 14,
+          "divergent": 12,
+          "near_neutral": 9,
+          "neutral": 23,
+          "rejected": 7,
+          "samples": 65,
+          "valid": 58
+        },
+        "parent_identity:45322d50524f4752414d0002000000460000004531524346320000000002000000000000000000000100000008000100010001000101000000080001000100010001010000000f000000000501000000000000000000000000460000004531524346320100000002000000000000000000000100000008000100010001000101000000080001000100010001010000000f000000000501000000000000000000000000": {
+          "divergent": 2,
+          "near_neutral": 27,
+          "neutral": 20,
+          "rejected": 14,
+          "samples": 63,
+          "valid": 49
+        },
+        "parent_identity:45322d50524f4752414d0002000000460000004531524346320000000002000000000000000000000100000008000100010001000101000000080001000100010001010000000f000000000501000000000000000000000000460000004531524346320100000002000000000001010000000100000008010001000100010001000000080100010001000100010000000f000000010501000000000000000000000000": {
+          "catastrophic": 3,
+          "divergent": 2,
+          "near_neutral": 19,
+          "neutral": 15,
+          "rejected": 14,
+          "samples": 53,
+          "valid": 39
+        },
+        "parent_identity:45322d50524f4752414d0002000000460000004531524346320000000002000000000000000000000100000008000100010001000101000000080001000100010001010000000f000000000501000000000000000000000000490000004531524346320100000002000000000000000000000100000008000100010001000102000000020000080001000100010001010000000f000000000501000000000000000000000000": {
+          "divergent": 13,
+          "near_neutral": 17,
+          "neutral": 17,
+          "rejected": 9,
+          "samples": 56,
+          "valid": 47
+        },
+        "parent_identity:45322d50524f4752414d0002000000460000004531524346320000000002000000000001000000000100000008010001000100010001000000080100010001000100010000000f000000010501000000000000000000000000460000004531524346320100000002000000000001000000000100000008010001000100010001000000080100010001000100010000000f000000010501000000000000000000000000": {
+          "divergent": 1,
+          "near_neutral": 25,
+          "neutral": 10,
+          "rejected": 11,
+          "samples": 47,
+          "valid": 36
+        },
+        "parent_identity:45322d50524f4752414d0002000000460000004531524346320000000002000000000001000000000100000008010001000100010001000000080100010001000100010000000f000000010501000000000000000000000000460000004531524346320100000002000000000001010000000100000008010001000100010001000000080100010001000100010000000f000000010501000000000000000000000000": {
+          "catastrophic": 8,
+          "divergent": 1,
+          "near_neutral": 20,
+          "neutral": 14,
+          "rejected": 16,
+          "samples": 59,
+          "valid": 43
+        },
+        "parent_identity:45322d50524f4752414d0002000000460000004531524346320000000002000000000001000000000100000008010001000100010001000000080100010001000100010000000f000000010501000000000000000000000000490000004531524346320100000002000000000001000000000100000008010001000100010002000000080100010001000100020101010000000f000000010501000000000000000000000000": {
+          "divergent": 17,
+          "near_neutral": 15,
+          "neutral": 27,
+          "rejected": 14,
+          "samples": 73,
+          "valid": 59
+        },
+        "parent_identity:45322d50524f4752414d00020000004e00000045315243463200000000040000000000000000000000000000000000000000010000000300010203000000030001030300020303010203010000000f0000000005010000000000000000000000004e00000045315243463201000000040000000000000000000000000000000000000000010000000300010203000000030001030300020303010203010000000f000000000501000000000000000000000000": {
+          "catastrophic": 3,
+          "divergent": 8,
+          "near_neutral": 23,
+          "neutral": 15,
+          "samples": 49,
+          "valid": 49
+        },
+        "parent_identity:45322d50524f4752414d00020000004e00000045315243463200000000040000000000000000000000000000000000000000010000000300010203000000030001030300020303010203010000000f0000000005010000000000000000000000004e00000045315243463201000000040000000000000000000000000000000101000000010000000303000103000000030001020303000203030102010000000f000000030501000000000000000000000000": {
+          "catastrophic": 7,
+          "divergent": 20,
+          "near_neutral": 28,
+          "neutral": 22,
+          "rejected": 1,
+          "samples": 78,
+          "valid": 77
+        },
+        "parent_identity:45322d50524f4752414d00020000004e00000045315243463200000000040000000000000000000000000000000000000000010000000300010203000000030001030300020303010203010000000f0000000005010000000000000000000000005100000045315243463201000000040000000000000000000000000000000000000000010000000300010204000000020000030001030300020303010203010000000f000000000501000000000000000000000000": {
+          "catastrophic": 9,
+          "divergent": 14,
+          "near_neutral": 18,
+          "neutral": 15,
+          "rejected": 1,
+          "samples": 57,
+          "valid": 56
+        },
+        "parent_identity:45322d50524f4752414d00020000004e00000045315243463200000000040000000000000000000000000000000100000000010000000303000103000000030001020303000203030102010000000f0000000305010000000000000000000000004e00000045315243463201000000040000000000000000000000000000000100000000010000000303000103000000030001020303000203030102010000000f000000030501000000000000000000000000": {
+          "divergent": 9,
+          "near_neutral": 26,
+          "neutral": 15,
+          "rejected": 1,
+          "samples": 52,
+          "unmeasured": 1,
+          "valid": 51
+        },
+        "parent_identity:45322d50524f4752414d00020000004e00000045315243463200000000040000000000000000000000000000000100000000010000000303000103000000030001020303000203030102010000000f0000000305010000000000000000000000004e00000045315243463201000000040000000000000000000000000000000101000000010000000303000103000000030001020303000203030102010000000f000000030501000000000000000000000000": {
+          "catastrophic": 3,
+          "divergent": 9,
+          "near_neutral": 21,
+          "neutral": 13,
+          "rejected": 1,
+          "samples": 47,
+          "valid": 46
+        },
+        "parent_identity:45322d50524f4752414d00020000004e00000045315243463200000000040000000000000000000000000000000100000000010000000303000103000000030001020303000203030102010000000f0000000305010000000000000000000000005100000045315243463201000000040000000000000000000000000000000100000000010000000303000104000000030001020303000203030102020303010000000f000000030501000000000000000000000000": {
+          "catastrophic": 8,
+          "divergent": 19,
+          "near_neutral": 25,
+          "neutral": 15,
+          "rejected": 1,
+          "samples": 68,
+          "valid": 67
+        },
+        "raw_change:false": {
+          "neutral": 2234,
+          "rejected": 202,
+          "samples": 2436,
+          "valid": 2234
+        },
+        "raw_change:true": {
+          "catastrophic": 1297,
+          "divergent": 1165,
+          "near_neutral": 2373,
+          "neutral": 1598,
+          "rejected": 1130,
+          "samples": 7564,
+          "unmeasured": 1,
+          "valid": 6434
+        },
+        "role:Core": {
+          "catastrophic": 952,
+          "divergent": 620,
+          "near_neutral": 1088,
+          "neutral": 866,
+          "rejected": 652,
+          "samples": 4178,
+          "valid": 3526
+        },
+        "role:Proposal": {
+          "catastrophic": 211,
+          "divergent": 381,
+          "near_neutral": 759,
+          "neutral": 2166,
+          "rejected": 680,
+          "samples": 4198,
+          "unmeasured": 1,
+          "valid": 3518
+        },
+        "shape:0": {
+          "catastrophic": 137,
+          "divergent": 115,
+          "near_neutral": 337,
+          "neutral": 458,
+          "rejected": 340,
+          "samples": 1387,
+          "valid": 1047
+        },
+        "shape:1": {
+          "catastrophic": 60,
+          "divergent": 283,
+          "near_neutral": 335,
+          "neutral": 547,
+          "rejected": 247,
+          "samples": 1472,
+          "valid": 1225
+        },
+        "shape:2": {
+          "catastrophic": 271,
+          "divergent": 132,
+          "near_neutral": 351,
+          "neutral": 491,
+          "rejected": 125,
+          "samples": 1370,
+          "valid": 1245
+        },
+        "shape:3": {
+          "catastrophic": 264,
+          "divergent": 127,
+          "near_neutral": 310,
+          "neutral": 527,
+          "rejected": 162,
+          "samples": 1390,
+          "valid": 1228
+        },
+        "shape:4": {
+          "catastrophic": 280,
+          "divergent": 128,
+          "near_neutral": 313,
+          "neutral": 585,
+          "rejected": 120,
+          "samples": 1426,
+          "valid": 1306
+        },
+        "shape:5": {
+          "catastrophic": 142,
+          "divergent": 268,
+          "near_neutral": 396,
+          "neutral": 607,
+          "rejected": 30,
+          "samples": 1444,
+          "unmeasured": 1,
+          "valid": 1414
+        },
+        "shape:6": {
+          "catastrophic": 143,
+          "divergent": 112,
+          "near_neutral": 331,
+          "neutral": 617,
+          "rejected": 308,
+          "samples": 1511,
+          "valid": 1203
+        },
+        "stage_decodable:false": {
+          "rejected": 1130,
+          "samples": 1130
+        },
+        "stage_decodable:true": {
+          "catastrophic": 1297,
+          "divergent": 1165,
+          "near_neutral": 2373,
+          "neutral": 3832,
+          "rejected": 202,
+          "samples": 8870,
+          "unmeasured": 1,
+          "valid": 8668
+        },
+        "status:Applied": {
+          "catastrophic": 1297,
+          "divergent": 1165,
+          "near_neutral": 2373,
+          "neutral": 2463,
+          "samples": 7299,
+          "unmeasured": 1,
+          "valid": 7299
+        },
+        "status:Inapplicable": {
+          "neutral": 1369,
+          "samples": 1369,
+          "valid": 1369
+        },
+        "status:RejectedPolicy": {
+          "rejected": 202,
+          "samples": 202
+        },
+        "status:RejectedPostcondition": {
+          "rejected": 1130,
+          "samples": 1130
+        },
+        "structural": {
+          "catastrophic": 1163,
+          "divergent": 1001,
+          "near_neutral": 1847,
+          "neutral": 3032,
+          "rejected": 1332,
+          "samples": 8376,
+          "unmeasured": 1,
+          "valid": 7044
+        },
+        "topology_operator": {
+          "catastrophic": 944,
+          "divergent": 913,
+          "near_neutral": 887,
+          "neutral": 1213,
+          "rejected": 1332,
+          "samples": 5290,
+          "unmeasured": 1,
+          "valid": 3958
+        },
+        "validator:\"Bounds\"": {
+          "rejected": 284,
+          "samples": 284
+        },
+        "validator:\"Guards\"": {
+          "rejected": 54,
+          "samples": 54
+        },
+        "validator:\"Slots\"": {
+          "rejected": 509,
+          "samples": 509
+        },
+        "validator:\"Variables\"": {
+          "rejected": 283,
+          "samples": 283
+        },
+        "validator:null": {
+          "catastrophic": 1297,
+          "divergent": 1165,
+          "near_neutral": 2373,
+          "neutral": 3832,
+          "rejected": 202,
+          "samples": 8870,
+          "unmeasured": 1,
+          "valid": 8668
+        }
+      },
+      "trajectory_changing_mode_edits": 298
+    },
+    "native_controls": {
+      "attempted_engine_steps": 0,
+      "controls": 5376,
+      "seconds": 15.78662525
+    },
+    "native_terminal_ledger": {
+      "parent_traces.jsonl.gz": {
+        "traces": 168,
+        "complete": 168,
+        "terminal_store_steps_total": 16800,
+        "incomplete": []
+      },
+      "child_traces.jsonl.gz": {
+        "traces": 4886,
+        "complete": 4885,
+        "terminal_store_steps_total": 488591,
+        "incomplete": [
+          {
+            "id": "child_9730",
+            "complete": false,
+            "reason": "matching_cap",
+            "measured_steps": 91,
+            "exploding": false,
+            "frozen": false,
+            "store_step": 91
+          }
+        ]
+      }
+    },
+    "unmeasured_draws": [
+      {
+        "index": 9730,
+        "parent": 139,
+        "operator": "AddPatternEdge",
+        "operator_index": 5,
+        "role": "Proposal",
+        "status": "Applied",
+        "valid": true,
+        "neutral_identity": false,
+        "outcome": "unmeasured",
+        "trace_id": "child_9730",
+        "parent_active": true,
+        "at_cap": false,
+        "shape": 5,
+        "soundness_checked": false,
+        "soundness_failure": false,
+        "coherent_request": {
+          "AddPatternEdge": {
+            "a": {
+              "idx": 42,
+              "version": 1
+            },
+            "b": {
+              "idx": 42,
+              "version": 1
+            },
+            "side": {
+              "idx": 30,
+              "version": 1
+            }
+          }
+        },
+        "binding_step": {
+          "step": 92,
+          "store_step": 91,
+          "world_nodes": 159,
+          "world_edges": 279,
+          "usage": {
+            "results": 372,
+            "work": 400000,
+            "truncated": true,
+            "rules": [
+              {
+                "result_allowance": 50000,
+                "results": 372,
+                "rule_id": 0,
+                "truncated": false,
+                "work": 8462,
+                "work_allowance": 400000
+              },
+              {
+                "result_allowance": 49628,
+                "results": 0,
+                "rule_id": 1,
+                "truncated": true,
+                "work": 391538,
+                "work_allowance": 391538
+              }
+            ]
+          },
+          "ceiling": true,
+          "graph_cap": false
+        }
+      }
+    ],
+    "threshold_diagnostics": {
+      "conditions": {
+        "overall": {
+          "samples": 10000,
+          "minimum": 10000,
+          "valid_fraction": 0.8668,
+          "near_neutral_fraction": 0.2373,
+          "catastrophic_fraction": 0.1297,
+          "sample_minimum_met": true,
+          "valid_threshold_met": true,
+          "near_neutral_threshold_met": true,
+          "catastrophic_threshold_met": true,
+          "unmeasured": 1
+        },
+        "structural": {
+          "samples": 8376,
+          "minimum": 1,
+          "valid_fraction": 0.8409742120343839,
+          "near_neutral_fraction": 0.22051098376313277,
+          "catastrophic_fraction": 0.13884909264565426,
+          "sample_minimum_met": true,
+          "valid_threshold_met": true,
+          "near_neutral_threshold_met": true,
+          "catastrophic_threshold_met": true,
+          "unmeasured": 1
+        },
+        "active_parent_structural": {
+          "samples": 4159,
+          "minimum": 2000,
+          "valid_fraction": 0.8444337581149315,
+          "near_neutral_fraction": 0.37677326280355855,
+          "catastrophic_fraction": 0.10964174080307766,
+          "sample_minimum_met": true,
+          "valid_threshold_met": true,
+          "near_neutral_threshold_met": true,
+          "catastrophic_threshold_met": true,
+          "unmeasured": 1
+        },
+        "topology_operator": {
+          "samples": 5290,
+          "minimum": 1,
+          "valid_fraction": 0.7482041587901701,
+          "near_neutral_fraction": 0.16767485822306238,
+          "catastrophic_fraction": 0.1784499054820416,
+          "sample_minimum_met": true,
+          "valid_threshold_met": true,
+          "near_neutral_threshold_met": true,
+          "catastrophic_threshold_met": true,
+          "unmeasured": 1
+        },
+        "active_parent_topology_operator": {
+          "samples": 2571,
+          "minimum": 2000,
+          "valid_fraction": 0.7483469467133411,
+          "near_neutral_fraction": 0.34500194476857254,
+          "catastrophic_fraction": 0.14041229093737845,
+          "sample_minimum_met": true,
+          "valid_threshold_met": true,
+          "near_neutral_threshold_met": true,
+          "catastrophic_threshold_met": true,
+          "unmeasured": 1
+        },
+        "actual_pattern_change": {
+          "samples": 4812,
+          "minimum": 1000,
+          "valid_fraction": 0.7651704073150457,
+          "near_neutral_fraction": 0.1843308395677473,
+          "catastrophic_fraction": 0.19617622610141314,
+          "sample_minimum_met": true,
+          "valid_threshold_met": true,
+          "near_neutral_threshold_met": true,
+          "catastrophic_threshold_met": true,
+          "unmeasured": 1
+        },
+        "active_parent_actual_pattern_change": {
+          "samples": 2345,
+          "minimum": 500,
+          "valid_fraction": 0.7663113006396588,
+          "near_neutral_fraction": 0.37825159914712153,
+          "catastrophic_fraction": 0.15394456289978678,
+          "sample_minimum_met": true,
+          "valid_threshold_met": true,
+          "near_neutral_threshold_met": true,
+          "catastrophic_threshold_met": true,
+          "unmeasured": 1
+        },
+        "activation": {
+          "samples": 1624,
+          "minimum": 1000,
+          "valid_fraction": 1,
+          "near_neutral_fraction": 0.32389162561576357,
+          "catastrophic_fraction": 0.08251231527093596,
+          "sample_minimum_met": true,
+          "valid_threshold_met": true,
+          "near_neutral_threshold_met": null,
+          "catastrophic_threshold_met": true,
+          "unmeasured": 0
+        }
+      },
+      "coverage": {
+        "all_13_operators": true,
+        "both_roles": true,
+        "both_activation_states": true,
+        "at_cap_and_off_cap": true,
+        "mode_changes_minimum_met": true,
+        "trajectory_changing_mode_edits_minimum_met": true,
+        "neutral_checks_minimum_met": true,
+        "zero_neutral_soundness_failures": true,
+        "zero_unmeasured": false
+      }
+    }
+  },
+  "integrity": {
+    "frozen_inputs_verified": 328,
+    "frozen_sources": 207,
+    "archive_files": 340,
+    "archive_bytes": 262464467,
+    "current_live_source_matches": 203,
+    "current_live_source_differences": [
+      {
+        "path": "crates/hg-core/src/arena.rs",
+        "frozen_sha256": "56f48da64e5b9808ed4a8fa12e8ec9aac6c3fca335c33993a581decb33f6e8c2",
+        "current_live_sha256": "9dd9609393603f4cb7cbc0972fc690f215ab1a6cc6e9f4c574d36e359605ed60"
+      },
+      {
+        "path": "crates/hg-core/src/graph.rs",
+        "frozen_sha256": "3acbfa1aef8c3d030c92c15e4b5870a2d7cba75d5966dbe379eb289365d06172",
+        "current_live_sha256": "df5841fdbd8cc4c690bf076cbad6f1e067cd52157e0852364ada7f7f37c1f212"
+      },
+      {
+        "path": "crates/hg-sim-core/Cargo.toml",
+        "frozen_sha256": "1b1712c339e2fe26edbcd01103d24a1c3057d5b6baf26e45eab92cd7bcd94c17",
+        "current_live_sha256": "8a9175e41fddc84d78d86769ece2c41d1d73df3f28b5ede07d8fd82ac9ea3966"
+      },
+      {
+        "path": "crates/hg-sim-core/src/lib.rs",
+        "frozen_sha256": "583778350d74dd319c89dfb6277e082d2378e3dc365c989aa733d8af4cb6208f",
+        "current_live_sha256": "42c058308a938ed91ebe5268e404ab86685b6138b6076f6674379fb43a481afa"
+      }
+    ],
+    "historical_receipt_seals_verified": 17,
+    "external_preservation_inventory": "docs/ere_complete_coherent_draw_full_20260929_preservation.json"
+  },
+  "interpretation": "Failed/unmeasured, not a scientific pass or a completed kernel negative; native measurements retained. The single matching-cap draw alone blocks zero-Unmeasured acceptance independently of the auditor RSS failure."
+}
+

@@ -1,0 +1,38 @@
+# Glider rule: conservative mark transfer along a 3-edge track.
+# A 3-edge {a, b, c} with a marked (label 1) and b, c unmarked (label 0)
+# transfers the mark: a -> 0, c -> 1. Pure relabel — exactly one mark
+# before, exactly one after; no nodes created or deleted. On a ring of
+# overlapping 3-edges (InitialConditionType::GliderRing) the mark walks
+# the track indefinitely. Intended step mode: SequentialRandom (one hop
+# per step).
+
+[[rules]]
+name     = "glider"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b", "c"],
+]
+
+[rules.lhs.node_labels]
+a = 1
+b = 0
+c = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c"]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b", "c"],
+]
+
+[rules.rhs.node_labels]
+a = 0
+c = 1

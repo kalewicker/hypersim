@@ -1,0 +1,29 @@
+# D0 faithful family v1: prospective engineering contract
+
+Declared 2026-10-02 before executing this ecology. Separate profile `evolving-minds-d0-family-v1`. This implements paid faithful copying and runtime reset; mutation and failed mutation/birth escrow settlement remain subsequent work. No scientific evolution, training or H1/H2 acceptance is authorized by this contract.
+
+Reuse the generic D0 language and frozen choice world schedule. Eight adjacent ring sites, one initial common-seed founder, 64 ticks. Founder reserve 64; every site starts at 32. Site influx, sensing, signal buffering, development and paid resource choices retain D0's declared timing and physics. Fixed world schedules are compiled before execution. No host writes choose phenotype or reproduction.
+
+## Prospective fixed prices
+
+Upkeep per tick: root 1; slot descriptor 1/16; instruction node 1/8; sensor/state/actuator/connection 1/4. Common-seed upkeep is therefore `2 + program_length/8`. Creating a state, actuator or wire adds 1/4. Every developmental instruction, including Halt and runtime failure, still dissipates 1. An action costs 1 before its outcome; successful choice transfers 8 from local site. These exact binary fractions avoid drift in conserved f64 accounting.
+
+For the three-instruction direct circuit, upkeep is 2.875 and useful net intake after the action price is 4.125 per tick. A newborn with reserve 12 can pay for all three developmental instructions and material upkeep through its first paid correct action. This arithmetic, rather than construction-panel survival, motivates the separate price table. Longer genotype and phenotype material remain costly. Freeze these prices for this engineering profile and preserve all earlier profiles.
+
+Faithful birth requires halted development, age >=2 after mandatory maintenance, sufficient parent reserve, and an adjacent vacant site. Atomically charge parent `12 + copying_cost`; give child reserve 12; dissipate copying cost `1 + (11 + program_length)/4`, charging every common-seed node, including the child root. Copy each immutable instruction field and stable ID through native property effects into a complete ordered owned instruction graph. Child age/cursor/status/sensor state/action flags/phenotype slots reset; no parent's learned/runtime signal or developed phenotype is copied. Child owner is a new monotone counter ID; parent identity and birth-site ancestry are recorded. No mutation proposals or invalid-genotype replacement are implemented.
+
+One global matched counter still serializes birth to at most one child per tick. This is an explicit bounded engineering limitation; reproduction fairness remains a later package. Birth happens after maintenance and before death; a parent reaching age 16 can reproduce first. Newborns start sensing, developing, acting and paying maintenance next tick.
+
+Age >=16 or depleted reserve triggers death: transfer the entire remaining root reserve to its site, free occupancy, turn root into an inert tombstone, then delete owned material through native cleanup. Twenty-six fixed cleanup passes remove at most 25 internal nodes followed by the root, without uncharged hidden-energy deletion. Tombstones never execute physiology and no tombstone survives a completed tick.
+
+## Fixed bounded evidence
+
+Run four complete 64-tick cells, seed 17: direct `cue` under informative/permuted/withheld cues, plus a one-instruction `Halt` inactive program under informative cues. These are deterministic engineering fixtures, not independently sampled research worlds. No outcome-dependent replacement or shortened horizon.
+
+Required checks: complete faithful copying/reset at every birth; canonical genotype identity with parent; descendants themselves reproduce through paid native births; ancestry reaches depth >=3 in the informative direct-cue fixture; exact conservation, material prices, strict ownership and port grammar, full paid life/death/cleanup, and exact fresh-process continuation. Inactive and degraded-cue cells remain in the denominator regardless of survival or reproduction. Their results describe the fixture only.
+
+Each tick uses the 15 D0 passes plus birth, death, and 26 cleanup passes: 43 engine steps. Save a complete initial/final graph and a complete event journal with pass clocks, stats and match work, plus per-tick metrics and lineage. Checkpoints contain material/allocator/engine/RNG state and the bounded complete journal. An independent checker replays every event and eligibility decision and checks final graph and rows. This initial journal reduces fixture storage; segmented crash-safe replay/storage is still future work.
+
+Caps: 256 nodes, 768 edges, matcher work 1,000,000/results 100,000 per pass; 16 MiB checkpoint and journal per cell; 128 MiB total output; 120 seconds advancing per cell. Fresh exclusive output directories, durable manifest progress, preserved interrupted evidence. Completed-tick resume verifies its history against native replay. All scientific launch, gate, evolution and training flags remain false.
+
+Engineering corrections before final verification: the eight-instruction copy test exhausted the fixed work cap when owner spokes were matched before instruction-chain edges. Reorder the equivalent birth pattern to traverse the chain first, retaining all guards, prices, eligibility, horizon and limits. The initial four-cell development archive exposed the checker's single-site helper assumption: independently validate actual site identity/coin stream, then normalize the read-only local validation view to that helper's slot 0. Cleanup comparison must also use native canonical order: priority, local rule ID, then sorted handles. Preserve both preliminary frozen archives and their failed audits as diagnostic evidence; use a fresh final output directory.

@@ -1,0 +1,17 @@
+{
+  "profile": "E2-complete-fixed-champion-confirmation-v1",
+  "master_seed": 989268541441,
+  "draws": 512,
+  "physics_seeds": [989268641441, 989268641442, 989268641443, 989268641444],
+  "arms": ["champion", "untrained", "random"],
+  "horizon": 100,
+  "parameters": 183,
+  "work": 50000,
+  "results": 50000,
+  "wall_seconds": 3600,
+  "cell_wall_seconds": 30,
+  "output_cap_bytes": 2147483648,
+  "optimizer_generations": 0,
+  "maximum_native_steps": 614400,
+  "champion_selection": "sealed_final_generation_parameters"
+}

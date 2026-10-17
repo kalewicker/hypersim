@@ -1,0 +1,72 @@
+{
+  "profile": "E2-defense-allocation-diagnostic-v1",
+  "native_profile": "E2-defense-allocation-native-v1",
+  "context": [
+    10,
+    11
+  ],
+  "birth_actions": [
+    1,
+    1
+  ],
+  "scenarios": [
+    "hazard_low",
+    "hazard_high",
+    "safe_low",
+    "safe_high"
+  ],
+  "threat_expected": [
+    true,
+    true,
+    false,
+    false
+  ],
+  "bounty": [
+    2,
+    12,
+    2,
+    12
+  ],
+  "resources": [
+    "paid",
+    "unpaid"
+  ],
+  "wallet_units": [
+    1,
+    0
+  ],
+  "actions": [
+    "defend",
+    "harvest"
+  ],
+  "horizon": 32,
+  "request_step": 15,
+  "resolution_step": 16,
+  "allocation_step": 14,
+  "utility_window": [
+    17,
+    32
+  ],
+  "seed": 993748718001,
+  "cells": 16,
+  "maximum_native_advances": 512,
+  "maximum_nonadvancing_seal_applications": 16,
+  "native_deadline_seconds": 60,
+  "output_limit_bytes": 134217728,
+  "match_work_limit": 50000,
+  "match_result_limit": 50000,
+  "epoch": 2,
+  "birth_fuel": 2,
+  "seal_cost": 1,
+  "repair_fuel": 0,
+  "initial_defense_fuel": 0,
+  "damage_priority": 300,
+  "absorb_priority": 400,
+  "allocation_priority": 500,
+  "utility": "post-resolution novel ordinary firings + native harvested credits",
+  "optimizer_updates": 0,
+  "scientific_acceptance": false,
+  "sustained_claim": false,
+  "training_admitted": false,
+  "independent_physics_replay": false
+}

@@ -1,0 +1,27 @@
+[package]
+name = "hg-engine"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["parallel"]
+parallel = ["dep:rayon", "dep:hg-parallel"]
+
+[dependencies]
+hg-core = { path = "../hg-core" }
+hg-rules = { path = "../hg-rules" }
+hg-observe = { path = "../hg-observe" }
+hg-parallel = { path = "../hg-parallel", optional = true }
+rayon = { workspace = true, optional = true }
+rand = { workspace = true }
+rand_chacha = { workspace = true }
+tracing = { workspace = true }
+smallvec = { workspace = true }
+
+[dev-dependencies]
+smallvec = { workspace = true }
+bincode = { workspace = true }
+slotmap = { workspace = true }
+# v9 C2.1: the archived-snapshot round-trip check reads real .bin files
+# through the production snapshot reader, not a hand-rolled parser.
+hg-output = { path = "../hg-output" }

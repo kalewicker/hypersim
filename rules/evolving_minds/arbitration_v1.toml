@@ -1,0 +1,849 @@
+# Native four-pass birth arbitration diagnostic v1.
+[[rules]]
+"name" = "development_halt"
+"priority" = 1
+[rules.lhs]
+"nodes" = ["r", "g"]
+"edges" = [["r", "g"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"g" = 3774873603
+[rules.lhs.edge_labels]
+"0" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "g"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "lte"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 1.0
+[[rules.lhs.node_property_guards]]
+"var" = "g"
+"property" = 240002
+"op" = "eq"
+"value" = 3
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[[rules.lhs.node_property_compares]]
+"var_a" = "g"
+"key_a" = 242003
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 242001
+[rules.rhs]
+"nodes" = ["r", "g"]
+"edges" = [["r", "g"]]
+[rules.rhs.edge_labels]
+"0" = 3774939236
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 1.0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242001
+"op" = "add"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 242002
+"op" = "set"
+"value" = 2
+
+[[rules]]
+"name" = "maintenance_full"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["r"]
+"edges" = []
+"var_guards" = []
+"node_property_guards" = []
+[rules.lhs.node_labels]
+"r" = 3774873600
+[rules.lhs.edge_labels]
+[[rules.lhs.node_property_compares]]
+"var_a" = "r"
+"key_a" = 1
+"op" = "gte"
+"var_b" = "r"
+"key_b" = 240010
+[rules.rhs]
+"nodes" = ["r"]
+"edges" = []
+[rules.rhs.edge_labels]
+[rules.rhs.node_labels]
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract_from_property"
+"source_var" = "r"
+"source_key" = 240010
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 240004
+"op" = "add"
+"value" = 1
+
+[[rules]]
+"name" = "birth_global"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["r", "site", "target", "counter", "g0"]
+"edges" = [["r", "site"], ["site", "target"], ["r", "g0"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"site" = 3774873601
+"target" = 3774873601
+"counter" = 3774873606
+"g0" = 3774873603
+[rules.lhs.edge_labels]
+"0" = 3774873700
+"1" = 3774873701
+"2" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "site", "target", "counter", "g0"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242012
+"op" = "eq"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 240004
+"op" = "gte"
+"value" = 2
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 16.0
+[[rules.lhs.node_property_guards]]
+"var" = "target"
+"property" = 240006
+"op" = "eq"
+"value" = false
+[[rules.lhs.node_property_guards]]
+"var" = "g0"
+"property" = 242003
+"op" = "eq"
+"value" = 0
+[[rules.lhs.node_property_guards]]
+"var" = "target"
+"property" = 242017
+"op" = "eq"
+"value" = true
+[[rules.lhs.node_property_compares]]
+"var_a" = "g0"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[rules.rhs]
+"nodes" = ["r", "site", "target", "counter", "g0", "child", "slot0", "slot1", "slot2", "slot3", "slot4", "slot5", "slot6", "slot7", "sensor0", "sensor1", "cg0"]
+"edges" = [["r", "site"], ["site", "target"], ["r", "g0"], ["child", "target"], ["child", "slot0"], ["child", "slot1"], ["child", "slot2"], ["child", "slot3"], ["child", "slot4"], ["child", "slot5"], ["child", "slot6"], ["child", "slot7"], ["child", "sensor0"], ["child", "sensor1"], ["child", "cg0"], ["slot0", "sensor0"], ["slot1", "sensor1"]]
+[rules.rhs.edge_labels]
+"0" = 3774873700
+"1" = 3774873701
+"2" = 3774939236
+"3" = 3774873700
+"4" = 3774939236
+"5" = 3774939236
+"6" = 3774939236
+"7" = 3774939236
+"8" = 3774939236
+"9" = 3774939236
+"10" = 3774939236
+"11" = 3774939236
+"12" = 3774939236
+"13" = 3774939236
+"14" = 3774939236
+"15" = 3774939237
+"16" = 3774939237
+[rules.rhs.node_labels]
+"child" = 3774873600
+"slot0" = 3774939137
+"slot1" = 3774939137
+"slot2" = 3774939137
+"slot3" = 3774939137
+"slot4" = 3774939137
+"slot5" = 3774939137
+"slot6" = 3774939137
+"slot7" = 3774939137
+"sensor0" = 3774873602
+"sensor1" = 3774873602
+"cg0" = 3774873603
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 16.0
+[[rules.rhs.property_effects]]
+"var" = "target"
+"key" = 240006
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 240007
+"op" = "copy_from"
+"source_var" = "counter"
+"source_key" = 240009
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 240008
+"op" = "copy_from"
+"source_var" = "r"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 1
+"op" = "set"
+"value" = 12.0
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 240004
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 242001
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 242002
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 242011
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 241007
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 241008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 242012
+"op" = "set"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 242013
+"op" = "set"
+"value" = 11
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 240010
+"op" = "set"
+"value" = 2.125
+[[rules.rhs.property_effects]]
+"var" = "slot0"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot0"
+"key" = 242005
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "slot0"
+"key" = 242008
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "slot1"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot1"
+"key" = 242005
+"op" = "set"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "slot1"
+"key" = 242008
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "slot2"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot2"
+"key" = 242005
+"op" = "set"
+"value" = 2
+[[rules.rhs.property_effects]]
+"var" = "slot2"
+"key" = 242008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "slot3"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot3"
+"key" = 242005
+"op" = "set"
+"value" = 3
+[[rules.rhs.property_effects]]
+"var" = "slot3"
+"key" = 242008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "slot4"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot4"
+"key" = 242005
+"op" = "set"
+"value" = 4
+[[rules.rhs.property_effects]]
+"var" = "slot4"
+"key" = 242008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "slot5"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot5"
+"key" = 242005
+"op" = "set"
+"value" = 5
+[[rules.rhs.property_effects]]
+"var" = "slot5"
+"key" = 242008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "slot6"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot6"
+"key" = 242005
+"op" = "set"
+"value" = 6
+[[rules.rhs.property_effects]]
+"var" = "slot6"
+"key" = 242008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "slot7"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot7"
+"key" = 242005
+"op" = "set"
+"value" = 7
+[[rules.rhs.property_effects]]
+"var" = "slot7"
+"key" = 242008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "sensor0"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "sensor0"
+"key" = 242005
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "sensor0"
+"key" = 240005
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "sensor1"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "sensor1"
+"key" = 242005
+"op" = "set"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "sensor1"
+"key" = 240005
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 242003
+"op" = "copy_from"
+"source_var" = "g0"
+"source_key" = 242003
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 242004
+"op" = "copy_from"
+"source_var" = "g0"
+"source_key" = 242004
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 240002
+"op" = "copy_from"
+"source_var" = "g0"
+"source_key" = 240002
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 242005
+"op" = "copy_from"
+"source_var" = "g0"
+"source_key" = 242005
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 242006
+"op" = "copy_from"
+"source_var" = "g0"
+"source_key" = 242006
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 242007
+"op" = "copy_from"
+"source_var" = "g0"
+"source_key" = 242007
+[[rules.rhs.property_effects]]
+"var" = "counter"
+"key" = 240009
+"op" = "add"
+"value" = 1
+
+[[rules]]
+"name" = "birth_local"
+"priority" = 0
+[rules.lhs]
+"nodes" = ["r", "site", "target", "g0"]
+"edges" = [["r", "site"], ["site", "target"], ["r", "g0"]]
+[rules.lhs.node_labels]
+"r" = 3774873600
+"site" = 3774873601
+"target" = 3774873601
+"g0" = 3774873603
+[rules.lhs.edge_labels]
+"0" = 3774873700
+"1" = 3774873701
+"2" = 3774939236
+[[rules.lhs.var_guards]]
+"type" = "vars_distinct"
+"vars" = ["r", "site", "target", "g0"]
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242002
+"op" = "eq"
+"value" = 2
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 242012
+"op" = "eq"
+"value" = 1
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 240004
+"op" = "gte"
+"value" = 2
+[[rules.lhs.node_property_guards]]
+"var" = "r"
+"property" = 1
+"op" = "gte"
+"value" = 16.0
+[[rules.lhs.node_property_guards]]
+"var" = "target"
+"property" = 240006
+"op" = "eq"
+"value" = false
+[[rules.lhs.node_property_guards]]
+"var" = "g0"
+"property" = 242003
+"op" = "eq"
+"value" = 0
+[[rules.lhs.node_property_guards]]
+"var" = "target"
+"property" = 242017
+"op" = "eq"
+"value" = true
+[[rules.lhs.node_property_compares]]
+"var_a" = "g0"
+"key_a" = 240001
+"op" = "eq"
+"var_b" = "r"
+"key_b" = 240007
+[rules.rhs]
+"nodes" = ["r", "site", "target", "g0", "child", "slot0", "slot1", "slot2", "slot3", "slot4", "slot5", "slot6", "slot7", "sensor0", "sensor1", "cg0"]
+"edges" = [["r", "site"], ["site", "target"], ["r", "g0"], ["child", "target"], ["child", "slot0"], ["child", "slot1"], ["child", "slot2"], ["child", "slot3"], ["child", "slot4"], ["child", "slot5"], ["child", "slot6"], ["child", "slot7"], ["child", "sensor0"], ["child", "sensor1"], ["child", "cg0"], ["slot0", "sensor0"], ["slot1", "sensor1"]]
+[rules.rhs.edge_labels]
+"0" = 3774873700
+"1" = 3774873701
+"2" = 3774939236
+"3" = 3774873700
+"4" = 3774939236
+"5" = 3774939236
+"6" = 3774939236
+"7" = 3774939236
+"8" = 3774939236
+"9" = 3774939236
+"10" = 3774939236
+"11" = 3774939236
+"12" = 3774939236
+"13" = 3774939236
+"14" = 3774939236
+"15" = 3774939237
+"16" = 3774939237
+[rules.rhs.node_labels]
+"child" = 3774873600
+"slot0" = 3774939137
+"slot1" = 3774939137
+"slot2" = 3774939137
+"slot3" = 3774939137
+"slot4" = 3774939137
+"slot5" = 3774939137
+"slot6" = 3774939137
+"slot7" = 3774939137
+"sensor0" = 3774873602
+"sensor1" = 3774873602
+"cg0" = 3774873603
+[[rules.rhs.property_effects]]
+"var" = "r"
+"key" = 1
+"op" = "subtract"
+"value" = 16.0
+[[rules.rhs.property_effects]]
+"var" = "target"
+"key" = 240006
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 240007
+"op" = "copy_from"
+"source_var" = "target"
+"source_key" = 242018
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 240008
+"op" = "copy_from"
+"source_var" = "r"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 1
+"op" = "set"
+"value" = 12.0
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 240004
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 242001
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 242002
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 242011
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 241007
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 241008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 242012
+"op" = "set"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 242013
+"op" = "set"
+"value" = 11
+[[rules.rhs.property_effects]]
+"var" = "child"
+"key" = 240010
+"op" = "set"
+"value" = 2.125
+[[rules.rhs.property_effects]]
+"var" = "slot0"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot0"
+"key" = 242005
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "slot0"
+"key" = 242008
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "slot1"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot1"
+"key" = 242005
+"op" = "set"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "slot1"
+"key" = 242008
+"op" = "set"
+"value" = true
+[[rules.rhs.property_effects]]
+"var" = "slot2"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot2"
+"key" = 242005
+"op" = "set"
+"value" = 2
+[[rules.rhs.property_effects]]
+"var" = "slot2"
+"key" = 242008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "slot3"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot3"
+"key" = 242005
+"op" = "set"
+"value" = 3
+[[rules.rhs.property_effects]]
+"var" = "slot3"
+"key" = 242008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "slot4"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot4"
+"key" = 242005
+"op" = "set"
+"value" = 4
+[[rules.rhs.property_effects]]
+"var" = "slot4"
+"key" = 242008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "slot5"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot5"
+"key" = 242005
+"op" = "set"
+"value" = 5
+[[rules.rhs.property_effects]]
+"var" = "slot5"
+"key" = 242008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "slot6"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot6"
+"key" = 242005
+"op" = "set"
+"value" = 6
+[[rules.rhs.property_effects]]
+"var" = "slot6"
+"key" = 242008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "slot7"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "slot7"
+"key" = 242005
+"op" = "set"
+"value" = 7
+[[rules.rhs.property_effects]]
+"var" = "slot7"
+"key" = 242008
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "sensor0"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "sensor0"
+"key" = 242005
+"op" = "set"
+"value" = 0
+[[rules.rhs.property_effects]]
+"var" = "sensor0"
+"key" = 240005
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "sensor1"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "sensor1"
+"key" = 242005
+"op" = "set"
+"value" = 1
+[[rules.rhs.property_effects]]
+"var" = "sensor1"
+"key" = 240005
+"op" = "set"
+"value" = false
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 240001
+"op" = "copy_from"
+"source_var" = "child"
+"source_key" = 240007
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 242003
+"op" = "copy_from"
+"source_var" = "g0"
+"source_key" = 242003
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 242004
+"op" = "copy_from"
+"source_var" = "g0"
+"source_key" = 242004
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 240002
+"op" = "copy_from"
+"source_var" = "g0"
+"source_key" = 240002
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 242005
+"op" = "copy_from"
+"source_var" = "g0"
+"source_key" = 242005
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 242006
+"op" = "copy_from"
+"source_var" = "g0"
+"source_key" = 242006
+[[rules.rhs.property_effects]]
+"var" = "cg0"
+"key" = 242007
+"op" = "copy_from"
+"source_var" = "g0"
+"source_key" = 242007
+[[rules.rhs.property_effects]]
+"var" = "target"
+"key" = 242018
+"op" = "add"
+"value" = 8

@@ -1,0 +1,104 @@
+# conservation_soak.toml
+#
+# Energy-conservation invariant test. Load via the GUI picker on an EMPTY
+# initial condition, max_parallel, and run as long as you like (1000+ steps).
+#
+# THE INVARIANT: the sum of energy over all four nodes is EXACTLY 100.0 at
+# every step, forever. Each transfer moves exactly 10.0 from src to dst —
+# subtract and add in the same rewrite. 10.0 and 25.0 are exactly
+# representable in f64, so the sum is exact, not approximate: hover all four
+# nodes at any pause and they must total 100.000 with no drift.
+#
+# WHY THIS IS THE STRONGEST INTEGRATION PROBE: conservation entangles
+# property effects with conflict resolution. Under max_parallel, multiple
+# transfers can fire in one step on disjoint edges — but if conflict
+# resolution ever let two rewrites touch the SAME node in one step (or an
+# effect applied twice, or a skipped effect half-applied), the sum drifts
+# and never recovers. Any drift, however small, is a real bug in either
+# effects application or MaxParallel disjointness — do not rationalize it.
+#
+# Secondary invariants (also visible in the GUI/CSV):
+#   node count == 4 and edge count == 4 forever (the transfer rule
+#   recreates its matched edge and creates nothing);
+#   activity never reaches 0 (total 100 over 4 nodes means max >= 25 > 10,
+#   so at least one guard always passes — the system never freezes).
+#
+# NOTE: same field-name caveat as the cascade fixture.
+
+name = "conservation_soak"
+step_mode = "max_parallel"
+
+# ── Rule 1: seed a 4-cycle with 25.0 energy on every node ────────────────────
+
+[[rules]]
+name = "seed_cycle"
+priority = 0
+weight = 1.0
+
+[rules.schedule]
+mode = "once"
+
+[rules.lhs]
+nodes = []
+edges = []
+
+[rules.rhs]
+nodes = ["a", "b", "c", "d"]
+edges = [["a", "b"], ["b", "c"], ["c", "d"], ["d", "a"]]
+
+[[rules.rhs.property_effects]]
+var = "a"
+key = 1
+op = "set"
+value = 25.0
+
+[[rules.rhs.property_effects]]
+var = "b"
+key = 1
+op = "set"
+value = 25.0
+
+[[rules.rhs.property_effects]]
+var = "c"
+key = 1
+op = "set"
+value = 25.0
+
+[[rules.rhs.property_effects]]
+var = "d"
+key = 1
+op = "set"
+value = 25.0
+
+# ── Rule 2: conservative transfer — move exactly 10.0 across an edge ─────────
+
+[[rules]]
+name = "transfer"
+priority = 0
+weight = 1.0
+
+[rules.lhs]
+nodes = ["src", "dst"]
+edges = [["src", "dst"]]
+
+[[rules.lhs.node_property_guards]]
+var = "src"
+property = 1
+op = "gt"
+value = 10.0
+
+[rules.rhs]
+nodes = ["src", "dst"]
+edges = [["src", "dst"]]
+
+[[rules.rhs.property_effects]]
+var = "src"
+key = 1
+op = "subtract"
+value = 10.0
+
+[[rules.rhs.property_effects]]
+var = "dst"
+key = 1
+op = "add"
+value = 10.0

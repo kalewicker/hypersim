@@ -1,0 +1,35 @@
+[[rules]]
+name = "diffuse"
+priority = 1
+[rules.lhs]
+nodes = ["hi", "lo"]
+edges = [["hi", "lo"]]
+[rules.lhs.node_labels]
+hi = 0
+lo = 0
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["hi", "lo"]
+[[rules.lhs.node_property_guards]]
+var = "hi"
+property = 1
+op = "gte"
+value = 2.0
+[[rules.lhs.node_property_guards]]
+var = "lo"
+property = 1
+op = "lt"
+value = 1.0
+[rules.rhs]
+nodes = ["hi", "lo"]
+edges = [["hi", "lo"]]
+[[rules.rhs.property_effects]]
+var = "hi"
+key = 1
+op = "subtract"
+value = 1.0
+[[rules.rhs.property_effects]]
+var = "lo"
+key = 1
+op = "add"
+value = 1.0

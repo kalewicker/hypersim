@@ -1,0 +1,23 @@
+{
+  "attempted_steps_cross_checked": 505392,
+  "checker_sha256": "f1bd1a2b949f4c041038eb2de01b3398135bdfdb2499621a0beb6c2fd75a6b67",
+  "classification_rows_declared": 10000,
+  "complete_full_audit_pass": false,
+  "development_only": true,
+  "gate_pass": false,
+  "input_sha256": {
+    "classifications.jsonl.gz": "6f314d857277a396e25b0292b76ff9ac99e9d5ef6ada1d099867bda41498aeba",
+    "manifest.json": "f9d097a92d2ed939b80ad4979ee573e44d09978a8a0f017185e5145ae0873d42",
+    "native_controls_timing.json": "3116b0fc0c622c9f27f1055f520da0c3734d8d360ada6d1bf48386b914c617ce",
+    "native_trajectory_timing.json": "62657e2f78a34ea17f1177db965514cbcac8718d59ade7928c0b8bd473154bd5",
+    "run_status.json": "98ba431f67e66b0883a8badf1b56655fa45d9e20ba07f0f9ac65734f5ba34764"
+  },
+  "native_children": 4886,
+  "peak_rss_bytes": 46301184,
+  "rss_cap_bytes": 1073741824,
+  "scope": "timing_stage_only",
+  "seconds": 23.836425042245537,
+  "timing_check_pass": true,
+  "training_admitted": false,
+  "wall_cap_seconds": 120
+}

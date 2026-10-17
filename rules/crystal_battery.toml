@@ -1,0 +1,42 @@
+# Crystal battery (salvaged from the pre-v4 experiments/ tree).
+# Growth rule plus a rare (weight 0.005) defect rule for SequentialWeighted runs.
+[[rules]]
+name = "crystal_grow"
+priority = 0
+weight = 1.0
+enabled = true
+
+[rules.lhs]
+nodes = ["a", "b", "c"]
+edges = [["a", "b", "c"]]
+
+[rules.rhs]
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "b", "d"],
+  ["b", "c", "d"],
+  ["a", "c", "d"]
+]
+
+[rules.rhs.node_labels]
+d = 0
+
+[[rules]]
+name = "crystal_defect"
+priority = 1
+weight = 0.005
+enabled = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [["a", "b"]]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "c"],
+  ["c", "b"]
+]
+
+[rules.rhs.node_labels]
+c = 1

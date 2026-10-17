@@ -1,0 +1,100 @@
+# effects_cascade_fixture.toml
+#
+# Independent end-to-end fixture for property_effects. Load via the GUI's
+# TOML picker on an EMPTY initial condition, step_mode max_parallel, run
+# >= 10 steps. Self-seeding (creation rule), so no initial-condition config
+# is needed beyond Empty.
+#
+# HAND-TRACED PREDICTION (exact — compare by hovering nodes):
+#
+#   step 0: seed_world fires once -> nodes {seed: 200.0, anchor}, 1 edge
+#   step 1: funded_spawn on seed   -> child1 = 160.0,  seed   -> 100.0
+#   step 2: funded_spawn on child1 -> child2 = 128.0,  child1 ->  60.0
+#   step 3: funded_spawn on child2 -> child3 = 102.4,  child2 ->  28.0
+#   step 4: funded_spawn on child3 -> child4 =  81.92, child3 ->   2.4
+#   step 5 onward: no node has energy > 100 -> EXTINCT, Frozen forever
+#
+#   Why exactly one firing per step: after each spawn the donor drops to
+#   E-100 (< 100, guard is strict >), so only the newest child can ever
+#   pass the guard. The chain self-terminates when 0.8^4 * 200 = 81.92
+#   falls below the 100 threshold.
+#
+#   Final state, exact:
+#     nodes = 6, edges = 5, total rewrites = 4 (+1 creation firing)
+#     energies = { seed: 100.0, child1: 60.0, child2: 28.0,
+#                  child3: 2.4, child4: 81.92, anchor: 0/unset }
+#     sum = 272.32   (200 injected + 60 + 28 + 2.4 - 18.08 net minting)
+#     regime history should end Frozen (activity 0 from step 5)
+#
+# Sequential-semantics dependence: child reads the donor BEFORE the donor
+# pays (scale_from declared before subtract). If the implementation applied
+# effects in the wrong order or with snapshot semantics, step 1 would yield
+# child1 = 80.0 instead of 160.0 — instantly visible.
+#
+# NOTE: field names follow the v4 spec exactly (guards use `property`,
+# effects use `key`). If the as-built parser drifted from the spec, adapt
+# the field names — but note the drift, since it means grammar and spec
+# have diverged.
+
+name = "effects_cascade_fixture"
+step_mode = "max_parallel"
+
+# ── Rule 1: self-seeding creation rule (fires once at step 0) ────────────────
+
+[[rules]]
+name = "seed_world"
+priority = 0
+weight = 1.0
+
+[rules.schedule]
+mode = "once"
+
+[rules.lhs]
+nodes = []
+edges = []
+
+[rules.rhs]
+nodes = ["seed", "anchor"]
+edges = [["seed", "anchor"]]
+
+[[rules.rhs.property_effects]]
+var = "seed"
+key = 1
+op = "set"
+value = 200.0
+
+# ── Rule 2: the node-funded spawn (the canonical ALife mechanic) ─────────────
+
+[[rules]]
+name = "funded_spawn"
+priority = 0
+weight = 1.0
+
+[rules.lhs]
+nodes = ["donor", "peer"]
+edges = [["donor", "peer"]]
+
+[[rules.lhs.node_property_guards]]
+var = "donor"
+property = 1
+op = "gt"
+value = 100.0
+
+[rules.rhs]
+nodes = ["donor", "peer", "child"]
+edges = [["donor", "peer"], ["donor", "child"]]
+
+# Order matters and is the point: child reads donor's PRE-payment energy.
+[[rules.rhs.property_effects]]
+var = "child"
+key = 1
+op = "scale_from"
+source_var = "donor"
+source_key = 1
+factor = 0.8
+
+[[rules.rhs.property_effects]]
+var = "donor"
+key = 1
+op = "subtract"
+value = 100.0

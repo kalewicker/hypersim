@@ -1,0 +1,17 @@
+{
+  "profile": "cumulative-live-controller-development-v1",
+  "scope": "fixed four-world development controller-to-native-to-measurement-to-assay integration",
+  "parent": {"archive": "output/cumulative_campaign_controller_20261010", "seal_sha256": "67b3c53a77fa692f504218e09a18753fb865ed46cd3dbe597440cfc48188dd0b"},
+  "measurement_parent": {"archive": "output/cumulative_campaign_measurement_v2_20261010", "seal_sha256": "01a16236d750e8f331dc8a73a2fcc1868e32d149feee330075f7da0b3931b3bd"},
+  "adapter_parent": {"archive": "output/cumulative_campaign_adapter_readiness_20261010", "seal_sha256": "827890af64baf8cf8c25d67056a5006294c6c95fcddd888d03870c6d6287f794"},
+  "limits": {"native_rewrites": 1200, "native_ms": 180000, "per_unit_ms": 30000, "workflow_ms": 1200000, "output_bytes": 134217728, "spool_cap_bytes": 268435456},
+  "development_seed": 2026101001,
+  "world_order": ["endogenous", "external", "nonheritable", "frozen"],
+  "world_reservations": {"endogenous": 250, "external": 240, "nonheritable": 250, "frozen": 202},
+  "expected_saved_equivalence": "Each newly generated world row and final checkpoint equals its unchanged matched development counterpart; complete measurement and registry equal the independently sealed development measurement parent.",
+  "closure": "Run each of four fixed development worlds once, then the complete deduplicated assay registry once. Publish durable controller intent before native dispatch and independently audit compact native evidence before accepting a receipt. Use actual monotonic timing and spool admission. On uncertainty retain reservation and close, without native redispatch. Scientific native admission remains unavailable.",
+  "readiness_gate_complete": false,
+  "scientific_acceptance": false,
+  "evolution_demonstrated": false,
+  "campaign_launch_authorized": false
+}

@@ -1,0 +1,44 @@
+# lk_tick.toml — the v6 §4 countdown decrement rule: a single-node LHS
+# clock. Every live filament node's countdown (property key 7, Int)
+# decrements by 1 each step; fuse admits the node at countdown == 0.
+#
+# Single-node LHS (no edge): the matcher's isolated-var path binds `w`
+# to every live node under the guard, and MaxParallel conflict
+# resolution is node-disjoint over single-node bindings, so ALL live
+# countdowns decrement every step — a genuine parallel clock (grammar
+# audit A0, docs/grammar_audit_v6.md, verified against conflict.rs).
+#
+# The guard `countdown > 0` is its own floor: the rule fires only while
+# countdown ≥ 1, so the last decrement is 1 → 0 and it never drives the
+# value negative (Int subtract is saturating but the guard makes that
+# moot). A node with no countdown key (gen-0 lattice) fails the guard
+# (missing property rejects) and is never ticked.
+#
+# Config-gated: appended by the runner only when
+# `[lk_rules.fuse] gate = "countdown"`, so a non-countdown load never
+# sees it. Priority sits above fuse; the exact ordering vs transport is
+# pinned by AG2 (lifetime exactness).
+
+[[rules]]
+name     = "lk_tick"
+priority = 2
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["w"]
+
+[[rules.lhs.node_property_guards]]
+var      = "w"
+property = 7
+op       = "gt"
+value    = 0
+
+[rules.rhs]
+nodes = ["w"]
+
+[[rules.rhs.property_effects]]
+var   = "w"
+key   = 7
+op    = "subtract"
+value = 1

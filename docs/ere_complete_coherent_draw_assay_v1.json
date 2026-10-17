@@ -1,0 +1,483 @@
+{
+  "design_version": 1,
+  "date": "2026-09-29",
+  "profile": "E2-complete-coherent-draw-assay-v1",
+  "protocol": "E2-witness-complete-v1",
+  "family_version": 10,
+  "status": "prospective_full_assay_pending_explicit_launch_approval",
+  "scientific_run_authorized": false,
+  "scientific_run_launched": false,
+  "training_admitted": false,
+  "basis": {
+    "full_archive": "output/ere_complete_long_gates_full_20260927",
+    "full_files_sha256": {
+      "run_status.json": "be10a8d9a108e9c0643c0f47a7dd8e46a5b03c2789a24404fb6266b7703bf9bf",
+      "audit_full.json": "390f7a7002c5bfae3cbe7681a1c80e8d3f8cc7fb8cf7a6b0b4e5964652362391",
+      "stage_barrier.json": "ff0b2a1e48a004ffbcf1b9fac185de6e95c7d56303baa3a02c0f52c444d841f5",
+      "output_sha256.json": "32bc8eb713b67d71569a94e8dc6ed6000784c3c89afd00ad67a583c6b9edf5c5",
+      "frozen_inputs_sha256.json": "2bd803ceab3e4ea52b7601ae69fa4e53ac1f14295edec261275ea30891b93952"
+    },
+    "bounded_archive": "output/ere_complete_gates_fresh_20260926",
+    "bounded_summary_sha256": "c71049f8fd901ee34e8b65065f013060419f5d2b518cee3d77cb2d72f682f37f",
+    "bounded_audit_sha256": "c3eb2598aff19c863948eea27434af112dae4d380cfbb88cfa52cb547d64d1a8",
+    "historical_classification": "output/ere_e2p_400k50k_20260926/exp_r01.json",
+    "historical_classification_sha256": "f96d58925b980f99cfe3ae83e31fd9c916e37a5b589442364118386286b5b132",
+    "historical_classification_is_complete_profile_evidence": false,
+    "design_time_source_sha256": {
+      "crates/hg-sim-core/src/ere/experiments.rs": "6d3a40f33f76bff90745d9fd2e6d1326e6e65ed79cebaed9f49ea18ea5c84b4a",
+      "crates/hg-sim-core/src/ere/semantic.rs": "0a455eafce6dd5c66b5c7ead8f7e1eae6d7d9b62ef0413cef3d7d9625700cbce",
+      "crates/hg-meta/src/complete.rs": "4a2c93dba2d80c0cfef9bde12df288c1d2260e06d31b5cd3d01370e491b95820",
+      "Cargo.lock": "fab09392e413bddf671a471ec07af2a6f4be2580c5c8b0bd4b85644d1e1c05c3",
+      "crates/hg-sim-core/tests/support/coherent.rs": "43e65713ab9f4de6d8b8d8590a2cfdf3ff4c718153aa0dd5b64b41edeb0cd05f",
+      "crates/hg-sim-core/tests/ere_complete_gr1.rs": "360cf0f091d3b31432d72367306e9aa49de97275f7011611ecfc5fe053572745",
+      "docs/ere_complete_coherent_kernel_v1.md": "379ab9929c1dc27a7cbab1210707b044e482f1e489d9ab5cf55ff761fda659a3",
+      "crates/hg-core/src/arena.rs": "56f48da64e5b9808ed4a8fa12e8ec9aac6c3fca335c33993a581decb33f6e8c2",
+      "crates/hg-core/src/graph.rs": "3acbfa1aef8c3d030c92c15e4b5870a2d7cba75d5966dbe379eb289365d06172",
+      "crates/hg-core/src/lib.rs": "a07ccf9f338896f9825842a76cdd03af3ab8fc8d534750cf1e0d81424c9d3dcc",
+      "crates/hg-core/Cargo.toml": "ae849fd661eacada73a7e6d05c64e82f3898f47932493b42f8c38ce434296a15",
+      "crates/hg-sim-core/Cargo.toml": "1b1712c339e2fe26edbcd01103d24a1c3057d5b6baf26e45eab92cd7bcd94c17",
+      "docs/ere_identity_isolation_v1.md": "ef1b4c7f61001f6200276f54fb230b872041eaeb9d7f97f2f023d9f0425ce487",
+      "docs/ere_complete_coherent_resource_pilot_v1.md": "fccff18406114dad7b76b1fe20dd4f053795341c1ab84b1a3a8487edce40fda1",
+      "docs/ere_complete_coherent_resource_pilot_v1.json": "38e53ebf8523d3227d3005ba3145a66584a8c78709e5aab42367a98a96009262",
+      "crates/hg-sim-core/tests/ere_complete_coherent_resource_pilot.rs": "f305c30f335f35e1d6fb573f8be0126fbe5024aba422ddb9e2440b54cebeccae",
+      "scripts/verify_ere_complete_coherent_resource_pilot.py": "2b9ed7c9c6b1b458b5dded8abc6a97fed38388e98c84bbf4e708ec352c49b632",
+      "scripts/verify_ere_complete_coherent_optimized.py": "01e98c8f92bd7575f2eb6014ef6589ebc88dfc163d54a07363eb6f5a23810121",
+      "scripts/test_verify_ere_coherent_optimized.py": "0e304e057c9afb6afcde05268a772e30113d24d122c1d000ea7ae16044e61503",
+      "scripts/test_verify_ere_coherent_optimized_integration.py": "71fd19352bc7570e5bd85c36b6664b6d17281696ba7b4104b4a0cd044e06d8e8",
+      "docs/ere_complete_coherent_optimized_resource_pilot_v1.md": "23bb03542740b48225abefe64f6991e5a38e1d29f36c1ff209e6d012baf55543",
+      "docs/ere_complete_coherent_optimized_resource_pilot_v1.json": "6241e5839ac43f5a3dcf021ec4c8c61bf2b2f4dcb195467170f07bf91d031886",
+      "crates/hg-sim-core/tests/ere_complete_coherent_optimized_resource_pilot.rs": "8063220d2a4b269530ca5a0cad5dc05934bf3d2c05cb6301d881bf7315580c40",
+      "scripts/verify_ere_complete_coherent_optimized_resource_pilot.py": "f91852cbe445335f64a54525e6cda456affa3ddda7e8ac198b77cce24eae613e",
+      "scripts/verify_ere_coherent_draw_optimized.py": "979452b031ac9a6470f758e194054cce3bd8983f61f2bca6215a2c2221684bc4",
+      "scripts/test_verify_ere_coherent_draw_optimized.py": "a21f07b91a99e24e2fcee92e6792009293e225eaa1815d7054fd98614d54f34c",
+      "scripts/profile_ere_coherent_draw_auditor.py": "de6b3049da0856c6667ed6eb6a453f83a14ee24f62c9270f5688f175b002ec7c",
+      "docs/ere_coherent_draw_optimization_v1.md": "bb808172be0c0a7f156d93d66cade2416ed21954599c346c69a968a7f2b47ee1",
+      "scripts/test_verify_ere_coherent_draw_integration.py": "3df6f78449a5d4bac8a19037431ce33ab1a1976835da968ed59ae0643c8c349e",
+      "docs/ere_complete_coherent_draw_resource_pilot_v1.md": "edbced2dc3f12b7154da6740c1dee9224c0c79eec1386bdbb5ae1f517075b65e",
+      "docs/ere_complete_coherent_draw_resource_pilot_v1.json": "76455d793560b17462fcd3da6b4ba41d0cd1ff59a41b559b148073c336a46b6c",
+      "crates/hg-sim-core/tests/ere_complete_coherent_draw_resource_pilot.rs": "0ec60a80705f8fe3809b3f29b9459231c5776b3864430d8760ae2abebcd2d68b",
+      "scripts/verify_ere_complete_coherent_draw_resource_pilot.py": "6b2aef15eb2b19a07b398a7dabd49955e1beab6ce0eaeb6ece00ece31fef53f1",
+      "scripts/test_verify_ere_complete_coherent_draw_resource_pilot.py": "157822713b86d93a8d4fee461c581953c680f186fc6f4b2c0ab62584c1ce0354",
+      "docs/ere_complete_coherent_draw_resource_pilot_findings.md": "8bcc16bb6682f086c30f7abd27134c85c071a279bd920d7725f0565d0fd3ba94"
+    }
+  },
+  "stages": [
+    {
+      "id": "freeze",
+      "before_classification": true
+    },
+    {
+      "id": "completeness_controls",
+      "attacks": 5376,
+      "matched_clean_siblings": 5376,
+      "advancing_engine_steps": 0,
+      "native_and_frozen_stage_audit_required": true
+    },
+    {
+      "id": "primary_mutations",
+      "requires": "completeness_controls native and frozen audit pass",
+      "draws": 10000,
+      "on_prerequisite_failure": "not started"
+    },
+    {
+      "id": "final_frozen_audit_and_seal"
+    }
+  ],
+  "parents": {
+    "builder": "semantic::parent_bank",
+    "count": 168,
+    "dimensions": {
+      "shapes": 7,
+      "label_guard_variants": 4,
+      "proposal_variants": 3,
+      "activation_states": 2
+    },
+    "filter_or_resample_failed_parents": false,
+    "must_complete_encode_decode_all_before_trajectories": true,
+    "distinct_executable_count_is_measured_not_assumed": true
+  },
+  "primary": {
+    "draws": 10000,
+    "rng": "ChaCha8Rng pinned by Cargo.lock",
+    "mutation_seed_hex": "0xE352C01001",
+    "parent_sampling": "uniform index 0..167",
+    "operator_sampling": "uniform index 0..12",
+    "structural_role_sampling": "uniform Core/Proposal",
+    "operators": [
+      "AddSlot",
+      "RemoveSlot",
+      "RetargetSlot",
+      "AddVar",
+      "RemoveVar",
+      "AddPatternEdge",
+      "RemovePatternEdge",
+      "AddLabel",
+      "RemoveLabel",
+      "ChangeLabel",
+      "ChangePriority",
+      "Activate",
+      "Deactivate"
+    ],
+    "eligible_order": "stable handle index then generation; slots additionally role",
+    "empty_choice_consumes_gen_range": true,
+    "manifest_frozen_before_trajectories": true,
+    "metadata_refresh": false,
+    "mutant_reencoding": false,
+    "repair_or_resampling": false,
+    "adapter_is_assay_only_not_shipped_evolutionary_kernel": true,
+    "selection": "pinned raw selectors, exact schedule, paired material counterfactual",
+    "coherent_request_label_fallback": 0,
+    "local_metadata_updates": true
+  },
+  "completeness_controls": {
+    "per_parent": 32,
+    "total": 5376,
+    "excluded_from_primary_rate_denominator": true,
+    "all_controls_required": true,
+    "attacks": [
+      "owned_count_delete",
+      "owned_count_mistype",
+      "owned_count_increment",
+      "owned_count_duplicate",
+      "schema_delete",
+      "schema_mistype",
+      "schema_wrong_label",
+      "schema_duplicate",
+      "obligation_delete",
+      "obligation_mistype",
+      "obligation_increment",
+      "obligation_duplicate",
+      "ownership_delete",
+      "ownership_reverse",
+      "ownership_duplicate",
+      "ownership_retarget_foreign",
+      "witness_delete",
+      "witness_relabel",
+      "witness_reverse",
+      "witness_duplicate",
+      "payload_delete",
+      "payload_relabel",
+      "payload_reverse",
+      "payload_duplicate",
+      "body_delete",
+      "body_relabel",
+      "owned_orphan",
+      "double_erasure",
+      "encoding_wrong_version",
+      "activation_mistype",
+      "root_delete",
+      "root_relabel"
+    ],
+    "invalid_present_root_controls_per_parent": 30,
+    "root_absence_or_undiscovery_controls_per_parent": 2,
+    "required_relation_role_coverage": 13,
+    "required_obligation_key_coverage": 26,
+    "explicit_zero_obligation_required": true
+  },
+  "execution": {
+    "source": "complete-enabled GraphRuleSource",
+    "epoch_after_initial_compile": "Never",
+    "step_mode": "MaxParallel",
+    "max_pairings": 1,
+    "engine_seed": 42,
+    "steps_per_trajectory": 100,
+    "parent_baselines": 168,
+    "maximum_child_trajectories": 10000,
+    "ordinary_world_allocated_before_family": true,
+    "fixture": "coherent fixture: experiments::fixture semantics plus 64 neutral nodes and 96 ring edges; constructed directly in isolated store",
+    "meta_visible": false,
+    "instructions": [],
+    "editors": [],
+    "measure_ei": false,
+    "evaluator_enabled": false,
+    "legacy_causal_observer_enabled": false,
+    "full_horizon_required_for_measured_trace": true,
+    "explosion_early_out": false,
+    "allocation_mode": "metadata-isolated-v1",
+    "store_constructor": "HypergraphStore::new_metadata_isolated"
+  },
+  "classification": {
+    "precedence": [
+      "rejected",
+      "unmeasured",
+      "neutral",
+      "near_neutral",
+      "catastrophic",
+      "divergent"
+    ],
+    "neutral_identity": "executable RCF bytes",
+    "near_neutral_comparison": [
+      "exact_typed_projected_world_node_and_edge_handles_data_ordered_endpoints",
+      "projected_world_hash_vector",
+      "accepted_world_rewrite_count_vector"
+    ],
+    "neutral_soundness_checks": 50,
+    "neutral_soundness_selection": "first 50 eligible draws in sample order",
+    "neutral_soundness_requires_rng_equality": true,
+    "frozen_contiguous_zero_rewrite_window": 50,
+    "explosion_world_multiplier_strictly_greater_than": 4,
+    "catastrophic_union_not_double_counted": true,
+    "world_projection_excludes_meta": true,
+    "root_absence_is_not_quarantine_or_neutral": true,
+    "unmeasured_remains_in_valid_and_denominators": true,
+    "valid_transaction_statuses": [
+      "Applied",
+      "Inapplicable"
+    ],
+    "neutral_soundness_requires_exact_world_identity": true,
+    "match_work_is_retained_and_bounded_not_an_identity_field": true
+  },
+  "thresholds": {
+    "valid_min_fraction": 0.4,
+    "near_neutral_min_fraction": 0.1,
+    "catastrophic_max_fraction": 0.25,
+    "integer_predicates": [
+      "5*valid >= 2*samples",
+      "10*near_neutral >= samples where required",
+      "4*catastrophic <= samples"
+    ],
+    "strata_requiring_near_neutral": [
+      "overall",
+      "structural",
+      "active_parent_structural",
+      "topology_operator",
+      "active_parent_topology_operator",
+      "actual_pattern_change",
+      "active_parent_actual_pattern_change"
+    ],
+    "active_parent_structural_min_samples": 2000,
+    "activation_min_samples": 1000,
+    "actual_mode_changes_min": 100,
+    "trajectory_changing_mode_edits_min": 20,
+    "unmeasured_max": 0,
+    "neutral_soundness_failures_max": 0,
+    "both_roles_all_operators_both_activation_states_required": true,
+    "at_cap_split": "any Core or Proposal LHS/RHS arity equals 8",
+    "both_at_cap_and_off_cap_required": true,
+    "at_cap_separate_threshold": false,
+    "active_parent_topology_operator_min_samples": 2000,
+    "actual_pattern_change_min_samples": 1000,
+    "active_parent_actual_pattern_change_min_samples": 500
+  },
+  "proposed_resources": {
+    "limits_are_proposed_not_approved": true,
+    "advancing_engine_steps_max": 1016800,
+    "matching_policy": "Pooled",
+    "classification_work_limit_per_step": 400000,
+    "classification_result_limit_per_step": 50000,
+    "runtime_work_limit_unchanged": 50000,
+    "runtime_result_limit_unchanged": 50000,
+    "full_store_node_cap": 2000,
+    "full_store_edge_cap": 4000,
+    "thread_count": 1,
+    "assay_wall_time_cap_seconds": 3600,
+    "assay_output_cap_bytes": 4294967296,
+    "auditor_wall_time_cap_seconds_shared": 900,
+    "auditor_resident_memory_cap_bytes": 1073741824,
+    "oracle_or_cap_replay_budget": 0
+  },
+  "meta_limits": {
+    "max_arity": 8,
+    "max_vars": 8,
+    "max_pattern_edges": 16,
+    "max_region_nodes": 128,
+    "max_region_edges": 256,
+    "radius": 5
+  },
+  "proposed_artifact_directory": "output/ere_complete_coherent_draw_full_20260929",
+  "acceptance": {
+    "standalone_stage_and_full_audit_required": true,
+    "tamper_categories_min": 27,
+    "all_frozen_and_sealed_hashes_required": true,
+    "completed_failure_is_scientific_result": true,
+    "capped_or_incomplete_is_not_null_or_pass": true,
+    "preserve_failures": true,
+    "automatic_retries": false,
+    "outcome_driven_criteria_changes": false,
+    "training_admission_changes": false
+  },
+  "pending_after_pass": [
+    "optimizer distribution/semantic-effect/signal-noise prechecks",
+    "explicit complete-profile training admission",
+    "separate training authorization"
+  ],
+  "kernel_profile": "E2-complete-coherent-kernel-v1",
+  "raw_baseline": {
+    "archive": "output/ere_complete_gr1_full_20260927",
+    "sha256": {
+      "run_status.json": "ff2babd1a5d69f3a55b3a0caf584a69377288be4c0c7adbd76b48ef85575ccf5",
+      "audit_full.json": "6ebd678f4a698afd0105f5e3eb279dedecfdaaf2674f34bbada8a62959142f1a",
+      "classification_summary.json": "2782ead853ce10887ddb5bf58ebb392557a60d1becd56f55e764afead3109721",
+      "output_sha256.json": "6d33414882a273ec1e5826837961f847155d6fd85d5715d53b0747889b405dc1",
+      "frozen_inputs_sha256.json": "b7bbb9fd72f993a703a61fadffd100b496c89ceba5318e8f10eeb0b0e007335b"
+    }
+  },
+  "development": {
+    "draws": 64,
+    "horizon": 100,
+    "wall": 900,
+    "output": 536870912,
+    "audit": 600,
+    "steps": 23200
+  },
+  "allocator": {
+    "metadata_label_base": 4293918720,
+    "ordinary_lane": "odd indices",
+    "metadata_lane": "even indices",
+    "independent_nodes_and_edges": true,
+    "independent_free_lists": true,
+    "old_reader_rejection_required": true,
+    "existing_stores_not_migrated": true,
+    "independent_allocator_action_and_world_replay_required": true
+  },
+  "coherent_baseline": {
+    "archive": "output/ere_complete_coherent_smoke_v3_20260928",
+    "sha256": {
+      "run_status.json": "ac800ca1eb8e695c7fdd8cd4ae4b445b9a365f9c657be285e2c7cd9a86d65b22",
+      "audit_full.json": "815f825c9a7b508948f523e8b681bbf2b0d30ea4873b01753155a8c341c81c6f",
+      "classification_summary.json": "0c9f2b5388690485ef2be687820b97cb02fe4163aec951288a2d25f75b4524c9",
+      "output_sha256.json": "d4afe7ed8769541b0e11571219865543e0bc886337983f75a3cab7d7aaf86b0a"
+    }
+  },
+  "identity_baseline": {
+    "archive": "output/ere_identity_isolation_20260928",
+    "sha256": {
+      "manifest.json": "6fa9acb26eb70d9b8c47585776e9eb0a7dbea03c08f2bab22ae172355d393479",
+      "audit.json": "80b736c539ec9e93edd98a46ac7d88b04d9e9e44f29a0d4aecd29addfb3f4342",
+      "output_sha256.json": "0763aaec848ec236004e549652b14f6b779b780f65047bf7a1262517855d4f02"
+    }
+  },
+  "isolated_baseline": {
+    "archive": "output/ere_complete_coherent_isolated_smoke_20260928",
+    "sha256": {
+      "manifest.json": "7b1b9ee2270d279a54d4c0d6d612d3528d54234fec337e9f274a82bff7b5602f",
+      "run_status.json": "c2354ff00178bf0ba0cf9483708a9ce3238f0e36050e97368bffa020d4add11a",
+      "audit_full.json": "60346ffa3aff15960a54dad67595a22f44549699ca46673a22a540d9c78ca9ec",
+      "classification_summary.json": "28c3573870a53be2fdd44787fa0efa005a499aa299ff550ffb9d07c48e139579",
+      "output_sha256.json": "12a09e81218b7a12af7ca235b822d5c2192250b6e49e945f98407a27784bf8a4",
+      "frozen_inputs_sha256.json": "f4a8b57f356359583761c40f5b30d0fedc92f48b4bfb7ea87133c9589e7d0dbc"
+    }
+  },
+  "resource_baseline": {
+    "archive": "output/ere_complete_coherent_resource_pilot_20260928",
+    "sha256": {
+      "manifest.json": "923ff126455c0fae69b2d734b04f377320af479680ef741e287c7bf5ef32b9cb",
+      "run_status.json": "d588e1f5bc0c19299dc78f4ab52c30957207a2c96ec9516cae8c386714265fda",
+      "audit_full.json": "1880ac3a139b7089b4148f750d72cbac06d068f9480d772eadebf3d4d41b49db",
+      "audit_controls.json": "200e82ef4b4a6aaf6859113e1f66c3337df77fba9a41e946035e84f7a4d4e67e",
+      "classification_summary.json": "473253bc322d3006e97c263b2df4275692fd194fce27e47bb4fa0ee858957b5e",
+      "native_controls_timing.json": "4a0d4ec652ffbdafd7aa089b47b800b2b891862cc51d866a1a00c66e2f899800",
+      "native_trajectory_timing.json": "823b37f090754de1e281ecd0879ad73d55b1836fc9eb84e8fa41b84c8169e840",
+      "output_sha256.json": "156b1f9e3c17973c31ed5c1b0bbc87f887ec17a69f015e0f8431711191c1b0d4",
+      "frozen_inputs_sha256.json": "4109523572347b82fc637804f951edee82bfd96c14da8c0f35a847dfe58f29d7",
+      "parents.jsonl.gz": "a64a941f4c27171a3cb364a6252d9e1f310c96910a784c8bfe6ceef1e8e0bad1",
+      "draw_manifest.jsonl.gz": "458813675ddfbad4ce9caab6c0dfa5dddd681e21f3e59db1b006af4b3afd8f6f",
+      "control_manifest.jsonl.gz": "85576b3b2f76d8d279639c88d380d962170cb59f0d751d92921745e0e2c1e8b8",
+      "controls.jsonl.gz": "e144f7b2d42e9a212d19667e3323930ea001787fbea34b33144e77c8444fc3e1",
+      "parent_traces.jsonl.gz": "c6f1967b5655da02e80e6445eb482918b0a880abc67b1ff14f90b624f4f59d17",
+      "child_traces.jsonl.gz": "f458d9c2c44f3e3032da72e7182c14b6c01e88e23af0aa31519a9621d90c20d3",
+      "classifications.jsonl.gz": "a15f8d24aa24627aef3ca19b4e973c6b78e49eb1e9b9c3befd51aaa221527c1c"
+    }
+  },
+  "optimized_baseline": {
+    "archive": "output/ere_coherent_auditor_optimization_20260928/optimized_timing_serial",
+    "sha256": {
+      "manifest.json": "352fa44d7298a5412b50c8679d73992314329c7c20909b19c2ba137e7284c59d",
+      "result.json": "bca08cbd61ebe915872a3d9ab595a3bd2f11e5d5f5adc2e36c9b67d469132bc7",
+      "output_sha256.json": "bc222ce92fc3e8eba8b3480b0c3584e9e94c21c6987527b97efda82eee61e724"
+    }
+  },
+  "optimization": {
+    "winner": "draw-local single checked material/decode evaluation; inherits optimized-v1 cloning and handle parser",
+    "material_clone": "detached JSON-wire clone of known node/edge maps only",
+    "replay_ownership": "outer dictionaries copied; existing nested records remain read-only; no data effects/relabels accepted",
+    "handle_cache": "generation-sensitive immutable tuple values; maximum 4096",
+    "semantic_functions_verbatim_from_winner": true,
+    "no_inventory_decode_or_fingerprint_cache": true,
+    "cli": "assertions required; explicit scientific/development mode; only this new profile; exclusive root writes; frozen authorization receipt required for full mode",
+    "diagnostic_parity": "all fixed parent/control streams identical; exact first 64 draw/classification rows and corresponding 55 full child traces equal latest sealed pilot; full scientific summary independently recomputed",
+    "timing": "individual child replay clocks and aggregate nontrace mutation overhead; diagnostic only",
+    "required_training_admitted": false,
+    "draw_local_reuse": {
+      "producer_semantics_unchanged": true,
+      "checked_draw": "fresh raw-counterfactual and coherent material/complete decode checks once per primary draw",
+      "classifier": "private continuation consumes freshly derived result; standalone classification always reconstructs",
+      "ownership": "no mutation of parent/request/staged inventory/result before classification; child replay initial input remains read-only",
+      "cross_draw_validation_cache": false,
+      "independent_child_initial_decode_retained": true,
+      "semantic_functions_verbatim_from_selected_candidate": true,
+      "future_mutable_effects_require_new_ownership_proof": true
+    },
+    "full_gate_pass_requires": "full numerical pass and complete measurement, standalone controls/full audits and output seal"
+  },
+  "integrated_baseline": {
+    "archive": "output/ere_complete_coherent_optimized_resource_pilot_20260928",
+    "sha256": {
+      "manifest.json": "8531deba300b01c421895879cba46a1de3ecbfcb215c005430745605fb58e664",
+      "run_status.json": "0d477f954320d802662679b99ab573fe3863cc928814375cbebeeb6e4cbb4315",
+      "audit_full.json": "31de85d8a8f9d9ba3436d99277849f94d0707bd758cc4214a57ae65de10a2cc5",
+      "audit_controls.json": "4cd42cfd87b5cffaa81935e034e384545bc3744a0681ba9d6361c2fb5e1bdbb0",
+      "classification_summary.json": "473253bc322d3006e97c263b2df4275692fd194fce27e47bb4fa0ee858957b5e",
+      "native_controls_timing.json": "eba767a265230434be4eaff53f2d8f33d4a1b237e08f80e4d6081218edba32c9",
+      "native_trajectory_timing.json": "7ef0946a7a407a3e0eb564e9bd0d2bb4d19797cecc81dd3eeb65eaaa01058117",
+      "output_sha256.json": "c6631d665b2deeec286104cb3173662867dc93794451e17c20f9de08090d0986",
+      "frozen_inputs_sha256.json": "58df53e9775a8bb73dbc0605e6de9af9eae463a7e092d5b7840194f6799ca080",
+      "parents.jsonl.gz": "a64a941f4c27171a3cb364a6252d9e1f310c96910a784c8bfe6ceef1e8e0bad1",
+      "draw_manifest.jsonl.gz": "458813675ddfbad4ce9caab6c0dfa5dddd681e21f3e59db1b006af4b3afd8f6f",
+      "control_manifest.jsonl.gz": "85576b3b2f76d8d279639c88d380d962170cb59f0d751d92921745e0e2c1e8b8",
+      "controls.jsonl.gz": "e144f7b2d42e9a212d19667e3323930ea001787fbea34b33144e77c8444fc3e1",
+      "parent_traces.jsonl.gz": "c6f1967b5655da02e80e6445eb482918b0a880abc67b1ff14f90b624f4f59d17",
+      "child_traces.jsonl.gz": "f458d9c2c44f3e3032da72e7182c14b6c01e88e23af0aa31519a9621d90c20d3",
+      "classifications.jsonl.gz": "a15f8d24aa24627aef3ca19b4e973c6b78e49eb1e9b9c3befd51aaa221527c1c"
+    }
+  },
+  "draw_baseline": {
+    "archive": "output/ere_coherent_draw_optimization_20260928/candidate_timing_serial",
+    "sha256": {
+      "manifest.json": "c998b8f75ccdb70b6bce286fcd1fc074914e0995cea36adf3076234dd2a19bd7",
+      "result.json": "cafa157a52f2a04217eaf10d30bc3af04f490f677a74f5cc8e85421a82353af8",
+      "output_sha256.json": "ee5caa2045459630320cd580028c407bbcf53f13922bd6fd9239f6651d2d34cf"
+    }
+  },
+  "launch": {
+    "explicit_user_approval_required": true,
+    "approved_steps_token": "1016800",
+    "approved_caps_token": "3600s,4GiB,900s,1GiB,400k/50k",
+    "approved_contract_token": "SHA256 of this JSON companion",
+    "authorization_frozen_before_measurement": true,
+    "freeze_audit_seconds_max": 120,
+    "total_wall_includes_setup_freeze_audits_seal": true,
+    "automatic_retries": false
+  },
+  "resource_sizing": {
+    "basis": "latest 64-draw integrated pilot; single-run policy-aware extrapolation, not a guarantee",
+    "policy_aware_audit_seconds": 722.452294307,
+    "prior_policy_aware_total_seconds_with_pilot_setup_proxy": 3429.439621168,
+    "full_size_freeze_generation_compression_and_read_cost_established": false,
+    "total_estimate_is_incomplete": true,
+    "all_child_mean_audit_seconds": 1066.967,
+    "all_child_mean_native_seconds": 4892.425,
+    "no_automatic_budget_increase": true
+  },
+  "latest_pilot_baseline": {
+    "archive": "output/ere_complete_coherent_draw_resource_pilot_20260928",
+    "sha256": {
+      "manifest.json": "0ed7a01cdbcd9f21eac53b7d7515297d780cb1283855e4168cade46e61cc088a",
+      "run_status.json": "e51fd9877459177d8f4f12754a78607c4da795fa00b0fa44198168177c290e9d",
+      "audit_full.json": "7344dd8ff5c71a890dcfee061445e757cf6c920e2e2a048ebbef3853472eeb81",
+      "audit_controls.json": "7ddab2640d9bdf1b57be144b46da04cc027a560d28868e89e7e653a1d9055567",
+      "classification_summary.json": "473253bc322d3006e97c263b2df4275692fd194fce27e47bb4fa0ee858957b5e",
+      "native_controls_timing.json": "fab32ee3e41ee2819804d18a4b8a10cc5b840c13654c9e1bdc272f0a52b324ea",
+      "native_trajectory_timing.json": "66af36b6d4ebe73e17c5e85438605458b4034c34c9292f91452efbf91788a03f",
+      "output_sha256.json": "c4622072b07a0c77a0cf6eae2893f09cc27c19b370b0b1410a1cd380b11fac2d",
+      "frozen_inputs_sha256.json": "bb341a6dd29c9bb0065dc3cb919b50099ac05c689a22ba30d82cfbf2b8d8b6b7",
+      "parents.jsonl.gz": "a64a941f4c27171a3cb364a6252d9e1f310c96910a784c8bfe6ceef1e8e0bad1",
+      "draw_manifest.jsonl.gz": "458813675ddfbad4ce9caab6c0dfa5dddd681e21f3e59db1b006af4b3afd8f6f",
+      "control_manifest.jsonl.gz": "85576b3b2f76d8d279639c88d380d962170cb59f0d751d92921745e0e2c1e8b8",
+      "controls.jsonl.gz": "e144f7b2d42e9a212d19667e3323930ea001787fbea34b33144e77c8444fc3e1",
+      "parent_traces.jsonl.gz": "c6f1967b5655da02e80e6445eb482918b0a880abc67b1ff14f90b624f4f59d17",
+      "child_traces.jsonl.gz": "f458d9c2c44f3e3032da72e7182c14b6c01e88e23af0aa31519a9621d90c20d3",
+      "classifications.jsonl.gz": "a15f8d24aa24627aef3ca19b4e973c6b78e49eb1e9b9c3befd51aaa221527c1c"
+    }
+  }
+}

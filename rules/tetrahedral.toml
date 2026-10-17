@@ -1,0 +1,41 @@
+# Tetrahedral rule
+# A 4-node complete graph (6 edges) subdivides into 5 nodes with 10 edges
+
+[[rules]]
+name     = "tetrahedral"
+priority = 2
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "b"],
+  ["a", "c"],
+  ["a", "d"],
+  ["b", "c"],
+  ["b", "d"],
+  ["c", "d"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c", "d"]
+
+[rules.rhs]
+nodes = ["a", "b", "c", "d", "e"]
+edges = [
+  ["a", "e"],
+  ["b", "e"],
+  ["c", "e"],
+  ["d", "e"],
+  ["a", "b"],
+  ["a", "c"],
+  ["a", "d"],
+  ["b", "c"],
+  ["b", "d"],
+  ["c", "d"],
+]
+
+[rules.rhs.node_labels]
+e = 0

@@ -1,0 +1,54 @@
+{
+  "protocol": "selfmod-v24-conflict-attribution-engineering-v1",
+  "frozen_at_utc": "2026-10-09T08:21:13.136318+00:00",
+  "scope": "engineering observation of fixed archived checkpoints, no intervention or science",
+  "targets": [
+    {
+      "archive": "selfmod_v23_fresh50k_20260928",
+      "seed": 541,
+      "offset": 31000,
+      "steps": 1000
+    },
+    {
+      "archive": "selfmod_v22_maintenance_20260928",
+      "seed": 463,
+      "offset": 16000,
+      "steps": 1000
+    }
+  ],
+  "arms": [
+    "faithful",
+    "edited"
+  ],
+  "target_order": "listed archive order, then listed arm order, control then observed",
+  "scheduler": "unchanged random keyed tie-break and canonical cap64 truncation",
+  "family": "paid third child and immutable genealogical descendants",
+  "required_observations": [
+    "all generated candidate membership before canonical truncation",
+    "submitted candidate input indices",
+    "exact keyed tie-break values and greedy consideration order",
+    "accepted candidates and all already-claimed node owners for rejected candidates",
+    "blocker classification: focal family, older prune relatives, other member0, member1, member2",
+    "compact pre-object graph witness for independent primitive candidate enumeration"
+  ],
+  "admission": [
+    "all4000 native reference rows equal archived slices",
+    "all4000 observed rows byte-exact to reference",
+    "all4 final/checkpoint and allocator states equal archived endpoints",
+    "independent order/greedy blocker and candidate fate reconstruction",
+    "zero corruption acceptance",
+    "prior archive preservation",
+    "independent candidate identity enumeration from graph witness, restricted to archived two-variable primitives"
+  ],
+  "max_target_advancing_steps": 8000,
+  "max_engineering_fixture_advancing_steps": 256,
+  "max_parallel_native_processes": 1,
+  "new_scientific_advancing_steps": 0,
+  "claim_limits": [
+    "selected retrospective checkpoints only",
+    "no counterfactual winners for truncated candidates",
+    "blocker attribution is observational, not intervention benefit",
+    "no genotype superiority or training admission"
+  ],
+  "failure_policy": "retain every target and failed run, no replacement, record corrections as engineering revisions"
+}

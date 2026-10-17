@@ -1,0 +1,37 @@
+# LK-R energy-metered growth (plan v2 §6): the sustained bounded
+# structural phase on a planted-shortcut lattice, with the full v2
+# instrument stack. Era = e_total/(q+c) steps; see docs/user_guide.md
+# §12.5 and docs/fixture_calibration.md for the gate results.
+experiment_name = "lkr_example"
+seed = 42
+
+[rules]
+source = "File"
+file_path = "rules/lk_pair.toml"
+
+[initial]
+condition_type = "TriLattice"
+width = 48
+defect_density = 0.005     # p_peak(48², cap 12); 0.0 = control arm
+
+[engine]
+step_mode = "MaxParallel"
+max_steps = 2000
+metrics_window_interval = 100
+thread_count = 4
+
+[lk_rules]
+enabled = true
+e_total = 100000.0         # era ≈ 1666 steps; scale for longer science runs
+
+[leakage]
+enabled = true
+cadence_steps = 100
+detour_sample_edges = 1024
+
+[leakage.tracked]
+enabled = true
+recompute_cadence = 100
+
+[campaign.abort]
+exploding_windows = 2

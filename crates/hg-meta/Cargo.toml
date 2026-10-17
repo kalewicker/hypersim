@@ -1,0 +1,15 @@
+[package]
+name = "hg-meta"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hg-core = { path = "../hg-core" }
+hg-rules = { path = "../hg-rules" }
+rustc-hash = { workspace = true }
+serde = { workspace = true }
+bincode = { workspace = true }
+smallvec = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }

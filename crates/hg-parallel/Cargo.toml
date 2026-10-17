@@ -1,0 +1,9 @@
+[package]
+name = "hg-parallel"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hg-core = { path = "../hg-core" }
+hg-rules = { path = "../hg-rules" }
+rayon = { workspace = true }

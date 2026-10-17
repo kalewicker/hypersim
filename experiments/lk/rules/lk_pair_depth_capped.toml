@@ -1,0 +1,121 @@
+# lk_pair_depth_capped.toml — EXPLORATORY (EXP-L9b, 2026-07-15), not the
+# pre-registered P1 instrument. EXP-L9 found the v3 §3 cap (guard and
+# inheritance both on x, the energy payer) structurally INERT: only the
+# gen-0 seed ever holds ≥ θ under downhill-only transport, so every
+# child is generation 1 and the guard never binds — all g_max cells were
+# identical to the ∞-control (see leakage_experiment_findings.md).
+#
+# This variant caps chain DEPTH instead: the guard reads y (the endpoint
+# the fresh midpoint displaces) and w inherits generation = y + 1, so
+# generation counts position along an extruded filament and the guard
+# stops extrusion at exactly g_max links per direction. If the emergent
+# wormhole factory is filament extrusion (F-LK5), production collapses;
+# if wormholes keep appearing with chains pinned at g_max, the factory
+# is elsewhere.
+#
+# Everything else is byte-for-byte lk_pair.toml; generation is key 6 and
+# [lk_rules] g_max must be set (IC init, hazard 1), same as the capped
+# family.
+
+[[rules]]
+name     = "lk_metered_subdivide"
+priority = 1
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["x", "y"]
+edges = [
+  ["x", "y"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["x", "y"]
+
+[[rules.lhs.node_property_guards]]
+var      = "x"
+property = 1
+op       = "gte"
+value    = 100.0
+
+[[rules.lhs.node_property_guards]]
+var      = "y"
+property = 6
+op       = "lt"
+value    = 4.0
+
+[rules.rhs]
+nodes = ["x", "w", "y"]
+edges = [
+  ["x", "w"],
+  ["w", "y"],
+]
+
+[[rules.rhs.property_effects]]
+var   = "w"
+key   = 1
+op    = "set"
+value = 50.0
+
+[[rules.rhs.property_effects]]
+var   = "x"
+key   = 1
+op    = "subtract"
+value = 60.0
+
+[[rules.rhs.property_effects]]
+var        = "w"
+key        = 6
+op         = "scale_from"
+source_var = "y"
+source_key = 6
+factor     = 1.0
+
+[[rules.rhs.property_effects]]
+var   = "w"
+key   = 6
+op    = "add"
+value = 1.0
+
+[[rules]]
+name     = "lk_transport"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["x", "y"]
+edges = [
+  ["x", "y"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["x", "y"]
+
+[[rules.lhs.node_property_compares]]
+var_a  = "x"
+key_a  = 1
+op     = "gte"
+var_b  = "y"
+key_b  = 1
+offset = 50.0
+
+[rules.rhs]
+nodes = ["x", "y"]
+edges = [
+  ["x", "y"],
+]
+
+[[rules.rhs.property_effects]]
+var   = "x"
+key   = 1
+op    = "subtract"
+value = 25.0
+
+[[rules.rhs.property_effects]]
+var   = "y"
+key   = 1
+op    = "add"
+value = 25.0

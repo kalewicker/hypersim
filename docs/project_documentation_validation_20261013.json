@@ -1,0 +1,42 @@
+{
+  "catalogue_sha256": "9b72f94103ade9d773169865f9b1cee8077a18ba79f550d886d40b0b63038293",
+  "checks": {
+    "current_document_missing_links": [],
+    "document_hashes": 505,
+    "final_campaign_decision": "valid_negative",
+    "final_campaign_manifest": {
+      "assay_requests": 111,
+      "independent_campaign_audit_pass": true,
+      "native_rewrites": 13178,
+      "sampling_slots": 1880,
+      "scientific_worlds": 188,
+      "status": "complete"
+    },
+    "final_campaign_payload_hashes": 9306,
+    "final_campaign_seal": "7d49f529fa597678086fa23c354dbf9897d90dc285fb75158656993406f17f52",
+    "local_markdown_links": 2116,
+    "metadata_hashes": 2835,
+    "metadata_not_read": 8,
+    "report_toc_anchors": 15,
+    "root_workspace_members": 21,
+    "saved_independent_recheck_exit_code": 0
+  },
+  "date": "2026-10-13",
+  "errors": [],
+  "historical_experiments_rerun": false,
+  "inventory_sha256": "1e868cfc5c937eb391b2010cad58b9fca0ff262144af836999b491dc1d5c6c2e",
+  "legacy_missing_local_links": [
+    {
+      "exists": false,
+      "line": 5,
+      "source": "experiments/lk/docs/gge1_findings.md",
+      "target": "../runs/ge/gge1/gge1_report.txt"
+    }
+  ],
+  "limits": "Markdown file/path links excluding fenced code and external URI schemes; report table-of-contents anchors checked, but no historical anchor or external web validation. Legacy missing targets retained below, not repaired by inventing artifacts. Oversized metadata records are inventoried by path/size only.",
+  "native_execution": false,
+  "new_independent_physics_audit": false,
+  "passed": true,
+  "profile": "hypersim-project-documentation-validation-v1",
+  "report_sha256": "1af756654f8a01ceee8231075fb1250c628fcb5db998599c6e301330eda1fb98"
+}

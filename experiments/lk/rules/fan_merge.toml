@@ -1,0 +1,102 @@
+# fan_merge — a two-rule substrate whose two rules have OPPOSITE
+# structural effects, joined by a label cycle.
+#
+# Authored for plan v3 §8.3 alongside `relay_pair.toml`. Two substrates that
+# replicate a result the same way are weaker evidence than two that
+# replicate it differently, so these are deliberately unlike each other:
+#
+# | | `relay_pair` | `fan_merge` |
+# |---|---|---|
+# | rule A | +1 node, +1 edge | +2 nodes, +2 edges (branches) |
+# | rule B | +1 node, +1 edge | +1 edge, **+0 nodes** (closes a triangle) |
+# | the two rules | structurally identical | growth vs densification |
+#
+# `relay_pair` isolates rule identity by making the rules structurally
+# interchangeable. This one does the opposite: `fan` grows the graph
+# outward and `merge` closes it up, so the budget a policy spends is a
+# choice between two different *kinds* of change and the mean degree moves
+# in opposite directions depending on the allocation. Neither design is more
+# correct — they probe different halves of the same question, and a margin
+# that survives both is not a margin about one composition.
+#
+# THE CYCLE, per §8.1
+#
+#   fan   : a label-0 node  ->  two label-1 leaves on a common neighbour
+#   merge : two label-1 nodes sharing a neighbour  ->  a closed triangle,
+#           both relabelled to 0
+#
+# `fan` regenerates exactly the configuration `merge` matches on, and
+# `merge` regenerates the label-0 nodes `fan` needs. Neither can exhaust
+# the other. The cycle is in the dependency graph, and — per plan risk 2 —
+# it specifies nothing about what gets built: `merge` closes a triangle
+# because that is the minimal way to consume two siblings without deleting
+# them, not because triangles are being planted as a target. Nothing here
+# is reward-carrying and no rule is the right answer. If any result on this
+# substrate turns out to depend on the triangle specifically, that is a
+# contaminated result and must be reported as one.
+#
+# Priorities equal, per `wn_three.toml`.
+
+[[rules]]
+name     = "fan"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [
+  ["a", "b"],
+]
+
+[rules.lhs.node_labels]
+a = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b"]
+
+[rules.rhs]
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "b"],
+  ["a", "c"],
+  ["a", "d"],
+]
+
+[rules.rhs.node_labels]
+c = 1
+d = 1
+
+[[rules]]
+name     = "merge"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b"],
+  ["a", "c"],
+]
+
+[rules.lhs.node_labels]
+b = 1
+c = 1
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c"]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b"],
+  ["a", "c"],
+  ["b", "c"],
+]
+
+[rules.rhs.node_labels]
+b = 0
+c = 0

@@ -1,0 +1,190 @@
+{
+  "protocol": "selfmod-v19b-second-edit-semantic-v1",
+  "seeds": [
+    359,
+    367,
+    373,
+    379,
+    383,
+    389,
+    397,
+    401
+  ],
+  "arms": [
+    "faithful",
+    "edited"
+  ],
+  "policy": "replace8",
+  "initial_prefix_limit": 256,
+  "readiness_steps": 10000,
+  "second_prefix_limit": 256,
+  "horizon": 10000,
+  "warmup_steps": 2000,
+  "window_steps": 1000,
+  "subwindow_steps": 250,
+  "limit": 8,
+  "replication_threshold": 6,
+  "future_mutation": false,
+  "primary_family": "second_child_and_immutable_genealogical_descendants",
+  "initial_prune": {
+    "id": "op11_member0_draw1",
+    "operator": 11,
+    "parameters": [
+      14984134727853237840,
+      12375471953779355968,
+      14176329756113589063,
+      15783146528319595889,
+      2475482604415574477
+    ],
+    "mutant_class_hash": 6722725964470947410,
+    "decoded_spec": {
+      "creates": [
+        2
+      ],
+      "deletes": [],
+      "guards": [],
+      "n_vars": 2,
+      "pedges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "priority": 0,
+      "redges": [
+        [
+          2,
+          1
+        ]
+      ],
+      "relabels": [],
+      "var_labels": [
+        0,
+        1
+      ]
+    }
+  },
+  "second_edit": {
+    "id": "op03_member0_draw1",
+    "operator": 3,
+    "parameters": [
+      1280996023369054932,
+      2506804415545024566,
+      15872639235278076553,
+      5490797566994465895,
+      11698519157483846130
+    ],
+    "parent_spec": {
+      "creates": [
+        2
+      ],
+      "deletes": [],
+      "guards": [],
+      "n_vars": 2,
+      "pedges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "priority": 0,
+      "redges": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "relabels": [],
+      "var_labels": [
+        0,
+        1
+      ]
+    },
+    "decoded_spec": {
+      "creates": [
+        2
+      ],
+      "deletes": [],
+      "guards": [],
+      "n_vars": 2,
+      "pedges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "priority": 0,
+      "redges": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "relabels": [],
+      "var_labels": [
+        null,
+        1
+      ]
+    },
+    "mutant_class_hash": 10434338941108498023
+  },
+  "composite_spec": {
+    "creates": [
+      2
+    ],
+    "deletes": [],
+    "guards": [],
+    "n_vars": 2,
+    "pedges": [
+      [
+        0,
+        1
+      ]
+    ],
+    "priority": 0,
+    "redges": [
+      [
+        2,
+        1
+      ]
+    ],
+    "relabels": [],
+    "var_labels": [
+      null,
+      1
+    ]
+  },
+  "protocol_status": "authorized",
+  "composite_class_hash": 4713340462273116244,
+  "target_adapter": {
+    "operator": 3,
+    "target_variable": 0,
+    "selection": "unique HAS_PNODE child with K_VAR_ID equal to zero after native paid birth",
+    "effective_parameter_zero": "index of that node in unchanged native children() order",
+    "other_parameters": "unchanged from authenticated op03_member0_draw1",
+    "absent_or_duplicate_target": "hard failure; no repair or alternative",
+    "scheduler_draws": 0,
+    "record": [
+      "original_parameters",
+      "effective_parameters",
+      "native_pnode_order",
+      "target_index",
+      "target_variable",
+      "child"
+    ]
+  },
+  "supersedes_interrupted_attempt": "output/selfmod_v19_second_edit_20260928",
+  "authorization": {
+    "date": "2026-09-28",
+    "user_instruction": "yeah let's run it",
+    "scope": "revised full preflight then fresh fixed v19b assay and exact verification; no automatic scientific retry"
+  }
+}

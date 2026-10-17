@@ -1,0 +1,121 @@
+# wn_three — a three-rule substrate for Stage 2.
+#
+# WHY THIS FILE EXISTS
+#
+# Every builtin rule set ships exactly ONE rule. `StaticBias` has one
+# parameter per rule, so on a single-rule set its entire expressive range
+# collapses: softmax over one logit is constant, every candidate scores
+# identically, and Gumbel-top-k over equal scores is a uniform random
+# subset. `StaticBias` is then *provably identical to budget-matched
+# random*, and a Stage 2 campaign on it can only fit noise. Stage 2's
+# hypothesis — "a per-rule preference vector can steer the substrate" —
+# is not false on those rule sets, it is unstateable.
+#
+# The three rules below are all measured-live on `WhiteNoise` in the same
+# liveness matrix that gated Stage 0a (`docs/policy_config.md` §2.5:
+# binary_edge 1 311 920, triangle_subdivide 73 728, growth_treadmill 576
+# attempted matches over 64 steps). Composing them changes no rule; it
+# puts three of them in one pool so that "which rule to spend budget on"
+# becomes a question with an answer.
+#
+# This is a SUBSTRATE, not a learning fixture. Nothing here was designed
+# to be preferred: no rule is planted as the right answer, there is no
+# reward-carrying structure, and the composition is fixed by which rules
+# happen to be live on a shared initial condition rather than by what
+# would be learnable. That is what makes it eligible for Stage 2's "on
+# >= 1 non-fixture rule set" clause, unlike `fl1_two_rule`.
+#
+# PRIORITIES ARE DELIBERATELY EQUAL. `triangle_subdivide` ships at
+# priority 1 and the other two at 0. Kept as-shipped, the conflict
+# resolver would carry a standing preference among the rules and any
+# measured "the policy chose rule X" would be confounded with "the
+# resolver preferred rule X". Flattening to 0 makes rule identity the
+# policy's business alone. It is the one edit made to the rules.
+
+[[rules]]
+name     = "binary_edge"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [
+  ["a", "b"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b"]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "c"],
+  ["b", "c"],
+]
+
+[rules.rhs.node_labels]
+c = 0
+
+[[rules]]
+name     = "triangle_subdivide"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b"],
+  ["b", "c"],
+  ["a", "c"],
+]
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b", "c"]
+
+[rules.rhs]
+nodes = ["a", "b", "c", "d"]
+edges = [
+  ["a", "d"],
+  ["b", "d"],
+  ["c", "d"],
+  ["a", "b"],
+  ["b", "c"],
+  ["a", "c"],
+]
+
+[rules.rhs.node_labels]
+d = 0
+
+[[rules]]
+name     = "growth_treadmill"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [
+  ["a", "b"],
+]
+
+[rules.lhs.node_labels]
+a = 1
+b = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["a", "b"]
+
+[rules.rhs]
+nodes = ["a", "b", "c"]
+edges = [
+  ["a", "b"],
+  ["a", "c"],
+]
+
+[rules.rhs.node_labels]
+c = 1

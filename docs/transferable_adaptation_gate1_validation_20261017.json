@@ -1,0 +1,109 @@
+{
+  "audit_pass": true,
+  "causal_controls": {
+    "audit_seal_sha256": "9b1e8e020b3a1b69138d8fe1f7e0d702c73084549c21dacfeaacf3182e7c86cb",
+    "causal_controls_pass": true,
+    "checker_sha256": "d01767755bb8e75458a356d0f74f3601da0d140402d8019e99b4fb262c0d0026",
+    "comparisons": [
+      {
+        "complete_native_history_byte_equal": true,
+        "pattern": "Alternating",
+        "physical_state_attestations_equal": 9,
+        "reference": "useful",
+        "target": "sham"
+      },
+      {
+        "complete_native_history_byte_equal": true,
+        "pattern": "Alternating",
+        "physical_state_attestations_equal": 9,
+        "reference": "useful",
+        "target": "restoration"
+      },
+      {
+        "complete_native_history_byte_equal": true,
+        "pattern": "Alternating",
+        "physical_state_attestations_equal": 9,
+        "reference": "ancestor",
+        "target": "reversion"
+      },
+      {
+        "complete_native_history_byte_equal": true,
+        "pattern": "Blocks4",
+        "physical_state_attestations_equal": 9,
+        "reference": "useful",
+        "target": "sham"
+      },
+      {
+        "complete_native_history_byte_equal": true,
+        "pattern": "Blocks4",
+        "physical_state_attestations_equal": 9,
+        "reference": "useful",
+        "target": "restoration"
+      },
+      {
+        "complete_native_history_byte_equal": true,
+        "pattern": "Blocks4",
+        "physical_state_attestations_equal": 9,
+        "reference": "ancestor",
+        "target": "reversion"
+      }
+    ],
+    "excluded_archive_identity_field": "native.cursor.previous_commit_sha256",
+    "independent_hash_chains_verified": true,
+    "native_advances": 0,
+    "native_seal_sha256": "f23ef0ab8142399006e280f52332104a776b2842948602847f3e563650741661"
+  },
+  "combined_panel_native_advances": 73968,
+  "continuation_import_helpers_match_frozen_copies": true,
+  "corrected_panel_native_advances": 38272,
+  "cumulative_reuse_established": false,
+  "current_checker_matches_proved_derived_ast": true,
+  "current_continuation_matches_executed_frozen_copy": true,
+  "current_rebuilt_binary_sha256": "c08fc75ce9200245f734f5864074139b22d55886669182c8565b059bd65dd423",
+  "date": "2026-10-17",
+  "derivation": {
+    "derived_ast_sha256": "924556870632f081f754f48c3a9968434c07fd6b5c7cac880be8767db4427dbb",
+    "native_advances": 0,
+    "original_ast_restored_exactly": true,
+    "original_ast_sha256": "19fda1ec1eb496fcd4c40e5e30f3800917cc75ea4f9055bf2ca77af1ff79b5e8",
+    "physical_predicates_changed": 0,
+    "renamed_local_references": 5,
+    "restored_ast_sha256": "19fda1ec1eb496fcd4c40e5e30f3800917cc75ea4f9055bf2ca77af1ff79b5e8",
+    "thresholds_changed": 0
+  },
+  "development_only": true,
+  "discovery_established": false,
+  "evaluation_blocks_unexposed": 8,
+  "evaluation_cells_unexposed": 96,
+  "expected_source_differences": [
+    "scripts/verify_evolving_minds_transfer_gate1.py"
+  ],
+  "gate0_archive_preserved": true,
+  "gate1_development_feasibility_pass": true,
+  "independent_replicates_added_by_repetition": 0,
+  "interrupted_panel_native_advances": 35696,
+  "mutation_stress_launched": false,
+  "native_and_audit_seals_rechecked": true,
+  "native_execution_binary_sha256": "8ef1e79c924631ce75580b8e1f65e03be9e144adc279f5db9640bc55d5e2d9c7",
+  "native_physics_sources_match_checkout": true,
+  "original_audit_failure_preserved": true,
+  "original_interruption_preserved": true,
+  "profile": "evolving-minds-ta1-gate1-development-v2",
+  "published_states_reconstructed": 118,
+  "python_suites": {
+    "gate0_transfer": 9,
+    "gate1_transfer": 8
+  },
+  "rust_suites": {
+    "funded_admission": 4,
+    "gate0_transfer": 2,
+    "gate1_transfer": 5,
+    "handoff": 3,
+    "rehashed_temporal_checkpoint_unit": 1
+  },
+  "rust_tests_passed": 15,
+  "scientific_run_launched": false,
+  "source_difference_classification": "proved audit local-variable rename only",
+  "ta_python_tests_passed": 17,
+  "transfer_established": false
+}

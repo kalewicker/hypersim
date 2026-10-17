@@ -1,0 +1,112 @@
+# cyclic3 — a 3-state cyclic cellular automaton (C-track C1.2, state churn).
+#
+# A node in state L advances to state L+1 (mod 3) if and only if it has a
+# neighbour already in state L+1. This is the Fisch-Gravner-Griffeath cyclic
+# cellular automaton, which on a lattice from random initial states
+# self-organises into rotating spiral waves that persist indefinitely. The
+# topology is never touched: node count, edge count and degree sequence are all
+# exactly constant, and the only thing that moves is WL-visible node state.
+#
+# WHY THE PERIOD IS 3, RECORDED RATHER THAN TUNED. Two states cannot make a
+# cyclic CA: with L+1 = L-1 the "advance toward a neighbour" condition is
+# symmetric, waves cannot have a direction, and the rule degenerates to
+# alternation. Three is the minimum period at which the excitable cycle exists
+# at all, and it also matches the 3-cycles of the triangle lattice this runs on.
+# C-track binding rule 3 forbids sweeping it afterwards.
+#
+# THE ALIFE-ARTIFACT RISK, STATED UP FRONT. The ALife metabolic channel had
+# exactly three values and that turned out to BE the whole channel — a result of
+# the encoding rather than of the dynamics. A 3-state rule is exactly that
+# shape. So the cycle length is reported beside every number this rule produces,
+# and its alphabet must be read against the ceiling that state count imposes:
+# at radius 1 a context is (own state, multiset of neighbour states), so
+# |A| <= 3 x (multisets of 3 states over degree <= 6) — a few hundred at most,
+# BY CONSTRUCTION and independently of the dynamics.
+#
+# PREDICTED, before measurement (docs/ctrack_preregistration.md C1.2):
+#   minted/event = 0.0000 exactly
+#   n(t) and e(t) both exactly flat, forever
+#   alphabet PLATEAUS, recurrent count FLAT, A_eff modest
+#   => predicted to FAIL to occupy the gap, landing in "flat rule in disguise".
+# That prediction is the point: two mechanisms predicted to behave DIFFERENTLY
+# are second witnesses for each other, where two predicted to behave the same
+# would be one attempt run twice.
+#
+# Requires a randomly-labelled initial condition — on a uniform crystal no node
+# has a neighbour one state ahead and nothing fires. That is mechanism, not
+# tuning, and the liveness probe checks it.
+
+[[rules]]
+name     = "advance_0_to_1"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["s", "n"]
+edges = [["s", "n"]]
+
+[rules.lhs.node_labels]
+s = 0
+n = 1
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["s", "n"]
+
+[rules.rhs]
+nodes = ["s", "n"]
+edges = [["s", "n"]]
+
+[rules.rhs.node_labels]
+s = 1
+
+[[rules]]
+name     = "advance_1_to_2"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["s", "n"]
+edges = [["s", "n"]]
+
+[rules.lhs.node_labels]
+s = 1
+n = 2
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["s", "n"]
+
+[rules.rhs]
+nodes = ["s", "n"]
+edges = [["s", "n"]]
+
+[rules.rhs.node_labels]
+s = 2
+
+[[rules]]
+name     = "advance_2_to_0"
+priority = 0
+weight   = 1.0
+enabled  = true
+
+[rules.lhs]
+nodes = ["s", "n"]
+edges = [["s", "n"]]
+
+[rules.lhs.node_labels]
+s = 2
+n = 0
+
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["s", "n"]
+
+[rules.rhs]
+nodes = ["s", "n"]
+edges = [["s", "n"]]
+
+[rules.rhs.node_labels]
+s = 0

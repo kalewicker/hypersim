@@ -1,0 +1,11 @@
+[package]
+name = "hg-app-api"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hg-core = { path = "../hg-core" }
+hg-schema = { path = "../hg-schema" }
+serde = { workspace = true }
+crossbeam-channel = { workspace = true }
+parking_lot = { workspace = true }

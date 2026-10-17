@@ -1,0 +1,103 @@
+{
+  "date": "2026-09-29",
+  "scope": "opt_in_engineering_kernel_revision",
+  "work_model": "repeated-self-pair-feasibility-v1",
+  "build_feature": "repeated-edge-feasibility",
+  "default_enabled": false,
+  "gate_pass": false,
+  "training_admitted": false,
+  "scientific_trial_retry": false,
+  "full_auditor_revalidation": false,
+  "failed_archive_files_verified_unchanged": 340,
+  "snapshot_diagnostic": {
+    "build_dispatch_work_model": "repeated-self-pair-feasibility-v1",
+    "candidate_work_model": "repeated-self-pair-feasibility-v1",
+    "core_results": 372,
+    "core_work": 8462,
+    "development_only": true,
+    "engine_steps": 0,
+    "feature_enabled": true,
+    "gate_pass": false,
+    "proposal_results": 0,
+    "proposal_work": 556,
+    "result_cap": 50000,
+    "scope": "matcher_snapshot_only",
+    "total_work": 9018,
+    "training_admitted": false,
+    "truncated": false,
+    "work_cap": 400000
+  },
+  "verification": {
+    "default_final": {
+      "exit_code": 0,
+      "passed": 59,
+      "failed": 0
+    },
+    "feature_final": {
+      "exit_code": 0,
+      "passed": 61,
+      "failed": 0
+    },
+    "serial_final": {
+      "exit_code": 0,
+      "passed": 26,
+      "failed": 0
+    },
+    "snapshot_final": {
+      "exit_code": 0,
+      "passed": 5,
+      "failed": 0
+    }
+  },
+  "python_timing_regressions_passed": 8,
+  "new_unit_tests": {
+    "matcher": 13,
+    "engine_pooled": 2,
+    "snapshot": 1
+  },
+  "serial_full_suite_compiles": false,
+  "serial_full_suite_blocker": {
+    "file": "crates/hg-engine/tests/phase5_engine.rs",
+    "line": 258,
+    "reason": "pre-existing unconditional rayon::ThreadPoolBuilder reference when the optional dependency is disabled",
+    "unrelated_file_changed": false
+  },
+  "provenance": {
+    "live_sources_sha256": {
+      "crates/hg-engine/Cargo.toml": "03cfd677a99b5bfc47ddc869ed0fb3a44196a5cf5ee4419877f6ef9ded609af5",
+      "crates/hg-engine/src/matcher.rs": "c6d7205085bef7a5e34e33dcf20298080768b3a66cc5b630e3c79c54a1dca4cb",
+      "crates/hg-engine/src/lib.rs": "0c43336f89fb3a15f81659fb64aeb82553b1e6eafeb9904312688f0f2f85b71f",
+      "crates/hg-engine/src/feasibility_tests.rs": "5670dd198a89d2b1e14832bcace22fbaa537552d29c7a6b342a262b27d87e46f",
+      "crates/hg-engine/src/pooled_tests.rs": "ca6ef065f016a1f26ab7726d8c5b569cb215fa14639788baeb59893f477c624f",
+      "crates/hg-engine/src/engine.rs": "2afd3b3c1f045a7e182d969599f556e62381f04cd7ad16bbe18b7e0f61394238",
+      "crates/hg-sim-core/Cargo.toml": "1dbafee44dfa664ba3e54f4cb9224c40298da27aef0428ee40de920367495da8",
+      "crates/hg-sim-core/tests/ere_9730_matcher_diagnostic.rs": "881cd6dee75a0dc4ddc15ef8466c55c6ebbf751b952a9ecee0b57bab01c3280a",
+      "crates/hg-sim-core/tests/fixtures/ere_9730_matcher_snapshot.json": "800691aadbaf438070db1f400f22da04f8132766b50d3857696619775a0b0e2a",
+      "docs/ere_repeated_edge_feasibility_v1.md": "c83637127d1315aeb1238a3eb4a5ea1c3e9ec1350ef90cb02a68a7d2567a42c5"
+    },
+    "scientific_archive_status": {
+      "development_only": false,
+      "elapsed_seconds": 3305.630581416,
+      "error": "frozen auditor failed",
+      "gate_pass": false,
+      "primary_mutations": "partial",
+      "scientific_run_launched": true,
+      "status": "failed_or_unmeasured",
+      "training_admitted": false
+    },
+    "frozen_matcher_sha256": "61d0643395edc511b8c6b50cc80b8fe0bfed428e2d83e395c8ffca25751ab065",
+    "engine_step_source_matches_frozen": true
+  },
+  "semantics": {
+    "pattern_reordering": false,
+    "variable_or_matched_edge_identity_changes": false,
+    "compiled_schema_changes": false,
+    "early_guard_evaluation": false,
+    "cross_draw_or_step_cache": false,
+    "work_model_changed": true,
+    "finite_budget_prefix_and_completion_can_change": true,
+    "complete_ordered_bindings_and_guard_counts_differential_tested": true,
+    "positive_prepass_can_add_overhead": true
+  },
+  "next": "Fresh feature/work-model contract and provenance, auditor compatibility and separately approved bounded pilot before any full scientific rerun."
+}

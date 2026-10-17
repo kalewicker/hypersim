@@ -1,0 +1,31 @@
+{
+  "profile":"cumulative-durable-journal-readiness-v1",
+  "scope":"bounded_crash_accounting_prefix_continuation_and_frozen_replay_engineering",
+  "readiness_gate_complete":false,"scientific_acceptance":false,"evolution_demonstrated":false,"campaign_launch_authorized":false,
+  "parent":{"archive":"output/cumulative_regulated_world_lineage_readiness_20261009","seal_sha256":"ea1921fb79c074683e699555536c904ad010799f90d88f86de191212f3d606b8"},
+  "limits":{"native_rewrites":6000,"native_seconds":300,"build_test_audit_seconds":1200,"output_bytes":134217728,"journal_bytes":33554432,"journal_records":2048,"continuation_hops":1},
+  "inputs":"unchanged integration_contract.json cases, seeds, horizons and sampling; unchanged parent frozen 33 assay requests; no new scientific worlds",
+  "publication":"create fresh directory; create_new staging file; compact JSON plus newline; file sync_all; hard-link to fresh sequence filename without overwrite; sync directory; remove own staging file and sync directory; SHA256 chain over exact published bytes",
+  "work":"persist full deterministic upper reservation before each native tick/assay; verify actual native counter at commit; unpaired intent retains lower/upper work interval; never reclaim an unknown reservation or retry its action",
+  "checkpoint":"every completed world tick commits row and full allocator checkpoint in one record; original initial state and every ancestral row remain in retained prefix",
+  "continuation":"only explicit one-hop continuation from verified world/assay boundary; exact source chain hash and complete source descriptor, same budget and full denominator; uncertain source rejected before native work; source unchanged and separately retained",
+  "replay":"separate declared diagnostic replay of version_witness case 11 at committed tick 2 through registered tick 4; original prefix and checkpoint retained; additional work counted separately; never discovery or seed replacement",
+  "routes":[
+    {"name":"world_complete","mode":"worlds","fault":null},
+    {"name":"world_boundary","mode":"worlds","fault":{"case":0,"tick":1,"point":"after_result"}},
+    {"name":"world_continue","mode":"world_continue","source":"world_boundary"},
+    {"name":"world_uncertain","mode":"worlds","fault":{"case":0,"tick":1,"point":"before_result"}},
+    {"name":"world_torn","mode":"worlds","fault":{"case":0,"tick":1,"point":"torn_result"}},
+    {"name":"world_cap","mode":"worlds","fault":null,"native_budget":1},
+    {"name":"world_replay","mode":"world_replay","source":"world_complete","case":11,"start_tick":2},
+    {"name":"assay_complete","mode":"assays","fault":null},
+    {"name":"assay_boundary","mode":"assays","fault":{"case":0,"tick":2,"point":"after_result"}},
+    {"name":"assay_continue","mode":"assay_continue","source":"assay_boundary"},
+    {"name":"assay_uncertain","mode":"assays","fault":{"case":0,"tick":2,"point":"before_result"}},
+    {"name":"uncertain_world_continue_rejected","mode":"world_continue","source":"world_uncertain","expect_rejection":true},
+    {"name":"torn_world_continue_rejected","mode":"world_continue","source":"world_torn","expect_rejection":true},
+    {"name":"uncertain_assay_continue_rejected","mode":"assay_continue","source":"assay_uncertain","expect_rejection":true}
+  ],
+  "acceptance":{"all_routes_and_unreached_slots_retained":true,"complete_matches_known_parent":true,"safe_continuation_matches_complete":true,"replay_matches_reference_suffix_and_lineage":true,"unknown_or_torn_continuation_rejected_without_work":true,"full_independent_prefix_and_budget_audit":true,"frozen_relocated_zero_native_recheck":true,"all_prior_roots_preserved":true},
+  "limitations":["process-interruption and filesystem-error model, not hardware power-loss or adversarial-filesystem certification","bounded development worlds/assays only; whole scientific campaign feasibility and replicate justification remain pending","independent native RNG and allocator replay remain false"]
+}

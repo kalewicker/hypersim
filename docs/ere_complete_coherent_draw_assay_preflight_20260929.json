@@ -1,0 +1,148 @@
+{
+  "date": "2026-09-29",
+  "profile": "E2-complete-coherent-draw-assay-v1",
+  "status": "implementation_prepared_pending_explicit_scientific_launch_approval",
+  "scientific_run_authorized": false,
+  "scientific_run_launched": false,
+  "gate_pass": false,
+  "training_admitted": false,
+  "campaigns_launched_this_preparation": 0,
+  "contract_md_sha256": "8a0e97586c4c7f84c28c105b246ffaeb8688618ae659c9ea3716ed5b7bba1d46",
+  "contract_json_sha256": "80c8cbc072a393d8bddd921b5c4dbf88ac60e8e4b1ebb50dfb7a0683aa967dba",
+  "checker_sha256": "38b61b5009f7d3b46acc2953a6819c9da66d9c349aa91b1e733023e86e037603",
+  "producer_sha256": "7ca37126c2c7b6875e426ab48488bdd39e47fb0845825d2d797defa4ee8c4829",
+  "verification": {
+    "release_rust_tests_passed": 14,
+    "campaign_tests_ignored": 2,
+    "native_fixture_python_tests_passed": 15,
+    "integration_differential_python_tests_passed": 42,
+    "native_scientific_functions_text_identical": 24,
+    "native_tally_impl_text_identical": true,
+    "selected_python_semantic_functions_classes_ast_identical": 16,
+    "full_selector_requests_checked": 10000,
+    "pilot_prefix_requests_identical": 64,
+    "full_selector_preflight_seconds": 122.825000375,
+    "full_selector_preflight_engine_steps": 0,
+    "temporary_development_full_auditor_replay_pass": true,
+    "replayed_prior_attempted_engine_steps": 22300,
+    "replayed_prior_selected_children": 55,
+    "tamper_categories_rejected": 27,
+    "full_compressed_10000_draw_freeze_not_run": true
+  },
+  "historical_integrity": {
+    "historical_receipts_verified": 17,
+    "receipts": [
+      {
+        "archive": "output/ere_complete_coherent_draw_resource_pilot_20260928",
+        "sealed_outputs": 311,
+        "seal_sha256": "c4622072b07a0c77a0cf6eae2893f09cc27c19b370b0b1410a1cd380b11fac2d"
+      },
+      {
+        "archive": "output/ere_complete_coherent_optimized_resource_pilot_20260928",
+        "sealed_outputs": 274,
+        "seal_sha256": "c6631d665b2deeec286104cb3173662867dc93794451e17c20f9de08090d0986"
+      },
+      {
+        "archive": "output/ere_complete_coherent_resource_pilot_20260928",
+        "sealed_outputs": 241,
+        "seal_sha256": "156b1f9e3c17973c31ed5c1b0bbc87f887ec17a69f015e0f8431711191c1b0d4"
+      },
+      {
+        "archive": "output/ere_complete_coherent_isolated_smoke_20260928",
+        "sealed_outputs": 233,
+        "seal_sha256": "12a09e81218b7a12af7ca235b822d5c2192250b6e49e945f98407a27784bf8a4"
+      },
+      {
+        "archive": "output/ere_identity_isolation_20260928",
+        "sealed_outputs": 77,
+        "seal_sha256": "0763aaec848ec236004e549652b14f6b779b780f65047bf7a1262517855d4f02"
+      },
+      {
+        "archive": "output/ere_complete_coherent_smoke_v3_20260928",
+        "sealed_outputs": 218,
+        "seal_sha256": "d4afe7ed8769541b0e11571219865543e0bc886337983f75a3cab7d7aaf86b0a"
+      },
+      {
+        "archive": "output/ere_complete_gr1_full_20260927",
+        "sealed_outputs": 205,
+        "seal_sha256": "6d33414882a273ec1e5826837961f847155d6fd85d5715d53b0747889b405dc1"
+      },
+      {
+        "archive": "output/ere_coherent_auditor_optimization_20260928/baseline_profile",
+        "sealed_outputs": 9,
+        "seal_sha256": "eef7c84023b1c122fac3e1e30ba44cb3e90327d254051ac30fa3b99cd399fc5b"
+      },
+      {
+        "archive": "output/ere_coherent_auditor_optimization_20260928/baseline_timing",
+        "sealed_outputs": 7,
+        "seal_sha256": "eb61169b88552bb350ed8d40aac686951c2e15e9e1fbe357d0d847a448acee6c"
+      },
+      {
+        "archive": "output/ere_coherent_auditor_optimization_20260928/baseline_timing_serial",
+        "sealed_outputs": 7,
+        "seal_sha256": "c55824227e83abb9cd815911219bf29050a2d4921b4f5b59953c9f6022d323ea"
+      },
+      {
+        "archive": "output/ere_coherent_auditor_optimization_20260928/optimized_profile",
+        "sealed_outputs": 9,
+        "seal_sha256": "82d8a7111feea0b0fdc490e275d9022bb007eb3580151a54ded0e5c560aa47a1"
+      },
+      {
+        "archive": "output/ere_coherent_auditor_optimization_20260928/optimized_timing_serial",
+        "sealed_outputs": 7,
+        "seal_sha256": "bc222ce92fc3e8eba8b3480b0c3584e9e94c21c6987527b97efda82eee61e724"
+      },
+      {
+        "archive": "output/ere_coherent_auditor_optimization_20260928/optimized_v2_timing_serial",
+        "sealed_outputs": 7,
+        "seal_sha256": "85ee9418efcf4b93144b44c62ebd3b1afba04ae294c16d8ab33d498ffcb42cb3"
+      },
+      {
+        "archive": "output/ere_coherent_draw_optimization_20260928/baseline_mutation_profile",
+        "sealed_outputs": 10,
+        "seal_sha256": "338895e6398b25aefa97b8a1def5f0d7fbf3304d3de69736f50ddb0f7d0dad72"
+      },
+      {
+        "archive": "output/ere_coherent_draw_optimization_20260928/baseline_timing_serial",
+        "sealed_outputs": 8,
+        "seal_sha256": "021425d98f96574f4e55548bbdcfab941642769454bf0b5b080c6a023867c864"
+      },
+      {
+        "archive": "output/ere_coherent_draw_optimization_20260928/candidate_mutation_profile",
+        "sealed_outputs": 10,
+        "seal_sha256": "60074f24714f71deda97d972cf7b5f1633cbdb32d9f260a1d318211268de6e57"
+      },
+      {
+        "archive": "output/ere_coherent_draw_optimization_20260928/candidate_timing_serial",
+        "sealed_outputs": 8,
+        "seal_sha256": "ee5caa2045459630320cd580028c407bbcf53f13922bd6fd9239f6651d2d34cf"
+      }
+    ]
+  },
+  "launch": {
+    "fresh_archive": "output/ere_complete_coherent_draw_full_20260929",
+    "draws": 10000,
+    "horizon": 100,
+    "max_attempted_and_advancing_engine_steps": 1016800,
+    "total_wall_seconds": 3600,
+    "shared_auditor_seconds": 900,
+    "freeze_audit_seconds_max": 120,
+    "output_bytes": 4294967296,
+    "auditor_rss_bytes": 1073741824,
+    "threads": 1,
+    "pooled_matching_work_per_step": 400000,
+    "pooled_matching_results_per_step": 50000,
+    "store_nodes": 2000,
+    "store_edges": 4000,
+    "automatic_retries": false
+  },
+  "resource_interpretation": {
+    "prior_policy_aware_auditor_seconds": 722.452294307,
+    "prior_policy_aware_total_with_pilot_setup_proxy_seconds": 3429.439621168,
+    "full_size_freeze_cost_not_measured": true,
+    "illustrative_prior_total_plus_selector_preflight_seconds": 3552.264621543,
+    "illustration_has_overlapping_setup_and_missing_compression_freeze_costs": true,
+    "completion_within_cap_not_guaranteed": true
+  },
+  "scientific_results": "No new scientific results; previous pilot and raw-kernel negative retain their original status."
+}

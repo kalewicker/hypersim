@@ -1,0 +1,58 @@
+# Explicit E2 semantic envelope. Requires E2-alternatives-v1 gate receipts.
+experiment_name = "ERE_e2"
+seed = 42
+out_dir = "output/ere_e2"
+
+[rules]
+source = "Inline"
+inline_toml = '''
+[[rules]]
+name = "identity_binary"
+priority = 0
+[rules.lhs]
+nodes = ["a", "b"]
+edges = [["a", "b"]]
+[rules.rhs]
+nodes = ["a", "b"]
+edges = [["a", "b"]]
+
+[[rules]]
+name = "shrink_ternary"
+priority = 1
+[rules.lhs]
+nodes = ["a", "b", "c"]
+edges = [["a", "b", "c"]]
+[rules.rhs]
+nodes = ["b", "c"]
+edges = [["b", "c"]]
+'''
+
+[initial]
+condition_type = "PureCrystal"
+width = 4
+height = 4
+arity = 2
+periodic = true
+
+[engine]
+step_mode = "MaxParallel"
+max_steps = 10000
+max_pairings_per_step = 16
+metrics_window_interval = 128
+thread_count = 1
+
+[evaluator]
+enabled = false
+[causal]
+enabled = false
+[output]
+fixed_provenance = true
+
+[ere]
+encoding_version = "AlternativeFamiliesV3"
+arm = "A3"
+epoch = { Fixed = 1000 }
+rule_region_ceiling = 500
+match_ceiling = 50000
+min_tpm_transitions = 1000
+meta_seed_energy = 32.0

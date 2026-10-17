@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" font-family="Helvetica,Arial,sans-serif">
+  <rect width="960" height="600" fill="#ffffff"/>
+
+  <text x="40" y="38" font-size="21" font-weight="bold" fill="#111">The Pareto plane, and why passing on it proves nothing</text>
+  <text x="40" y="60" font-size="13" fill="#555">churn3, 16 baseline-stable seeds x 2000 steps, cap 64 canonical. Each variant measured in R3's place (substitution arm), against unmodified R3.</text>
+
+  <!-- axes -->
+  <g stroke="#333" stroke-width="1.4" fill="none">
+    <path d="M110 470 L110 110"/>
+    <path d="M110 470 L720 470"/>
+  </g>
+  <text x="40" y="290" font-size="13" fill="#333" transform="rotate(-90 40 290)" text-anchor="middle">productive applications per copy per step  (vs R3 = 1.0)</text>
+  <text x="415" y="512" font-size="13" fill="#333" text-anchor="middle">candidates generated per copy per step, relative to R3   (lower = cheaper)</text>
+
+  <!-- x ticks: log-ish positions for 0.0004,0.013,0.16,0.71,0.89,1.0 -->
+  <g font-size="11" fill="#666" text-anchor="middle">
+    <text x="150" y="490">0.0004</text><line x1="150" y1="470" x2="150" y2="475" stroke="#666"/>
+    <text x="270" y="490">0.013</text><line x1="270" y1="470" x2="270" y2="475" stroke="#666"/>
+    <text x="420" y="490">0.16</text><line x1="420" y1="470" x2="420" y2="475" stroke="#666"/>
+    <text x="600" y="490">0.71</text><line x1="600" y1="470" x2="600" y2="475" stroke="#666"/>
+    <text x="700" y="490">1.0</text><line x1="700" y1="470" x2="700" y2="475" stroke="#666"/>
+  </g>
+  <!-- y ticks -->
+  <g font-size="11" fill="#666" text-anchor="end">
+    <text x="103" y="435">0.0</text><line x1="105" y1="431" x2="110" y2="431" stroke="#666"/>
+    <text x="103" y="380">0.2</text><line x1="105" y1="376" x2="110" y2="376" stroke="#666"/>
+    <text x="103" y="266">0.6</text><line x1="105" y1="262" x2="110" y2="262" stroke="#666"/>
+    <text x="103" y="209">0.8</text><line x1="105" y1="205" x2="110" y2="205" stroke="#666"/>
+    <text x="103" y="152">1.0</text><line x1="105" y1="148" x2="110" y2="148" stroke="#666"/>
+  </g>
+
+  <!-- reference lines through R3 -->
+  <line x1="110" y1="148" x2="720" y2="148" stroke="#bbb" stroke-width="1" stroke-dasharray="5 4"/>
+  <line x1="700" y1="470" x2="700" y2="110" stroke="#bbb" stroke-width="1" stroke-dasharray="5 4"/>
+
+  <!-- Pareto region: cheaper AND at least as productive -->
+  <rect x="110" y="110" width="590" height="38" fill="#2e7d32" fill-opacity="0.10"/>
+  <text x="120" y="127" font-size="12" font-weight="bold" fill="#2e7d32">PARETO REGION — at least R3's work, strictly fewer candidates</text>
+
+  <!-- points -->
+  <!-- guard 0.25 : x=600 y=142 (1.039) -->
+  <circle cx="600" cy="137" r="8" fill="#2e7d32"/>
+  <text x="614" y="133" font-size="12" font-weight="bold" fill="#2e7d32">guard energy&gt;0.25</text>
+  <text x="614" y="148" font-size="11" fill="#2e7d32">1.039x work, 0.711x cost — ADMITTED</text>
+  <text x="614" y="163" font-size="11" font-weight="bold" fill="#111">invades 6/8  → 2–3 copies</text>
+
+  <!-- guard 0.1 : x=655 y=143 (1.021) -->
+  <circle cx="655" cy="142" r="7" fill="#2e7d32"/>
+  <text x="450" y="112" font-size="11" fill="#2e7d32">guard&gt;0.1: 1.021x / 0.888x — ADMITTED, invades 3/8</text>
+
+  <!-- R3 itself -->
+  <circle cx="700" cy="148" r="9" fill="#111"/>
+  <text x="712" y="182" font-size="12" font-weight="bold" fill="#111">R3 (resident)</text>
+  <text x="712" y="197" font-size="11" fill="#555">0.7346 prod/c/s</text>
+  <text x="712" y="211" font-size="11" fill="#555">3990 cand/c/s</text>
+
+  <!-- guard 0.01 : x=698 y=150 -->
+  <circle cx="694" cy="151" r="6" fill="#9e9e9e"/>
+  <text x="470" y="228" font-size="11" fill="#666">guard&gt;0.01: 0.995x / 0.996x — barely differs, invades 0/8</text>
+  <line x1="640" y1="224" x2="690" y2="156" stroke="#bbb" stroke-width="1"/>
+
+  <!-- clone : same as R3 -->
+  <circle cx="706" cy="155" r="6" fill="#c62828"/>
+  <text x="470" y="252" font-size="11" font-weight="bold" fill="#c62828">clone of R3: identical in every respect — invades 0/8, dies</text>
+  <line x1="660" y1="248" x2="702" y2="161" stroke="#e0a0a0" stroke-width="1"/>
+
+  <!-- guard 0.5 : x=270 y=0.166 -> 431-(0.166*283)= 384 -->
+  <circle cx="270" cy="384" r="10" fill="#c62828"/>
+  <text x="150" y="410" font-size="12" font-weight="bold" fill="#c62828">guard energy&gt;0.5</text>
+  <text x="150" y="425" font-size="11" fill="#c62828">0.166x work — 6x WORSE. Rejected by G6.2.</text>
+  <text x="150" y="443" font-size="12" font-weight="bold" fill="#111">invades 8/8  → 4–5 copies</text>
+
+  <!-- v5 invader: dies in substitution, plot at its coresident work 1.086 but mark -->
+  <circle cx="150" cy="130" r="8" fill="none" stroke="#c62828" stroke-width="2" stroke-dasharray="3 2"/>
+  <text x="128" y="105" font-size="11" font-weight="bold" fill="#c62828">v5's invader</text>
+  <text x="128" y="92" font-size="10" fill="#c62828">population dies 16/16 in substitution</text>
+  <text x="128" y="79" font-size="10" font-weight="bold" fill="#111">invades 0/8</text>
+
+  <!-- arrow: worse invades harder -->
+  <path d="M300 370 C 400 330, 500 220, 585 152" stroke="#c62828" stroke-width="2" fill="none" marker-end="url(#ar)" stroke-dasharray="6 4"/>
+  <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#c62828"/></marker></defs>
+  <text x="330" y="300" font-size="11.5" font-style="italic" fill="#c62828">invasion gets WEAKER as productive work improves</text>
+
+  <!-- verdict panel -->
+  <rect x="745" y="110" width="185" height="360" fill="#fafafa" stroke="#ddd"/>
+  <text x="757" y="132" font-size="13" font-weight="bold" fill="#111">Invasion vs merit</text>
+  <text x="757" y="154" font-size="11" fill="#333">Ranked by invasion strength:</text>
+  <g font-size="11" fill="#333">
+    <text x="757" y="176">1. guard&gt;0.5    8/8</text>
+    <text x="769" y="190" fill="#c62828">work 0.166x  cost 0.013x</text>
+    <text x="757" y="212">2. guard&gt;0.25   6/8</text>
+    <text x="769" y="226" fill="#2e7d32">work 1.039x  cost 0.711x</text>
+    <text x="757" y="248">3. guard&gt;0.1    3/8</text>
+    <text x="769" y="262" fill="#2e7d32">work 1.021x  cost 0.888x</text>
+    <text x="757" y="284">4. guard&gt;0.01   0/8</text>
+    <text x="769" y="298" fill="#666">work 0.995x  cost 0.996x</text>
+    <text x="757" y="320">5. clone        0/8</text>
+    <text x="769" y="334" fill="#666">work 1.000x  cost 1.000x</text>
+  </g>
+  <line x1="757" y1="348" x2="918" y2="348" stroke="#ddd"/>
+  <text x="757" y="368" font-size="11" font-weight="bold" fill="#111">Monotone in cost.</text>
+  <text x="757" y="384" font-size="11" font-weight="bold" fill="#c62828">Unrelated to work.</text>
+  <text x="757" y="408" font-size="10.5" fill="#555">The pre-registered 6/8 bar</text>
+  <text x="757" y="422" font-size="10.5" fill="#555">is met — by a variant a</text>
+  <text x="757" y="436" font-size="10.5" fill="#555">6x-worse rule beats, and</text>
+  <text x="757" y="450" font-size="10.5" fill="#555">that an identical copy</text>
+  <text x="757" y="464" font-size="10.5" fill="#555">cannot reach at all.</text>
+
+  <text x="40" y="545" font-size="12.5" fill="#111"><tspan font-weight="bold">Read:</tspan> G6.2 did what v5's gate failed to do — it verified Pareto superiority before admitting an invader, and one exists. But the paired controls G6.3</text>
+  <text x="40" y="563" font-size="12.5" fill="#111">requires show the invasion gate ranks candidates by how far their truncated candidate set moves off R3's, not by how well they work. With 98.3% of</text>
+  <text x="40" y="581" font-size="12.5" fill="#111">candidates discarded in canonical order, truncation geometry swamps the fitness signal. Neither v6's pass nor v5's failure is evidence about economics.</text>
+</svg>

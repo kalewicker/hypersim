@@ -1,0 +1,13 @@
+[package]
+name = "hg-observe"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hg-core = { path = "../hg-core" }
+hg-schema = { path = "../hg-schema" }
+serde = { workspace = true }
+smallvec = { workspace = true }
+slotmap = { workspace = true }
+rand = { workspace = true }
+rand_chacha = { workspace = true }

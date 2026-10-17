@@ -1,0 +1,23 @@
+{
+  "profile": "E2-resource-timed-bridge-engineering-v1",
+  "native_profile": "E2-resource-timed-bridge-native-v1",
+  "states": 8,
+  "modes": ["full", "forecast_masked", "bounty_masked", "cues_masked"],
+  "mode_draws": [0.25, 0.75, 0.25, 0.75],
+  "theta": [0.07, -0.11, 0.13, -0.17],
+  "successful_cells": 32,
+  "refusal_routes": ["expired", "callback_error", "wrong_step", "unfunded_request"],
+  "expected_refusal_advances": [0, 13, 13, 13],
+  "observation_step": 13,
+  "allocation_step": 14,
+  "horizon": 32,
+  "maximum_native_advances": 1063,
+  "maximum_seal_applications": 35,
+  "deadline_seconds": 60,
+  "maximum_output_bytes": 134217728,
+  "optimizer_updates": 0,
+  "scientific_acceptance": false,
+  "training_admitted": false,
+  "sustained_claim": false,
+  "independent_physics_replay": false
+}

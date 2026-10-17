@@ -1,0 +1,846 @@
+# Profile evolving-minds-engineering-v1. Fixed physical laws; see engineering_v1.md.
+
+# environment_influx
+[[rules]]
+name = "environment_influx"
+priority = 0
+[rules.lhs]
+nodes = ["site"]
+edges = []
+[rules.lhs.node_labels]
+site = 3774873601
+[[rules.lhs.node_property_guards]]
+var = "site"
+property = 1
+op = "lte"
+value = 56.0
+[rules.rhs]
+nodes = ["site"]
+edges = []
+[[rules.rhs.property_effects]]
+var = "site"
+key = 1
+op = "add"
+value = 8.0
+
+# sense_available
+[[rules]]
+name = "sense_available"
+priority = 0
+[rules.lhs]
+nodes = ["r","s","site"]
+edges = [["r","s"],["r","site"]]
+[rules.lhs.node_labels]
+r = 3774873600
+s = 3774873602
+site = 3774873601
+[rules.lhs.edge_labels]
+0 = 3774873702
+1 = 3774873700
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["r","s","site"]
+[[rules.lhs.node_property_guards]]
+var = "site"
+property = 1
+op = "gte"
+value = 8.0
+[[rules.lhs.node_property_compares]]
+var_a = "s"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[rules.rhs]
+nodes = ["r","s","site"]
+edges = [["r","s"],["r","site"]]
+[rules.rhs.edge_labels]
+0 = 3774873702
+1 = 3774873700
+[[rules.rhs.property_effects]]
+var = "s"
+key = 240005
+op = "set"
+value = true
+
+# sense_empty
+[[rules]]
+name = "sense_empty"
+priority = 0
+[rules.lhs]
+nodes = ["r","s","site"]
+edges = [["r","s"],["r","site"]]
+[rules.lhs.node_labels]
+r = 3774873600
+s = 3774873602
+site = 3774873601
+[rules.lhs.edge_labels]
+0 = 3774873702
+1 = 3774873700
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["r","s","site"]
+[[rules.lhs.node_property_guards]]
+var = "site"
+property = 1
+op = "lt"
+value = 8.0
+[[rules.lhs.node_property_compares]]
+var_a = "s"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[rules.rhs]
+nodes = ["r","s","site"]
+edges = [["r","s"],["r","site"]]
+[rules.rhs.edge_labels]
+0 = 3774873702
+1 = 3774873700
+[[rules.rhs.property_effects]]
+var = "s"
+key = 240005
+op = "set"
+value = false
+
+# signal_relay
+[[rules]]
+name = "signal_relay"
+priority = 0
+[rules.lhs]
+nodes = ["r","s","c","a"]
+edges = [["r","s"],["r","c"],["r","a"],["s","c"],["c","a"]]
+[rules.lhs.node_labels]
+r = 3774873600
+s = 3774873602
+c = 3774873604
+a = 3774873605
+[rules.lhs.edge_labels]
+0 = 3774873702
+1 = 3774873704
+2 = 3774873705
+3 = 3774873706
+4 = 3774873707
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["r","s","c","a"]
+[[rules.lhs.node_property_compares]]
+var_a = "s"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[[rules.lhs.node_property_compares]]
+var_a = "c"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[[rules.lhs.node_property_compares]]
+var_a = "a"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[rules.rhs]
+nodes = ["r","s","c","a"]
+edges = [["r","s"],["r","c"],["r","a"],["s","c"],["c","a"]]
+[rules.rhs.edge_labels]
+0 = 3774873702
+1 = 3774873704
+2 = 3774873705
+3 = 3774873706
+4 = 3774873707
+[[rules.rhs.property_effects]]
+var = "a"
+key = 240005
+op = "copy_from"
+source_var = "s"
+source_key = 240005
+
+# Paid single-instruction development; never pre-instantiates a relay at birth.
+[[rules]]
+name = "development_relay"
+priority = 0
+[rules.lhs]
+nodes = ["r","g","s"]
+edges = [["r","g"],["r","s"]]
+[rules.lhs.node_labels]
+r = 3774873600
+g = 3774873603
+s = 3774873602
+[rules.lhs.edge_labels]
+0 = 3774873703
+1 = 3774873702
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["r","g","s"]
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 240003
+op = "eq"
+value = false
+[[rules.lhs.node_property_guards]]
+var = "g"
+property = 240002
+op = "eq"
+value = 1
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 1
+op = "gte"
+value = 2.0
+[[rules.lhs.node_property_compares]]
+var_a = "g"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[[rules.lhs.node_property_compares]]
+var_a = "s"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[rules.rhs]
+nodes = ["r","g","s","c","a"]
+edges = [["r","g"],["r","s"],["r","c"],["r","a"],["s","c"],["c","a"]]
+[rules.rhs.edge_labels]
+0 = 3774873703
+1 = 3774873702
+2 = 3774873704
+3 = 3774873705
+4 = 3774873706
+5 = 3774873707
+[rules.rhs.node_labels]
+c = 3774873604
+a = 3774873605
+[[rules.rhs.property_effects]]
+var = "r"
+key = 1
+op = "subtract"
+value = 2.0
+[[rules.rhs.property_effects]]
+var = "r"
+key = 240003
+op = "set"
+value = true
+[[rules.rhs.property_effects]]
+var = "r"
+key = 240010
+op = "set"
+value = 5.0
+[[rules.rhs.property_effects]]
+var = "c"
+key = 240001
+op = "copy_from"
+source_var = "r"
+source_key = 240007
+[[rules.rhs.property_effects]]
+var = "a"
+key = 240001
+op = "copy_from"
+source_var = "r"
+source_key = 240007
+[[rules.rhs.property_effects]]
+var = "a"
+key = 240005
+op = "set"
+value = false
+
+# development_idle
+[[rules]]
+name = "development_idle"
+priority = 0
+[rules.lhs]
+nodes = ["r","g","s"]
+edges = [["r","g"],["r","s"]]
+[rules.lhs.node_labels]
+r = 3774873600
+g = 3774873603
+s = 3774873602
+[rules.lhs.edge_labels]
+0 = 3774873703
+1 = 3774873702
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["r","g","s"]
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 240003
+op = "eq"
+value = false
+[[rules.lhs.node_property_guards]]
+var = "g"
+property = 240002
+op = "eq"
+value = 0
+[[rules.lhs.node_property_compares]]
+var_a = "g"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[[rules.lhs.node_property_compares]]
+var_a = "s"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[rules.rhs]
+nodes = ["r","g","s"]
+edges = [["r","g"],["r","s"]]
+[rules.rhs.edge_labels]
+0 = 3774873703
+1 = 3774873702
+[[rules.rhs.property_effects]]
+var = "r"
+key = 240003
+op = "set"
+value = true
+
+# action_intake
+[[rules]]
+name = "action_intake"
+priority = 0
+[rules.lhs]
+nodes = ["r","a","site"]
+edges = [["r","a"],["r","site"]]
+[rules.lhs.node_labels]
+r = 3774873600
+a = 3774873605
+site = 3774873601
+[rules.lhs.edge_labels]
+0 = 3774873705
+1 = 3774873700
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["r","a","site"]
+[[rules.lhs.node_property_guards]]
+var = "a"
+property = 240005
+op = "eq"
+value = true
+[[rules.lhs.node_property_guards]]
+var = "site"
+property = 1
+op = "gte"
+value = 8.0
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 1
+op = "lte"
+value = 40.0
+[[rules.lhs.node_property_compares]]
+var_a = "a"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[rules.rhs]
+nodes = ["r","a","site"]
+edges = [["r","a"],["r","site"]]
+[rules.rhs.edge_labels]
+0 = 3774873705
+1 = 3774873700
+[[rules.rhs.property_effects]]
+var = "site"
+key = 1
+op = "subtract"
+value = 8.0
+[[rules.rhs.property_effects]]
+var = "r"
+key = 1
+op = "add"
+value = 8.0
+
+# maintenance_full
+[[rules]]
+name = "maintenance_full"
+priority = 0
+[rules.lhs]
+nodes = ["r"]
+edges = []
+[rules.lhs.node_labels]
+r = 3774873600
+[[rules.lhs.node_property_compares]]
+var_a = "r"
+key_a = 1
+op = "gte"
+var_b = "r"
+key_b = 240010
+[rules.rhs]
+nodes = ["r"]
+edges = []
+[[rules.rhs.property_effects]]
+var = "r"
+key = 1
+op = "subtract_from_property"
+source_var = "r"
+source_key = 240010
+[[rules.rhs.property_effects]]
+var = "r"
+key = 240004
+op = "add"
+value = 1
+
+# maintenance_exhausted
+[[rules]]
+name = "maintenance_exhausted"
+priority = 0
+[rules.lhs]
+nodes = ["r"]
+edges = []
+[rules.lhs.node_labels]
+r = 3774873600
+[[rules.lhs.node_property_compares]]
+var_a = "r"
+key_a = 1
+op = "lt"
+var_b = "r"
+key_b = 240010
+[rules.rhs]
+nodes = ["r"]
+edges = []
+[[rules.rhs.property_effects]]
+var = "r"
+key = 1
+op = "set"
+value = 0.0
+[[rules.rhs.property_effects]]
+var = "r"
+key = 240004
+op = "add"
+value = 1
+
+# One atomic paid seed construction; global counter serializes birth in this fixture.
+[[rules]]
+name = "birth_faithful"
+priority = 0
+[rules.lhs]
+nodes = ["r","g","site","target","k"]
+edges = [["r","g"],["r","site"],["site","target"]]
+[rules.lhs.node_labels]
+r = 3774873600
+g = 3774873603
+site = 3774873601
+target = 3774873601
+k = 3774873606
+[rules.lhs.edge_labels]
+0 = 3774873703
+1 = 3774873700
+2 = 3774873701
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["r","g","site","target","k"]
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 240003
+op = "eq"
+value = true
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 240004
+op = "gte"
+value = 2
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 1
+op = "gte"
+value = 32.0
+[[rules.lhs.node_property_guards]]
+var = "target"
+property = 240006
+op = "eq"
+value = false
+[[rules.lhs.node_property_compares]]
+var_a = "g"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[rules.rhs]
+nodes = ["r","g","site","target","k","child","cs","cg"]
+edges = [["r","g"],["r","site"],["site","target"],["child","target"],["child","cs"],["child","cg"]]
+[rules.rhs.edge_labels]
+0 = 3774873703
+1 = 3774873700
+2 = 3774873701
+3 = 3774873700
+4 = 3774873702
+5 = 3774873703
+[rules.rhs.node_labels]
+child = 3774873600
+cs = 3774873602
+cg = 3774873603
+[[rules.rhs.property_effects]]
+var = "r"
+key = 1
+op = "subtract"
+value = 18.0
+[[rules.rhs.property_effects]]
+var = "child"
+key = 1
+op = "set"
+value = 16.0
+[[rules.rhs.property_effects]]
+var = "child"
+key = 240007
+op = "copy_from"
+source_var = "k"
+source_key = 240009
+[[rules.rhs.property_effects]]
+var = "child"
+key = 240008
+op = "copy_from"
+source_var = "r"
+source_key = 240007
+[[rules.rhs.property_effects]]
+var = "child"
+key = 240003
+op = "set"
+value = false
+[[rules.rhs.property_effects]]
+var = "child"
+key = 240004
+op = "set"
+value = 0
+[[rules.rhs.property_effects]]
+var = "child"
+key = 240010
+op = "set"
+value = 3.0
+[[rules.rhs.property_effects]]
+var = "cs"
+key = 240001
+op = "copy_from"
+source_var = "child"
+source_key = 240007
+[[rules.rhs.property_effects]]
+var = "cs"
+key = 240005
+op = "set"
+value = false
+[[rules.rhs.property_effects]]
+var = "cg"
+key = 240001
+op = "copy_from"
+source_var = "child"
+source_key = 240007
+[[rules.rhs.property_effects]]
+var = "cg"
+key = 240002
+op = "copy_from"
+source_var = "g"
+source_key = 240002
+[[rules.rhs.property_effects]]
+var = "k"
+key = 240009
+op = "add"
+value = 1
+[[rules.rhs.property_effects]]
+var = "target"
+key = 240006
+op = "set"
+value = true
+
+# death_relay_age
+[[rules]]
+name = "death_relay_age"
+priority = 1
+[rules.lhs]
+nodes = ["r","g","s","c","a","site"]
+edges = [["r","g"],["r","s"],["r","c"],["r","a"],["s","c"],["c","a"],["r","site"]]
+[rules.lhs.node_labels]
+r = 3774873600
+g = 3774873603
+s = 3774873602
+c = 3774873604
+a = 3774873605
+site = 3774873601
+[rules.lhs.edge_labels]
+0 = 3774873703
+1 = 3774873702
+2 = 3774873704
+3 = 3774873705
+4 = 3774873706
+5 = 3774873707
+6 = 3774873700
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["r","g","s","c","a","site"]
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 240010
+op = "eq"
+value = 5.0
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 240004
+op = "gte"
+value = 16
+[[rules.lhs.node_property_compares]]
+var_a = "g"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[[rules.lhs.node_property_compares]]
+var_a = "s"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[[rules.lhs.node_property_compares]]
+var_a = "c"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[[rules.lhs.node_property_compares]]
+var_a = "a"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[rules.rhs]
+nodes = ["r","site"]
+edges = []
+[rules.rhs.node_labels]
+r = 3774873607
+[[rules.rhs.property_effects]]
+var = "site"
+key = 1
+op = "add_from_property"
+source_var = "r"
+source_key = 1
+[[rules.rhs.property_effects]]
+var = "r"
+key = 1
+op = "set"
+value = 0.0
+[[rules.rhs.property_effects]]
+var = "site"
+key = 240006
+op = "set"
+value = false
+
+# death_relay_energy
+[[rules]]
+name = "death_relay_energy"
+priority = 0
+[rules.lhs]
+nodes = ["r","g","s","c","a","site"]
+edges = [["r","g"],["r","s"],["r","c"],["r","a"],["s","c"],["c","a"],["r","site"]]
+[rules.lhs.node_labels]
+r = 3774873600
+g = 3774873603
+s = 3774873602
+c = 3774873604
+a = 3774873605
+site = 3774873601
+[rules.lhs.edge_labels]
+0 = 3774873703
+1 = 3774873702
+2 = 3774873704
+3 = 3774873705
+4 = 3774873706
+5 = 3774873707
+6 = 3774873700
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["r","g","s","c","a","site"]
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 240010
+op = "eq"
+value = 5.0
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 1
+op = "lte"
+value = 0.0
+[[rules.lhs.node_property_compares]]
+var_a = "g"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[[rules.lhs.node_property_compares]]
+var_a = "s"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[[rules.lhs.node_property_compares]]
+var_a = "c"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[[rules.lhs.node_property_compares]]
+var_a = "a"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[rules.rhs]
+nodes = ["r","site"]
+edges = []
+[rules.rhs.node_labels]
+r = 3774873607
+[[rules.rhs.property_effects]]
+var = "site"
+key = 1
+op = "add_from_property"
+source_var = "r"
+source_key = 1
+[[rules.rhs.property_effects]]
+var = "r"
+key = 1
+op = "set"
+value = 0.0
+[[rules.rhs.property_effects]]
+var = "site"
+key = 240006
+op = "set"
+value = false
+
+# death_seed_age
+[[rules]]
+name = "death_seed_age"
+priority = 1
+[rules.lhs]
+nodes = ["r","g","s","site"]
+edges = [["r","g"],["r","s"],["r","site"]]
+[rules.lhs.node_labels]
+r = 3774873600
+g = 3774873603
+s = 3774873602
+site = 3774873601
+[rules.lhs.edge_labels]
+0 = 3774873703
+1 = 3774873702
+2 = 3774873700
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["r","g","s","site"]
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 240010
+op = "eq"
+value = 3.0
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 240004
+op = "gte"
+value = 16
+[[rules.lhs.node_property_compares]]
+var_a = "g"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[[rules.lhs.node_property_compares]]
+var_a = "s"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[rules.rhs]
+nodes = ["r","site"]
+edges = []
+[rules.rhs.node_labels]
+r = 3774873607
+[[rules.rhs.property_effects]]
+var = "site"
+key = 1
+op = "add_from_property"
+source_var = "r"
+source_key = 1
+[[rules.rhs.property_effects]]
+var = "r"
+key = 1
+op = "set"
+value = 0.0
+[[rules.rhs.property_effects]]
+var = "site"
+key = 240006
+op = "set"
+value = false
+
+# death_seed_energy
+[[rules]]
+name = "death_seed_energy"
+priority = 0
+[rules.lhs]
+nodes = ["r","g","s","site"]
+edges = [["r","g"],["r","s"],["r","site"]]
+[rules.lhs.node_labels]
+r = 3774873600
+g = 3774873603
+s = 3774873602
+site = 3774873601
+[rules.lhs.edge_labels]
+0 = 3774873703
+1 = 3774873702
+2 = 3774873700
+[[rules.lhs.var_guards]]
+type = "vars_distinct"
+vars = ["r","g","s","site"]
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 240010
+op = "eq"
+value = 3.0
+[[rules.lhs.node_property_guards]]
+var = "r"
+property = 1
+op = "lte"
+value = 0.0
+[[rules.lhs.node_property_compares]]
+var_a = "g"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[[rules.lhs.node_property_compares]]
+var_a = "s"
+key_a = 240001
+op = "eq"
+var_b = "r"
+key_b = 240007
+[rules.rhs]
+nodes = ["r","site"]
+edges = []
+[rules.rhs.node_labels]
+r = 3774873607
+[[rules.rhs.property_effects]]
+var = "site"
+key = 1
+op = "add_from_property"
+source_var = "r"
+source_key = 1
+[[rules.rhs.property_effects]]
+var = "r"
+key = 1
+op = "set"
+value = 0.0
+[[rules.rhs.property_effects]]
+var = "site"
+key = 240006
+op = "set"
+value = false
+
+# cleanup_tombstone
+[[rules]]
+name = "cleanup_tombstone"
+priority = 0
+[rules.lhs]
+nodes = ["r"]
+edges = []
+[rules.lhs.node_labels]
+r = 3774873607
+[rules.rhs]
+nodes = []
+edges = []

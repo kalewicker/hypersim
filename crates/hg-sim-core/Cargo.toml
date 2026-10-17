@@ -1,0 +1,75 @@
+[package]
+name = "hg-sim-core"
+version = "0.1.0"
+edition = "2021"
+
+# The ONLY crate that imports hg-engine directly (v4 §2.3).
+
+[features]
+# The optional ALife layer (hg-alife). A build WITHOUT this feature must be
+# bit-identical to the substrate-only behaviour (exit criterion 7): the config
+# field, rule injection, and classifier injection are all `#[cfg(feature =
+# "alife")]`, so nothing changes when it is off.
+alife = ["dep:hg-alife"]
+# The learning layer (hg-cognition). Same discipline as `alife`: without
+# the feature the `[cognition]` config field does not exist, no policy is
+# ever constructed, and `run_rollout` is not compiled. The step loop is
+# shared either way — see `RunHooks` in runner.rs.
+cognition = ["dep:hg-cognition"]
+hg-meta = ["dep:hg-meta"]
+evolving-minds = ["dep:sha2"]
+constructive-chemistry = ["dep:sha2", "hg-engine/checked-transitions"]
+repeated-edge-feasibility = ["hg-engine/repeated-edge-feasibility"]
+
+[dependencies]
+sha2 = { version = "0.10", optional = true }
+ahash = { workspace = true }
+hg-meta = { path = "../hg-meta", optional = true }
+hg-alife = { path = "../hg-alife", optional = true }
+hg-cognition = { path = "../hg-cognition", optional = true }
+hg-core = { path = "../hg-core" }
+hg-schema = { path = "../hg-schema" }
+hg-rules = { path = "../hg-rules" }
+hg-engine = { path = "../hg-engine" }
+hg-observe = { path = "../hg-observe" }
+hg-output = { path = "../hg-output" }
+hg-eval = { path = "../hg-eval" }
+hg-causal = { path = "../hg-causal" }
+hg-report = { path = "../hg-report" }
+hg-app-api = { path = "../hg-app-api" }
+serde = { workspace = true }
+serde_json = { workspace = true, features = ["float_roundtrip"] }
+toml = { workspace = true }
+crossbeam-channel = { workspace = true }
+parking_lot = { workspace = true }
+chrono = { workspace = true }
+thiserror = { workspace = true }
+rustc-hash = { workspace = true }
+rand = { workspace = true }
+rand_chacha = { workspace = true }
+smallvec = { workspace = true }
+num_cpus = { workspace = true }
+rayon = { workspace = true }
+tracing = { workspace = true }
+bincode = { workspace = true }
+
+[dev-dependencies]
+slotmap = { workspace = true }
+flate2 = "1"
+smallvec = { workspace = true }
+tempfile = { workspace = true }
+
+[[bin]]
+name = "ere"
+path = "src/bin/ere.rs"
+required-features = ["hg-meta"]
+
+[[bin]]
+name = "evolving-minds"
+path = "src/bin/evolving_minds.rs"
+required-features = ["evolving-minds"]
+
+[[bin]]
+name = "constructive-chemistry-cc1"
+path = "src/bin/constructive_chemistry_cc1.rs"
+required-features = ["constructive-chemistry"]

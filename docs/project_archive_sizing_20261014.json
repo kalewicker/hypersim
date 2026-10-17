@@ -1,0 +1,40 @@
+{
+  "archive_integrity_or_restore_verified": false,
+  "checkout_evidence_compressed_bytes": 3112097651,
+  "date": "2026-10-14",
+  "files_deleted": false,
+  "including_external_historical_runs_compressed_bytes": 3289090288,
+  "method": "Full tar streams compressed with zstd -T2 -3, stdout byte count; pipefail enabled and all three pipelines exited 0. Archives were not stored. COPYFILE_DISABLE=1 and tar --no-xattrs omit macOS extended attributes; file contents and tar-supported hard links are retained.",
+  "native_simulation": false,
+  "parts": [
+    {
+      "compressed_bytes": 1810742539,
+      "name": "main-evidence.tar.zst",
+      "roots": [
+        "output",
+        "runs",
+        "crates/hg-train/runs_stage2"
+      ]
+    },
+    {
+      "compressed_bytes": 1301355112,
+      "name": "lk-evidence.tar.zst",
+      "roots": [
+        "experiments/lk/output"
+      ]
+    },
+    {
+      "compressed_bytes": 176992637,
+      "name": "lk-historical-runs.tar.zst",
+      "roots": [
+        "/Users/kalewicker/Documents/hypersim-lk/runs"
+      ]
+    }
+  ],
+  "profile": "hypersim-archive-size-measurement-v1",
+  "scope_limits": [
+    "Build products excluded. Code and documentation remain in the checkout.",
+    "External historical LK runs are measured separately; original LK source/output and unrelated temporary archives are not part of these streams.",
+    "Byte counts describe these current streams; archive manifests or subsequent evidence changes may slightly change final sizes."
+  ]
+}

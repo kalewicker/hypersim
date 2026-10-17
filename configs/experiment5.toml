@@ -1,0 +1,47 @@
+# Experiment 5 — a stable, spontaneously-replicating carrier population with
+# turnover on a STATIC substrate. This is the reproducible S6.2 exit-criteria run:
+# every parameter that the S6.1 sweeps discovered now lives here, so the regime is
+# reproducible through the production runner (no in-test rule patching).
+#
+# Regime (see docs/experiment5_scorecard.md):
+#   - static 6x6 pure crystal (36 substrate sites)
+#   - influx_rate 0.34 is SUB-SUSTAIN: below the ~0.49 establishment threshold's
+#     immortal-frozen basin, so the birth/death cycle self-desynchronizes into
+#     genuine turnover instead of freezing at saturation.
+#   - bootstrap_replication_threshold 3.0 seeds the low-threshold turnover
+#     attractor; node-funded replication then drives it further toward the floor
+#     (criterion 5 via the §1 degenerate route — reported, not hidden).
+experiment_name = "experiment5"
+run_id = "experiment5"
+seed = 12345
+
+[rules]
+source = "Inline"
+inline_toml = "rules = []"   # bare substrate; alife biology is appended by the runner
+
+[initial]
+condition_type = "PureCrystal"
+width = 6
+height = 6
+arity = 3
+
+[engine]
+step_mode = "MaxParallel"
+max_steps = 15000
+max_pairings_per_step = 100000
+
+[evaluator]
+enabled = false
+
+[causal]
+enabled = false
+
+[alife]
+enabled = true
+seed_carrier_marker = true          # one founding carrier; no per-generation injection
+initial_substrate_energy = 5.0      # ensures the energy key exists so influx/harvest act
+influx_rate = 0.34                  # THE swept knob: sub-sustain, turnover band
+bootstrap_replication_threshold = 3.0  # seed the low-threshold turnover attractor
+# child_node_cost = 10.0            # (optional) energy a target site pays to fund a
+                                    # birth; symmetric scale, default 10, does NOT
+                                    # reopen turnover (docs §8). Left at default here.

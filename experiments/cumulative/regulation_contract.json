@@ -1,0 +1,32 @@
+{
+  "profile":"cumulative-editor-regulation-readiness-v1",
+  "scope":"bounded_graph_resident_editor_and_program_repertoire_engineering",
+  "readiness_gate_complete":false,"scientific_acceptance":false,"evolution_demonstrated":false,"campaign_launch_authorized":false,
+  "limits":{"native_rewrites":6000,"native_seconds":300,"build_test_audit_seconds":1200,"output_bytes":134217728,"ticks":16,"edit_attempts":32,"genes":8,"next_serial":32,"bindings":64},
+  "development_seed":2026100904,
+  "program":{"editor_mode":0,"enabled_key":5,"mask_key":6,"enabled_domain":[0,1],"mask_domain":[0,31],"gene_stage_domain":[-1,4],"stable_gene_serials":"deletion leaves holes; serials are never reused and are copied at birth"},
+  "operators":[{"family":0,"name":"duplicate","bit":1,"targets":"all executable genes; native copied stage jitter -1..1; fresh serial"},{"family":1,"name":"retune","bit":2,"targets":"all executable genes; native stage jitter -1..1 in place"},{"family":2,"name":"delete","bit":4,"targets":"all genes when at least two remain"},{"family":3,"name":"toggle_enabled","bit":8,"targets":"other boolean value"},{"family":4,"name":"set_mask","bit":16,"targets":"every integer 0..31, including neutral current value"}],
+  "law":{"edit_cost":2,"storage_cost":"one editor plus current gene count every live tick, including unfed ticks","copy_cost":"3 plus current parent gene count; includes one editor","child_capital":8,"child_environment":0,"parent_birth_reserve":24,"parcel_energy":16,"settlement_values":[0,4,8,14,16],"phase":"storage; finite resource processing if funded; edit opportunity; optional paid birth","environment":"fixed initial local reservoir only, no resource inflow or birth credit","death":"unfunded complete storage drains remaining capital to heat; retain cell and remaining ticks","selection":"enumerate all admitted families and targets, sort by family and semantic target; choose family uniformly then target uniformly using persisted ChaCha8 cursor; no utility input","external":"one blind paid native edit after birth; bypass endogenous enabled/mask permissions, retain native guards for actual decoded policy and funding","nonheritable":"reset complete stages, serials and editor policy to founder baseline; pay actual current parent copy cost","diagnostic_restore":"explicit authored fixture-only native enable operation outside organism invocation; pays two and never counts as endogenous discovery"},
+  "cases":[
+    {"name":"duplicate","arm":"endogenous","stages":[0,1],"enabled":1,"mask":1,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":false},
+    {"name":"retune","arm":"endogenous","stages":[0,1],"enabled":1,"mask":2,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":false},
+    {"name":"delete","arm":"endogenous","stages":[0,1,2],"enabled":1,"mask":4,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":false},
+    {"name":"toggle","arm":"endogenous","stages":[0],"enabled":1,"mask":8,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":false},
+    {"name":"mask","arm":"endogenous","stages":[0],"enabled":1,"mask":16,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":false},
+    {"name":"masked","arm":"endogenous","stages":[0],"enabled":1,"mask":0,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":false},
+    {"name":"disabled","arm":"endogenous","stages":[0],"enabled":0,"mask":31,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":false},
+    {"name":"last_gene","arm":"endogenous","stages":[0],"enabled":1,"mask":4,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":false},
+    {"name":"gene_cap","arm":"endogenous","stages":[0,0,0,0,0,0,0,0],"enabled":1,"mask":1,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":false},
+    {"name":"unfunded","arm":"endogenous","stages":[0],"enabled":1,"mask":31,"capital":1,"reservoir":0,"ticks":2,"pre_edit":true,"birth":false},
+    {"name":"frozen","arm":"frozen","stages":[0],"enabled":1,"mask":31,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":false},
+    {"name":"external","arm":"external","stages":[0],"enabled":0,"mask":0,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":true},
+    {"name":"nonheritable","arm":"nonheritable","stages":[0],"enabled":1,"mask":8,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":true},
+    {"name":"heritable","arm":"endogenous","stages":[0],"enabled":1,"mask":8,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":true},
+    {"name":"unfunded_birth","arm":"frozen","stages":[0],"enabled":0,"mask":0,"capital":11,"reservoir":0,"ticks":2,"pre_edit":false,"birth":true},
+    {"name":"invalid_target","arm":"endogenous","stages":[-1],"enabled":1,"mask":3,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":false},
+    {"name":"serial_cap","arm":"endogenous","stages":[0],"enabled":1,"mask":1,"capital":40,"reservoir":32,"ticks":2,"pre_edit":false,"birth":false,"next_serial":32}
+  ],
+  "diagnostics":{"causal":"same founder [0], enabled=1, mask=31, capital=40, bank=0; paid authored disable vs paid neutral mask sham; disabled refusal; paid fixture-only restoration then duplicate","continuation":"[0,1,2], enabled=1, mask=20; one resource tick; authored delete serial 1; mask 17; duplicate serial 0; checkpoint, paid birth with serial holes and zero new resources; two continuation ticks with reversed candidates","allocation_offset":7},
+  "acceptance":{"all_cases_and_horizons":true,"all_five_paid_native_families":true,"full_permission_and_binding_audit":true,"unchanged_refusals_and_costs":true,"inherited_vs_nonheritable_editor_effect":true,"causal_disable_sham_restore":true,"serial_hole_inheritance":true,"checkpoint_and_order_parity":true},
+  "remaining_readiness":["integrate regulated program codec into shared populations and lineage version provenance","durable partial campaign routes","whole-campaign resource projection and independent-world justification","final scientific sampling and thresholds on new worlds"]
+}

@@ -1,0 +1,31 @@
+{
+  "profile": "E2-resource-on-policy-learning-proposal-v1",
+  "launch_authorized": false,
+  "arms": ["full", "cues_masked"],
+  "seeds": [993748721101, 993748721102, 993748721103, 993748721104],
+  "updates": 100,
+  "states_per_update": 8,
+  "initial_parameters": [0.0, 0.0, 0.0, 0.0],
+  "learning_rate": 1.0,
+  "reward_scale": 20.0,
+  "funded_baseline": 9.5,
+  "batch_gradient_denominator": 8,
+  "gradient_norm_limit": 1.0,
+  "parameter_absolute_limit": 8.0,
+  "confirmation_draws_per_state": 16,
+  "confirmation_draw_rule": "(i+0.5)/16 for i=0..15",
+  "constant_baseline_cells": 16,
+  "maximum_native_advances": 238080,
+  "maximum_seal_applications": 7440,
+  "maximum_optimizer_updates": 800,
+  "learning_criteria": {
+    "mean_full_funded_confirmation_utility_at_least": 11.5,
+    "mean_full_minus_masked_confirmation_utility_strictly_positive": true,
+    "minimum_replicates_beating_always_harvest_and_paired_masked": 3,
+    "replicate_denominator": 4
+  },
+  "scientific_acceptance": false,
+  "training_admitted": false,
+  "sustained_claim": false,
+  "independent_physics_replay": false
+}

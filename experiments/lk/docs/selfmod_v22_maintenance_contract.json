@@ -1,0 +1,56 @@
+{
+  "protocol": "selfmod-v22-maintenance-v1",
+  "prior_assay": "selfmod_v21_reversible_edit_20260928",
+  "seeds": [
+    457,
+    461,
+    463,
+    467,
+    479,
+    487,
+    491,
+    499
+  ],
+  "arms": [
+    "faithful",
+    "edited"
+  ],
+  "offset": 10000,
+  "extension_steps": 40000,
+  "final_post_third_step": 50000,
+  "engineering_seeds": [
+    457,
+    461
+  ],
+  "engineering_steps": 2000,
+  "window_steps": 1000,
+  "subwindow_steps": 250,
+  "new_warmup_steps": 0,
+  "replication_threshold": 6,
+  "limit": 8,
+  "policy": "replace8",
+  "future_mutation": false,
+  "independent_replication": false,
+  "primary_family": "original_v21_third_child_and_immutable_genealogical_descendants",
+  "criteria": "all40_new_windows; five8-window blocks using unchanged v17 rules with authenticated original two warmup windows",
+  "max_scientific_advancing_steps": 640000,
+  "max_verification_advancing_steps": 80000,
+  "max_parallel_processes": 4,
+  "authorization": "User: lets do the next assay; longer-horizon maintenance after v21",
+  "genotypes": {
+    "faithful": {
+      "class_hash": 4713340462273116244,
+      "var_labels": [
+        null,
+        1
+      ]
+    },
+    "edited": {
+      "class_hash": 6722725964470947410,
+      "var_labels": [
+        0,
+        1
+      ]
+    }
+  }
+}

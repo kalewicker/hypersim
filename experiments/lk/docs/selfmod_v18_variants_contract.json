@@ -1,0 +1,244 @@
+{
+  "protocol": "selfmod-v18-variants-v1",
+  "seeds": [
+    263,
+    269,
+    271,
+    277,
+    281,
+    283,
+    293,
+    307
+  ],
+  "variants": [
+    "faithful",
+    "prune",
+    "matchless",
+    "extra"
+  ],
+  "policy": "replace8",
+  "horizon": 10000,
+  "warmup_steps": 2000,
+  "window_steps": 1000,
+  "subwindow_steps": 250,
+  "prefix_limit": 256,
+  "limit": 8,
+  "replication_threshold": 6,
+  "future_mutation": false,
+  "named_variants": {
+    "prune": {
+      "id": "op11_member0_draw1",
+      "member": 0,
+      "operator": 11,
+      "parameters": [
+        14984134727853237840,
+        12375471953779355968,
+        14176329756113589063,
+        15783146528319595889,
+        2475482604415574477
+      ],
+      "parent_class_hash": 10288298948688362864,
+      "mutant_class_hash": 6722725964470947410,
+      "parent_spec": {
+        "creates": [
+          2
+        ],
+        "deletes": [],
+        "guards": [],
+        "n_vars": 2,
+        "pedges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "priority": 0,
+        "redges": [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "relabels": [],
+        "var_labels": [
+          0,
+          1
+        ]
+      },
+      "decoded_spec": {
+        "creates": [
+          2
+        ],
+        "deletes": [],
+        "guards": [],
+        "n_vars": 2,
+        "pedges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "priority": 0,
+        "redges": [
+          [
+            2,
+            1
+          ]
+        ],
+        "relabels": [],
+        "var_labels": [
+          0,
+          1
+        ]
+      }
+    },
+    "matchless": {
+      "id": "op07_member0_draw0",
+      "member": 0,
+      "operator": 7,
+      "parameters": [
+        14257518192326857570,
+        15489476479973731178,
+        4966844356061890103,
+        8252518822833267058,
+        13196262925869188495
+      ],
+      "parent_class_hash": 10288298948688362864,
+      "mutant_class_hash": 2977373830984595803,
+      "parent_spec": {
+        "creates": [
+          2
+        ],
+        "deletes": [],
+        "guards": [],
+        "n_vars": 2,
+        "pedges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "priority": 0,
+        "redges": [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "relabels": [],
+        "var_labels": [
+          0,
+          1
+        ]
+      },
+      "decoded_spec": {
+        "creates": [
+          2
+        ],
+        "deletes": [],
+        "guards": [],
+        "n_vars": 2,
+        "pedges": [],
+        "priority": 0,
+        "redges": [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "relabels": [],
+        "var_labels": [
+          0,
+          1
+        ]
+      }
+    },
+    "extra": {
+      "id": "op08_member0_draw0",
+      "member": 0,
+      "operator": 8,
+      "parameters": [
+        5881669821710627681,
+        16064719961168486350,
+        5622199071120590674,
+        3707960908316516915,
+        842080281316940816
+      ],
+      "parent_class_hash": 10288298948688362864,
+      "mutant_class_hash": 4841779209713904190,
+      "parent_spec": {
+        "creates": [
+          2
+        ],
+        "deletes": [],
+        "guards": [],
+        "n_vars": 2,
+        "pedges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "priority": 0,
+        "redges": [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "relabels": [],
+        "var_labels": [
+          0,
+          1
+        ]
+      },
+      "decoded_spec": {
+        "creates": [
+          2,
+          1
+        ],
+        "deletes": [],
+        "guards": [],
+        "n_vars": 2,
+        "pedges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "priority": 0,
+        "redges": [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "relabels": [],
+        "var_labels": [
+          0,
+          1
+        ]
+      }
+    }
+  }
+}
